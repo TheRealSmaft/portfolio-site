@@ -1,11 +1,9 @@
-const initialState = {
+export default function reducer (state = {
 	fetching: false,
 	fetched: false,
 	users: [],
 	error: null
-};
-
-const testReducer = (state = initialState, action) => {
+}, action) {
 	switch(action.type) {
 		case "FETCH_SHIT": {
 			return {...state, fetching: true}
@@ -27,5 +25,3 @@ const testReducer = (state = initialState, action) => {
 	}
 	return state;
 };
-
-export default testReducer;
