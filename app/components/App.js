@@ -8,7 +8,7 @@ import { fetchUser, setUserName } from '../actions/testActions';
 
 @connect((store) => {
 	return {
-		user: store.user
+		user: store.user.user
 	}
 })
 

@@ -1,7 +1,7 @@
 export default function reducer (state = {}, action) {
 	switch(action.type) {
 		case "FETCH_USER_FULFILLED": {
-			return {...state, payload: action.payload}
+			return {...state, user: action.payload}
 			break;
 		}
 		case "SET_USER_NAME": {

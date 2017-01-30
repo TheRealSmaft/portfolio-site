@@ -10,9 +10,4 @@ const logger = createLogger();
 
 const middleware = applyMiddleware(promise, thunk, logger);
 
-export default createStore(reducer, {
-	user: {
-		name: "Shutup",
-		age: 2487
-	}
-}, middleware);
+export default createStore(reducer, middleware);
