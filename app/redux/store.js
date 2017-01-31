@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
-import reducer from './reducers';
+import reducer from './test-feature/duck';
 
 const logger = createLogger();
 
