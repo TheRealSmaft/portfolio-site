@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './redux/store';
 
 import { AppContainer } from 'react-hot-loader';
-import App from './components/App';
+import App from './react/app';
 
-const app = document.getElementById('root');
+const app = document.getElementById('app');
 
 const render = (Component) => {
 	ReactDOM.render(
@@ -24,7 +24,7 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-	module.hot.accept('./components/App', () => {
+	module.hot.accept('./react/app', () => {
 		render(App)
 	});
 }

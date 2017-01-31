@@ -1,0 +1,1248 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"webpa",
+				"webpack-dev-server"
+			],
+			[
+				"react",
+				"react-hot-loader"
+			],
+			[
+				"mat",
+				"materialsRoutes\talias"
+			],
+			[
+				"m",
+				"modules\tdirectory"
+			],
+			[
+				"Product",
+				"ProductPartial\talias"
+			],
+			[
+				"pro",
+				"providers\tproperty"
+			],
+			[
+				"Contact",
+				"ContactPageComponent\talias"
+			],
+			[
+				"Comm",
+				"CommonModule\talias"
+			],
+			[
+				"cons",
+				"constructor\tkeyword"
+			],
+			[
+				"im",
+				"implements\tkeyword"
+			],
+			[
+				"cus",
+				"CUSTOM_ELEMENTS_SCHEMA\talias"
+			],
+			[
+				"Ext",
+				"ExtrusionsCapabilities\talias"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"fi",
+				"field"
+			],
+			[
+				"field",
+				"fieldName"
+			],
+			[
+				"pre",
+				"preg_filter"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"r",
+				"readAsArrayBuffer\tmethod"
+			],
+			[
+				"string",
+				"stringImg\tlocal var"
+			],
+			[
+				"Int",
+				"Int8Array\tinterface"
+			],
+			[
+				"read",
+				"readAsBinaryString\tmethod"
+			],
+			[
+				"on",
+				"onload\tproperty"
+			],
+			[
+				"Ms",
+				"MSApp\tinterface"
+			],
+			[
+				"cre",
+				"createFileFromStorageFile\tmethod"
+			],
+			[
+				"re",
+				"result\tproperty"
+			],
+			[
+				"Js",
+				"JSON\tinterface"
+			],
+			[
+				"array",
+				"arrayBuffer\tlocal var"
+			],
+			[
+				"Uin",
+				"Uint8Array\tinterface"
+			],
+			[
+				"msg",
+				"msgEnd"
+			],
+			[
+				"imgLine",
+				"imgLineStart"
+			],
+			[
+				"jso",
+				"JSON\tinterface"
+			],
+			[
+				"b",
+				"body\tconst"
+			],
+			[
+				"UR",
+				"URLSearchParams\talias"
+			],
+			[
+				"file_",
+				"file_get_contents"
+			],
+			[
+				"co",
+				"completeForm\tproperty"
+			],
+			[
+				"hidd",
+				"hidden-tablets-down"
+			],
+			[
+				"hea",
+				"Headers\talias"
+			],
+			[
+				"err",
+				"errMsg\tlet"
+			],
+			[
+				"in",
+				"instanceof\tkeyword"
+			],
+			[
+				"Json",
+				"JsonpModule\talias"
+			],
+			[
+				"da",
+				"databaseService\tproperty"
+			],
+			[
+				"Data",
+				"DatabaseService\talias"
+			],
+			[
+				"const",
+				"constructor\tkeyword"
+			],
+			[
+				"m-0",
+				"m-0-b"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"m-",
+				"m-20-b"
+			],
+			[
+				"di",
+				"display-inline"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"page-",
+				"page-subheader"
+			],
+			[
+				"Su",
+				"Subscription\talias"
+			],
+			[
+				"test",
+				"testFile"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"evet",
+				"event\tparameter"
+			],
+			[
+				"sta",
+				"status"
+			],
+			[
+				"Reque",
+				"RequestOptions\talias"
+			],
+			[
+				"p",
+				"post\tmethod"
+			],
+			[
+				"get",
+				"getReadyItems\tmethod"
+			],
+			[
+				"Fi",
+				"File\tinterface"
+			],
+			[
+				"products",
+				"productsByCategory\tproperty"
+			],
+			[
+				"Ob",
+				"Object\tinterface"
+			],
+			[
+				"prod",
+				"productsByCategory\tproperty"
+			],
+			[
+				"In",
+				"Input\talias"
+			],
+			[
+				"image",
+				"imageDataEmitter\tproperty"
+			],
+			[
+				"Sub",
+				"Subject\talias"
+			],
+			[
+				"Ima",
+				"ImageUploadPartialComponent\talias"
+			],
+			[
+				"s",
+				"selector\tproperty"
+			],
+			[
+				"Com",
+				"Component\talias"
+			],
+			[
+				"File",
+				"FileReader\tinterface"
+			],
+			[
+				"f",
+				"fileReader\tproperty"
+			],
+			[
+				"readAs",
+				"readAsDataURL\tmethod"
+			],
+			[
+				"typ",
+				"typeof\tkeyword"
+			],
+			[
+				"type",
+				"typeof\tkeyword"
+			],
+			[
+				"Fil",
+				"FileDropDirective\talias"
+			],
+			[
+				"d",
+				"FileDropDirective\tclass"
+			],
+			[
+				"imp",
+				"import\timports a module …"
+			],
+			[
+				"ng",
+				"NgFileSelect\talias"
+			],
+			[
+				"Ng",
+				"NgFileSelect\talias"
+			],
+			[
+				"U",
+				"UPLOAD_DIRECTIVES\talias"
+			],
+			[
+				"tar",
+				"targetFile"
+			],
+			[
+				"ta",
+				"targetDir"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"border-",
+				"border-dark-b"
+			],
+			[
+				"bra",
+				"brand-primary"
+			],
+			[
+				"img",
+				"imageNum\tproperty"
+			],
+			[
+				"ol",
+				"oldY\tlocal var"
+			],
+			[
+				"back",
+				"background-size"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"g",
+				"getElementById\tmethod"
+			],
+			[
+				"na",
+				"navLinkChildren\tproperty"
+			],
+			[
+				"nav",
+				"navbar-height"
+			],
+			[
+				"mo",
+				"navbar-nav-mobile-menu-active"
+			],
+			[
+				"sub",
+				"sub-nav"
+			],
+			[
+				"dis",
+				"disc"
+			],
+			[
+				"list-sty",
+				"list-style-type"
+			],
+			[
+				"p-",
+				"p-0"
+			],
+			[
+				"Eve",
+				"EventEmitter\talias"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"col",
+				"col-50-tablets-up"
+			],
+			[
+				"categ",
+				"category\tproperty"
+			],
+			[
+				"col-",
+				"col-75-phones-up"
+			],
+			[
+				"produc",
+				"productsRoutes\talias"
+			],
+			[
+				"Router",
+				"RouterModule\talias"
+			],
+			[
+				"Pro",
+				"ProductsPageComponent\talias"
+			],
+			[
+				"h",
+				"handleError\tmethod"
+			],
+			[
+				"swi",
+				"switchMap\tproperty"
+			],
+			[
+				"Prod",
+				"ProductInfoComponent\talias"
+			],
+			[
+				"Products",
+				"ProductsPageComponent\talias"
+			],
+			[
+				"ind",
+				"includes\tmethod"
+			],
+			[
+				"cat",
+				"category\tproperty"
+			],
+			[
+				"pr",
+				"productsRoute\talias"
+			],
+			[
+				"P",
+				"ProductDirective\talias"
+			],
+			[
+				"On",
+				"OnInit\talias"
+			],
+			[
+				"O",
+				"Observable\talias"
+			],
+			[
+				"procu",
+				"products"
+			],
+			[
+				"_",
+				"_http\tparameter"
+			],
+			[
+				"J",
+				"JsonpModule\talias"
+			],
+			[
+				"Route",
+				"RouterModule\talias"
+			],
+			[
+				"con",
+				"const\tkeyword"
+			],
+			[
+				"import",
+				"imports\tproperty"
+			],
+			[
+				"coun",
+				"countryShort\tproperty"
+			],
+			[
+				"so",
+				"sort\tmethod"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/components/App.js",
+			"settings":
+			{
+				"buffer_size": 534,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/index.js",
+			"settings":
+			{
+				"buffer_size": 555,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/store.js",
+			"settings":
+			{
+				"buffer_size": 343,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/redux/reducers/userReducer.js",
+			"settings":
+			{
+				"buffer_size": 351,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/redux/reducers/index.js",
+			"settings":
+			{
+				"buffer_size": 160,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/redux/reducers/testReducer.js",
+			"settings":
+			{
+				"buffer_size": 486,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/redux/actions/testActions.js",
+			"settings":
+			{
+				"buffer_size": 308,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 472.0
+	},
+	"console":
+	{
+		"height": 406.0,
+		"history":
+		[
+			"sublime.log_commands(True)",
+			"``sublime.log_commands(True)``",
+			"sublime.log_commands(True)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
+	],
+	"file_history":
+	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/store.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/testReducer.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/.babelrc",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/test2Reducer.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/babel-plugin-syntax-class-properties/README.md",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/client.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/core/AllReducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/App.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/reducer-test.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/App.css",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/package.json",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/postcss.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/react-hot-loader/docs/Troubleshooting.md",
+		"/C/Users/Matthew/Documents/GitHub/React and Redux Tutorial/4-redux/src/js/client.js",
+		"/C/Users/Matthew/Documents/GitHub/React and Redux Tutorial/4-redux/src/client.min.js",
+		"/C/Users/Matthew/Documents/GitHub/React and Redux Tutorial/1-basic-react/src/index.html",
+		"/C/Users/Matthew/Documents/GitHub/practice-site/src/containers/Survey/Survey.js",
+		"/C/Users/Matthew/Documents/GitHub/practice-site/src/components/SurveyForm/SurveyForm.js",
+		"/C/Users/Matthew/Documents/GitHub/practice-site/src/config.js",
+		"/C/Users/Matthew/Documents/GitHub/practice-site/src/containers/Home/Home.js",
+		"/C/Users/Matthew/Documents/GitHub/practice-site/src/containers/Home/Home.scss",
+		"/C/Users/Matthew/Documents/GitHub/practice-site/src/containers/Login/Login.js",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/app/index.jsx",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/package.json",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/index.html",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/dist/index.html",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/src/index.js",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/src/components/App.js",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/.babelrc",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/_output/master.js",
+		"/C/Users/Matthew/Documents/GitHub/react-redux-practice/_dev/index.jsx",
+		"/C/xampp/htdocs/amt/systemjs.config.js",
+		"/C/xampp/htdocs/amt/package.json",
+		"/C/xampp/htdocs/amt/app/app.component.ts",
+		"/C/xampp/htdocs/amt/app/components/pages/home-page/homepage.component.html",
+		"/C/xampp/htdocs/amt/app/shared/services/route-reference.service/route-reference.service.ts",
+		"/C/xampp/htdocs/amt/app/components/partials/navbar-partial/navbar-partial.component.ts",
+		"/C/xampp/htdocs/amt/app/app.component.html",
+		"/C/xampp/htdocs/amt/dist/shared/services/route-reference.service/route-reference.service.js",
+		"/C/xampp/htdocs/amt/app/modules/materials.module/materials.routing.ts",
+		"/C/xampp/htdocs/amt/assets/css/sass/_navbar.scss",
+		"/C/xampp/htdocs/amt/app/modules/about.module/about.routing.ts",
+		"/C/xampp/htdocs/amt/app/modules/capabilities.module/capabilities.routing.ts",
+		"/C/xampp/htdocs/amt/app/modules/contact.module/contact.routing.ts",
+		"/C/xampp/htdocs/amt/dist/modules/products.module/products.module.js",
+		"/C/xampp/htdocs/amt/app/app.routes.ts",
+		"/C/xampp/htdocs/amt/app/app.module.ts",
+		"/C/xampp/htdocs/amt/app/modules/products.module/products-page.routes.ts",
+		"/C/xampp/htdocs/amt/app/modules/products.module/products-page.component.html",
+		"/C/xampp/htdocs/amt/app/modules/products.module/products-page.component.ts",
+		"/C/xampp/htdocs/amt/app/modules/products.module/products.module.ts",
+		"/C/xampp/htdocs/amt/app/shared/services/products-list.service/products-list.service.ts",
+		"/C/xampp/htdocs/amt/app/modules/materials.module/materials.module.ts",
+		"/C/xampp/htdocs/amt/app/modules/materials.module/materials-page.component.ts",
+		"/C/xampp/htdocs/amt/app/modules/contact.module/contact.module.ts",
+		"/C/xampp/htdocs/amt/app/modules/contact.module/contact-page.component.ts",
+		"/C/xampp/htdocs/amt/app/shared/components/quote-form-partial/quote-form-partial.component.ts",
+		"/C/xampp/htdocs/amt/app/modules/capabilities.module/capabilities-page.component.ts",
+		"/C/xampp/htdocs/amt/app/modules/about.module/about-page.component.ts",
+		"/C/xampp/htdocs/amt/app/modules/capabilities.module/capabilities.module.ts",
+		"/C/xampp/htdocs/amt/app/modules/capabilities.module/capabilities-page.component.html",
+		"/C/xampp/htdocs/amt/app/modules/capabilities.module/injection-molding.modules/injection-molding.capabilities.module/injection-molding.capabilities.module.ts",
+		"/C/xampp/htdocs/amt/app/modules/capabilities.module/injection-molding.modules/injection-molding.capabilities.module/injection-molding.capabilities.component.ts",
+		"/C/xampp/htdocs/amt/app/modules/about.module/about.module.ts",
+		"/C/xampp/htdocs/amt/app/shared/components/services-partials/injection-molding-partials/capabilities/injection-molding.capabilities.component.ts",
+		"/C/xampp/htdocs/amt/dist/modules/about.module/about.module.js",
+		"/C/xampp/htdocs/amt/app/modules/home-module/home.module.ts",
+		"/C/xampp/htdocs/amt/app/components/pages/capabilities-page/capabilities-page.component.ts",
+		"/C/xampp/htdocs/amt/db/quote-form.php",
+		"/C/xampp/htdocs/amt/db/upload.php",
+		"/C/xampp/htdocs/amt/app/components/pages/contact-page/contact-page.component.ts",
+		"/C/xampp/htdocs/amt/app/components/partials/quote-form-partial/quote-form-partial.component.ts",
+		"/C/xampp/htdocs/amt/app/components/pages/contact-page/contact-page.component.html",
+		"/C/xampp/htdocs/amt/db/test.html",
+		"/C/xampp/htdocs/amt/app/components/partials/quote-form-partial/quote-form-partial.component.html",
+		"/C/xampp/htdocs/amt/app/shared/services/database-service/database-service.ts",
+		"/C/xampp/htdocs/agt_template/db/request-quote.php",
+		"/C/xampp/htdocs/agt_template/db/products.php",
+		"/C/xampp/htdocs/amt/db/testfile.txt",
+		"/C/xampp/php/php.ini",
+		"/C/xampp/htdocs/amt/bs-config.json",
+		"/C/xampp/htdocs/agt_template/db/contact-us.php",
+		"/C/xampp/htdocs/amt/bs-config.js",
+		"/C/xampp/htdocs/amt/node_modules/lite-server/README.md",
+		"/C/xampp/htdocs/amt/blort.php",
+		"/C/xampp/htdocs/agt_template/js/angular/app/components/controllers/cart-controller.js",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/C/xampp/htdocs/amt/package-backup.json",
+		"/C/xampp/apache/conf/extra/httpd-ssl.conf",
+		"/C/xampp/apache/logs/error.log",
+		"/C/xampp/apache/logs/access.log",
+		"/C/xampp/htdocs/amt/db/image-uploads/butt.txt",
+		"/C/xampp/htdocs/agt_template/js/angular/app/components/controllers/cart-sidebar-controller.js",
+		"/C/xampp/htdocs/agt_template/js/angular/app/components/controllers/cart-preview-controller.js",
+		"/C/xampp/htdocs/agt_template/js/angular/app/components/services/cart-service.js",
+		"/C/xampp/htdocs/agt_template/js/angular/app/components/services/cart-reload-service.js",
+		"/C/xampp/htdocs/agt_template/js/angular/app/components/services/cart-preview-service.js",
+		"/C/xampp/htdocs/agt_template/site/blocks/cart/cart.html",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/xampp/htdocs/amt/app/components/partials/services-partials/extrusions-partials/capabilities/extrusions.capabilities.component.ts",
+		"/C/xampp/htdocs/amt/assets/css/sass/_services.scss",
+		"/C/xampp/htdocs/amt/assets/css/sass/_display.scss",
+		"/C/xampp/htdocs/amt/app/components/partials/services-partials/extrusions-partials/capabilities/extrusions.capabilities.component.html",
+		"/C/xampp/htdocs/amt/app/components/partials/services-partials/injection-molding-partials/capabilities/injection-molding.capabilities.component.html",
+		"/C/xampp/htdocs/amt/app/components/pages/products-page/products.json",
+		"/C/xampp/htdocs/amt/assets/db/quote-form/index.php",
+		"/C/xampp/htdocs/amt/assets/quote-form.php",
+		"/C/xampp/htdocs/amt/backup-package.json",
+		"/C/xampp/htdocs/amt/tsconfig.json",
+		"/C/xampp/htdocs/amt/db/quote-form/index.php",
+		"/C/xampp/htdocs/amt/assets/css/sass/_forms.scss",
+		"/C/xampp/htdocs/amt/app/components/partials/header-partial/header-partial.component.html",
+		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/assembly.svg",
+		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/design.svg",
+		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/inspection.svg",
+		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/manufacture.svg",
+		"/C/xampp/htdocs/amt/app/components/partials/services-partials/injection-molding-partials/capabilities/injection-molding.capabilities.component.ts",
+		"/C/xampp/htdocs/amt/assets/css/sass/_fonts.scss",
+		"/C/xampp/htdocs/amt/assets/css/sass/_layout.scss",
+		"/C/xampp/htdocs/amt/assets/css/sass/_header.scss",
+		"/C/xampp/htdocs/amt/assets/css/sass/_products.scss",
+		"/C/xampp/htdocs/amt/app/components/pages/products-page/products-page.component.html",
+		"/C/xampp/htdocs/amt/app/components/pages/about-page/about-page.component.html"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"",
+			"agt"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"patch",
+			"src",
+			".children",
+			"children",
+			"resolve",
+			"\"",
+			"OUTPUT",
+			"div",
+			"var",
+			"routing",
+			"childCount",
+			"about",
+			"poots",
+			"ngIf=\"p.category",
+			"component",
+			"construction",
+			"capabilities",
+			"Capabilities",
+			"capabilities",
+			"Capabilities",
+			"capabilities",
+			"Contact",
+			"capabilities",
+			"injection-molding",
+			"ExtrusionsCapabilities",
+			"dist",
+			"about",
+			"About",
+			"about",
+			"reasonForContacting",
+			"h1",
+			"queryType",
+			"prefContact",
+			"message",
+			"formData",
+			"php",
+			"agt",
+			"servername",
+			"8181",
+			"listen",
+			"port",
+			"amt",
+			"\t",
+			"y.set(''",
+			"':",
+			"\t'",
+			"Data",
+			"Crap",
+			"crap",
+			"image: \"\"",
+			"id:",
+			"1234",
+			"value",
+			"body",
+			"countrySort",
+			"sorted",
+			"productsByCategory",
+			"p of products",
+			"productsByCategory",
+			"hangers-",
+			"hangers",
+			"paint-tray",
+			"\"path\": ",
+			"\"path\": \"eco-shims\",",
+			"public",
+			"post",
+			"url",
+			"50",
+			"box-shadow:",
+			"box-shadow",
+			"\"description\"",
+			"\"specs\":",
+			"clothes",
+			",",
+			"\"soldBy\"",
+			"14px",
+			"5px",
+			"lowres",
+			"col-50-tablets-up",
+			"0px",
+			"div",
+			"{{cap.description}}",
+			"border",
+			"primary",
+			"<label",
+			"label",
+			"valid}\">",
+			"'",
+			"\"imageCount\": [\"\"",
+			"imageCount\": 2",
+			"\"imageCount\": 1,",
+			"\"path\":",
+			"\"category\":",
+			"x",
+			"image",
+			"-phones-up",
+			"houseware",
+			"p>",
+			"&",
+			"contractor-supplies",
+			"p>",
+			"p",
+			"col-50-tablets-up p-0-l",
+			"col-50-tablets-up",
+			"about",
+			"About",
+			"product",
+			"component: ProductsPageComponent",
+			"/:p",
+			"\"category\":",
+			"quantity",
+			"packInfo",
+			"products",
+			"Products",
+			"products",
+			"Contractor Supplies",
+			"div",
+			"caseInfo",
+			"skidInfo",
+			"\"packInfo\":",
+			"\"skidInfo\": ",
+			"caseInfo",
+			"Case",
+			"span",
+			"caseInfo",
+			"skidInfo",
+			"Skid",
+			"\\\"W"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/components/App.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								513,
+								513
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/index.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/store.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								331,
+								331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/redux/reducers/userReducer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/redux/reducers/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								156,
+								156
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "app/redux/reducers/testReducer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 486,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/redux/actions/testActions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								124,
+								124
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "portfolio-site.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 248.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
