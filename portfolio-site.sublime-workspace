@@ -520,38 +520,13 @@
 	"buffers":
 	[
 		{
-			"file": "app/index.js",
-			"settings":
-			{
-				"buffer_size": 616,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/features/test-feature/duck/reducers.js",
-			"settings":
-			{
-				"buffer_size": 615,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/features/test-feature/duck/actions.js",
-			"settings":
-			{
-				"buffer_size": 358,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
+			"contents": "import React from 'react';\nimport { bindActionCreators } from 'redux';\nimport { connect } from 'react-redux';\n\nimport styles from '../common/styles/app.css';\n\nconst App = React.createClass({\n\tcomponentWillMount() {\n\t\tthis.props.fetchUser();\n\t},\n\n\thandleNameChange(e) {\n\t\tvar input = e.target.value;\n\t\tthis.props.setUserName(input);\n\t},\n\n\thandleAgeChange(e) {\n\t\tvar input = e.target.value;\n\t\tthis.props.setUserAge(input);\n\t},\n\n\trender() {\n\t\treturn (\n\t\t\t<div className={styles.app}>\n\t\t\t\t<h1>Name: {this.props.user.name}</h1>\n\t\t\t\t<h2>Age: {this.props.user.age}</h2>\n\t\t\t\t<br />\n\t\t\t\t<label for=\"changeName\">Change Name: </label>\n\t\t\t\t<input id=\"changeName\" onChange={this.handleNameChange}/>\n\t\t\t\t<br />\n\t\t\t\t<label for=\"changeAge\">Change Age: </label>\n\t\t\t\t<input id=\"changeAge\" onChange={this.handleAgeChange} type=\"number\"/>\n\t\t\t</div>\n\t\t)\n\t}\n});\n\nfunction mapStateToProps(store) {\n\treturn {\n\t\tuser: store.user\n\t};\n}\n\nfunction matchDispatchToProps(dispatch) {\n\treturn bindActionCreators({\n\t\tfetchUser: userActions.fetchUser,\n\t\tsetUserName: userActions.setUserName,\n\t\tsetUserAge: userActions.setUserAge\n\t}, dispatch)\n}\n\nexport default connect(mapStateToProps, matchDispatchToProps)(App);",
 			"file": "app/components/app.js",
+			"file_size": 1306,
+			"file_write_time": 131304553666882057,
 			"settings":
 			{
-				"buffer_size": 1280,
-				"encoding": "UTF-8",
+				"buffer_size": 1179,
 				"line_ending": "Windows"
 			}
 		}
@@ -613,18 +588,33 @@
 	[
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/test-feature/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Header/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Header/resources/styles/styles.css",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Header/container/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/operations.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/selectors.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/test-feature/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/test-feature/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/store.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/selectors.js",
@@ -733,18 +723,7 @@
 		"/C/xampp/htdocs/amt/package-backup.json",
 		"/C/xampp/apache/conf/extra/httpd-ssl.conf",
 		"/C/xampp/apache/logs/error.log",
-		"/C/xampp/apache/logs/access.log",
-		"/C/xampp/htdocs/amt/db/image-uploads/butt.txt",
-		"/C/xampp/htdocs/agt_template/js/angular/app/components/controllers/cart-sidebar-controller.js",
-		"/C/xampp/htdocs/agt_template/js/angular/app/components/controllers/cart-preview-controller.js",
-		"/C/xampp/htdocs/agt_template/js/angular/app/components/services/cart-service.js",
-		"/C/xampp/htdocs/agt_template/js/angular/app/components/services/cart-reload-service.js",
-		"/C/xampp/htdocs/agt_template/js/angular/app/components/services/cart-preview-service.js",
-		"/C/xampp/htdocs/agt_template/site/blocks/cart/cart.html",
-		"/C/Windows/System32/drivers/etc/hosts",
-		"/C/xampp/htdocs/amt/app/components/partials/services-partials/extrusions-partials/capabilities/extrusions.capabilities.component.ts",
-		"/C/xampp/htdocs/amt/assets/css/sass/_services.scss",
-		"/C/xampp/htdocs/amt/assets/css/sass/_display.scss"
+		"/C/xampp/apache/logs/access.log"
 	],
 	"find":
 	{
@@ -909,53 +888,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/index.js",
+					"file": "app/components/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 616,
+						"buffer_size": 1179,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								356,
-								356
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/features/test-feature/duck/reducers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 615,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								330,
-								330
+								358,
+								358
 							]
 						],
 						"settings":
@@ -969,71 +919,12 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/features/test-feature/duck/actions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								133,
-								133
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 3,
-					"file": "app/components/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1280,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1004,
-								1004
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 300.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
