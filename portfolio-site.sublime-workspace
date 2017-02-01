@@ -520,63 +520,55 @@
 	"buffers":
 	[
 		{
-			"file": "app/components/App.js",
+			"file": "app/react/app.js",
 			"settings":
 			{
-				"buffer_size": 534,
+				"buffer_size": 753,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/index.js",
+			"file": "app/redux/store.js",
 			"settings":
 			{
-				"buffer_size": 555,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/store.js",
-			"settings":
-			{
-				"buffer_size": 343,
+				"buffer_size": 352,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/redux/reducers/userReducer.js",
+			"file": "app/redux/test-feature/duck/actions.js",
 			"settings":
 			{
-				"buffer_size": 351,
+				"buffer_size": 358,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/redux/reducers/index.js",
+			"file": "app/redux/test-feature/duck/types.js",
 			"settings":
 			{
-				"buffer_size": 160,
+				"buffer_size": 226,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/redux/reducers/testReducer.js",
+			"file": "app/redux/test-feature/duck/reducers.js",
 			"settings":
 			{
-				"buffer_size": 486,
+				"buffer_size": 617,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/redux/actions/testActions.js",
+			"file": "app/redux/test-feature/duck/selectors.js",
 			"settings":
 			{
-				"buffer_size": 308,
-				"encoding": "UTF-8",
+				"buffer_size": 83,
 				"line_ending": "Windows"
 			}
 		}
@@ -638,27 +630,48 @@
 	[
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/react-hot-loader/lib"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app.css",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/store.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/selectors.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/selectors",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/operations.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/types",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/package.json",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/App.css.map",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/store.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/views/components/App.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/testReducer.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/userReducer.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/actions/testActions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/store.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/testReducer.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/.babelrc",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/test2Reducer.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/babel-plugin-syntax-class-properties/README.md",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/client.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/core/AllReducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/App.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/reducer-test.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/App.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/package.json",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/postcss.config.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/react-hot-loader/docs/Troubleshooting.md",
 		"/C/Users/Matthew/Documents/GitHub/React and Redux Tutorial/4-redux/src/js/client.js",
@@ -752,26 +765,7 @@
 		"/C/xampp/htdocs/amt/assets/css/sass/_services.scss",
 		"/C/xampp/htdocs/amt/assets/css/sass/_display.scss",
 		"/C/xampp/htdocs/amt/app/components/partials/services-partials/extrusions-partials/capabilities/extrusions.capabilities.component.html",
-		"/C/xampp/htdocs/amt/app/components/partials/services-partials/injection-molding-partials/capabilities/injection-molding.capabilities.component.html",
-		"/C/xampp/htdocs/amt/app/components/pages/products-page/products.json",
-		"/C/xampp/htdocs/amt/assets/db/quote-form/index.php",
-		"/C/xampp/htdocs/amt/assets/quote-form.php",
-		"/C/xampp/htdocs/amt/backup-package.json",
-		"/C/xampp/htdocs/amt/tsconfig.json",
-		"/C/xampp/htdocs/amt/db/quote-form/index.php",
-		"/C/xampp/htdocs/amt/assets/css/sass/_forms.scss",
-		"/C/xampp/htdocs/amt/app/components/partials/header-partial/header-partial.component.html",
-		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/assembly.svg",
-		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/design.svg",
-		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/inspection.svg",
-		"/C/xampp/htdocs/amt/assets/img/sections/services/injection-molding/capabilities/manufacture.svg",
-		"/C/xampp/htdocs/amt/app/components/partials/services-partials/injection-molding-partials/capabilities/injection-molding.capabilities.component.ts",
-		"/C/xampp/htdocs/amt/assets/css/sass/_fonts.scss",
-		"/C/xampp/htdocs/amt/assets/css/sass/_layout.scss",
-		"/C/xampp/htdocs/amt/assets/css/sass/_header.scss",
-		"/C/xampp/htdocs/amt/assets/css/sass/_products.scss",
-		"/C/xampp/htdocs/amt/app/components/pages/products-page/products-page.component.html",
-		"/C/xampp/htdocs/amt/app/components/pages/about-page/about-page.component.html"
+		"/C/xampp/htdocs/amt/app/components/partials/services-partials/injection-molding-partials/capabilities/injection-molding.capabilities.component.html"
 	],
 	"find":
 	{
@@ -791,6 +785,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"USER_FETCHED",
+			"userFetched",
+			"export",
+			"NAME",
+			"name",
 			"patch",
 			"src",
 			".children",
@@ -913,12 +912,7 @@
 			"\"packInfo\":",
 			"\"skidInfo\": ",
 			"caseInfo",
-			"Case",
-			"span",
-			"caseInfo",
-			"skidInfo",
-			"Skid",
-			"\\\"W"
+			"Case"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -941,24 +935,25 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/App.js",
+					"file": "app/react/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 534,
+						"buffer_size": 753,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								513,
-								513
+								388,
+								388
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -969,19 +964,110 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/index.js",
-					"semi_transient": true,
+					"file": "app/redux/store.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 555,
+						"buffer_size": 352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								338,
+								338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "app/redux/test-feature/duck/actions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								121,
+								121
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/redux/test-feature/duck/types.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 226,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/redux/test-feature/duck/reducers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								102
 							]
 						],
 						"settings":
@@ -997,103 +1083,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/store.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 343,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								331,
-								331
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/redux/reducers/userReducer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 351,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								145,
-								145
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/redux/reducers/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 160,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								156,
-								156
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
 					"buffer": 5,
-					"file": "app/redux/reducers/testReducer.js",
-					"semi_transient": false,
+					"file": "app/redux/test-feature/duck/selectors.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 486,
+						"buffer_size": 83,
 						"regions":
 						{
 						},
@@ -1106,43 +1101,13 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/redux/actions/testActions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 308,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								124,
-								124
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]

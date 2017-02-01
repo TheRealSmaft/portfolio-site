@@ -6,24 +6,33 @@ import styles from '../styles/app.css';
 
 import { userActions, userSelectors } from '../redux/test-feature/duck';
 
-@connect((store) => {
-	return {
-		user: store.user
-	}
-})
-
-export default class App extends React.Component {
+const App = React.createClass({
 	componentWillMount() {
 		this.props.dispatch(userActions.fetchUser());
-	}
-	render() {
-		const { user } = this.props.user;
+	},
 
+	handleNameChange(e) {
+		var input = e.target.value;
+
+	},
+
+	render() {
+		console.log(this.props.user);
 		return (
 			<div className={styles.app}>
-				<h1>Name: {user.name}</h1>
-				<h2>Age: {user.age}</h2>
+				<h1>Name: {this.props.user.name}</h1>
+				<h2>Age: {this.props.user.age}</h2>
+				<br />
+				<input onChange={this.handleNameChange}/>
 			</div>
 		)
 	}
-};
+});
+
+const mapStateToProps = function(store) {
+	return {
+		user: store.user.user
+	};
+}
+
+export default connect(mapStateToProps)(App);

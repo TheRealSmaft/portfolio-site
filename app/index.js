@@ -9,6 +9,8 @@ import App from './react/app';
 
 const app = document.getElementById('app');
 
+delete AppContainer.prototype.unstable_handleError;
+
 const render = (Component) => {
 	ReactDOM.render(
 		<AppContainer>

@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import types from './types';
 
-const user = {
-	id: null,
-	name: null,
-	age: null
-}
-
-const userReducer = (state = user, action) => {
+const userReducer = (state = {
+	user: {
+		id: null,
+		name: null,
+		age: null
+	}
+}, action) => {
 	switch(action.type) {
 		case types.FETCH_USER: {
 			return {...state, user: action.payload}
