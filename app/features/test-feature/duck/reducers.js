@@ -1,36 +1,31 @@
 import { combineReducers } from 'redux';
 import types from './types';
 
-const user = {
+const userReducer = (state = {
 	id: null,
 	name: null,
 	age: null
-}
-
-const userReducer = (state = user, action) => {
+}, action) => {
 	switch(action.type) {
 		case types.FETCH_USER: {
-			return {...state, user: action.payload}
+			state = {
+				...state,
+				id: action.payload.id,
+				name: action.payload.name,
+				age: action.payload.age
+			}
 			break;
 		}
 		case types.SET_USER_NAME: {
-			return {...state, 
-				user: {
-					name: action.payload
-				}
-			}
+			state = {...state, name: action.payload};
 			break;
 		}
 		case types.SET_USER_AGE: {
-			return {...state, 
-				user: {
-					age: action.payload
-				}
-			}
+			state = {...state, age: action.payload};
 			break;
 		}
-		default: return state
 	}
+	return state
 }
 
 const reducers = combineReducers({

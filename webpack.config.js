@@ -14,7 +14,6 @@ module.exports = {
     // bundle the client for hot reloading
     // only- means to only hot reload for successful updates
 
-
     './index.js'
     // the entry point of our app
   ],
@@ -33,7 +32,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   devServer: {
-    hot: true,
+    hot: false,
     // enable HMR on the server
 
     contentBase: resolve(__dirname, 'dist'),
