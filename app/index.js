@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import store from './features/store';
+import store from './state/store';
 
 import { AppContainer } from 'react-hot-loader';
 import App from './components/app';

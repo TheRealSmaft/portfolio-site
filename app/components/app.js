@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import styles from '../common/css/app.css';
 
-import { userActions, userSelectors } from '../features/test-feature/duck';
+import { userActions, userSelectors } from '../state/test-feature/duck';
 
 const App = React.createClass({
 	componentWillMount() {
@@ -22,7 +22,6 @@ const App = React.createClass({
 	},
 
 	render() {
-		console.log(this.props);
 		return (
 			<div className={styles.app}>
 				<h1>Name: {this.props.user.name}</h1>
