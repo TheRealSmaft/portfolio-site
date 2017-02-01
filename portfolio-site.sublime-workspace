@@ -520,7 +520,7 @@
 	"buffers":
 	[
 		{
-			"file": "app/react/app.js",
+			"file": "app/components/app.js",
 			"settings":
 			{
 				"buffer_size": 753,
@@ -630,11 +630,11 @@
 	[
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/react-hot-loader/lib"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
@@ -935,7 +935,7 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/react/app.js",
+					"file": "app/components/app.js",
 					"semi_transient": false,
 					"settings":
 					{
