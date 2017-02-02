@@ -21,7 +21,7 @@ const siteInfoReducer = (state = {
 }
 
 const reducers = combineReducers({
-	siteInfo: siteInfoReducer
+	site: siteInfoReducer
 });
 
 export default reducers;

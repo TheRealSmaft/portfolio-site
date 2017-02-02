@@ -16,9 +16,10 @@ const App = React.createClass({
 	render() {
 		return (
 			<div className={styles.app}>
-				<Header text={this.props.siteInfo.title}/>
-				<p>{this.props.siteInfo.description}</p>
-				<Footer author={this.props.siteInfo.author}/>
+				<Header text={this.props.site.title}/>
+				<p>{this.props.site.description}</p>
+
+				<Footer author={this.props.site.author}/>
 			</div>
 		)
 	}
@@ -26,7 +27,7 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		siteInfo: store.siteInfo
+		site: store.initialReducer.site
 	};
 }
 
