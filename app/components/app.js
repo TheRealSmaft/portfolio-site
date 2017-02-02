@@ -18,7 +18,7 @@ const App = React.createClass({
 			<div className={styles.app}>
 				<Header text={this.props.site.title}/>
 				<p>{this.props.site.description}</p>
-
+				<a href="http://www.thegreatcodeadventure.com/react-redux-tutorial-part-ii-react-router-and-container-components/">GO HERE FOR ROUTING</a>
 				<Footer author={this.props.site.author}/>
 			</div>
 		)
