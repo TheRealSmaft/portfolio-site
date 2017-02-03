@@ -4,14 +4,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './state/store';
 
-import { Router, Route } from 'react-router';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
 
 import { AppContainer } from 'react-hot-loader';
 delete AppContainer.prototype.unstable_handleError;
 
-import App from './components/app';
-
-import { AboutPage } from './components/Pages';
+import App from './components/App';
 
 const app = document.getElementById('app');
 
@@ -19,7 +18,7 @@ const render = (App) => {
 	ReactDOM.render(
 		<AppContainer>
 			<Provider store={store}>
-				<App/>
+				<Router history={browserHistory} routes={routes}/>
 			</Provider>
 		</AppContainer>,
 	 	app
@@ -30,7 +29,7 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-	module.hot.accept('./components/app', () => {
+	module.hot.accept('./components/App', () => {
 		render(App)
 	});
 }

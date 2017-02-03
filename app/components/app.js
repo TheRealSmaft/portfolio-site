@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import styles from '../common/styles/app.css';
 
-import { Header, Footer } from './Layout';
+import { Header, Navbar, Footer } from './Layout';
+import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
 
@@ -15,10 +16,10 @@ const App = React.createClass({
 
 	render() {
 		return (
-			<div className={styles.app}>
+			<div>
 				<Header text={this.props.site.title}/>
-				<p>{this.props.site.description}</p>
-				<a href="http://www.thegreatcodeadventure.com/react-redux-tutorial-part-ii-react-router-and-container-components/">GO HERE FOR ROUTING</a>
+				<Navbar links={NavLinks}/>
+				{this.props.children}
 				<Footer author={this.props.site.author}/>
 			</div>
 		)
