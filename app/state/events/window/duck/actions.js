@@ -10,4 +10,4 @@ const windowPositionUpdate = () => ({
 
 export default {
 	windowPositionUpdate
-}
+};
