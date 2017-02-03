@@ -1,8 +1,0 @@
-.page {
-  clear: both;
-}
-.homePage {
-  composes: page;
-  background: pink;
-}
-/*# sourceMappingURL=styles.css.map */

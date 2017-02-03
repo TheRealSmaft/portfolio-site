@@ -1,0 +1,9 @@
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+.footer p {
+  text-align: center;
+}
+/*# sourceMappingURL=footer.css.map */

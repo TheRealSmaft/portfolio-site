@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Navbar } from '../../Layout';
-import { navbar } from '../_common/styles/styles.css';
+import navbar from '../_common/styles/navbar';
 import { NavLinks } from '../../Pages';
 
 export default class Header extends React.Component {
