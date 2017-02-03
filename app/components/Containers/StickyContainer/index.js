@@ -1,13 +1,27 @@
 import React from 'react';
 
+import { stickyContainerStyles } from '../../../styles';
+
 export default class StickyContainer extends React.Component {
 	render() {
-		var windowTopPosition = window.scrollY;
-
-		return (
-			<div>
-				{this.props.children}
-			</div>
-		)
+		if(this.props.scrollY > 200) {
+			return (
+				<div className={stickyContainerStyles.stuck}>
+					{this.props.children}
+				</div>
+			)
+		} 
+		else if(this.props.scrollY == undefined)
+		{
+			return null;
+		} 
+		else 
+		{
+			return (
+				<div className={stickyContainerStyles.unstuck}>
+					{this.props.children}
+				</div>
+			)
+		}
 	}
 };

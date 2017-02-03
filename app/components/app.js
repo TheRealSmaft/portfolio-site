@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { appStyles } from '../styles';
 
-import StickyContainer from './Containers/StickyContainer';
 import { Header, Footer } from './Layout';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
@@ -17,9 +16,7 @@ const App = React.createClass({
 	render() {
 		return (
 			<div className={appStyles}>
-				<StickyContainer>
-					<Header text={this.props.site.title}/>
-				</StickyContainer>
+				<Header text={this.props.site.title}/>
 				{this.props.children}
 				<Footer author={this.props.site.author}/>
 			</div>
@@ -28,9 +25,8 @@ const App = React.createClass({
 });
 
 function mapStateToProps(store) {
-	console.log(store);
 	return {
-		site: store.initialReducer.site
+		site: store.initialState.site,
 	};
 }
 

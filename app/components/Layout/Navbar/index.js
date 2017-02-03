@@ -1,6 +1,20 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-export default class Navbar extends React.Component {
+import { windowEventActions, windowEventTypes } from '../../../state/events/window';
+
+import StickyContainer from '../../Containers/StickyContainer';
+
+const Navbar = React.createClass({
+	componentDidMount() {
+		window.addEventListener('scroll', this.props.windowPositionUpdate);
+	},
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.props.windowPositionUpdate);
+	},
+
 	render() {
 		var links = this.props.links.map(function(link){
 			return (
@@ -12,9 +26,25 @@ export default class Navbar extends React.Component {
 			);
 		})
 		return (
-			<ul className={this.props.navStyles}>
-				{links}
-			</ul>
+			<StickyContainer scrollY={this.props.windowState.scrollY}>
+				<ul className={this.props.navStyles}>
+					{links}
+				</ul>
+			</StickyContainer>
 		)
 	}
-};
+});
+
+function mapStateToProps(store) {
+	return {
+		windowState: store.windowState
+	};
+}
+
+function matchDispatchToProps(dispatch) {
+	return bindActionCreators({
+		windowPositionUpdate: windowEventActions.windowPositionUpdate
+	}, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Navbar);

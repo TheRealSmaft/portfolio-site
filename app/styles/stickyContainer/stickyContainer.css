@@ -1,0 +1,13 @@
+.all {
+  width: 100%;
+  background-color: white;
+}
+.unstuck {
+  composes: all;
+  position: static;
+}
+.stuck {
+  composes: all;
+  position: fixed;
+}
+/*# sourceMappingURL=stickyContainer.css.map */
