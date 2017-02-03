@@ -1,0 +1,23 @@
+.navbar {
+  padding: 0px;
+  width: 20%;
+  margin-left: 40%;
+}
+.navbar li {
+  float: left;
+  padding: 10px;
+  list-style-type: none;
+}
+.navbar li:first-of-type {
+  padding-left: 0px;
+}
+.navbar a {
+  color: pink;
+  text-decoration: none;
+  text-align: center;
+  transition: color ease-in-out 500ms;
+}
+.navbar a:hover {
+  color: brown;
+}
+/*# sourceMappingURL=navbar.css.map */

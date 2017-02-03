@@ -1,0 +1,8 @@
+.page {
+  clear: both;
+  padding: 50px;
+}
+.homePage {
+  composes: page;
+}
+/*# sourceMappingURL=page.css.map */
