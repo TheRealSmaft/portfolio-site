@@ -34,6 +34,8 @@ module.exports = {
   devServer: {
     hot: false,
     // enable HMR on the server
+    
+    historyApiFallback: true,
 
     contentBase: resolve(__dirname, 'dist'),
     // match the output path

@@ -2,37 +2,25 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import styles from '../common/css/app.css';
+import styles from '../common/styles/app.css';
 
-import { userActions, userSelectors } from '../features/test-feature/duck';
+import { Header, Navbar, Footer } from './Layout';
+import { NavLinks } from './Pages';
+
+import { siteInfoActions, siteInfoTypes } from '../state/initial';
 
 const App = React.createClass({
 	componentWillMount() {
-		this.props.fetchUser();
-	},
-
-	handleNameChange(e) {
-		var input = e.target.value;
-		this.props.setUserName(input);
-	},
-
-	handleAgeChange(e) {
-		var input = e.target.value;
-		this.props.setUserAge(input);
+		this.props.getSiteInfo();
 	},
 
 	render() {
-		console.log(this.props);
 		return (
-			<div className={styles.app}>
-				<h1>Name: {this.props.user.name}</h1>
-				<h2>Age: {this.props.user.age}</h2>
-				<br />
-				<label for="changeName">Change Name: </label>
-				<input id="changeName" onChange={this.handleNameChange}/>
-				<br />
-				<label for="changeAge">Change Age: </label>
-				<input id="changeAge" onChange={this.handleAgeChange} type="number"/>
+			<div>
+				<Header text={this.props.site.title}/>
+				<Navbar links={NavLinks}/>
+				{this.props.children}
+				<Footer author={this.props.site.author}/>
 			</div>
 		)
 	}
@@ -40,15 +28,13 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		user: store.user
+		site: store.initialReducer.site
 	};
 }
 
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
-		fetchUser: userActions.fetchUser,
-		setUserName: userActions.setUserName,
-		setUserAge: userActions.setUserAge
+		getSiteInfo: siteInfoActions.getSiteInfo,
 	}, dispatch)
 }
 
