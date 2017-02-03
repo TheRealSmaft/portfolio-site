@@ -12,7 +12,7 @@ export default class Navbar extends React.Component {
 			);
 		})
 		return (
-			<ul>
+			<ul className={this.props.navStyles}>
 				{links}
 			</ul>
 		)

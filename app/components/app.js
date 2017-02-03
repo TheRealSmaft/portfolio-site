@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 import styles from '../common/styles/app.css';
 
-import { Header, Navbar, Footer } from './Layout';
-import { NavLinks } from './Pages';
+import { Header, Footer } from './Layout';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
 
@@ -16,9 +15,8 @@ const App = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div className={styles.app}>
 				<Header text={this.props.site.title}/>
-				<Navbar links={NavLinks}/>
 				{this.props.children}
 				<Footer author={this.props.site.author}/>
 			</div>
