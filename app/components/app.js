@@ -12,6 +12,10 @@ import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
 
+
+var poop = [{"name": "Poop", "url": "/poop"}];
+
+
 const App = React.createClass({
 	componentWillMount() {
 		this.props.getSiteInfo();
@@ -28,19 +32,28 @@ const App = React.createClass({
 	render() {
 		return (
 			<div className={appStyles}>
+
 				<ScrollEventContainer>
+
 					<StickyEventComponent 
-						stickyStart={0}
+						stickyStartY={0}
 						stickyPosY={0}
-						stickyStyles={navbarStyles.sticky}>
+						childStyles={navbarStyles.sticky}>
+
 						<MainNavbar 
 							links={NavLinks}
 							navStyles={navbarStyles.navbar}/>
+
 					</StickyEventComponent>
+
 				</ScrollEventContainer>
+
 				<Header text={this.props.site.title}/>
+
 				{this.props.children}
+
 				<Footer author={this.props.site.author}/>
+
 			</div>
 		)
 	}

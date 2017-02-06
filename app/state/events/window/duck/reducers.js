@@ -1,6 +1,7 @@
 import types from './types';
 
 const windowEventReducer = (state = {
+	id: 0,
 	scrollX: window.scrollX,
 	scrollY: window.scrollY
 }, action) => {
