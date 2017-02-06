@@ -1,0 +1,31 @@
+.navbar {
+  width: 100%;
+  height: 52px;
+  padding-left: 50px;
+  margin: 0px;
+  background-color: white;
+}
+.navbar li {
+  float: left;
+  padding: 10px;
+  list-style-type: none;
+}
+.navbar li:first-of-type {
+  padding-left: 0px;
+}
+.navbar a {
+  font-weight: bold;
+  color: orange;
+  text-decoration: none;
+  text-align: center;
+  transition: color ease-in-out 200ms;
+}
+.navbar a:hover {
+  color: brown;
+}
+.sticky {
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #323232;
+}
+/*# sourceMappingURL=navbar.css.map */

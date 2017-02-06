@@ -2,25 +2,58 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import styles from '../common/styles/app.css';
+import { appStyles, navbarStyles } from '../styles';
 
-import { Header, Navbar, Footer } from './Layout';
+import { Header, MainNavbar, Footer } from './Layout';
+import { ScrollEventContainer } from './Containers';
+import { StickyEventComponent } from './Components';
+
 import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
+
+
+var poop = [{"name": "Poop", "url": "/poop"}];
+
 
 const App = React.createClass({
 	componentWillMount() {
 		this.props.getSiteInfo();
 	},
 
+	componentDidMount() {
+		window.addEventListener('scroll', this.props.getWindowPosition);
+	},
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.props.getWindowPosition);
+	},
+
 	render() {
 		return (
-			<div>
+			<div className={appStyles}>
+
+				<ScrollEventContainer>
+
+					<StickyEventComponent 
+						stickyStartY={0}
+						stickyPosY={0}
+						childStyles={navbarStyles.sticky}>
+
+						<MainNavbar 
+							links={NavLinks}
+							navStyles={navbarStyles.navbar}/>
+
+					</StickyEventComponent>
+
+				</ScrollEventContainer>
+
 				<Header text={this.props.site.title}/>
-				<Navbar links={NavLinks}/>
+
 				{this.props.children}
+
 				<Footer author={this.props.site.author}/>
+
 			</div>
 		)
 	}
@@ -28,13 +61,13 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		site: store.initialReducer.site
+		site: store.initialState.site
 	};
 }
 
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
-		getSiteInfo: siteInfoActions.getSiteInfo,
+		getSiteInfo: siteInfoActions.getSiteInfo
 	}, dispatch)
 }
 

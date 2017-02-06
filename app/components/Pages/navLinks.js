@@ -4,6 +4,10 @@ export default [
 		"url": "/"
 	},
 	{
+		"name": "Portfolio",
+		"url": "/portfolio"
+	},
+	{
 		"name": "About",
 		"url": "/about"
 	}

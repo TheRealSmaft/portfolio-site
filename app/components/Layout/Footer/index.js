@@ -1,4 +1,5 @@
 import React from 'react';
+import { footerStyles } from '../../../styles';
 
 export default class Footer extends React.Component {
 	constructor() {
@@ -7,8 +8,8 @@ export default class Footer extends React.Component {
 	}
 	render() {
 		return (
-			<footer>
-				&copy;{this.year} {this.props.author}
+			<footer className={footerStyles}>
+				<p>&copy;{this.year} {this.props.author}</p>
 			</footer>
 		)
 	}
