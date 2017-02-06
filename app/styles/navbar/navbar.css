@@ -1,6 +1,9 @@
 .navbar {
+  width: 100%;
+  height: 52px;
   padding-left: 50px;
   margin: 0px;
+  background-color: white;
 }
 .navbar li {
   float: left;
@@ -19,5 +22,10 @@
 }
 .navbar a:hover {
   color: brown;
+}
+.sticky {
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #323232;
 }
 /*# sourceMappingURL=navbar.css.map */

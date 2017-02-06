@@ -1,20 +1,16 @@
 import React from 'react';
 
-export default class Navbar extends React.Component {
+import { NavigationListComponent } from '../../Components';
+
+const MainNavbar = React.createClass({
 	render() {
-		var links = this.props.links.map(function(link){
-			return (
-				<li key={link.name}>
-					<a href={link.url}>
-						{link.name}
-					</a>
-				</li>
-			);
-		})
 		return (
-				<ul className={this.props.navStyles}>
-					{links}
-				</ul>
+			<NavigationListComponent
+				links={this.props.links}
+				navStyles={this.props.navStyles}>
+			</NavigationListComponent>
 		)
 	}
-};
+});
+
+export default MainNavbar

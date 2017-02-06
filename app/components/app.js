@@ -4,17 +4,13 @@ import { connect } from 'react-redux';
 
 import { appStyles, navbarStyles } from '../styles';
 
-import { Header, Navbar, Footer } from './Layout';
-
-import StickyContainer from './Containers/StickyContainer';
+import { Header, MainNavbar, Footer } from './Layout';
+import { ScrollEventContainer } from './Containers';
+import { StickyEventComponent } from './Components';
 
 import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
-
-import { windowEventActions, windowEventTypes } from '../state/events/window';
-
-const navbarHeight = 65;
 
 const App = React.createClass({
 	componentWillMount() {
@@ -22,25 +18,26 @@ const App = React.createClass({
 	},
 
 	componentDidMount() {
-		window.addEventListener('scroll', this.props.windowPositionUpdate);
+		window.addEventListener('scroll', this.props.getWindowPosition);
 	},
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.props.windowPositionUpdate);
+		window.removeEventListener('scroll', this.props.getWindowPosition);
 	},
 
 	render() {
 		return (
 			<div className={appStyles}>
-				<StickyContainer 
-					scrollY={this.props.windowState.scrollY} 
-					scrollBegin={0}
-					childHeight={navbarHeight}>
-					<Navbar 
-						links={NavLinks} 
-						navStyles={navbarStyles} 
-						height={navbarHeight}/>
-				</StickyContainer>
+				<ScrollEventContainer>
+					<StickyEventComponent 
+						stickyStart={0}
+						stickyPosY={0}
+						stickyStyles={navbarStyles.sticky}>
+						<MainNavbar 
+							links={NavLinks}
+							navStyles={navbarStyles.navbar}/>
+					</StickyEventComponent>
+				</ScrollEventContainer>
 				<Header text={this.props.site.title}/>
 				{this.props.children}
 				<Footer author={this.props.site.author}/>
@@ -51,15 +48,13 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		site: store.initialState.site,
-		windowState: store.windowState
+		site: store.initialState.site
 	};
 }
 
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
-		getSiteInfo: siteInfoActions.getSiteInfo,
-		windowPositionUpdate: windowEventActions.windowPositionUpdate
+		getSiteInfo: siteInfoActions.getSiteInfo
 	}, dispatch)
 }
 

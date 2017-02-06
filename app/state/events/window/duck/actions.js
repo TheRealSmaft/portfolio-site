@@ -1,7 +1,7 @@
 import types from './types';
 
-const windowPositionUpdate = () => ({
-	type: types.WINDOW_POSITION_UPDATE,
+const getWindowPosition = () => ({
+	type: types.GET_WINDOW_POSITION,
 	payload: {
 		scrollX: window.scrollX,
 		scrollY: window.scrollY
@@ -9,5 +9,5 @@ const windowPositionUpdate = () => ({
 });
 
 export default {
-	windowPositionUpdate
+	getWindowPosition
 };

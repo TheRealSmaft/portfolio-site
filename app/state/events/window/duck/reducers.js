@@ -5,7 +5,7 @@ const windowEventReducer = (state = {
 	scrollY: window.scrollY
 }, action) => {
 	switch(action.type) {
-		case types.WINDOW_POSITION_UPDATE: {
+		case types.GET_WINDOW_POSITION: {
 			state = {
 				...state,
 				scrollX: action.payload.scrollX,

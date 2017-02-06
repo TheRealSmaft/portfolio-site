@@ -1,5 +1,5 @@
-const WINDOW_POSITION_UPDATE = "events/window/duck/WINDOW_POSITION_UPDATE";
+const GET_WINDOW_POSITION = "events/window/duck/GET_WINDOW_POSITION";
 
 export default {
-	WINDOW_POSITION_UPDATE,
+	GET_WINDOW_POSITION,
 };
