@@ -1,13 +1,13 @@
 import types from './types';
 
-const getWindowPosition = () => ({
-	type: types.GET_WINDOW_POSITION,
+const getWindowSize = () => ({
+	type: types.GET_WINDOW_SIZE,
 	payload: {
-		scrollX: window.scrollX,
-		scrollY: window.scrollY
+		height: window.innerHeight,
+		width: window.innerWidth
 	}
 });
 
 export default {
-	getWindowPosition
+	getWindowSize
 };

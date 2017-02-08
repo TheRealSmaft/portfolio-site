@@ -5,16 +5,11 @@ import { connect } from 'react-redux';
 import { appStyles, navbarStyles } from '../styles';
 
 import { Header, MainNavbar, Footer } from './Layout';
-import { ScrollEventContainer } from './Containers';
-import { StickyEventComponent } from './Components';
+import { ScrollEventContainer, StickyEventContainer } from './Containers';
 
 import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
-
-
-var poop = [{"name": "Poop", "url": "/poop"}];
-
 
 const App = React.createClass({
 	componentWillMount() {
@@ -35,7 +30,7 @@ const App = React.createClass({
 
 				<ScrollEventContainer>
 
-					<StickyEventComponent 
+					<StickyEventContainer 
 						stickyStartY={0}
 						stickyPosY={0}
 						childStyles={navbarStyles.sticky}>
@@ -44,7 +39,7 @@ const App = React.createClass({
 							links={NavLinks}
 							navStyles={navbarStyles.navbar}/>
 
-					</StickyEventComponent>
+					</StickyEventContainer>
 
 				</ScrollEventContainer>
 

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"conet",
+				"contentBox"
+			],
+			[
+				"bunn",
+				"bunnyPic"
+			],
+			[
 				"ove",
 				"overflow-y"
 			],
@@ -506,51 +514,25 @@
 			[
 				"procu",
 				"products"
-			],
-			[
-				"_",
-				"_http\tparameter"
-			],
-			[
-				"J",
-				"JsonpModule\talias"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/components/App.js",
+			"file": "app/components/Pages/Home/index.js",
 			"settings":
 			{
-				"buffer_size": 1676,
+				"buffer_size": 3722,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/EventContainers/ScrollEventContainer/index.js",
+			"file": "app/state/reducers.js",
 			"settings":
 			{
-				"buffer_size": 1035,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/state/events/window/duck/reducers.js",
-			"settings":
-			{
-				"buffer_size": 375,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/state/events/window/duck/actions.js",
-			"settings":
-			{
-				"buffer_size": 210,
+				"buffer_size": 234,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -613,25 +595,52 @@
 	[
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/EventComponents",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/EventComponents/StickyEventComponent",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/ScrollEventContainer",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/page",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/EventComponents/StickyEventComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/ContentBlockComponents/ContentBlockComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/store.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/ScrollEventContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/package.json",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/TextComponents/ContentBlockComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/TextComponents/TextBlockComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/NavigationComponents/NavigationListComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/routes.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/.babelrc",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/time/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/time/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/time/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/time/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/time",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/EventComponents/StickyEventComponent/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/App.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/page/page.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
@@ -640,16 +649,10 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app/app.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/NavigationComponents/NavigationListComponent/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/stickyContainer/stickyContainer.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/EventComponents/GenericEventComponent/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/GenericEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/WindowEventContainers/StickyContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/WindowEventContainers/ScrollEventContainer/index.js",
@@ -663,15 +666,10 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/header/header.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Header/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/stickyContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/initial/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/store.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/initial/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/initial/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/initial/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/header/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
@@ -696,18 +694,14 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/index.css",
 		"/C/xampp/htdocs/amt/assets/css/sass/styles.scss",
 		"/C/xampp/htdocs/amt/assets/css/styles.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Master/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/_common/styles/page.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Navbar/styles/styles.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles/global.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/routes.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/navLinks.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/routeList.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/package.json",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/routes.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/test/test.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/test-feature/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/test-feature/duck/actions.js",
@@ -742,22 +736,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/App.css.map",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/store.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/views/components/App.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/testReducer.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/userReducer.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/actions/testActions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/store.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/testReducer.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/.babelrc",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/test2Reducer.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/babel-plugin-syntax-class-properties/README.md",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/client.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/core/AllReducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/reducers/reducer-test.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/App.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/postcss.config.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/react-hot-loader/docs/Troubleshooting.md"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/reducers/testReducer.js"
 	],
 	"find":
 	{
@@ -777,6 +756,26 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"DELETE",
+			"GET_THIS_CONTENT_BOX",
+			"payload",
+			"_DATA",
+			"PREV",
+			"ELEMENT",
+			"dom",
+			"DOM",
+			"left",
+			"stickyStart",
+			"startX",
+			"startY",
+			"stickyStart",
+			"Component",
+			"TextBlock",
+			"Text",
+			"as",
+			"Y",
+			"getWindowPosition",
+			"props.windowState.scroll",
 			"StickyEventComponent",
 			"props",
 			"Navbar",
@@ -884,27 +883,7 @@
 			"1234",
 			"value",
 			"body",
-			"countrySort",
-			"sorted",
-			"productsByCategory",
-			"p of products",
-			"productsByCategory",
-			"hangers-",
-			"hangers",
-			"paint-tray",
-			"\"path\": ",
-			"\"path\": \"eco-shims\",",
-			"public",
-			"post",
-			"url",
-			"50",
-			"box-shadow:",
-			"box-shadow",
-			"\"description\"",
-			"\"specs\":",
-			"clothes",
-			",",
-			"\"soldBy\""
+			"countrySort"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -922,88 +901,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/App.js",
+					"file": "app/components/Pages/Home/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1676,
+						"buffer_size": 3722,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1085,
-								1085
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 480.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 1,
-					"file": "app/components/Containers/EventContainers/ScrollEventContainer/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1035,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								720,
-								720
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/state/events/window/duck/reducers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 375,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								214,
-								214
+								3538,
+								3538
 							]
 						],
 						"settings":
@@ -1019,20 +934,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/state/events/window/duck/actions.js",
+					"buffer": 1,
+					"file": "app/state/reducers.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 210,
+						"buffer_size": 234,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								110,
-								110
+								234,
+								234
 							]
 						],
 						"settings":
@@ -1046,6 +961,11 @@
 					"stack_index": 0,
 					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -1133,7 +1053,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

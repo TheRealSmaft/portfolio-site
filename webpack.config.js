@@ -32,8 +32,10 @@ module.exports = {
   devtool: 'inline-source-map',
 
   devServer: {
-    hot: false,
+    hot: true,
     // enable HMR on the server
+
+    inline: true,
     
     historyApiFallback: true,
 
@@ -61,6 +63,13 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[hash].[ext]'
+        }
+      }
     ],
   },
 
