@@ -26,6 +26,7 @@
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
     "css-loader": "^0.26.1",
+    "file-loader": "^0.10.0",
     "lodash": "^4.17.4",
     "postcss-load-config": "^1.1.0",
     "postcss-loader": "^1.2.2",

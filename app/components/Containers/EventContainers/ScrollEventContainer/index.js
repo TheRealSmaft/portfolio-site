@@ -2,19 +2,19 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { windowEventActions, windowEventTypes } from '../../../../state/events/window';
+import { scrollEventActions, scrollEventTypes } from '../../../../state/events/scroll';
 
 const ScrollEventContainer = React.createClass({
 	componentWillMount() {
-		this.props.getWindowPosition();
+		this.props.getScrollPosition();
 	},
 
 	componentDidMount() {
-		window.addEventListener('scroll', this.props.getWindowPosition);
+		window.addEventListener('scroll', this.props.getScrollPosition);
 	},
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.props.getWindowPosition);
+		window.removeEventListener('scroll', this.props.getScrollPosition);
 	},
 
 	render() {
@@ -22,8 +22,8 @@ const ScrollEventContainer = React.createClass({
 			<div>
 				{React.cloneElement(this.props.children,
 					{ 
-						windowState: this.props.windowState,
-						getWindowPosition: this.props.getWindowPosition
+						scrollState: this.props.scrollState,
+						getScrollPosition: this.props.getScrollPosition
 					}
 				)}
 			</div>
@@ -33,13 +33,13 @@ const ScrollEventContainer = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		windowState: store.windowState
+		scrollState: store.scrollState
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		getWindowPosition: windowEventActions.getWindowPosition
+		getScrollPosition: scrollEventActions.getScrollPosition
 	}, dispatch)
 }
 

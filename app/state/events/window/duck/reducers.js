@@ -1,16 +1,15 @@
 import types from './types';
 
 const windowEventReducer = (state = {
-	id: 0,
-	scrollX: window.scrollX,
-	scrollY: window.scrollY
+	height: window.innerHeight,
+	width: window.innerWidth
 }, action) => {
 	switch(action.type) {
-		case types.GET_WINDOW_POSITION: {
+		case types.GET_WINDOW_SIZE: {
 			state = {
 				...state,
-				scrollX: action.payload.scrollX,
-				scrollY: action.payload.scrollY
+				height: action.payload.height,
+				width: action.payload.width
 			}
 			break;
 		}
