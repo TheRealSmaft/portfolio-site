@@ -32,7 +32,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   devServer: {
-    hot: true,
+    hot: false,
     // enable HMR on the server
 
     inline: true,
