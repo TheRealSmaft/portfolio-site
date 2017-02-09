@@ -5,3 +5,5 @@ export { default as navbarStyles } from './navbar';
 export { default as footerStyles } from './footer';
 
 export { default as stickyContainerStyles } from './stickyContainer';
+
+export { default as gridStyles } from './grid';

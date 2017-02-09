@@ -1,12 +1,12 @@
 import React from 'react';
-import { pageStyles } from '../../../styles';
+import { PageContainer } from '../../Containers';
 
 export default class PortfolioPage extends React.Component {
 	render() {
 		return (
-			<div className={pageStyles.page}>
+			<PageContainer>
 				<h1>Portfolio Page, Sucka!</h1>
-			</div>
+			</PageContainer>
 		)
 	}
 };

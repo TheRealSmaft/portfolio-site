@@ -1,12 +1,12 @@
 import React from 'react';
 import { GridColumn } from '../';
 
+import { gridStyles } from '../../../../styles';
+
 export default class GridRow extends React.Component {
 	componentWillMount() {
 		this.colCount = this.props.children.length;
 		this.gutter;
-
-		console.log(this.colCount);
 
 		if(this.props.gutter != undefined) {
 			this.gutter = this.props.gutter;
@@ -30,6 +30,6 @@ export default class GridRow extends React.Component {
 			) 
 		});
 
-		return <div style={{clear: 'both'}}>{cols}</div>;
+		return <div className={gridStyles} style={{clear: 'both'}}>{cols}</div>;
 	}
 };
