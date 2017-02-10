@@ -24,9 +24,7 @@ export default class GridRow extends React.Component {
 							lastBlock: this.props.children.length == i + 1,
 							rowBlocks: this.blocks,
 							rowCount: this.props.children.length,
-							gutter: this.props.gutter,
-							windowState: this.props.windowState,
-							getWindowSize: this.props.getWindowSize
+							gutter: this.props.gutter
 						}
 					)}
 				</div>

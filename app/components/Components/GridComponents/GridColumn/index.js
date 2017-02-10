@@ -12,6 +12,12 @@ export default class GridColumn extends React.Component {
 		if(this.props.lastBlock) {
 			this.gutter = 0;
 		}
+
+		this.children = this.props.children;
+
+		if(this.children == undefined) {
+			this.children = <p> </p>;
+		}
 	}
 
 	render() {
@@ -22,7 +28,7 @@ export default class GridColumn extends React.Component {
 					width: this.colWidth + '%',
 					marginRight: this.gutter + '%'
 				}}>
-				{this.props.children}
+				{this.children}
 			</div>
 		)
 	}
