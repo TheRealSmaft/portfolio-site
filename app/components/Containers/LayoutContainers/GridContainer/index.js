@@ -5,18 +5,17 @@ import { connect } from 'react-redux';
 
 import { windowEventActions, windowEventTypes } from '../../../../state/events/window';
 
-import { pageStyles } from '../../../../styles';
-
-const PageContainer = React.createClass({
+const GridContainer = React.createClass({
 	componentWillMount() {
 		this.props.getWindowSize();
+
+		this.gutter = this.props.gutter != undefined ? this.props.gutter : 2;
 	},
 
 	componentDidMount() {
 		window.addEventListener('resize', this.handleWindowResize);
 
 		this.domElement = ReactDOM.findDOMNode(this);
-		this.positionElementInDOM();
 	},
 
 	componentWillUnmount() {
@@ -25,22 +24,25 @@ const PageContainer = React.createClass({
 
 	handleWindowResize() {
 		this.props.getWindowSize();
-		this.positionElementInDOM();
-	},
-
-	positionElementInDOM() {
-		this.elementWidth = this.domElement.getBoundingClientRect().width;
-		this.elementMargin = (this.props.windowState.width - this.elementWidth) / 2;
 	},
 
 	render() {
-		return (
-			<div 
-				className={pageStyles.page}
-				style={{marginLeft: this.elementMargin}}>
-				{this.props.children}
-			</div>
-		)
+		let rows = React.Children.map(this.props.children, (row, i) => {
+
+			return (
+				<div>
+					{React.cloneElement(row,
+						{ 
+							gutter: this.gutter,
+							windowState: this.props.windowState,
+							getWindowSize: this.props.getWindowSize
+						}
+					)}
+				</div>
+			)
+		});
+
+		return <div>{rows}</div>;
 	}
 });
 
@@ -56,4 +58,4 @@ function mapDispatchToProps(dispatch) {
 	}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(GridContainer);

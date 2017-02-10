@@ -34,8 +34,6 @@ module.exports = {
   devServer: {
     hot: false,
     // enable HMR on the server
-
-    inline: true,
     
     historyApiFallback: true,
 

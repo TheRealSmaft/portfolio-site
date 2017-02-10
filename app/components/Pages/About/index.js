@@ -1,12 +1,12 @@
 import React from 'react';
-import { PageContainer } from '../../Containers';
+import { Page } from '../../Containers';
 
 export default class About extends React.Component {
 	render() {
 		return (
-			<PageContainer>
+			<Page>
 				<h1>Aboot</h1>
-			</PageContainer>
+			</Page>
 		)
 	}
 };
