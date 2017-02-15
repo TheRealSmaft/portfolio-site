@@ -14,7 +14,7 @@ const windowEventReducer = (state = {
 			break;
 		}
 	}
-	return state
+	return state;
 }
 
 export default windowEventReducer;

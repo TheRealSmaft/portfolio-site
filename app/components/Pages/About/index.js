@@ -1,12 +1,12 @@
 import React from 'react';
-import { pageStyles } from '../../../styles';
+import { Page } from '../../Containers';
 
 export default class About extends React.Component {
 	render() {
 		return (
-			<div className={pageStyles.page}>
+			<Page>
 				<h1>Aboot</h1>
-			</div>
+			</Page>
 		)
 	}
 };
