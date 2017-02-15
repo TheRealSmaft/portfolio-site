@@ -61,7 +61,6 @@ export default class Home extends React.Component {
 						</Col>
 					</Row>
 				</Grid>
-				<p>&nbsp;</p>
 			</Page>
 		)
 	}

@@ -37,7 +37,9 @@ const PageContainer = React.createClass({
 		return (
 			<div 
 				className={pageStyles.page}
-				style={{marginLeft: this.elementMargin}}>
+				style={{
+					marginLeft: this.elementMargin
+				}}>
 				{this.props.children}
 			</div>
 		)

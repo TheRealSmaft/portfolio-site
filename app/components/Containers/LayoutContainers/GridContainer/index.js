@@ -23,6 +23,8 @@ const GridContainer = React.createClass({
 	componentDidMount() {
 		window.addEventListener('resize', this.handleWindowResize);
 		this.handleWindowResize();
+
+		console.log(ReactDOM.findDOMNode(this.refs['row0']));
 	},
 
 	componentWillUnmount() {
@@ -63,7 +65,7 @@ const GridContainer = React.createClass({
 				</div>
 			)
 		});
-		return <div>{rows}</div>;
+		return <div style={{display: 'inline-block'}}>{rows}</div>;
 	}
 });
 
