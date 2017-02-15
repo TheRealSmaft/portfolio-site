@@ -532,15 +532,7 @@
 			"file": "app/components/Containers/LayoutContainers/PageContainer/index.js",
 			"settings":
 			{
-				"buffer_size": 1383,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Components/GridComponents/GridColumn/index.js",
-			"settings":
-			{
-				"buffer_size": 1466,
+				"buffer_size": 1406,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -618,14 +610,17 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/header",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridColumn/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridRow/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Footer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridColumn/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/PageContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
@@ -685,7 +680,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Navbar/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/stickyContainer/stickyContainer.less",
@@ -770,6 +764,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Resize",
+			"resize",
+			"Resize",
+			"resize",
 			"33.3",
 			" - 1",
 			"width = ",
@@ -893,11 +891,7 @@
 			"Reducer",
 			"page",
 			"footer",
-			"app",
-			"page",
-			"footer",
-			"P",
-			"p"
+			"app"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -944,24 +938,24 @@
 						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
 					"file": "app/components/Containers/LayoutContainers/PageContainer/index.js",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1383,
+						"buffer_size": 1406,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								735,
+								735
 							]
 						],
 						"settings":
@@ -979,38 +973,8 @@
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 2,
-					"file": "app/components/Components/GridComponents/GridColumn/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1466,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								201,
-								201
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1098,7 +1062,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

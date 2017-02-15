@@ -23,8 +23,6 @@ const GridContainer = React.createClass({
 	componentDidMount() {
 		window.addEventListener('resize', this.handleWindowResize);
 		this.handleWindowResize();
-
-		console.log(ReactDOM.findDOMNode(this.refs['row0']));
 	},
 
 	componentWillUnmount() {

@@ -16,7 +16,7 @@ const PageContainer = React.createClass({
 		window.addEventListener('resize', this.handleWindowResize);
 
 		this.domElement = ReactDOM.findDOMNode(this);
-		this.positionElementInDOM();
+		this.handleWindowResize();
 	},
 
 	componentWillUnmount() {
@@ -24,7 +24,10 @@ const PageContainer = React.createClass({
 	},
 
 	handleWindowResize() {
-		this.props.getWindowSize();
+		setTimeout(() => {
+			this.props.getWindowSize();
+		}, 10);
+
 		this.positionElementInDOM();
 	},
 
