@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"th",
+				"this\t$(this)"
+			],
+			[
+				"grid",
+				"gridCount"
+			],
+			[
+				"buddy",
+				"buddyGroup"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"data",
+				"data-width"
+			],
+			[
 				"cli",
 				"children\t.children()"
 			],
@@ -26,10 +46,6 @@
 			[
 				"ove",
 				"overflow-y"
-			],
-			[
-				"margin",
-				"margin-top"
 			],
 			[
 				"N",
@@ -498,50 +514,16 @@
 			[
 				"ind",
 				"includes\tmethod"
-			],
-			[
-				"cat",
-				"category\tproperty"
-			],
-			[
-				"pr",
-				"productsRoute\talias"
-			],
-			[
-				"P",
-				"ProductDirective\talias"
-			],
-			[
-				"On",
-				"OnInit\talias"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/components/Containers/LayoutContainers/GridContainer/index.js",
-			"settings":
-			{
-				"buffer_size": 1780,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "app/components/Components/GridComponents/GridColumn/index.js",
 			"settings":
 			{
-				"buffer_size": 441,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Components/GridComponents/GridRow/index.js",
-			"settings":
-			{
-				"buffer_size": 270,
+				"buffer_size": 823,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +532,25 @@
 			"file": "app/components/Pages/Home/index.js",
 			"settings":
 			{
-				"buffer_size": 7843,
+				"buffer_size": 7817,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Containers/LayoutContainers/GridContainer/index.js",
+			"settings":
+			{
+				"buffer_size": 2194,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Components/GridComponents/GridRow/index.js",
+			"settings":
+			{
+				"buffer_size": 1008,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -621,41 +621,49 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridRow",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/GridContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/PageContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/PageContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridRow/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/GridContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/grid/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/grid/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/grid/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/grid/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridColumn/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/grid/grid.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/PageContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/page/page.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/ScrollEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/page/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app/app.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/grid/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/grid/grid.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/LiveGridContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/GridColumn/index.js",
 		"/X/Digital-Brochure/DigitalBrochure/pages/Book1-InteractiveElements/video.flv",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/duck/types.js",
@@ -750,12 +758,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/selectors.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/test-feature/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/test-feature/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/store.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/redux/test-feature/duck/reducers.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/features/test-feature/duck/actions.js"
 	],
 	"find":
 	{
@@ -775,6 +778,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"props.children",
+			"gutter",
+			"this.colWidth",
+			"gridCount",
+			"windowEvent",
+			"Actions",
+			"this",
+			"sameWidthAsPrev",
+			"minColWidth",
+			"handleWindowResize",
+			"col.props.blocks",
+			"width",
+			"prevColWidth",
+			"colGroups",
+			"col",
+			"colGroups",
+			"120",
+			"checkColumnWidths",
+			"handleWindowResize",
+			"count",
+			"Row",
+			"div",
+			"ScrollPosition",
+			"scroll",
+			"scrollState",
+			"PageContainer",
+			"GridContainer",
+			"PageContainer",
+			"GridRow",
+			"Column",
+			"GridColumn",
+			"dataWidth",
+			"colWidth",
 			"row.props.children.length",
 			"GridRow",
 			"Grid",
@@ -869,40 +905,7 @@
 			"fetchUser",
 			"Header",
 			"h1",
-			"Header",
-			"return",
-			"return {...",
-			"Name",
-			"props",
-			"USER_FETCHED",
-			"userFetched",
-			"export",
-			"NAME",
-			"name",
-			"patch",
-			"src",
-			".children",
-			"children",
-			"resolve",
-			"\"",
-			"OUTPUT",
-			"div",
-			"var",
-			"routing",
-			"childCount",
-			"about",
-			"poots",
-			"ngIf=\"p.category",
-			"component",
-			"construction",
-			"capabilities",
-			"Capabilities",
-			"capabilities",
-			"Capabilities",
-			"capabilities",
-			"Contact",
-			"capabilities",
-			"injection-molding"
+			"Header"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -925,110 +928,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/Containers/LayoutContainers/GridContainer/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1780,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1291,
-								1291
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 142.0,
-						"translation.y": 462.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 1,
 					"file": "app/components/Components/GridComponents/GridColumn/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 441,
+						"buffer_size": 823,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								238,
-								238
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Components/GridComponents/GridRow/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 270,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								270,
-								270
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/Pages/Home/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7843,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3350,
-								3350
+								694,
+								694
 							]
 						],
 						"settings":
@@ -1041,6 +953,99 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/Pages/Home/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7817,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7811,
+								7811
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 774.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "app/components/Containers/LayoutContainers/GridContainer/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2194,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1586,
+								1586
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 480.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/Components/GridComponents/GridRow/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								194,
+								194
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1074,7 +1079,7 @@
 		"cols":
 		[
 			0.0,
-			0.462918660287,
+			0.5,
 			1.0
 		],
 		"rows":

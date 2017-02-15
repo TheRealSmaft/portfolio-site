@@ -7,5 +7,5 @@ import windowEventReducer from './events/window';
 export default combineReducers({
 	initialState: initialReducer,
 	scrollState: scrollEventReducer,
-	windowState: windowEventReducer,
+	windowState: windowEventReducer
 });

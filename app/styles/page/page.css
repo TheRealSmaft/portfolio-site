@@ -1,7 +1,6 @@
 .page {
   clear: both;
-  padding: 25px 50px 0px 50px;
-  margin-bottom: 100px;
+  padding: 25px 50px 100px 50px;
   max-width: 900px;
   min-width: 200px;
 }
