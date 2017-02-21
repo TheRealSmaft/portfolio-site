@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -10,18 +11,27 @@ import { ScrollEventContainer, StickyEventContainer } from './Containers';
 import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
+import { windowEventActions, windowEventTypes } from '../state/events/window';
+
 
 const App = React.createClass({
 	componentWillMount() {
 		this.props.getSiteInfo();
+		this.props.getWindowSize();
 	},
 
 	componentDidMount() {
 		window.addEventListener('scroll', this.props.getWindowPosition);
+		window.addEventListener('resize', this.handleWindowResize);
 	},
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.props.getWindowPosition);
+		window.removeEventListener('resize', this.handleWindowResize);
+	},
+
+	handleWindowResize() {
+		this.props.getWindowSize();
 	},
 
 	render() {
@@ -56,13 +66,15 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		site: store.initialState.site
+		site: store.initialState.site,
+		windowState: store.windowState
 	};
 }
 
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
-		getSiteInfo: siteInfoActions.getSiteInfo
+		getSiteInfo: siteInfoActions.getSiteInfo,
+		getWindowSize: windowEventActions.getWindowSize
 	}, dispatch)
 }
 

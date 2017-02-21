@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { windowEventActions, windowEventTypes } from '../../../../state/events/window';
-
-import { pageStyles } from '../../../../styles';
-
 const PageContainer = React.createClass({
-	componentWillMount() {
-		this.props.getWindowSize();
+	getInitialState() {
+		return {
+			styles: {
+				clear: 'both',
+				minWidth: this.props.minWidth ? this.props.minWidth : 200,
+				maxWidth: this.props.maxWidth ? this.props.maxWidth : 1000
+			},
+		}
 	},
 
 	componentDidMount() {
@@ -24,25 +25,40 @@ const PageContainer = React.createClass({
 	},
 
 	handleWindowResize() {
-		setTimeout(() => {
-			this.props.getWindowSize();
-		}, 10);
-
-		this.positionElementInDOM();
+		if(this.domElement.getBoundingClientRect().width > this.state.styles.maxWidth - 1) {
+			setTimeout(() => {
+				this.centerPageInDOM();
+			}, 5);
+		}
+		else
+		{
+			this.setState({
+				...this.state,
+				styles: {
+					...this.state.styles,
+					width: '80%',
+					marginLeft: '10%'
+				}
+			})
+		}
 	},
 
-	positionElementInDOM() {
-		this.elementWidth = this.domElement.getBoundingClientRect().width;
-		this.elementMargin = (this.props.windowState.width - this.elementWidth) / 2;
+	centerPageInDOM() {
+		this.margin = (this.props.windowState.width - this.state.styles.maxWidth) / 2;
+
+		this.setState({
+			...this.state,
+			styles: {
+				...this.state.styles,
+				marginLeft: this.margin,
+			}
+		});
 	},
 
 	render() {
 		return (
 			<div 
-				className={pageStyles.page}
-				style={{
-					marginLeft: this.elementMargin
-				}}>
+				style={this.state.styles}>
 				{this.props.children}
 			</div>
 		)
@@ -55,10 +71,4 @@ function mapStateToProps(store) {
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators({
-		getWindowSize: windowEventActions.getWindowSize
-	}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageContainer);
+export default connect(mapStateToProps)(PageContainer);
