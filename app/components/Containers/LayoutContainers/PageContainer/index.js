@@ -8,8 +8,16 @@ const PageContainer = React.createClass({
 			styles: {
 				clear: 'both',
 				minWidth: this.props.minWidth ? this.props.minWidth : 200,
-				maxWidth: this.props.maxWidth ? this.props.maxWidth : 1000
+				maxWidth: this.props.maxWidth ? this.props.maxWidth : 1000,
+				width: '80%',
+				marginLeft: '10%'
 			},
+		}
+	},
+
+	componentWillMount() {
+		if(this.props.windowState.width > this.state.styles.maxWidth - 1) {
+			this.centerPageInDOM();
 		}
 	},
 
