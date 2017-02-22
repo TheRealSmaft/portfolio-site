@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Page, Grid } from '../../Containers';
+import { ResponsiveContainer, Grid } from '../../Containers';
 import { Row, Col } from '../../Components';
 
 export default class Home extends React.Component {
 	render() {
 		return (
-			<Page>
+			<ResponsiveContainer>
 				<h1>SUP HOMEBOY!</h1>
 				<Grid gutter={5} breakPoints={[1100, 800, 600]}>
 					<Row blocks={5}>
@@ -36,7 +36,7 @@ export default class Home extends React.Component {
 						</Col>
 					</Row>
 				</Grid>
-			</Page>
+			</ResponsiveContainer>
 		)
 	}
 };

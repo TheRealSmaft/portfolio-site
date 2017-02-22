@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+
+import { scrollEventActions, scrollEventTypes } from '../../../../state/events/scroll';
 
 class StickyEventContainer extends React.Component {
 	constructor(props) {
@@ -68,4 +71,10 @@ class StickyEventContainer extends React.Component {
 	}
 };
 
-export default StickyEventContainer;
+function mapStateToProps(store) {
+	return {
+		scrollState: store.scrollState
+	}
+}
+
+export default connect(mapStateToProps)(StickyEventContainer);
