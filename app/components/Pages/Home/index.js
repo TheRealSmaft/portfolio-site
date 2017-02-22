@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { ResponsiveContainer, Grid } from '../../Containers';
-import { Row, Col } from '../../Components';
+import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
 
 export default class Home extends React.Component {
 	render() {

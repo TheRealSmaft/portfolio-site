@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { gridStyles } from '../../../../styles';
+import { gridStyles } from '../../../../../../styles';
 
 const GridRow = React.createClass({
 	componentWillMount() {

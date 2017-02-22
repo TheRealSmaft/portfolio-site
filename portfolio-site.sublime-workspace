@@ -519,6 +519,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/components/Pages/About/index.js",
+			"settings":
+			{
+				"buffer_size": 3346,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Pages/Home/index.js",
+			"settings":
+			{
+				"buffer_size": 3404,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
+			"settings":
+			{
+				"buffer_size": 1798,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -581,17 +607,26 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Row/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/ScrollEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Footer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/footer/footer.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/GridContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
@@ -616,7 +651,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/grid/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/grid/grid.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/GridComponents/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/grid/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/index.js",
@@ -710,9 +744,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/operations.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/selectors.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/actions.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/pages/home/duck/selectors.js"
 	],
 	"find":
 	{
@@ -732,6 +764,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Row",
 			"Window",
 			"230",
 			"40",
@@ -858,8 +891,7 @@
 			"WINDOW_POSITION",
 			"_UPDATE",
 			"GET_TIME",
-			"TIME_UPDATE",
-			"placeholderHeight"
+			"TIME_UPDATE"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -877,13 +909,101 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/components/Pages/About/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3346,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3310,
+								3310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 1,
+					"file": "app/components/Pages/Home/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								732,
+								732
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

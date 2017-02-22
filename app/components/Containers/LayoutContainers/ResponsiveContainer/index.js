@@ -12,7 +12,10 @@ const ResponsiveContainer = React.createClass({
 			marginLeft: this.props.rcWidth ? (100 - this.props.rcWidth)/2 + '%' : '10%'
 		};
 
-		if(this.props.windowState.width > this.styles.maxWidth - 1) {
+		var widthInPercent = (this.props.rcWidth ? this.props.rcWidth : 80)/100;
+		var initialElementWidth = this.props.windowState.width * widthInPercent;
+
+		if(initialElementWidth > this.styles.maxWidth - 1) {
 			this.centerPageInDOM();
 		}
 	},
