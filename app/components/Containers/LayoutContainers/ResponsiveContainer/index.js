@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect } from 'react-redux';
 
 const ResponsiveContainer = React.createClass({
 	componentWillMount() {
@@ -8,68 +7,39 @@ const ResponsiveContainer = React.createClass({
 			clear: 'both',
 			minWidth: this.props.rcMinWidth ? this.props.rcMinWidth : 200,
 			maxWidth: this.props.rcMaxWidth ? this.props.rcMaxWidth : 1000,
-			width: this.props.rcWidth ? this.props.rcWidth + '%' : '80%',
-			marginLeft: this.props.rcWidth ? (100 - this.props.rcWidth)/2 + '%' : '10%'
-		};
-
-		var widthInPercent = (this.props.rcWidth ? this.props.rcWidth : 80)/100;
-		var initialElementWidth = this.props.windowState.width * widthInPercent;
-
-		if(initialElementWidth > this.styles.maxWidth - 1) {
-			this.centerPageInDOM();
+			width: this.props.rcWidth ? this.props.rcWidth + '%' : '80%'
 		}
 	},
 
-	componentDidMount() {
-		window.addEventListener('resize', this.handleWindowResize);
+	componentWillUpdate() {
+		var elementWidth = ReactDOM.findDOMNode(this).getBoundingClientRect().width;
+		var maxWidth = this.props.rcMaxWidth ? this.props.rcMaxWidth : 1000;
 
-		this.domElement = ReactDOM.findDOMNode(this);
-		this.handleWindowResize();
-	},
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.handleWindowResize);
-	},
-
-	handleWindowResize() {
-		if(this.domElement.getBoundingClientRect().width > this.styles.maxWidth - 1) {
-			setTimeout(() => {
-				this.centerPageInDOM();
-			}, 5);
+		if(elementWidth >= maxWidth) {
+			this.centerAtMaxWidth(elementWidth, window.innerWidth);
 		}
 		else
 		{
-			this.styles = {
-				...this.styles,
-				width: this.props.rcWidth ? this.props.rcWidth + '%' : '80%',
-				marginLeft: this.props.rcWidth ? (100 - this.props.rcWidth)/2 + '%' : '10%'
-			};
+			this.centerBelowMaxWidth();
 		}
 	},
 
-	centerPageInDOM() {
-		this.margin = (this.props.windowState.width - this.styles.maxWidth) / 2;
+	centerAtMaxWidth(elementWidth, windowWidth) {
+		this.margin = (windowWidth - elementWidth)/2;
+	},
 
-		this.styles= {
-			...this.styles,
-			marginLeft: this.margin,
-		};
+	centerBelowMaxWidth() {
+		this.margin = this.props.rcWidth ? (100 - this.props.rcWidth)/2 + '%' : '10%';
 	},
 
 	render() {
 		return (
 			<div 
-				style={this.styles}>
+				style={{...this.styles, marginLeft: this.margin}}>
 				{this.props.children}
 			</div>
 		)
 	}
 });
 
-function mapStateToProps(store) {
-	return {
-		windowState: store.windowState
-	}
-}
-
-export default connect(mapStateToProps)(ResponsiveContainer);
+export default ResponsiveContainer;

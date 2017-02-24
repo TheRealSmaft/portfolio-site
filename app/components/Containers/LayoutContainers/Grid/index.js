@@ -1,41 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const GridContainer = React.createClass({
-	getInitialState() {
-		return {
-			breakLevel: this.getBreakPoint(),
-			rows: 0
-		}
-	},
-
 	componentWillMount() {
 		this.gutter = this.props.gutter != undefined ? this.props.gutter : 2;
-		this.count = this.props.children.length ? this.props.children.length : 1;
-		this.minColWidth = this.props.minColWidth ? this.props.minColWidth : 60;
 	},
 
-	componentDidMount() {
-		window.addEventListener('resize', this.handleWindowResize);
-		this.handleWindowResize();
-	},
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.handleWindowResize);
-	},
-
-	handleWindowResize() {
-		this.setState({
-			...this.state,
-			breakLevel: this.getBreakPoint()
-		})
+	componentWillUpdate() {
+		this.breakLevel = this.getBreakPoint();
 	},
 
 	getBreakPoint() {
 		var bl = 0;
 
 		for(var i = 0; i < this.props.breakPoints.length; i++) {
-			if(this.props.windowState.width < this.props.breakPoints[i]) {
+			if(window.innerWidth < this.props.breakPoints[i]) {
 				bl = i + 1;
 			}
 		}
@@ -51,7 +29,7 @@ const GridContainer = React.createClass({
 						{ 
 							ref: 'row' + i,
 							gutter: this.gutter,
-							breakLevel: this.state.breakLevel
+							breakLevel: this.breakLevel
 						}
 					)}
 				</div>
@@ -61,10 +39,4 @@ const GridContainer = React.createClass({
 	}
 });
 
-function mapStateToProps(store) {
-	return {
-		windowState: store.windowState,
-	}
-}
-
-export default connect(mapStateToProps)(GridContainer);
+export default GridContainer;
