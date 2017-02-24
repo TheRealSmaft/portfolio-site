@@ -28,7 +28,6 @@ const GridContainer = React.createClass({
 				<div>
 					{React.cloneElement(row,
 						{ 
-							ref: 'row' + i,
 							gutter: this.gutter,
 							breakLevel: this.breakLevel
 						}
