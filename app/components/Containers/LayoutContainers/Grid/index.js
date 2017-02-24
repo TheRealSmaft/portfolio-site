@@ -3,6 +3,7 @@ import React from 'react';
 const GridContainer = React.createClass({
 	componentWillMount() {
 		this.gutter = this.props.gutter != undefined ? this.props.gutter : 2;
+		this.breakLevel = this.getBreakPoint();
 	},
 
 	componentWillUpdate() {

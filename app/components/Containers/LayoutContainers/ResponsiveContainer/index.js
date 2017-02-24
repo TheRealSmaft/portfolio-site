@@ -9,6 +9,17 @@ const ResponsiveContainer = React.createClass({
 			maxWidth: this.props.rcMaxWidth ? this.props.rcMaxWidth : 1000,
 			width: this.props.rcWidth ? this.props.rcWidth + '%' : '80%'
 		}
+
+		var widthInPercent = (this.props.rcWidth ? this.props.rcWidth : 80)/100;
+		var initialWidth = window.innerWidth * widthInPercent;
+		
+		if(initialWidth > this.styles.maxWidth - 1) {
+			this.centerAtMaxWidth(this.styles.maxWidth, window.innerWidth);
+		}
+		else
+		{
+			this.centerBelowMaxWidth();
+		}
 	},
 
 	componentWillUpdate() {
