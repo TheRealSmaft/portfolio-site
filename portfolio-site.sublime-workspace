@@ -529,10 +529,13 @@
 			}
 		},
 		{
+			"contents": "import React from 'react';\n\nimport { ResponsiveContainer, ScrollLoader, Grid, Row, Col } from '../../Containers';\n\nexport default class Home extends React.Component {\n\trender() {\n\t\treturn (\n\t\t\t<ResponsiveContainer>\n\t\t\t\t<h1>SUP HOMEBOY!</h1>\n\t\t\t\t<h1>Aliquam fermentum, diam nec tincidunt condimentum, justo purus aliquam risus, et vestibulum orci turpis a justo. Quisque augue ante, lacinia vitae sapien non, tristique finibus lorem. Nam tortor turpis, auctor non risus vel, maximus placerat enim. In nisl nibh, condimentum quis ante sit amet, vehicula placerat enim. Aliquam finibus pretium lacus, ut mollis nisl ornare ac. Donec elementum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt. Aenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.</h1>\n\t\t\t\t\t<Grid gutter={5} breakPoints={[1100, 800, 600]}>\n\t\t\t\t\t\t<Row blocks={5}>\n\t\t\t\t\t\t\t<Col blocks={2} breaks={[100]}>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAliquam fermentum, diam nec tincidunt condimentum, justo purus aliquam risus, et vestibulum orci turpis a justo. Quisque augue ante, lacinia vitae sapien non, tristique finibus lorem. Nam tortor turpis, auctor non risus vel, maximus placerat enim. In nisl nibh, condimentum quis ante sit amet, vehicula placerat enim. Aliquam finibus pretium lacus, ut mollis nisl ornare ac. Donec elementum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt. Aenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t\t<Col breaks={[33.3, 33.3, 100]}>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAliquam fermentum, diam nec tincidunt condimentum, justo purentum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.\n\t\t\t\t\t\t\t\t</p>\t\t\t\t\t\t\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t\t<Col breaks={[33.3, 33.3, 100]}>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAliquam fermentum, diam nec tincidunt condimentum, justo purus aliquam risus, et vestibulum orci turpis a justo. Quisque augue ante, lacinia vitae sapien non, tristique finibus lorem. Nam tortor turpis, auctor non risus vel, maximus placerat enim. In nisl nibh, condimentum quis ante sit amet, vehicula placerat enim. Aliquam finibus pretium lacus, ut mollis nisl ornare ac. Donec elementum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt. Aenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t\t<Col breaks={[33.3, 33.3, 100]}>\n\t\t\t\t\t\t\t\t<p>POOP</p>\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t</Row>\n\t\t\t\t\t\t<Row blocks={5}>\n\t\t\t\t\t\t\t<Col blocks={2} breaks={[100]}>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAliquam fermentum, diam nec tincidunt condimentum, justo purus aliquam risus, et vestibulum orci turpis a justo. Quisque augue ante, lacinia vitae sapien non, tristique finibus lorem. Nam tortor turpis, auctor non risus vel, maximus placerat enim. In nisl nibh, condimentum quis ante sit amet, vehicula placerat enim. Aliquam finibus pretium lacus, ut mollis nisl ornare ac. Donec elementum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt. Aenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t\t<Col breaks={[33.3, 33.3, 100]}>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAliquam fermentum, diam nec tincidunt condimentum, justo purentum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.\n\t\t\t\t\t\t\t\t</p>\t\t\t\t\t\t\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t\t<Col breaks={[33.3, 33.3, 100]}>\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\tAliquam fermentum, diam nec tincidunt condimentum, justo purus aliquam risus, et vestibulum orci turpis a justo. Quisque augue ante, lacinia vitae sapien non, tristique finibus lorem. Nam tortor turpis, auctor non risus vel, maximus placerat enim. In nisl nibh, condimentum quis ante sit amet, vehicula placerat enim. Aliquam finibus pretium lacus, ut mollis nisl ornare ac. Donec elementum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt. Aenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t\t<Col breaks={[33.3, 33.3, 100]}>\n\t\t\t\t\t\t\t\t<p>POOP</p>\n\t\t\t\t\t\t\t</Col>\n\t\t\t\t\t\t</Row>\n\t\t\t\t\t</Grid>\n\t\t\t</ResponsiveContainer>\n\t\t)\n\t}\n};",
 			"file": "app/components/Pages/Home/index.js",
+			"file_size": 7304,
+			"file_write_time": 131324331864618583,
 			"settings":
 			{
-				"buffer_size": 7238,
+				"buffer_size": 5691,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -602,8 +605,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home"
 	],
 	"file_history":
 	[
@@ -943,15 +945,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7238,
+						"buffer_size": 5691,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4823,
-								4823
+								247,
+								247
 							]
 						],
 						"settings":
@@ -959,8 +961,8 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 6.0,
-						"translation.y": 434.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
