@@ -64,7 +64,7 @@ function mapStateToProps(store) {
 	};
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		getSiteInfo: siteInfoActions.getSiteInfo,
 		getWindowSize: windowEventActions.getWindowSize,
@@ -72,4 +72,4 @@ function matchDispatchToProps(dispatch) {
 	}, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
