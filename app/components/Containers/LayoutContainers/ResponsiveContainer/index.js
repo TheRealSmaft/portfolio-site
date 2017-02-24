@@ -1,52 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const ResponsiveContainer = React.createClass({
 	componentWillMount() {
 		this.styles = {
-			clear: 'both',
 			minWidth: this.props.rcMinWidth ? this.props.rcMinWidth : 200,
 			maxWidth: this.props.rcMaxWidth ? this.props.rcMaxWidth : 1000,
-			width: this.props.rcWidth ? this.props.rcWidth + '%' : '80%'
+			width: this.props.rcWidth ? this.props.rcWidth + '%' : '80%',
+			margin: this.props.rcMargin ? '0 ' + this.props.rcMargin + '%' : '0 auto',
+			display: this.props.rcDisplay ? this.props.rcDisplay : 'block'
 		}
-
-		var widthInPercent = (this.props.rcWidth ? this.props.rcWidth : 80)/100;
-		var initialWidth = window.innerWidth * widthInPercent;
-		
-		if(initialWidth > this.styles.maxWidth - 1) {
-			this.centerAtMaxWidth(this.styles.maxWidth, window.innerWidth);
-		}
-		else
-		{
-			this.centerBelowMaxWidth();
-		}
-	},
-
-	componentWillUpdate() {
-		var elementWidth = ReactDOM.findDOMNode(this).getBoundingClientRect().width;
-		var maxWidth = this.props.rcMaxWidth ? this.props.rcMaxWidth : 1000;
-
-		if(elementWidth >= maxWidth) {
-			this.centerAtMaxWidth(elementWidth, window.innerWidth);
-		}
-		else
-		{
-			this.centerBelowMaxWidth();
-		}
-	},
-
-	centerAtMaxWidth(elementWidth, windowWidth) {
-		this.margin = (windowWidth - elementWidth)/2;
-	},
-
-	centerBelowMaxWidth() {
-		this.margin = this.props.rcWidth ? (100 - this.props.rcWidth)/2 + '%' : '10%';
 	},
 
 	render() {
 		return (
 			<div 
-				style={{...this.styles, marginLeft: this.margin}}>
+				style={this.styles}>
 				{this.props.children}
 			</div>
 		)
