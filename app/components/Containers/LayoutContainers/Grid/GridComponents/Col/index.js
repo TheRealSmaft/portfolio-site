@@ -13,6 +13,10 @@ const GridColumn = React.createClass({
 		};
 	},
 
+	componentWillUpdate() {
+
+	},
+
 	setColumnWidth() {
 		this.colWidth = ((100 - this.props.rowBlocks * this.props.gutter) + this.props.gutter) / this.props.rowBlocks;
 		this.gutter = this.props.gutter;
@@ -33,17 +37,23 @@ const GridColumn = React.createClass({
 	},
 
 	getBreakColumnWidth(breakLevel) {
-		if(this.props.breaks[breakLevel] != 100) {
-			return  this.props.breaks[breakLevel] - this.gutter;
-		} 
+		if(this.props.breaks[breakLevel] != undefined) {
+			if(this.props.breaks[breakLevel] != 100) {
+				return this.props.breaks[breakLevel] - this.gutter;
+			} 
+			else
+			{
+				return this.props.breaks[breakLevel];
+			}
+		}
 		else
 		{
-			return this.props.breaks[breakLevel];
+			return this.props.breaks[this.props.breaks.length - 1];
 		}
 	},
 
 	render() {
-		if(this.props.breakLevel > 0 && this.props.breakLevel < 6) {
+		if(this.props.breakLevel > 0 && this.props.breakLevel < 6 && this.props.breaks) {
 			var width = this.getBreakColumnWidth(this.props.breakLevel - 1);
 			return (
 				<div 

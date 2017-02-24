@@ -1,7 +1,7 @@
-export { default as ScrollEventContainer } from './EventContainers/ScrollEventContainer';
+export { default as StickyContainer } from './EventContainers/StickyEventContainer';
 
-export { default as StickyEventContainer } from './EventContainers/StickyEventContainer';
+export { default as ResponsiveContainer } from './LayoutContainers/ResponsiveContainer';
 
-export { default as Page } from './LayoutContainers/PageContainer';
-
-export { default as Grid } from './LayoutContainers/GridContainer';
+export { default as Grid } from './LayoutContainers/Grid';
+export { default as Row } from './LayoutContainers/Grid/GridComponents/Row';
+export { default as Col } from './LayoutContainers/Grid/GridComponents/Col';

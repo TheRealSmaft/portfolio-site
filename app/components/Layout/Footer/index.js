@@ -9,7 +9,9 @@ export default class Footer extends React.Component {
 	render() {
 		return (
 			<footer className={footerStyles}>
-				<p>&copy;{this.year} {this.props.author}</p>
+				<div>
+					<p>&copy;{this.year} {this.props.author}</p>
+				</div>
 			</footer>
 		)
 	}
