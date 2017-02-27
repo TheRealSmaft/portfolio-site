@@ -4,57 +4,60 @@ import { connect } from 'react-redux';
 
 import { scrollEventActions, scrollEventTypes } from '../../../../state/events/scroll';
 
-class StickyEventContainer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			start: {
-				y: 0,
-				x: 0
-			},
-			stickyStyles: {
-				position: "fixed",
-				top: 0,
-				left: 0
-			},
+const StickyEventContainer = React.createClass({
+	propTypes: {
+		scrollState: React.PropTypes.object.isRequired,
+		childStyles: React.PropTypes.string
+	},
 
-			placeholderStyles: {
-				position: "static",
-				height: 0,
-				width: 0
-			}
+	componentWillMount() {
+		this.start = {
+			y: 0,
+			x: 0
+		};
+
+		this.stickyStyles = {
+			position: "fixed",
+			top: 0,
+			left: 0
 		}
-	}
+
+		this.placeHolderStyles = {
+			position: "static",
+			height: 0,
+			width: 0
+		}
+	},
 
 	componentDidMount() {
 		var thisDiv = ReactDOM.findDOMNode(this);
+		
+		this.start = {
+			y: thisDiv.getBoundingClientRect().top,
+			x: thisDiv.getBoundingClientRect().left
+		};
+		
+		this.placeholderStyles = {
+			position: "static",
+			height: thisDiv.clientHeight,
+			width: thisDiv.clientWidth				
+		};
 
-		this.setState((prevState, props) => ({
-			start: {
-				y: thisDiv.getBoundingClientRect().top,
-				x: thisDiv.getBoundingClientRect().left
-			},
-			placeholderStyles: {
-				position: "static",
-				height: thisDiv.clientHeight,
-				width: thisDiv.clientWidth				
-			},
-			stickyStyles: {
-				position: "fixed",
-				top: 0,
-				left: thisDiv.getBoundingClientRect().left
-			}
-		}));
-	}
+		this.stickyStyles = {
+			position: "fixed",
+			top: 0,
+			left: thisDiv.getBoundingClientRect().left
+		};
+	},
 
 	render() {
-		if(this.props.scrollState.scrollY > this.state.start.y ||
-			this.props.scrollState.scrollX > this.state.start.x) {
+		if(this.props.scrollState.scrollY > this.start.y ||
+			this.props.scrollState.scrollX > this.start.x) {
 			return (
-				<div style={this.state.placeholderStyles}>
+				<div style={this.placeholderStyles}>
 					<div 
 						className={this.props.childStyles} 
-						style={this.state.stickyStyles}>
+						style={this.stickyStyles}>
 						{this.props.children}
 					</div>
 				</div>
@@ -69,7 +72,7 @@ class StickyEventContainer extends React.Component {
 			)
 		}
 	}
-};
+});
 
 function mapStateToProps(store) {
 	return {

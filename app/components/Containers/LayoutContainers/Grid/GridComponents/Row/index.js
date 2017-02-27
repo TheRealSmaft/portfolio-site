@@ -3,6 +3,10 @@ import React from 'react';
 import { gridStyles } from '../../../../../../styles';
 
 const GridRow = React.createClass({
+	propTypes: {
+		blocks: React.PropTypes.number
+	},
+
 	componentWillMount() {
 		this.blocks = this.props.blocks ? this.props.blocks : this.props.children.length;
 		this.count = this.props.children.length;
@@ -14,7 +18,6 @@ const GridRow = React.createClass({
 				<div>
 					{React.cloneElement(col,
 						{ 
-							ref: 'col' + i,
 							lastBlock: this.props.children.length == i + 1,
 							rowBlocks: this.blocks,
 							gutter: this.props.gutter,
