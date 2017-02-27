@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const GridColumn = React.createClass({
+	propTypes: {
+		lastBlock: React.PropTypes.bool,
+		rowBlocks: React.PropTypes.number,
+		gutter: React.PropTypes.number,
+		breakLevel: React.PropTypes.number
+	},
+
 	componentWillMount() {
 		this.setColumnWidth();
 		this.checkForEmptyColumns();
@@ -11,10 +18,6 @@ const GridColumn = React.createClass({
 			width: this.colWidth + '%',
 			marginRight: this.gutter + '%'
 		};
-	},
-
-	componentWillUpdate() {
-
 	},
 
 	setColumnWidth() {

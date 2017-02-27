@@ -1,6 +1,14 @@
 import React from 'react';
 
 const ResponsiveContainer = React.createClass({
+	propTypes: {
+		rcMinWidth: React.PropTypes.number,
+		rcMaxWidth: React.PropTypes.number,
+		rcWidth: React.PropTypes.number,
+		rcMargin: React.PropTypes.number,
+		rcDisplay: React.PropTypes.string
+	},
+
 	componentWillMount() {
 		this.styles = {
 			minWidth: this.props.rcMinWidth ? this.props.rcMinWidth : 200,

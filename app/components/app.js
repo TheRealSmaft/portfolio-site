@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { appStyles, navbarStyles } from '../styles';
 
-import { Header, MainNavbar, Footer } from './Layout';
+import { MainNavbar, Footer } from './Layout';
 import { ResponsiveContainer, StickyContainer } from './Containers';
 
 import { NavLinks } from './Pages';
@@ -39,13 +39,9 @@ const App = React.createClass({
 					stickyPosY={0}
 					childStyles={navbarStyles.sticky}>
 					
-					<MainNavbar 
-						links={NavLinks}
-						navStyles={navbarStyles.navbar}/>
+					<MainNavbar links={NavLinks} />
 					
 				</StickyContainer>
-
-				<Header text={this.props.site.title}/>
 
 				{this.props.children}
 
