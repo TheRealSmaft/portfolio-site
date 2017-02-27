@@ -2,6 +2,10 @@ import React from 'react';
 import ScrollLoad from './ScrollLoad';
 
 const ScrollLoader = React.createClass({
+	propTypes: {
+		loadPoint: React.PropTypes.number
+	},
+
 	componentWillMount() {
 		this.count = this.props.children.length;
 		this.childrenLoaded = 0;

@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default class Navbar extends React.Component {
+const Navbar = React.createClass({
+	propTypes: {
+		links: React.PropTypes.array.isRequired,
+		navStyles: React.PropTypes.string.isRequired
+	},
+
 	render() {
 		var links = this.props.links.map(function(link){
 			return (
@@ -18,4 +23,6 @@ export default class Navbar extends React.Component {
 				</ul>
 		)
 	}
-};
+});
+
+export default Navbar;

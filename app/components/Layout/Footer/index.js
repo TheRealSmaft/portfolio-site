@@ -1,11 +1,15 @@
 import React from 'react';
 import { footerStyles } from '../../../styles';
 
-export default class Footer extends React.Component {
-	constructor() {
-		super();
+const Footer = React.createClass({
+	propTypes: {
+		author: React.PropTypes.string
+	},
+
+	componentWillMount() {
 		this.year = new Date().getFullYear();
-	}
+	},
+
 	render() {
 		return (
 			<footer className={footerStyles}>
@@ -15,4 +19,6 @@ export default class Footer extends React.Component {
 			</footer>
 		)
 	}
-};
+});
+
+export default Footer;
