@@ -1,6 +1,10 @@
 import React from 'react';
 
 const TimedContainer = React.createClass({
+	propTypes: {
+		tcDuration: React.PropTypes.number.isRequired
+	},
+
 	componentWillMount() {
 		this.start = this.props.tcStart ? this.props.tcStart : 0;
 		this.elapsedTime = 0;
@@ -35,7 +39,11 @@ const TimedContainer = React.createClass({
 
 	render() {
 		return (
-			<div style={{position: 'absolute', top: this.eventTime * 10}}>
+			<div style={{
+				position: 'absolute', 
+				top: this.eventTime * 100, 
+				transition: 'top ease-in-out ' + this.props.tcDuration + 's'
+			}}>
 				{this.props.children}
 			</div>
 		)
