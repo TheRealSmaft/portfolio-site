@@ -1,51 +1,75 @@
 import React from 'react';
 
+import TimedComponent from './TimedComponent';
+
 const TimedContainer = React.createClass({
+	getInitialState() {
+		return {
+			delay: 0,
+			elapsedTime: 0,
+		}
+	},
+
 	propTypes: {
+		tcDelay: React.PropTypes.number,
+		tcIncrement: React.PropTypes.number,
 		tcDuration: React.PropTypes.number.isRequired
 	},
 
+	getDefaultProps() {
+		return {
+			tcDelay: 0,
+			tcIncrement: 1000
+		}
+	},
+
 	componentWillMount() {
-		this.start = this.props.tcStart ? this.props.tcStart : 0;
+		this.delay = 0;
 		this.elapsedTime = 0;
-		this.eventTime = 0;
 	},
 
 	componentDidMount() {
-		this.timer = setInterval(this.timeCounter, this.props.tcIncrement ? this.props.tcIncrement : 1000);
+		this.initializeTimer();
 	},
 
 	componentWillUnmount() {
 		this.stopTimer();
 	},
 
-	timeCounter() {
-		this.elapsedTime = this.elapsedTime + 1;
+	initializeTimer() {
+		this.timer = setInterval(this.timeCounter, this.props.tcIncrement);
+	},
 
-		if(this.elapsedTime >= this.start) {
-			this.eventTime = this.eventTime + 1;
+	timeCounter() {
+		if(this.state.delay < this.props.tcDelay) {
+			this.setState({
+				...this.state,
+				delay: this.state.delay + 1
+			});
+		}
+		else
+		{
+			this.setState({
+				...this.state,
+				elapsedTime: this.state.elapsedTime + 1
+			});
 		}
 
-		if(this.eventTime >= this.props.tcDuration) {
+		if(this.state.elapsedTime >= this.props.tcDuration) {
 			this.stopTimer();
 		}
 	},
 
 	stopTimer() {
 		clearInterval(this.timer);
-	},
-
-	// NEED A REDUX STORE AND EVENT LISTENER IN APP TO WATCH TIME?
+		this.stopped = true;
+	},	
 
 	render() {
 		return (
-			<div style={{
-				position: 'absolute', 
-				top: this.eventTime * 100, 
-				transition: 'top ease-in-out ' + this.props.tcDuration + 's'
-			}}>
+			<TimedComponent time={this.state.elapsedTime} stop={this.state.elapsedTime >= this.props.tcDuration || this.stopped}>
 				{this.props.children}
-			</div>
+			</TimedComponent>
 		)
 	}
 });

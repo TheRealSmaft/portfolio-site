@@ -33,6 +33,8 @@
     "postcss-smart-import": "^0.6.7",
     "precss": "^1.4.0",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^5.0.2",

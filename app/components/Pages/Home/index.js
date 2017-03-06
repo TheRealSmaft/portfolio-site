@@ -8,10 +8,8 @@ export default class Home extends React.Component {
 			<ResponsiveContainer>
 				<h1>SUP HOMEBOY!</h1>
 
-				<TimedContainer tcIncrement={500} tcDuration={4}>
-					<div>
-						dfhfdh
-					</div>
+				<TimedContainer tcDelay={5} tcIncrement={500} tcDuration={4}>
+
 				</TimedContainer>
 
 

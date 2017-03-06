@@ -5,7 +5,7 @@ import Row from './GridComponents/Row';
 const GridContainer = React.createClass({
 	propTypes: {
 		gutter: React.PropTypes.number,
-		breakPoints: React.PropTypes.array.isRequired
+		breakPoints: React.PropTypes.arrayOf(React.PropTypes.number).isRequired
 	},
 
 	componentWillMount() {
