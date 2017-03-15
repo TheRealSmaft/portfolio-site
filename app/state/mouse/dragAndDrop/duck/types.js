@@ -1,0 +1,13 @@
+const CREATE_DRAGGABLE = "mouse/dragAndDrop/duck/CREATE_DRAGGABLE";
+const CREATE_DROP_ZONE = "mouse/dragAndDrop/duck/CREATE_DROP_ZONE";
+const SELECT_DRAGGABLE = "mouse/dragAndDrop/duck/SELECT_DRAGGABLE";
+const SELECT_DROP_ZONE = "mouse/dragAndDrop/duck/SELECT_DROP_ZONE";
+const DRAGGABLE_DROPPED = "mouse/dragAndDrop/duck/DRAGGABLE_DROPPED";
+
+export default {
+	CREATE_DRAGGABLE,
+	CREATE_DROP_ZONE,
+	SELECT_DRAGGABLE,
+	SELECT_DROP_ZONE,
+	DRAGGABLE_DROPPED
+};

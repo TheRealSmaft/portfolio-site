@@ -14,4 +14,4 @@ const MainNavbar = React.createClass({
 	}
 });
 
-export default MainNavbar
+export default MainNavbar;
