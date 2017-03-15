@@ -1,11 +1,21 @@
 import React from 'react';
-import { ResponsiveContainer } from '../../Containers';
+import { ResponsiveContainer, DragContainer, DropZone } from '../../Containers';
 
 export default class PortfolioPage extends React.Component {
 	render() {
 		return (
 			<ResponsiveContainer>
-				<h1>Portfolio Page, Sucka!</h1>
+				<DragContainer dragId={'greenGuy'} zoneId={'yellowBox'}>
+					<p>
+						POOP
+					</p>
+				</DragContainer>
+
+				<DropZone zoneId={'yellowBox'}>
+					<p>
+						FARTS
+					</p>
+				</DropZone>
 			</ResponsiveContainer>
 		)
 	}
