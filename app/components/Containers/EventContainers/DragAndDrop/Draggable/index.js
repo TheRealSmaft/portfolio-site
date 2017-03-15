@@ -3,15 +3,22 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { mouseTrackingActions, mouseTrackingTypes } from '../../../../state/mouse/tracking';
+import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
+import { dragAndDropActions, dragAndDropTypes } from '../../../../../state/mouse/dragAndDrop';
 
 const Draggable = React.createClass({
 	propTypes: {
-		mouseState: React.PropTypes.object.isRequired
+		mouseState: React.PropTypes.object.isRequired,
+		dragId: React.PropTypes.string.isRequired,
+		zoneId: React.PropTypes.string.isRequired
+	},
+
+	componentWillMount() {
+		this.props.createDraggable(this.props.dragId, this.props.zoneId);
 	},
 
 	componentDidMount() {
-		this.dragging = false;
+		this.isDragging = false;
 		this.domElement = ReactDOM.findDOMNode(this);
 		this.originalPosition = {
 			position: this.domElement.style.position,
@@ -21,16 +28,18 @@ const Draggable = React.createClass({
 	},
 
 	toggleDrag() {
-		this.dragging = !this.dragging;
+		this.isDragging = !this.isDragging;
 
-		if(this.dragging) {
+		if(this.isDragging) {
 			this.domElement.style.position = 'absolute';
 			window.addEventListener('mousemove', this.trackMouse);
+			this.props.selectDraggable(this.props.dragId);
 		}
 		else
 		{	
 			window.removeEventListener('mousemove', this.trackMouse);
 			this.props.clearMousePosition();
+			this.props.selectDraggable();
 
 			if(!this.props.dragAndDropState.canDrop) {
 				this.returnDraggableToOriginalPosition();
@@ -80,7 +89,9 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
-		clearMousePosition: mouseTrackingActions.clearMousePosition
+		clearMousePosition: mouseTrackingActions.clearMousePosition,
+		createDraggable: dragAndDropActions.createDraggable,
+		selectDraggable: dragAndDropActions.selectDraggable
 	}, dispatch)
 }
 

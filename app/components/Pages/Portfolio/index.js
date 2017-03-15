@@ -1,15 +1,15 @@
 import React from 'react';
-import { ResponsiveContainer, DragContainer, DropZone } from '../../Containers';
+import { ResponsiveContainer, Draggable, DropZone } from '../../Containers';
 
 export default class PortfolioPage extends React.Component {
 	render() {
 		return (
 			<ResponsiveContainer>
-				<DragContainer dragId={'greenGuy'} zoneId={'yellowBox'}>
+				<Draggable dragId={'greenGuy'} zoneId={'yellowBox'}>
 					<p>
 						POOP
 					</p>
-				</DragContainer>
+				</Draggable>
 
 				<DropZone zoneId={'yellowBox'}>
 					<p>
