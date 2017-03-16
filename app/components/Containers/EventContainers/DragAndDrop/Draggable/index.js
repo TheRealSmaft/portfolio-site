@@ -14,40 +14,53 @@ const Draggable = React.createClass({
 	},
 
 	componentWillMount() {
-		this.props.createDraggable(this.props.dragId, this.props.zoneId);
+		this.props.createDraggable(this.props.dragId, this.props.zoneId, true);
+
+		this.placeholder = null;
 	},
 
 	componentDidMount() {
 		this.isDragging = false;
-		this.domElement = ReactDOM.findDOMNode(this);
+
+		this.dragElement = ReactDOM.findDOMNode(this.refs.draggableElement);
 		this.originalPosition = {
-			position: this.domElement.style.position,
-			top: this.domElement.style.top,
-			left: this.domElement.style.left
-		}
+			position: this.dragElement.style.position ? this.dragElement.style.position : 'static',
+			top: this.dragElement.style.top,
+			left: this.dragElement.style.left
+		}	
 	},
 
 	toggleDrag() {
 		this.isDragging = !this.isDragging;
 
 		if(this.isDragging) {
-			this.domElement.style.position = 'absolute';
+			this.dragElement.style.position = 'absolute';
+			this.placeholder = (
+				<div style={{width: 100, height: 100}}>
+				</div>
+			);
+
 			window.addEventListener('mousemove', this.trackMouse);
 			this.props.selectDraggable(this.props.dragId);
 		}
 		else
 		{	
+			if(!this.props.dragAndDropState.canDrop) {
+				this.placeholder = null;
+			}
+
 			window.removeEventListener('mousemove', this.trackMouse);
 			this.props.clearMousePosition();
 			this.props.selectDraggable();
 
 			if(!this.props.dragAndDropState.canDrop) {
+				this.isDragging = false;			
 				this.returnDraggableToOriginalPosition();
 			}
 		}
 	},
 
-	startTrackingMouse() {		
+	startTrackingMouse() {
 		window.addEventListener('mousemove', this.trackMouse);
 	},
 
@@ -57,23 +70,26 @@ const Draggable = React.createClass({
 
 	trackMouse(event) {
 		this.props.trackMousePosition(event.clientX, event.clientY);
-		this.domElement.style.top = this.props.mouseState.position.y - (this.domElement.getBoundingClientRect().height / 2) + 'px';
-		this.domElement.style.left = this.props.mouseState.position.x - (this.domElement.getBoundingClientRect().width / 2) + 'px';
+		this.dragElement.style.top = this.props.mouseState.position.y - (this.dragElement.getBoundingClientRect().height / 2) + 'px';
+		this.dragElement.style.left = this.props.mouseState.position.x - (this.dragElement.getBoundingClientRect().width / 2) + 'px';
 	},
 
 	returnDraggableToOriginalPosition() {
-		this.domElement.style.position = this.originalPosition.position;
-		this.domElement.style.top = this.originalPosition.top;
-		this.domElement.style.left = this.originalPosition.left;		
+		this.dragElement.style.top = this.originalPosition.top + 'px';
+		this.dragElement.style.left = this.originalPosition.left + 'px';
+		this.dragElement.style.position = this.originalPosition.position;
 	},
 
 	render() {
 		return (
 			<div>
-				<div onMouseUp={this.toggleDrag}>
+				<div 
+					onMouseUp={this.toggleDrag} 
+					ref='draggableElement'
+				>
 					{this.props.children}
 				</div>
-			
+				{this.placeholder}
 			</div>
 		)
 	}
@@ -91,7 +107,8 @@ function mapDispatchToProps(dispatch) {
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		clearMousePosition: mouseTrackingActions.clearMousePosition,
 		createDraggable: dragAndDropActions.createDraggable,
-		selectDraggable: dragAndDropActions.selectDraggable
+		selectDraggable: dragAndDropActions.selectDraggable,
+		dropSuccessful: dragAndDropActions.dropSuccessful
 	}, dispatch)
 }
 

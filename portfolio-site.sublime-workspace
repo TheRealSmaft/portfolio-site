@@ -523,16 +523,16 @@
 			"file": "app/components/Pages/Portfolio/index.js",
 			"settings":
 			{
-				"buffer_size": 449,
+				"buffer_size": 739,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/EventContainers/Draggable/index.js",
+			"file": "app/components/Containers/EventContainers/DragAndDrop/Draggable/index.js",
 			"settings":
 			{
-				"buffer_size": 2280,
+				"buffer_size": 3131,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -541,25 +541,17 @@
 			"file": "app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
 			"settings":
 			{
-				"buffer_size": 1957,
+				"buffer_size": 2536,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
+			"file": "app/state/store.js",
 			"settings":
 			{
-				"buffer_size": 1223,
+				"buffer_size": 429,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/EventContainers/StickyEventContainer/index.js",
-			"settings":
-			{
-				"buffer_size": 1540,
 				"line_ending": "Windows"
 			}
 		}
@@ -625,9 +617,8 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DragContainer",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/Draggable",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/Draggable",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio",
@@ -641,8 +632,10 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/actions.js",
@@ -652,7 +645,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/actions.js",
@@ -767,8 +759,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/navbar/navbar.css.map",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles/app.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles/app.css.map",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/_common/styles/page/page.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/_common/styles/styles.less"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/_common/styles/page/page.less"
 	],
 	"find":
 	{
@@ -788,6 +779,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"draggable",
+			"domElement",
+			"placeHolder",
+			"width",
+			"DragContainer",
+			"dragging",
 			"thisDiv",
 			"dragId",
 			"Width",
@@ -909,13 +906,7 @@
 			"TallestCol",
 			"tallestCol",
 			"TallestCol",
-			"tallestCol",
-			"props.children",
-			"gutter",
-			"this.colWidth",
-			"gridCount",
-			"windowEvent",
-			"Actions"
+			"tallestCol"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -942,22 +933,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 449,
+						"buffer_size": 739,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								375,
-								375
+								481,
+								481
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
-						"translation.x": 0.0,
+						"translation.x": 241.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -966,19 +957,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/Containers/EventContainers/Draggable/index.js",
+					"file": "app/components/Containers/EventContainers/DragAndDrop/Draggable/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2280,
+						"buffer_size": 3131,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1849,
-								1849
+								1623,
+								1623
 							]
 						],
 						"settings":
@@ -987,27 +978,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 620.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 2,
 					"file": "app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1957,
+						"buffer_size": 2536,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1546,
-								1546
+								1861,
+								1861
 							]
 						],
 						"settings":
@@ -1016,38 +1013,31 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1080.0,
+						"translation.y": 910.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 3,
-					"file": "app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
+					"file": "app/state/store.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1223,
+						"buffer_size": 429,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								579,
-								579
+								372,
+								372
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
@@ -1055,35 +1045,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/components/Containers/EventContainers/StickyEventContainer/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1540,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								899,
-								899
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 480.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]

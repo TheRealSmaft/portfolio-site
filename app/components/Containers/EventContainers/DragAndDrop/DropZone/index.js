@@ -7,7 +7,7 @@ import { dragAndDropActions, dragAndDropTypes } from '../../../../../state/mouse
 
 const DropZone = React.createClass({
 	propTypes: {
-		zoneId: React.PropTypes.string.isRequired
+		zoneId: React.PropTypes.string.isRequired,
 	},
 
 	componentWillMount() {
@@ -15,6 +15,10 @@ const DropZone = React.createClass({
 
 		this.userIsHovering = false;
 		this.lastHoverCase = false;
+
+		this.position = this.props.zonePosition ? this.props.zonePosition : 'static';
+
+		this.pixelBuffer = this.props.pixelBuffer ? this.props.pixelBuffer : 20;
 	},
 
 	componentDidMount() {
@@ -25,10 +29,10 @@ const DropZone = React.createClass({
 	componentWillReceiveProps() {
 		this.lastHoverCase = this.userIsHovering;
 
-		if(this.props.mouseState.position.x > this.boundingBox.left &&
-			this.props.mouseState.position.x < this.boundingBox.right &&
-			this.props.mouseState.position.y > this.boundingBox.top &&
-			this.props.mouseState.position.y < this.boundingBox.bottom) {
+		if(this.props.mouseState.position.x > (this.boundingBox.left - this.pixelBuffer) &&
+			this.props.mouseState.position.x < (this.boundingBox.right + this.pixelBuffer) &&
+			this.props.mouseState.position.y > (this.boundingBox.top - this.pixelBuffer) &&
+			this.props.mouseState.position.y < (this.boundingBox.bottom + this.pixelBuffer)) {
 
 			if(!this.userIsHovering){
 				this.userIsHovering = true;
@@ -72,7 +76,13 @@ const DropZone = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div style={{
+				display: this.position != 'absolute' && this.position != 'fixed' ? 'inline-block' : 'block',
+				position: this.position,
+				top: this.props.zoneLocation ? this.props.zoneLocation[1] : 0,
+				left: this.props.zoneLocation ? this.props.zoneLocation[0] : 0,
+				zIndex: this.props.zIndex
+			}}>
 				{this.props.children}
 			</div>
 		)

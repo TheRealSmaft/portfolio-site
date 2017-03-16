@@ -101,12 +101,21 @@ const dragAndDropReducer = (state = {
 
 			break;
 		}
-		case types.DRAGGABLE_DROPPED: {
+		case types.DROP_SUCCESSFUL: {
+			var name = action.payload;
+
 			state = {
 				...state,
-				currentDraggable: null,
-				canDrop: false
+				draggables: {
+					...state.draggables,
+					[name]: {
+						...[name],
+						droppedInZone: true,
+						canDrag: state.draggables[name].canBeRemovedFromZone ? true : false
+					}
+				}
 			}
+
 			break;
 		}
 	}
