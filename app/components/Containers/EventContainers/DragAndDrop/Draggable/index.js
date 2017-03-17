@@ -26,7 +26,7 @@ const Draggable = React.createClass({
 			this.props.children.props.style.height) {
 			
 			this.height = this.props.children.props.style.height;
-			this.float = this.props.children.props.float ? this.props.children.props.float : 'none';
+			this.float = this.props.children.props.style.float ? this.props.children.props.style.float : 'none';
 		}
 	},
 
