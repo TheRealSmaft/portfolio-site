@@ -10,5 +10,9 @@ export default [
 	{
 		"name": "About",
 		"url": "/about"
+	},
+	{
+		"name": "Something",
+		"url": "/somefing"
 	}
 ];
