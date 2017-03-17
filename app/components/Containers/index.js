@@ -1,9 +1,8 @@
 export { default as StickyContainer } from './EventContainers/StickyEventContainer';
 export { default as ScrollLoader } from './EventContainers/ScrollLoader';
 export { default as TimedContainer } from './EventContainers/TimedContainer';
-export { default as Draggable } from './EventContainers/Draggable';
 
-export { default as DragContainer } from './EventContainers/DragAndDrop/DragContainer';
+export { default as Draggable } from './EventContainers/DragAndDrop/Draggable';
 export { default as DropZone } from './EventContainers/DragAndDrop/DropZone';
 
 export { default as ResponsiveContainer } from './LayoutContainers/ResponsiveContainer';

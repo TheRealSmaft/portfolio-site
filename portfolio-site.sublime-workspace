@@ -4,8 +4,20 @@
 		"selected_items":
 		[
 			[
+				"zone",
+				"zoneId"
+			],
+			[
 				"inner",
-				"innerWidth\t.innerWidth()"
+				"innerHeight\t.innerHeight()"
+			],
+			[
+				"SE",
+				"SET_DROP_ZONE_BOUNDS"
+			],
+			[
+				"drag",
+				"dragId"
 			],
 			[
 				"d",
@@ -502,64 +514,53 @@
 			[
 				"Router",
 				"RouterModule\talias"
-			],
-			[
-				"Pro",
-				"ProductsPageComponent\talias"
-			],
-			[
-				"h",
-				"handleError\tmethod"
-			],
-			[
-				"swi",
-				"switchMap\tproperty"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/components/Pages/Portfolio/index.js",
-			"settings":
-			{
-				"buffer_size": 449,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/EventContainers/Draggable/index.js",
-			"settings":
-			{
-				"buffer_size": 2280,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
 			"settings":
 			{
-				"buffer_size": 1957,
+				"buffer_size": 3738,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
+			"file": "app/components/Containers/EventContainers/DragAndDrop/Draggable/index.js",
 			"settings":
 			{
-				"buffer_size": 1223,
+				"buffer_size": 4069,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/EventContainers/StickyEventContainer/index.js",
+			"file": "app/state/mouse/dragAndDrop/duck/types.js",
 			"settings":
 			{
-				"buffer_size": 1540,
+				"buffer_size": 550,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/state/mouse/dragAndDrop/duck/actions.js",
+			"settings":
+			{
+				"buffer_size": 973,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/state/mouse/dragAndDrop/duck/reducers.js",
+			"settings":
+			{
+				"buffer_size": 2469,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -625,13 +626,14 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DragContainer",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/Draggable",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/Draggable",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/duck",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck",
@@ -641,23 +643,35 @@
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/duck/types.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/duck/actions.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/Draggable/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Col/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/TimedContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/TimedContainer/TimedComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/store.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/Draggable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/dragAndDrop/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/duck/reducers.js",
@@ -671,19 +685,14 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/ScrollLoader/ScrollLoad/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/ScrollLoader/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/TimedContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Row/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/TimedContainer/TimedComponent/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/timer/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/timer/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/timer/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/timer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Header/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Footer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Col/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/window/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/AnimationContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/navLinks.js",
@@ -725,7 +734,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/ContentBlockComponents/ContentBlockComponent/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/store.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/contentBox/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Components/TextComponents/ContentBlockComponent/index.js",
@@ -762,13 +770,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/footer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles/app.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/navbar/navbar.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/navbar/navbar.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/navbar/navbar.css.map",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles/app.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/common/styles/app.css.map",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/_common/styles/page/page.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/_common/styles/styles.less"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/_common/styles/navbar/navbar.less"
 	],
 	"find":
 	{
@@ -788,6 +790,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"left",
+			"boundingBox",
+			"this.domElement.getBoundingClientRect()",
+			"boundingBox",
+			"this.boundingBox",
+			"WINDOW_SMALLER",
+			"WINDOW_SHRINK",
+			"SET_BREAK_LEVEL",
+			"CHECK_FOR_BREAKS",
+			"BREAK",
+			"BREAK_DOWN",
+			"left",
+			"top",
+			"dragElement.style.left",
+			"this.dragElement.style.top",
+			"top",
+			"tryToDrop",
+			"domElement",
+			"dropSuccessful",
+			"DROP_SUCCESSFUL",
+			"DRAGGABLE_DROPPED",
+			"draggableDropped",
+			"DRAGGABLE_DROP_FAILED",
+			"DRAGGABLE_DROPPED",
+			"draggable",
+			"domElement",
+			"placeHolder",
+			"width",
+			"DragContainer",
+			"dragging",
 			"thisDiv",
 			"dragId",
 			"Width",
@@ -885,37 +917,7 @@
 			"230",
 			"200",
 			"100",
-			"200",
-			"Page",
-			"state",
-			"maxWidth",
-			"Element",
-			"position",
-			"setBreakPoint",
-			"return",
-			"Resize",
-			"resize",
-			"Resize",
-			"resize",
-			"33.3",
-			" - 1",
-			"width = ",
-			"33.3",
-			"50",
-			"breakPoint",
-			"handleWindowResize",
-			"tallestColumn",
-			"tallestCol",
-			"TallestCol",
-			"tallestCol",
-			"TallestCol",
-			"tallestCol",
-			"props.children",
-			"gutter",
-			"this.colWidth",
-			"gridCount",
-			"windowEvent",
-			"Actions"
+			"200"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -933,24 +935,88 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/Pages/Portfolio/index.js",
+					"file": "app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 449,
+						"buffer_size": 3738,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								375,
-								375
+								1667,
+								1667
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 502.0,
+						"translation.y": 767.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/Containers/EventContainers/DragAndDrop/Draggable/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2803,
+								2803
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1474.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "app/state/mouse/dragAndDrop/duck/types.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 550,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								547,
+								547
 							]
 						],
 						"settings":
@@ -961,94 +1027,30 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Containers/EventContainers/Draggable/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2280,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1849,
-								1849
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1957,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1546,
-								1546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1080.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 4,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 3,
-					"file": "app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
+					"file": "app/state/mouse/dragAndDrop/duck/actions.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1223,
+						"buffer_size": 973,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								579,
-								579
+								193,
+								193
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1059,19 +1061,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "app/components/Containers/EventContainers/StickyEventContainer/index.js",
+					"file": "app/state/mouse/dragAndDrop/duck/reducers.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1540,
+						"buffer_size": 2469,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								899,
-								899
+								2232,
+								2232
 							]
 						],
 						"settings":
@@ -1079,11 +1081,11 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 480.0,
+						"translation.x": 0.0,
+						"translation.y": 2280.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

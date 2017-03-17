@@ -1,12 +1,12 @@
 import types from './types';
 
-function createDraggable(dragId:string, zone:string, inZone:bool = false) {
+function createDraggable(dragId:string, zone:string) {
 	return {
 		type: types.CREATE_DRAGGABLE,
 		payload: {
 			id: dragId,
 			zone: zone,
-			inZone: inZone
+			droppedInZone: false
 		}
 	}
 };
@@ -35,9 +35,20 @@ function selectDropZone(zoneId:string = null) {
 	}
 };
 
-function draggableDropped() {
+function dropSuccessful(dragId:string) {
 	return {
-		type: types.DRAGGABLE_DROPPED
+		type: types.DROP_SUCCESSFUL,
+		payload: dragId
+	}
+};
+
+function setDropZoneBounds(zoneId:string, bounds) {
+	return {
+		type: types.SET_DROP_ZONE_BOUNDS,
+		payload: {
+			zoneId: zoneId,
+			bounds: bounds
+		}
 	}
 };
 
@@ -46,5 +57,6 @@ export default {
 	createDropZone,
 	selectDraggable,
 	selectDropZone,
-	draggableDropped
+	dropSuccessful,
+	setDropZoneBounds
 };

@@ -31,9 +31,24 @@ const dragAndDropReducer = (state = {
 			break;
 		}
 		case types.SELECT_DRAGGABLE: {
+			var name = action.payload;
+
 			state = {
 				...state,
-				currentDraggable: action.payload
+				currentDraggable: action.payload,
+			}
+
+			if(name != null) {
+				state = {
+					...state,
+					draggables: {
+						...state.draggables,
+						[name]: {
+							...state.draggables[name],
+							droppedInZone: false
+						}
+					}
+				}
 			}
 
 			var zoneCheck = null;
@@ -101,11 +116,34 @@ const dragAndDropReducer = (state = {
 
 			break;
 		}
-		case types.DRAGGABLE_DROPPED: {
+		case types.DROP_SUCCESSFUL: {
+			var name = action.payload;
+
 			state = {
 				...state,
-				currentDraggable: null,
-				canDrop: false
+				draggables: {
+					...state.draggables,
+					[name]: {
+						...state.draggables[name],
+						droppedInZone: true
+					}
+				}
+			}
+
+			break;
+		}
+		case types.SET_DROP_ZONE_BOUNDS: {
+			var zoneName = action.payload.zoneId;
+
+			state = {
+				...state,
+				zones: {
+					...state.zones,
+					[zoneName]: {
+						...state.zones[zoneName],
+						bounds: action.payload.bounds
+					}
+				}
 			}
 			break;
 		}
