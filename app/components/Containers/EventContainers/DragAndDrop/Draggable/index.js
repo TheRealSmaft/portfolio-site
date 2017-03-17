@@ -17,6 +17,17 @@ const Draggable = React.createClass({
 		this.props.createDraggable(this.props.dragId, this.props.zoneId, true);
 
 		this.placeholder = null;
+
+		this.height = '100%';
+		this.float = 'none';
+
+		if(this.props.children.props &&
+			this.props.children.props.style &&
+			this.props.children.props.style.height) {
+			
+			this.height = this.props.children.props.style.height;
+			this.float = this.props.children.props.float ? this.props.children.props.float : 'none';
+		}
 	},
 
 	componentDidMount() {
@@ -103,8 +114,8 @@ const Draggable = React.createClass({
 	render() {
 		return (
 			<div style={{
-					height: this.props.children.props.style.height,
-					float: this.props.children.props.style.float
+					height: this.height,
+					float: this.float
 				}}>
 				<div 
 					onMouseUp={this.toggleDrag} 
