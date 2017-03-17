@@ -10,7 +10,8 @@ export default class PortfolioPage extends React.Component {
 						backgroundColor: 'green', 
 						height: 100,
 						width: 100,
-						borderRadius: '50%'
+						borderRadius: '50%',
+						float: 'left'
 					}}>
 					</div>
 				</Draggable>
@@ -21,7 +22,8 @@ export default class PortfolioPage extends React.Component {
 							height: 200,
 							width: 200,
 							borderRadius: '10%',
-							zIndex: -1
+							zIndex: -1,
+							float: 'left'
 						}}>
 					</div>
 				</DropZone>

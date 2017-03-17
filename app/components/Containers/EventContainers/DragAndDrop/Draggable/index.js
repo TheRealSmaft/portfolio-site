@@ -23,11 +23,20 @@ const Draggable = React.createClass({
 		this.isDragging = false;
 
 		this.dragElement = ReactDOM.findDOMNode(this.refs.draggableElement);
+
+		this.dragElement.style.display = 'inline-block';
+	
 		this.originalPosition = {
 			position: this.dragElement.style.position ? this.dragElement.style.position : 'static',
 			top: this.dragElement.style.top,
 			left: this.dragElement.style.left
 		}	
+	},
+
+	componentDidUpdate() {
+		if(this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+			this.repositionDraggable();
+		}
 	},
 
 	toggleDrag() {
@@ -57,6 +66,11 @@ const Draggable = React.createClass({
 				this.isDragging = false;			
 				this.returnDraggableToOriginalPosition();
 			}
+			else
+			{
+				this.repositionDraggable();
+				this.props.dropSuccessful(this.props.dragId);
+			}
 		}
 	},
 
@@ -70,8 +84,8 @@ const Draggable = React.createClass({
 
 	trackMouse(event) {
 		this.props.trackMousePosition(event.clientX, event.clientY);
-		this.dragElement.style.top = this.props.mouseState.position.y - (this.dragElement.getBoundingClientRect().height / 2) + 'px';
-		this.dragElement.style.left = this.props.mouseState.position.x - (this.dragElement.getBoundingClientRect().width / 2) + 'px';
+		this.dragElement.style.top = (this.props.mouseState.position.y - this.dragElement.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
+		this.dragElement.style.left = (this.props.mouseState.position.x - this.dragElement.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
 	},
 
 	returnDraggableToOriginalPosition() {
@@ -80,9 +94,18 @@ const Draggable = React.createClass({
 		this.dragElement.style.position = this.originalPosition.position;
 	},
 
+	repositionDraggable() {
+		var draggableBounds = this.dragElement.getBoundingClientRect();
+		this.dragElement.style.top = (this.props.dragAndDropState.zones[this.props.zoneId].bounds.centerY) - ((draggableBounds.height/2)/window.innerHeight * 100) + '%';
+		this.dragElement.style.left = (this.props.dragAndDropState.zones[this.props.zoneId].bounds.centerX) - ((draggableBounds.width/2)/window.innerWidth * 100) + '%';
+	},
+
 	render() {
 		return (
-			<div>
+			<div style={{
+					height: this.props.children.props.style.height,
+					float: this.props.children.props.style.float
+				}}>
 				<div 
 					onMouseUp={this.toggleDrag} 
 					ref='draggableElement'

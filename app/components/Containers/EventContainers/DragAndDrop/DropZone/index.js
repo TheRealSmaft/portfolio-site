@@ -12,6 +12,7 @@ const DropZone = React.createClass({
 
 	componentWillMount() {
 		this.props.createDropZone(this.props.zoneId);
+		this.domElement = null;
 
 		this.userIsHovering = false;
 		this.lastHoverCase = false;
@@ -23,7 +24,7 @@ const DropZone = React.createClass({
 
 	componentDidMount() {
 		this.domElement = ReactDOM.findDOMNode(this);
-		this.boundingBox = this.domElement.getBoundingClientRect();
+		this.boundingBox = this.getBoundingBox();
 	},
 
 	componentWillReceiveProps() {
@@ -47,7 +48,7 @@ const DropZone = React.createClass({
 	},
 
 	shouldComponentUpdate(nextProps) {
-		if(this.userIsHovering != this.lastHoverCase) {
+		if(this.userIsHovering != this.lastHoverCase || this.props.windowState != nextProps.windowState) {
 			return true;
 		}
 		else
@@ -57,6 +58,18 @@ const DropZone = React.createClass({
 	},
 
 	componentWillUpdate() {
+
+		this.boundingBox = this.getBoundingBox();
+
+		this.props.setDropZoneBounds(this.props.zoneId, {
+			top: this.boundingBox.top,
+			left: this.boundingBox.left,
+			width: this.boundingBox.width,
+			height: this.boundingBox.height,
+			centerX: (this.boundingBox.left + this.boundingBox.width/2)/window.innerWidth * 100,
+			centerY: (this.boundingBox.top + this.boundingBox.height/2)/window.innerHeight * 100
+		});
+
 		if(this.userIsHovering) {
 			this.enterZone();
 		}
@@ -68,10 +81,23 @@ const DropZone = React.createClass({
 
 	enterZone() {
 		this.props.selectDropZone(this.props.zoneId);
+		
+		this.props.setDropZoneBounds(this.props.zoneId, {
+			top: this.boundingBox.top,
+			left: this.boundingBox.left,
+			width: this.boundingBox.width,
+			height: this.boundingBox.height,
+			centerX: (this.boundingBox.left + this.boundingBox.width/2)/window.innerWidth * 100,
+			centerY: (this.boundingBox.top + this.boundingBox.height/2)/window.innerHeight * 100
+		});
 	},
 
 	leaveZone() {
 		this.props.selectDropZone();
+	},
+
+	getBoundingBox() {
+		return this.domElement.getBoundingClientRect();
 	},
 
 	render() {
@@ -92,14 +118,16 @@ const DropZone = React.createClass({
 function mapStateToProps(store) {
 	return {
 		dragAndDropState: store.dragAndDropState,
-		mouseState: store.mouseState
+		mouseState: store.mouseState,
+		windowState: store.windowState
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		createDropZone: dragAndDropActions.createDropZone,
-		selectDropZone: dragAndDropActions.selectDropZone
+		selectDropZone: dragAndDropActions.selectDropZone,
+		setDropZoneBounds: dragAndDropActions.setDropZoneBounds
 	}, dispatch)
 }
 
