@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ResponsiveContainer, ItemContainer } from '../../Containers';
+import { ResponsiveContainer, ItemContainer, InventoryContainer } from '../../Containers';
 
 const SomefingPage = React.createClass({
 	render() {
@@ -26,6 +26,8 @@ const SomefingPage = React.createClass({
 				</div>
 
 				<h1>N1</h1>
+
+				<InventoryContainer />
 			</ResponsiveContainer>
 		)
 	}

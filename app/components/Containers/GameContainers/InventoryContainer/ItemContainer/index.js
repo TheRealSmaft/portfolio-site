@@ -14,9 +14,19 @@ const ItemContainer = React.createClass({
 	},
 
 	componentWillMount() {
-		this.item = new Item(this.props.itemName);
+		this.item = null;
 
-		this.placeholder = null;
+		for(let item of this.props.inventory.items) {
+			if(item.name === this.props.itemName) {
+				this.item = item;
+				break;
+			}
+		};
+
+		if(this.item === null) {
+			this.item = new Item(this.props.itemName);
+			this.placeholder = null;
+		};
 
 		this.height = '100%';
 		this.float = 'none';
@@ -31,24 +41,44 @@ const ItemContainer = React.createClass({
 	},
 
 	componentDidMount(){
-		this.itemElement = ReactDOM.findDOMNode(this.refs.item);
+		var itemElement = ReactDOM.findDOMNode(this.refs.item);
+
+		if(!this.item.hasDimensions) {
+			
+			var itemClientRect = itemElement.getBoundingClientRect();
+
+			var dimensions = {
+				width: itemClientRect.width,
+				height: itemClientRect.height
+			};
+
+			this.item.setPosition(itemElement.style.position);
+			this.item.setDisplay(itemElement.style.display);
+			this.item.setDimensions(dimensions);
+		}
+
+		if(this.item.acquired) {
+			this.createPlaceholder();
+		};
 	},
 
 	addItemToInventory() {
+		this.item.acquireItem();
 		this.props.addItemToInventory(this.item);
+		this.createPlaceholder();
+	},
 
-		var dimensions = this.itemElement.getBoundingClientRect();
-
-		this.itemElement.style.display = 'none';
-
+	createPlaceholder() {
 		this.placeholder = (
 			<div style={{
-				position: this.itemElement.style.position,
-				width: dimensions.width,
-				height: dimensions.height
+				display: this.item.display,
+				position: this.item.position,
+				width: this.item.dimensions.width,
+				height: this.item.dimensions.height
 			}}>
 			</div>
 		);
+		this.forceUpdate();
 	},
 
 	render() {
@@ -59,7 +89,7 @@ const ItemContainer = React.createClass({
 			}}>
 				<div 
 					onMouseUp={this.addItemToInventory} 
-					style={{display: 'inline-block'}}
+					style={{display: this.item.acquired ? 'none' : 'inline-block'}}
 					ref='item'>
 					{this.props.children}
 				</div>
