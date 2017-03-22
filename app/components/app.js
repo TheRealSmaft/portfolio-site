@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { appStyles, navbarStyles } from '../styles';
 
 import { MainNavbar, Footer } from './Layout';
-import { ResponsiveContainer, StickyContainer } from './Containers';
+import { ResponsiveContainer, StickyContainer, InventoryContainer } from './Containers';
 
 import { NavLinks } from './Pages';
 
@@ -45,7 +45,7 @@ const App = React.createClass({
 
 				{this.props.children}
 
-				<Footer author={this.props.site.author}/>
+				<InventoryContainer />
 
 			</div>
 		)

@@ -48,7 +48,9 @@ const DropZone = React.createClass({
 	},
 
 	shouldComponentUpdate(nextProps) {
-		if(this.userIsHovering != this.lastHoverCase || this.props.windowState != nextProps.windowState) {
+		if(this.userIsHovering != this.lastHoverCase || 
+			this.props.windowState != nextProps.windowState ||
+			this.props.scrollState != nextProps.scrollState) {
 			return true;
 		}
 		else
@@ -58,7 +60,6 @@ const DropZone = React.createClass({
 	},
 
 	componentWillUpdate() {
-
 		this.boundingBox = this.getBoundingBox();
 
 		this.props.setDropZoneBounds(this.props.zoneId, {
@@ -70,12 +71,14 @@ const DropZone = React.createClass({
 			centerY: (this.boundingBox.top + this.boundingBox.height/2)/window.innerHeight * 100
 		});
 
-		if(this.userIsHovering) {
-			this.enterZone();
-		}
-		else
-		{
-			this.leaveZone();
+		if(this.userIsHovering != this.lastHoverCase) {
+			if(this.userIsHovering) {
+				this.enterZone();
+			}
+			else
+			{
+				this.leaveZone();
+			}
 		}
 	},
 
@@ -102,7 +105,9 @@ const DropZone = React.createClass({
 
 	render() {
 		return (
-			<div style={{
+			<div
+			id={this.props.zoneId} 
+			style={{
 				display: this.position != 'absolute' && this.position != 'fixed' ? 'inline-block' : 'block',
 				position: this.position,
 				top: this.props.zoneLocation ? this.props.zoneLocation[1] : 0,
@@ -119,7 +124,8 @@ function mapStateToProps(store) {
 	return {
 		dragAndDropState: store.dragAndDropState,
 		mouseState: store.mouseState,
-		windowState: store.windowState
+		windowState: store.windowState,
+		scrollState: store.scrollState
 	};
 }
 

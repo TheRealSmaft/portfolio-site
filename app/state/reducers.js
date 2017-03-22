@@ -5,11 +5,13 @@ import scrollEventReducer from './events/scroll';
 import windowEventReducer from './events/window';
 import mouseTrackingReducer from './mouse/tracking';
 import dragAndDropReducer from './mouse/dragAndDrop';
+import inventoryReducer from './game/inventory';
 
 export default combineReducers({
 	initialState: initialReducer,
 	scrollState: scrollEventReducer,
 	windowState: windowEventReducer,
 	mouseState: mouseTrackingReducer,
-	dragAndDropState: dragAndDropReducer
+	dragAndDropState: dragAndDropReducer,
+	inventoryState: inventoryReducer
 });
