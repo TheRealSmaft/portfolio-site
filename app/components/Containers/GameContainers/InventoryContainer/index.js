@@ -7,7 +7,7 @@ import { inventoryTypes, inventoryActions } from '../../../../state/game/invento
 
 import Item from './ItemContainer/Item';
 
-import { Draggable } from '../../../Containers';
+import { Draggable, ResponsiveContainer } from '../../../Containers';
 
 const InventoryContainer = React.createClass({
 	propTypes: {
@@ -41,6 +41,7 @@ const InventoryContainer = React.createClass({
 					ref={item.name} 
 					dragId={item.name} 
 					zoneId={item.name}
+					isInvItem={true}
 				>
 					<img 
 						src={require('./ItemContainer/images/' + item.name + '.svg')}
@@ -64,9 +65,9 @@ const InventoryContainer = React.createClass({
 						height: this.props.invHeight,
 						width: this.props.invWidth
 					}}>
-					<div>
+					<ResponsiveContainer>
 						{items}
-					</div>
+					</ResponsiveContainer>
 				</div>
 				<div style={{width: this.props.invWidth, height: this.props.invHeight}}>
 				</div>

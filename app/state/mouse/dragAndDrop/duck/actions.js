@@ -1,12 +1,13 @@
 import types from './types';
 
-function createDraggable(dragId:string, zone:string) {
+function createDraggable(dragId:string, zone:string, isInvItem:bool = false) {
 	return {
 		type: types.CREATE_DRAGGABLE,
 		payload: {
 			id: dragId,
 			zone: zone,
-			droppedInZone: false
+			droppedInZone: false,
+			isInvItem: isInvItem
 		}
 	}
 };

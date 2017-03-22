@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
 import { dragAndDropActions, dragAndDropTypes } from '../../../../../state/mouse/dragAndDrop';
+import { inventoryActions, inventoryTypes } from '../../../../../state/game/inventory';
 
 import styles from '../../../../../styles/dragAndDrop';
 
@@ -17,7 +18,11 @@ const Draggable = React.createClass({
 
 	componentWillMount() {
 		if(!this.props.dragAndDropState.draggables[this.props.dragId]) {
-			this.props.createDraggable(this.props.dragId, this.props.zoneId);
+			var isInvItem = false;
+			if(this.props.isInvItem) {
+				isInvItem = true;
+			}
+			this.props.createDraggable(this.props.dragId, this.props.zoneId, isInvItem);
 			this.alreadyExisted = false;
 		}
 		else
@@ -108,6 +113,7 @@ const Draggable = React.createClass({
 				{
 					this.appendDraggableToDropZone();
 					this.props.dropSuccessful(this.props.dragId);
+					// this.props.removeItemFromInventory(this.props.dragId);
 				}
 			}
 		}
@@ -207,7 +213,8 @@ function mapDispatchToProps(dispatch) {
 		clearMousePosition: mouseTrackingActions.clearMousePosition,
 		createDraggable: dragAndDropActions.createDraggable,
 		selectDraggable: dragAndDropActions.selectDraggable,
-		dropSuccessful: dragAndDropActions.dropSuccessful
+		dropSuccessful: dragAndDropActions.dropSuccessful,
+		removeItemFromInventory: inventoryActions.removeItemFromInventory
 	}, dispatch)
 }
 
