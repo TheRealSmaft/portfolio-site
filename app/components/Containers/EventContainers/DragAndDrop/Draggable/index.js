@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
 import { dragAndDropActions, dragAndDropTypes } from '../../../../../state/mouse/dragAndDrop';
 
+import styles from '../../../../../styles/dragAndDrop';
+
 const Draggable = React.createClass({
 	propTypes: {
 		mouseState: React.PropTypes.object.isRequired,
@@ -26,14 +28,19 @@ const Draggable = React.createClass({
 		this.placeholder = null;
 
 		this.height = '100%';
+		this.width = '100%';
 		this.float = 'none';
+		this.display = 'inline-block';
+		this.marginLeft = '0px';
 
 		if(this.props.children.props &&
-			this.props.children.props.style &&
-			this.props.children.props.style.height) {
+			this.props.children.props.style) {
 			
-			this.height = this.props.children.props.style.height;
-			this.float = this.props.children.props.style.float ? this.props.children.props.style.float : 'none';
+			this.width = this.props.children.props.style.width ? this.props.children.props.style.width : this.width;
+			this.height = this.props.children.props.style.height ? this.props.children.props.style.height : this.height;
+			this.float = this.props.children.props.style.float ? this.props.children.props.style.float : this.float;
+			this.display = this.props.children.props.style.display ? this.props.children.props.style.display : this.display;
+			this.marginLeft = this.props.children.props.style.marginLeft ? this.props.children.props.style.marginLeft : this.marginLeft;
 		}
 	},
 
@@ -43,7 +50,7 @@ const Draggable = React.createClass({
 		this.dragElement = ReactDOM.findDOMNode(this.refs.draggableElement);
 		this.originalParent = this.dragElement.parentNode;
 
-		this.dragElement.style.display = 'inline-block';
+		this.dragElement.style.display = this.display;
 	
 		this.originalPosition = {
 			position: this.dragElement.style.position ? this.dragElement.style.position : 'static',
@@ -140,8 +147,8 @@ const Draggable = React.createClass({
 		zoneNode.appendChild(this.dragElement);
 
 		this.dragElement.style.position = 'relative';
-		this.dragElement.style.left = (this.dragElement.getBoundingClientRect().width / zoneNode.getBoundingClientRect().width * 100) / 2 + '%';
-		this.dragElement.style.top = (this.dragElement.getBoundingClientRect().height / zoneNode.getBoundingClientRect().height * 100) / 2 + '%';
+		this.dragElement.style.left = ((zoneNode.getBoundingClientRect().width - this.dragElement.getBoundingClientRect().width)/zoneNode.getBoundingClientRect().width) / 2 * 100 + '%';
+		this.dragElement.style.top = ((zoneNode.getBoundingClientRect().height - this.dragElement.getBoundingClientRect().height)/zoneNode.getBoundingClientRect().height) / 2 * 100 + '%';
 	},
 
 	startTrackingMouse() {
@@ -169,10 +176,12 @@ const Draggable = React.createClass({
 		return (
 			<div
 			style={{
+				width: this.width,
 				height: this.height,
 				float: this.float
 			}}>
 				<div 
+					className={this.props.dragAndDropState.draggables[this.props.dragId] && !this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone ? styles.draggable : ''}
 					onMouseUp={this.toggleDrag} 
 					ref='draggableElement'
 				>

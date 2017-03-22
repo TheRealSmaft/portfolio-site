@@ -10,6 +10,16 @@ import Item from './ItemContainer/Item';
 import { Draggable } from '../../../Containers';
 
 const InventoryContainer = React.createClass({
+	propTypes: {
+		invHeight: React.PropTypes.string.isRequired,
+		invWidth: React.PropTypes.string.isRequired
+	},
+
+	componentWillMount() {
+		this.itemWidth = 50;
+		this.invGutter = 10;
+	},
+
 	removeItem(itemName) {
 		this.props.removeItem(itemName);
 	},
@@ -17,33 +27,49 @@ const InventoryContainer = React.createClass({
 // USE THIS FOR REMOVAL ---> onClick={() => this.removeItem(item.name)}
 
 	render() {
-		var items = this.props.inventory.items.map((item) =>
-			<li 
+		var items = this.props.inventory.items.map((item, index) =>
+			<div 
 				key={item.name} 
-				style={{listStyleType: 'none'}}
+				style={{
+					marginLeft: this.invGutter,
+					marginTop: 10,
+					width: this.itemWidth,
+					float: 'left'
+				}}
 			>
-				<Draggable ref={item.name} dragId={item.name} zoneId={'zone'}>
+				<Draggable 
+					ref={item.name} 
+					dragId={item.name} 
+					zoneId={item.name}
+				>
 					<img 
 						src={require('./ItemContainer/images/' + item.name + '.svg')}
-						style={{width: '50px'}} />
+						style={{
+							width: this.itemWidth, 
+						}}
+					/>
 				</Draggable>
-			</li>
+			</div>
 		);
 
 		return (
-			<div 
-				style={{
-					position: 'fixed', 
-					bottom: 0, 
-					left: 0, 
-					zIndex: 1,
-					backgroundColor: 'pink',
-					height: 100,
-					width: '100%'
-				}}>
-				<ul>
-					{items}
-				</ul>
+			<div>
+				<div 
+					style={{
+						position: 'fixed', 
+						bottom: 0, 
+						left: 0, 
+						zIndex: 1,
+						backgroundColor: 'rgb(245,245,245)',
+						height: this.props.invHeight,
+						width: this.props.invWidth
+					}}>
+					<div>
+						{items}
+					</div>
+				</div>
+				<div style={{width: this.props.invWidth, height: this.props.invHeight}}>
+				</div>
 			</div>
 		)
 	}

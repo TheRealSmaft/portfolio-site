@@ -38,11 +38,11 @@ export default class Home extends React.Component {
 					</Row>
 				</Grid>
 
-				<DropZone zoneId={'zone'}>
+				<DropZone zoneId={'item'}>
 					<div style={{
 							backgroundColor: 'blue', 
-							height: 200,
-							width: 200,
+							height: 60,
+							width: 60,
 							borderRadius: '10%',
 							zIndex: -1,
 							float: 'left'

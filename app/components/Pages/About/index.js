@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
+import { ResponsiveContainer, Grid, Row, Col, ItemContainer } from '../../Containers';
 
 export default class About extends React.Component {
 	render() {
@@ -18,9 +18,7 @@ export default class About extends React.Component {
 							<p>
 								Aliquam fermentum, diam nec tincidunt condimentum, justo purentum arcu massa, at consequat eros luctus a. Suspendisse tincidunt finibus tincidunt.
 							</p>
-							<p>
-								Aenean finibus rhoncus scelerisque. Aliquam erat volutpat. In fringilla sodales augue quis aliquam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam viverra ultrices arcu, at sollicitudin mauris luctus sit amet.
-							</p>						
+							<ItemContainer itemName={'item4'} float={'left'} itemWidth={'50px'}/>					
 						</Col>
 						<Col breaks={[33.3, 33.3, 100]}>
 							<p>

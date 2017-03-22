@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveContainer, Draggable, DropZone, TimedContainer } from '../../Containers';
+import { ResponsiveContainer, Draggable, DropZone, TimedContainer, ItemContainer } from '../../Containers';
 
 export default class PortfolioPage extends React.Component {
 	render() {
@@ -41,6 +41,8 @@ export default class PortfolioPage extends React.Component {
 					zoneId={'toilet'}>
 					<p>fddfh</p>
 				</Draggable>
+
+				<ItemContainer itemName={'item2'} float={'left'} itemWidth={'50px'}/>
 
 				<DropZone zoneId={'toilet'} zonePosition={'absolute'} zIndex={-1} zoneLocation={['50%', '60%']}>
 					<div style={{

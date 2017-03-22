@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import Item from './Item';
 
+import styles from '../../../../../styles/inventory';
+
 import { inventoryActions, inventoryTypes } from '../../../../../state/game/inventory';
 
 const ItemContainer = React.createClass({
@@ -53,9 +55,6 @@ const ItemContainer = React.createClass({
 		var itemElement = ReactDOM.findDOMNode(this.refs.item);
 
 		if(!this.item.hasDimensions) {
-			
-			// var itemClientRect = itemElement.getBoundingClientRect();
-
 			var dimensions = {
 				width: img.offsetWidth,
 				height: img.offsetHeight
@@ -86,7 +85,9 @@ const ItemContainer = React.createClass({
 
 	render() {
 		return (
-			<div style={{
+			<div
+			className={styles.item} 
+			style={{
 				height: '100%',
 				float: this.props.float ? this.props.float : 'none'
 			}}>

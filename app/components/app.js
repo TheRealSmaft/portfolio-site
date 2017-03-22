@@ -45,7 +45,7 @@ const App = React.createClass({
 
 				{this.props.children}
 
-				<InventoryContainer />
+				<InventoryContainer invHeight={'100px'} invWidth={'100%'}/>
 
 			</div>
 		)
