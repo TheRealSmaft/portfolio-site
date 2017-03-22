@@ -14,7 +14,14 @@ const Draggable = React.createClass({
 	},
 
 	componentWillMount() {
-		this.props.createDraggable(this.props.dragId, this.props.zoneId, true);
+		if(!this.props.dragAndDropState.draggables[this.props.dragId]) {
+			this.props.createDraggable(this.props.dragId, this.props.zoneId);
+			this.alreadyExisted = false;
+		}
+		else
+		{
+			this.alreadyExisted = true;
+		}
 
 		this.placeholder = null;
 
@@ -42,52 +49,79 @@ const Draggable = React.createClass({
 			position: this.dragElement.style.position ? this.dragElement.style.position : 'static',
 			top: this.dragElement.style.top,
 			left: this.dragElement.style.left
-		}	
+		}
+
+		if(this.alreadyExisted) {
+			this.createPlaceholder();
+		}
+	},
+
+	componentWillReceiveProps(nextProps) {
+		if(this.props.dragAndDropState.draggables[this.props.dragId]) {
+			if(this.checkForZoneNode() &&
+				this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+				this.appendDraggableToDropZone();
+			}
+		}
 	},
 
 	toggleDrag() {
-		this.isDragging = !this.isDragging;
+		if(!this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+			this.isDragging = !this.isDragging;
 
-		if(this.isDragging) {
-			this.dragElement.style.position = 'absolute';
-			this.dragElement.style.zIndex = 99;
+			if(this.isDragging) {
+				this.dragElement.style.position = 'absolute';
+				this.dragElement.style.zIndex = 99;
 
-			this.appendDraggableToDocumentBody();
+				this.appendDraggableToDocumentBody();
 
-			this.placeholder = (
-				<div style={{
-					width: this.dragElement.getBoundingClientRect().width, 
-					height: this.dragElement.getBoundingClientRect().height
-				}}>
-				</div>
-			);
+				this.createPlaceholder();
 
-			window.addEventListener('mousemove', this.trackMouse);
-			this.props.selectDraggable(this.props.dragId);
-		}
-		else
-		{	
-			this.appendDraggableToOriginalParent();
-			this.dragElement.style.zIndex = 0;
-
-			if(!this.props.dragAndDropState.canDrop) {
-				this.placeholder = null;
-			}
-
-			window.removeEventListener('mousemove', this.trackMouse);
-			this.props.clearMousePosition();
-			this.props.selectDraggable();
-
-			if(!this.props.dragAndDropState.canDrop) {
-				this.isDragging = false;			
-				this.returnDraggableToOriginalPosition();
+				window.addEventListener('mousemove', this.trackMouse);
+				this.props.selectDraggable(this.props.dragId);
 			}
 			else
-			{
-				this.appendDraggableToDropZone();
-				this.props.dropSuccessful(this.props.dragId);
+			{	
+				this.appendDraggableToOriginalParent();
+				this.dragElement.style.zIndex = 0;
+
+				if(!this.props.dragAndDropState.canDrop) {
+					this.removePlaceholder();
+				}
+
+				window.removeEventListener('mousemove', this.trackMouse);
+				this.props.clearMousePosition();
+				this.props.selectDraggable();
+
+				if(!this.props.dragAndDropState.canDrop) {
+					this.isDragging = false;			
+					this.returnDraggableToOriginalPosition();
+				}
+				else
+				{
+					this.appendDraggableToDropZone();
+					this.props.dropSuccessful(this.props.dragId);
+				}
 			}
 		}
+	},
+
+	checkForZoneNode() {
+		return document.getElementById(this.props.zoneId) ? true : false;
+	},
+
+	createPlaceholder() {
+		this.placeholder = (
+			<div style={{
+				width: this.dragElement.getBoundingClientRect().width, 
+				height: this.dragElement.getBoundingClientRect().height
+			}}>
+			</div>
+		);
+	},
+
+	removePlaceholder() {
+		this.placeholder = null;
 	},
 
 	appendDraggableToDocumentBody() {
