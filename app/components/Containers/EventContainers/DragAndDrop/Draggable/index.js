@@ -34,6 +34,7 @@ const Draggable = React.createClass({
 		this.isDragging = false;
 
 		this.dragElement = ReactDOM.findDOMNode(this.refs.draggableElement);
+		this.originalParent = this.dragElement.parentNode;
 
 		this.dragElement.style.display = 'inline-block';
 	
@@ -44,19 +45,20 @@ const Draggable = React.createClass({
 		}	
 	},
 
-	componentDidUpdate() {
-		if(this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
-			this.repositionDraggable();
-		}
-	},
-
 	toggleDrag() {
 		this.isDragging = !this.isDragging;
 
 		if(this.isDragging) {
 			this.dragElement.style.position = 'absolute';
+			this.dragElement.style.zIndex = 99;
+
+			this.appendDraggableToDocumentBody();
+
 			this.placeholder = (
-				<div style={{width: 100, height: 100}}>
+				<div style={{
+					width: this.dragElement.getBoundingClientRect().width, 
+					height: this.dragElement.getBoundingClientRect().height
+				}}>
 				</div>
 			);
 
@@ -65,6 +67,9 @@ const Draggable = React.createClass({
 		}
 		else
 		{	
+			this.appendDraggableToOriginalParent();
+			this.dragElement.style.zIndex = 0;
+
 			if(!this.props.dragAndDropState.canDrop) {
 				this.placeholder = null;
 			}
@@ -79,10 +84,30 @@ const Draggable = React.createClass({
 			}
 			else
 			{
-				this.repositionDraggable();
+				this.appendDraggableToDropZone();
 				this.props.dropSuccessful(this.props.dragId);
 			}
 		}
+	},
+
+	appendDraggableToDocumentBody() {
+		this.dragElement.parentNode.removeChild(this.dragElement);
+		document.body.appendChild(this.dragElement);
+	},
+
+	appendDraggableToOriginalParent() {
+		this.dragElement.parentNode.removeChild(this.dragElement);
+		this.originalParent.appendChild(this.dragElement);
+	},
+
+	appendDraggableToDropZone() {
+		var zoneNode = document.getElementById(this.props.zoneId).childNodes[0];
+		this.dragElement.parentNode.removeChild(this.dragElement);
+		zoneNode.appendChild(this.dragElement);
+
+		this.dragElement.style.position = 'relative';
+		this.dragElement.style.left = (this.dragElement.getBoundingClientRect().width / zoneNode.getBoundingClientRect().width * 100) / 2 + '%';
+		this.dragElement.style.top = (this.dragElement.getBoundingClientRect().height / zoneNode.getBoundingClientRect().height * 100) / 2 + '%';
 	},
 
 	startTrackingMouse() {
@@ -95,8 +120,9 @@ const Draggable = React.createClass({
 
 	trackMouse(event) {
 		this.props.trackMousePosition(event.clientX, event.clientY);
-		this.dragElement.style.top = (this.props.mouseState.position.y - this.dragElement.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
-		this.dragElement.style.left = (this.props.mouseState.position.x - this.dragElement.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
+		this.dragElement.style.top = ((this.props.mouseState.position.y + this.props.scrollState.scrollY) - this.dragElement.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
+		this.dragElement.style.left = ((this.props.mouseState.position.x + this.props.scrollState.scrollX) - this.dragElement.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
+
 	},
 
 	returnDraggableToOriginalPosition() {
@@ -105,18 +131,13 @@ const Draggable = React.createClass({
 		this.dragElement.style.position = this.originalPosition.position;
 	},
 
-	repositionDraggable() {
-		var draggableBounds = this.dragElement.getBoundingClientRect();
-		this.dragElement.style.top = (this.props.dragAndDropState.zones[this.props.zoneId].bounds.centerY) - ((draggableBounds.height/2)/window.innerHeight * 100) + '%';
-		this.dragElement.style.left = (this.props.dragAndDropState.zones[this.props.zoneId].bounds.centerX) - ((draggableBounds.width/2)/window.innerWidth * 100) + '%';
-	},
-
 	render() {
 		return (
-			<div style={{
-					height: this.height,
-					float: this.float
-				}}>
+			<div
+			style={{
+				height: this.height,
+				float: this.float
+			}}>
 				<div 
 					onMouseUp={this.toggleDrag} 
 					ref='draggableElement'
@@ -132,7 +153,8 @@ const Draggable = React.createClass({
 function mapStateToProps(store) {
 	return {
 		mouseState: store.mouseState,
-		dragAndDropState: store.dragAndDropState
+		dragAndDropState: store.dragAndDropState,
+		scrollState: store.scrollState
 	};
 }
 

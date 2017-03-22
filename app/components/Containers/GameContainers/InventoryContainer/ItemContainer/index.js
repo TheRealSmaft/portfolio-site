@@ -28,28 +28,37 @@ const ItemContainer = React.createClass({
 			this.placeholder = null;
 		};
 
-		this.height = '100%';
-		this.float = 'none';
+		this.float = 'left';
 
-		if(this.props.children.props &&
-			this.props.children.props.style &&
-			this.props.children.props.style.height) {
+		// if(this.props.children.props &&
+		// 	this.props.children.props.style &&
+		// 	this.props.children.props.style.height) {
 			
-			this.height = this.props.children.props.style.height;
-			this.float = this.props.children.props.style.float ? this.props.children.props.style.float : 'none';
-		}
+		// 	this.height = this.props.children.props.style.height;
+		// 	this.float = this.props.children.props.style.float ? this.props.children.props.style.float : 'none';
+		// }
 	},
 
 	componentDidMount(){
+		
+	},
+
+	addItemToInventory() {
+		this.item.acquireItem();
+		this.props.addItemToInventory(this.item);
+		this.createPlaceholder();
+	},
+
+	getImageDimensions({target:img}) {
 		var itemElement = ReactDOM.findDOMNode(this.refs.item);
 
 		if(!this.item.hasDimensions) {
 			
-			var itemClientRect = itemElement.getBoundingClientRect();
+			// var itemClientRect = itemElement.getBoundingClientRect();
 
 			var dimensions = {
-				width: itemClientRect.width,
-				height: itemClientRect.height
+				width: img.offsetWidth,
+				height: img.offsetHeight
 			};
 
 			this.item.setPosition(itemElement.style.position);
@@ -60,12 +69,6 @@ const ItemContainer = React.createClass({
 		if(this.item.acquired) {
 			this.createPlaceholder();
 		};
-	},
-
-	addItemToInventory() {
-		this.item.acquireItem();
-		this.props.addItemToInventory(this.item);
-		this.createPlaceholder();
 	},
 
 	createPlaceholder() {
@@ -84,14 +87,17 @@ const ItemContainer = React.createClass({
 	render() {
 		return (
 			<div style={{
-				height: this.height,
-				float: this.float
+				height: '100%',
+				float: this.props.float ? this.props.float : 'none'
 			}}>
 				<div 
 					onMouseUp={this.addItemToInventory} 
 					style={{display: this.item.acquired ? 'none' : 'inline-block'}}
-					ref='item'>
-					{this.props.children}
+					ref={'item'}>
+					<img 
+						onLoad={this.getImageDimensions} 
+						src={require('./images/' + this.item.name + '.svg')} 
+						style={{width: this.props.itemWidth ? this.props.itemWidth : '100%'}} />
 				</div>
 				{this.placeholder}
 			</div>
