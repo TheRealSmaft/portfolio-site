@@ -29,20 +29,6 @@ const ItemContainer = React.createClass({
 			this.item = new Item(this.props.itemName);
 			this.placeholder = null;
 		};
-
-		this.float = 'left';
-
-		// if(this.props.children.props &&
-		// 	this.props.children.props.style &&
-		// 	this.props.children.props.style.height) {
-			
-		// 	this.height = this.props.children.props.style.height;
-		// 	this.float = this.props.children.props.style.float ? this.props.children.props.style.float : 'none';
-		// }
-	},
-
-	componentDidMount(){
-		
 	},
 
 	addItemToInventory() {

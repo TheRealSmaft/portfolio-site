@@ -8,6 +8,8 @@ import { appStyles, navbarStyles } from '../styles';
 import { MainNavbar, Footer } from './Layout';
 import { ResponsiveContainer, StickyContainer, InventoryContainer } from './Containers';
 
+import Inventory from './Containers/GameContainers/InventoryContainers/Inventory';
+
 import { NavLinks } from './Pages';
 
 import { siteInfoActions, siteInfoTypes } from '../state/initial';
@@ -45,7 +47,7 @@ const App = React.createClass({
 
 				{this.props.children}
 
-				<InventoryContainer invHeight={'100px'} invWidth={'100%'}/>
+				<Inventory />
 
 			</div>
 		)

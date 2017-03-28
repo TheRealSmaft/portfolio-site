@@ -1,5 +1,12 @@
 import types from './types';
 
+function createNewItem(item) {
+	return {
+		type: types.CREATE_NEW_ITEM,
+		payload: item
+	}
+};
+
 function addItemToInventory(item) {
 	return {
 		type: types.ADD_ITEM_TO_INVENTORY,
@@ -31,6 +38,7 @@ function clearInventory() {
 };
 
 export default {
+	createNewItem,
 	addItemToInventory,
 	updateItemInInventory,
 	removeItemFromInventory,

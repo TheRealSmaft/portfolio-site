@@ -117,15 +117,23 @@ const dragAndDropReducer = (state = {
 			break;
 		}
 		case types.DROP_SUCCESSFUL: {
-			var name = action.payload;
+			var dragId = action.payload.dragId;
+			var zoneId = action.payload.zoneId;
 
 			state = {
 				...state,
 				draggables: {
 					...state.draggables,
-					[name]: {
-						...state.draggables[name],
+					[dragId]: {
+						...state.draggables[dragId],
 						droppedInZone: true
+					}
+				},
+				zones: {
+					...state.zones,
+					[zoneId]: {
+						...state.zones[zoneId],
+						containsDraggable: true
 					}
 				}
 			}

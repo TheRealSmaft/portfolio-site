@@ -1,17 +1,27 @@
 import React from 'react';
 
-import { ResponsiveContainer, ItemContainer, Draggable, DropZone, Grid, Row, Col } from '../../Containers';
+import { ResponsiveContainer } from '../../Containers';
+
+import Collectable from '../../Containers/GameContainers/InventoryContainers/Collectable';
 
 const SomefingPage = React.createClass({
 	render() {
+		var item = {
+			name: 'item',
+			zone: 'phoneBooth',
+			width: '50px'
+		}
+
+		var turd = {
+			name: 'turd',
+			zone: 'towel',
+			width: '50px'
+		}
+
 		return (
 			<ResponsiveContainer>
-				<ItemContainer itemName={'item'} float={'left'} itemWidth={'50px'}/>
-
-				<ItemContainer itemName={'item1'} float={'left'} itemWidth={'50px'}/>
-				<span style={{float: ''}}>Stay still</span>
-				<h1>Hi</h1>
-				<ItemContainer itemName={'item3'} float={'left'} itemWidth={'50px'}/>
+				<Collectable collectableInfo={item} />
+				<Collectable collectableInfo={turd} />
 			</ResponsiveContainer>
 		)
 	}

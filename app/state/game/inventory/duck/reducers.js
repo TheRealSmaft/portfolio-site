@@ -2,17 +2,39 @@ import types from './types';
 import lodash from 'lodash';
 
 const inventoryReducer = (state = {
-	items: []
+	collectables: [],
+	inventory: []
 }, action) => {
 	switch(action.type) {
-		case types.ADD_ITEM_TO_INVENTORY: {
+		case types.CREATE_NEW_ITEM: {
 			state = {
 				...state,
-				items: [
-					...state.items,
+				collectables: [
+					...state.collectables,
 					action.payload
 				]
 			}
+			break;
+		}
+		case types.ADD_ITEM_TO_INVENTORY: {
+			var itemId = _.findIndex(state.collectables, function(obj) {
+				return obj.name === action.payload.name;
+			});
+
+			if(itemId > -1) {
+				state = {
+					...state,
+					inventory: [
+						...state.inventory,
+						action.payload
+					],
+					collectables: [
+						...state.collectables.slice(0, itemId),
+						...state.collectables.slice(itemId + 1)
+					]
+				};
+			}
+
 			break;
 		}
 		case types.UPDATE_ITEM_IN_INVENTORY: {
@@ -22,10 +44,10 @@ const inventoryReducer = (state = {
 			// 	var prop = action.payload.updates[i].prop;
 			// 	state = {
 			// 	...state,
-			// 		items: {
-			// 			...state.items,
+			// 		inventory: {
+			// 			...state.inventory,
 			// 			[itemId]: {
-			// 				...state.items[itemId],
+			// 				...state.inventory[itemId],
 			// 				[prop]: action.payload.updates[i].newValue
 			// 			}
 			// 		}
@@ -34,28 +56,28 @@ const inventoryReducer = (state = {
 			break;
 		}
 		case types.REMOVE_ITEM_FROM_INVENTORY: {
-			var itemId = _.findIndex(state.items, function(obj) {
+			var itemId = _.findIndex(state.inventory, function(obj) {
 				return obj.name === action.payload;
 			});
 			
 			state = {
 				...state,
-				items: [
-					...state.items.slice(0, itemId),
-					...state.items.slice(itemId + 1)
+				inventory: [
+					...state.inventory.slice(0, itemId),
+					...state.inventory.slice(itemId + 1)
 				]
 			};
 
 			break;
 		}
 		case types.CLEAR_INVENTORY: {
-			// for(let item of Object.keys(state.items)) {
+			// for(let item of Object.keys(state.inventory)) {
 			// 	state = {
 			// 		...state,
-			// 		items: {
-			// 			...state.items,
+			// 		inventory: {
+			// 			...state.inventory,
 			// 			[item]: {
-			// 				...state.items[item],
+			// 				...state.inventory[item],
 			// 				removed: true
 			// 			}
 			// 		}

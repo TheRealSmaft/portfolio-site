@@ -23,4 +23,8 @@ export default class Item {
 	acquireItem() {
 		this.acquired = true;
 	}
+
+	placeItem() {
+		this.isPlaced = true;
+	}
 };

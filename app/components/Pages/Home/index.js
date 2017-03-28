@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ResponsiveContainer, ScrollLoader, Grid, Row, Col, TimedContainer, DropZone } from '../../Containers';
+import { ResponsiveContainer, ScrollLoader, Grid, Row, Col, TimedContainer } from '../../Containers';
 
 export default class Home extends React.Component {
 	render() {
@@ -33,22 +33,9 @@ export default class Home extends React.Component {
 							</p>
 						</Col>
 						<Col breaks={[33.3, 33.3, 100]}>
-							<p>POOP</p>
 						</Col>
 					</Row>
 				</Grid>
-
-				<DropZone zoneId={'item'}>
-					<div style={{
-							backgroundColor: 'blue', 
-							height: 60,
-							width: 60,
-							borderRadius: '10%',
-							zIndex: -1,
-							float: 'left'
-						}}>
-					</div>
-				</DropZone>
 			</ResponsiveContainer>
 		)
 	}

@@ -13,16 +13,18 @@ const Draggable = React.createClass({
 	propTypes: {
 		mouseState: React.PropTypes.object.isRequired,
 		dragId: React.PropTypes.string.isRequired,
-		zoneId: React.PropTypes.string.isRequired
+		zoneId: React.PropTypes.string.isRequired,
+	},
+
+	getDefaultProps() {
+		return {
+			isInvItem: false
+		}
 	},
 
 	componentWillMount() {
 		if(!this.props.dragAndDropState.draggables[this.props.dragId]) {
-			var isInvItem = false;
-			if(this.props.isInvItem) {
-				isInvItem = true;
-			}
-			this.props.createDraggable(this.props.dragId, this.props.zoneId, isInvItem);
+			this.props.createDraggable(this.props.dragId, this.props.zoneId);
 			this.alreadyExisted = false;
 		}
 		else
@@ -31,6 +33,7 @@ const Draggable = React.createClass({
 		}
 
 		this.placeholder = null;
+		this.isDragging = false;
 
 		this.height = '100%';
 		this.width = '100%';
@@ -50,8 +53,6 @@ const Draggable = React.createClass({
 	},
 
 	componentDidMount() {
-		this.isDragging = false;
-
 		this.dragElement = ReactDOM.findDOMNode(this.refs.draggableElement);
 		this.originalParent = this.dragElement.parentNode;
 
@@ -65,6 +66,14 @@ const Draggable = React.createClass({
 
 		if(this.alreadyExisted) {
 			this.createPlaceholder();
+		}
+
+		if(this.checkForZoneNode() &&
+			this.props.dragAndDropState.draggables[this.props.dragId] != undefined &&
+			this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+			
+			console.log('WHY')
+			this.appendDraggableToDropZone();
 		}
 	},
 
@@ -112,8 +121,10 @@ const Draggable = React.createClass({
 				else
 				{
 					this.appendDraggableToDropZone();
-					this.props.dropSuccessful(this.props.dragId);
-					// this.props.removeItemFromInventory(this.props.dragId);
+					this.props.dropSuccessful(this.props.dragId, this.props.zoneId);
+					// if(this.props.isInvItem) {	
+					// 	this.props.removeItemFromInventory(this.props.dragId);
+					// }
 				}
 			}
 		}
