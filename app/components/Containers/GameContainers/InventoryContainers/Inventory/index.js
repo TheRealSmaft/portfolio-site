@@ -16,7 +16,7 @@ const Inventory = React.createClass({
 					marginLeft: '10px'
 				}}
 			> 
-				<Draggable dragId={item.name} zoneId={item.zone}>
+				<Draggable dragId={item.name}>
 					{item.image}
 				</Draggable>
 			</div>

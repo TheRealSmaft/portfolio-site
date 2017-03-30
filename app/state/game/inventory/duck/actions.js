@@ -37,10 +37,18 @@ function clearInventory() {
 	}
 };
 
+function placeItemInDOM(itemIndex) {
+	return {
+		type: types.PLACE_ITEM_IN_DOM,
+		payload: itemIndex
+	}
+};
+
 export default {
 	createNewItem,
 	addItemToInventory,
 	updateItemInInventory,
 	removeItemFromInventory,
-	clearInventory
+	clearInventory,
+	placeItemInDOM
 };

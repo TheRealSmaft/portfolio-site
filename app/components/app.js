@@ -8,7 +8,7 @@ import { appStyles, navbarStyles } from '../styles';
 import { MainNavbar, Footer } from './Layout';
 import { ResponsiveContainer, StickyContainer, InventoryContainer } from './Containers';
 
-import Inventory from './Containers/GameContainers/InventoryContainers/Inventory';
+import Inventory from './Containers/GameContainers/ItemContainers/Inventory';
 
 import { NavLinks } from './Pages';
 
@@ -21,6 +21,8 @@ const App = React.createClass({
 	componentWillMount() {
 		this.props.getSiteInfo();
 		this.props.getWindowSize();
+
+		this.scrollLocked = this.props.scrollState.scrollLocked;
 	},
 
 	componentDidMount() {
@@ -31,6 +33,22 @@ const App = React.createClass({
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.props.getScrollPosition);
 		window.removeEventListener('resize', this.props.getWindowSize);
+	},
+
+	componentWillReceiveProps(nextProps) {
+		if(this.props.scrollState.scrollLocked != nextProps.scrollState.scrollLocked) {
+			if(nextProps.scrollState.scrollLocked) {
+				document.body.style.overflow = "hidden";
+				if(document.body.clientHeight > window.innerHeight){
+					document.body.style.marginRight = '17px';
+				}
+			}
+			else
+			{
+				document.body.style.overflow = "";
+				document.body.style.marginRight = '0px';
+			}
+		}
 	},
 
 	render() {

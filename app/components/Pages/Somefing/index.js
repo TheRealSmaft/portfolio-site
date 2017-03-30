@@ -2,26 +2,24 @@ import React from 'react';
 
 import { ResponsiveContainer } from '../../Containers';
 
-import Collectable from '../../Containers/GameContainers/InventoryContainers/Collectable';
+import Collectable from '../../Containers/GameContainers/ItemContainers/Collectable';
+import DropZone from '../../Containers/GameContainers/InteractableContainers/DropZone';
 
 const SomefingPage = React.createClass({
 	render() {
 		var item = {
 			name: 'item',
-			zone: 'phoneBooth',
-			width: '50px'
-		}
-
-		var turd = {
-			name: 'turd',
-			zone: 'towel',
 			width: '50px'
 		}
 
 		return (
 			<ResponsiveContainer>
-				<Collectable collectableInfo={item} />
-				<Collectable collectableInfo={turd} />
+				<Collectable item={item} />
+				<span>SUP!</span>
+				<p style={{clear: 'both'}}>
+					Nope...
+				</p>
+				<DropZone drop={'item'} />
 			</ResponsiveContainer>
 		)
 	}

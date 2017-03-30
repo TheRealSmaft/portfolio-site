@@ -21,7 +21,7 @@ const Collectable = React.createClass({
 			var name = this.props.collectableInfo.name;
 			this.item = _.find(this.props.inventory.collectables, ['name', name]);
 		}
-		else if(loc === 'inventory')
+		else if(loc === 'inventory' || loc === 'placedItems')
 		{
 			this.item = this.createPlaceholder();
 		}
@@ -40,6 +40,10 @@ const Collectable = React.createClass({
 		else if(this.checkIfItemIsInInventory(name))
 		{
 			return 'inventory';
+		}
+		else if(this.checkIfItemIsInPlacedItems(name))
+		{
+			return 'placedItems';
 		}
 		else
 		{
@@ -63,6 +67,14 @@ const Collectable = React.createClass({
 		return itemIndex > -1;
 	},
 
+	checkIfItemIsInPlacedItems(name) {
+		var itemIndex = _.findIndex(this.props.inventory.placedItems, function(obj) {
+			return obj.name === name;
+		});
+
+		return itemIndex > -1;
+	},
+
 	createNewItem() {
 		this.item = new Item(this.props.collectableInfo.name, this.props.collectableInfo.zone);
 
@@ -72,7 +84,8 @@ const Collectable = React.createClass({
 				this.props.collectableInfo.name + 
 				'.svg')} 
 			alt={this.props.collectableInfo.name} 
-			style={{width: this.props.collectableInfo.width}} />
+			style={{width: this.props.collectableInfo.width}}
+			id={this.props.collectableInfo.name + 'DragChild'} />
 		);
 
 		this.item.setImage(itemImage);
@@ -91,7 +104,7 @@ const Collectable = React.createClass({
 	createPlaceholder() {
 		this.visibility = 'hidden';
 		var name = this.props.collectableInfo.name;
-		var item = _.find(this.props.inventory.inventory, ['name', name]);
+		var item = _.find(this.props.inventory.inventory, ['name', name]) ? _.find(this.props.inventory.inventory, ['name', name]) : _.find(this.props.inventory.placedItems, ['name', name]);
 		return item;
 	},
 
@@ -101,7 +114,8 @@ const Collectable = React.createClass({
 				onClick={this.collectItem}
 				style={{
 					visibility: this.visibility,
-					display: 'inline-block'
+					display: 'block',
+					float: 'left'
 				}}
 			>
 				{this.item.image}

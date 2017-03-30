@@ -3,7 +3,8 @@ import lodash from 'lodash';
 
 const inventoryReducer = (state = {
 	collectables: [],
-	inventory: []
+	inventory: [],
+	placedItems: []
 }, action) => {
 	switch(action.type) {
 		case types.CREATE_NEW_ITEM: {
@@ -83,6 +84,25 @@ const inventoryReducer = (state = {
 			// 		}
 			// 	}
 			// }
+			break;
+		}
+		case types.PLACE_ITEM_IN_DOM: {
+			var index = action.payload;
+			var item = state.inventory[index];
+
+			if(index > -1) {
+				state = {
+					...state,
+					placedItems: [
+						...state.placedItems,
+						item
+					],
+					inventory: [
+						...state.inventory.slice(0, index),
+						...state.inventory.slice(index + 1)
+					]
+				};
+			}
 			break;
 		}
 	}
