@@ -8,17 +8,19 @@ import { appStyles, navbarStyles } from '../styles';
 import { MainNavbar, Footer } from './Layout';
 import { ResponsiveContainer, StickyContainer, InventoryContainer } from './Containers';
 
+import Inventory from './Containers/GameContainers/ItemContainers/Inventory';
+
 import { NavLinks } from './Pages';
 
-import { siteInfoActions, siteInfoTypes } from '../state/initial';
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 
 
 const App = React.createClass({
 	componentWillMount() {
-		this.props.getSiteInfo();
 		this.props.getWindowSize();
+
+		this.scrollLocked = this.props.scrollState.scrollLocked;
 	},
 
 	componentDidMount() {
@@ -31,9 +33,29 @@ const App = React.createClass({
 		window.removeEventListener('resize', this.props.getWindowSize);
 	},
 
+	componentWillReceiveProps(nextProps) {
+		if(this.props.scrollState.scrollLocked != nextProps.scrollState.scrollLocked) {
+			if(nextProps.scrollState.scrollLocked) {
+				document.body.style.overflow = "hidden";
+				if(document.body.clientHeight > window.innerHeight){
+					document.body.style.marginRight = '17px';
+				}
+			}
+			else
+			{
+				document.body.style.overflow = "";
+				document.body.style.marginRight = '0px';
+			}
+		}
+	},
+
 	render() {
 		return (
-			<div className={appStyles}>
+			<div className={appStyles}
+				style={{
+					minHeight: window.innerHeight
+				}}
+			>
 				<StickyContainer 
 					stickyStartY={0}
 					stickyPosY={0}
@@ -45,7 +67,7 @@ const App = React.createClass({
 
 				{this.props.children}
 
-				<InventoryContainer />
+				<Inventory />
 
 			</div>
 		)
@@ -54,7 +76,6 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		site: store.initialState.site,
 		windowState: store.windowState,
 		scrollState: store.scrollState
 	};
@@ -62,7 +83,6 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		getSiteInfo: siteInfoActions.getSiteInfo,
 		getWindowSize: windowEventActions.getWindowSize,
 		getScrollPosition: scrollEventActions.getScrollPosition
 	}, dispatch)

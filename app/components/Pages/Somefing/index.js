@@ -1,14 +1,38 @@
 import React from 'react';
 
-import { ResponsiveContainer, ItemContainer } from '../../Containers';
+import { ResponsiveContainer } from '../../Containers';
+
+import { Collectable, DropZone } from '../../Containers/GameContainers';
 
 const SomefingPage = React.createClass({
 	render() {
+		var item = {
+			name: 'item',
+			width: 50
+		}
+
+		var dropZone = {
+			name: 'item',
+			width: 100,
+			height: 100
+		}
+
+		var item1 = {
+			name: 'item1',
+			width: 50
+		}
+
 		return (
 			<ResponsiveContainer>
-				<ItemContainer itemName={'item'} float={'left'} itemWidth={'50px'}/>
-				<span style={{float: ''}}>Stay still</span>
-				<h1>Hi</h1>
+				<Collectable item={item} />
+				<span>SUP!</span>
+				<p style={{clear: 'both'}}>
+					Nope...
+				</p>
+				<DropZone dropZone={dropZone}> 
+					<img src={require('../Home/images/bunnies.jpg')} style={{width: '100%'}} />
+				</DropZone>
+				<Collectable item={item1} />
 			</ResponsiveContainer>
 		)
 	}

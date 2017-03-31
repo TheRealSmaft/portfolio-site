@@ -11,8 +11,14 @@ const DropZone = React.createClass({
 	},
 
 	componentWillMount() {
-		this.props.createDropZone(this.props.zoneId);
-		this.domElement = null;
+		if(!this.props.dragAndDropState.zones[this.props.zoneId]) {
+			this.props.createDropZone(this.props.zoneId);
+			this.alreadyExisted = false;
+		}
+		else
+		{
+			this.alreadyExisted = true;
+		}
 
 		this.userIsHovering = false;
 		this.lastHoverCase = false;
@@ -30,19 +36,21 @@ const DropZone = React.createClass({
 	componentWillReceiveProps() {
 		this.lastHoverCase = this.userIsHovering;
 
-		if(this.props.mouseState.position.x > (this.boundingBox.left - this.pixelBuffer) &&
-			this.props.mouseState.position.x < (this.boundingBox.right + this.pixelBuffer) &&
-			this.props.mouseState.position.y > (this.boundingBox.top - this.pixelBuffer) &&
-			this.props.mouseState.position.y < (this.boundingBox.bottom + this.pixelBuffer)) {
+		if(this.boundingBox != undefined) {
+			if(this.props.mouseState.position.x > (this.boundingBox.left - this.pixelBuffer) &&
+				this.props.mouseState.position.x < (this.boundingBox.right + this.pixelBuffer) &&
+				this.props.mouseState.position.y > (this.boundingBox.top - this.pixelBuffer) &&
+				this.props.mouseState.position.y < (this.boundingBox.bottom + this.pixelBuffer)) {
 
-			if(!this.userIsHovering){
-				this.userIsHovering = true;
+				if(!this.userIsHovering){
+					this.userIsHovering = true;
+				}
 			}
-		}
-		else
-		{
-			if(this.userIsHovering) {
-				this.userIsHovering = false;
+			else
+			{
+				if(this.userIsHovering) {
+					this.userIsHovering = false;
+				}
 			}
 		}
 	},

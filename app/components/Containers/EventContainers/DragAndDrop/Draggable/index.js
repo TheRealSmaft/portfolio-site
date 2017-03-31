@@ -5,89 +5,147 @@ import { connect } from 'react-redux';
 
 import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
 import { dragAndDropActions, dragAndDropTypes } from '../../../../../state/mouse/dragAndDrop';
+import { inventoryActions, inventoryTypes } from '../../../../../state/game/inventory';
+
+import styles from '../../../../../styles/dragAndDrop';
 
 const Draggable = React.createClass({
 	propTypes: {
 		mouseState: React.PropTypes.object.isRequired,
 		dragId: React.PropTypes.string.isRequired,
-		zoneId: React.PropTypes.string.isRequired
+		zoneId: React.PropTypes.string.isRequired,
+	},
+
+	getDefaultProps() {
+		return {
+			isInvItem: false
+		}
 	},
 
 	componentWillMount() {
-		this.props.createDraggable(this.props.dragId, this.props.zoneId, true);
+		if(!this.props.dragAndDropState.draggables[this.props.dragId]) {
+			this.props.createDraggable(this.props.dragId, this.props.zoneId);
+			this.alreadyExisted = false;
+		}
+		else
+		{
+			this.alreadyExisted = true;
+		}
 
 		this.placeholder = null;
+		this.isDragging = false;
 
 		this.height = '100%';
+		this.width = '100%';
 		this.float = 'none';
+		this.display = 'inline-block';
+		this.marginLeft = '0px';
 
 		if(this.props.children.props &&
-			this.props.children.props.style &&
-			this.props.children.props.style.height) {
+			this.props.children.props.style) {
 			
-			this.height = this.props.children.props.style.height;
-			this.float = this.props.children.props.style.float ? this.props.children.props.style.float : 'none';
+			this.width = this.props.children.props.style.width ? this.props.children.props.style.width : this.width;
+			this.height = this.props.children.props.style.height ? this.props.children.props.style.height : this.height;
+			this.float = this.props.children.props.style.float ? this.props.children.props.style.float : this.float;
+			this.display = this.props.children.props.style.display ? this.props.children.props.style.display : this.display;
+			this.marginLeft = this.props.children.props.style.marginLeft ? this.props.children.props.style.marginLeft : this.marginLeft;
 		}
 	},
 
 	componentDidMount() {
-		this.isDragging = false;
-
 		this.dragElement = ReactDOM.findDOMNode(this.refs.draggableElement);
 		this.originalParent = this.dragElement.parentNode;
 
-		this.dragElement.style.display = 'inline-block';
+		this.dragElement.style.display = this.display;
 	
 		this.originalPosition = {
 			position: this.dragElement.style.position ? this.dragElement.style.position : 'static',
 			top: this.dragElement.style.top,
 			left: this.dragElement.style.left
-		}	
+		}
+
+		if(this.alreadyExisted) {
+			this.createPlaceholder();
+		}
+
+		if(this.checkForZoneNode() &&
+			this.props.dragAndDropState.draggables[this.props.dragId] != undefined &&
+			this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+			
+			console.log('WHY')
+			this.appendDraggableToDropZone();
+		}
+	},
+
+	componentWillReceiveProps(nextProps) {
+		if(this.props.dragAndDropState.draggables[this.props.dragId]) {
+			if(this.checkForZoneNode() &&
+				this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+				this.appendDraggableToDropZone();
+			}
+		}
 	},
 
 	toggleDrag() {
-		this.isDragging = !this.isDragging;
+		if(!this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone) {
+			this.isDragging = !this.isDragging;
 
-		if(this.isDragging) {
-			this.dragElement.style.position = 'absolute';
-			this.dragElement.style.zIndex = 99;
+			if(this.isDragging) {
+				this.dragElement.style.position = 'absolute';
+				this.dragElement.style.zIndex = 99;
 
-			this.appendDraggableToDocumentBody();
+				this.appendDraggableToDocumentBody();
 
-			this.placeholder = (
-				<div style={{
-					width: this.dragElement.getBoundingClientRect().width, 
-					height: this.dragElement.getBoundingClientRect().height
-				}}>
-				</div>
-			);
+				this.createPlaceholder();
 
-			window.addEventListener('mousemove', this.trackMouse);
-			this.props.selectDraggable(this.props.dragId);
-		}
-		else
-		{	
-			this.appendDraggableToOriginalParent();
-			this.dragElement.style.zIndex = 0;
-
-			if(!this.props.dragAndDropState.canDrop) {
-				this.placeholder = null;
-			}
-
-			window.removeEventListener('mousemove', this.trackMouse);
-			this.props.clearMousePosition();
-			this.props.selectDraggable();
-
-			if(!this.props.dragAndDropState.canDrop) {
-				this.isDragging = false;			
-				this.returnDraggableToOriginalPosition();
+				window.addEventListener('mousemove', this.trackMouse);
+				this.props.selectDraggable(this.props.dragId);
 			}
 			else
-			{
-				this.appendDraggableToDropZone();
-				this.props.dropSuccessful(this.props.dragId);
+			{	
+				this.appendDraggableToOriginalParent();
+				this.dragElement.style.zIndex = 0;
+
+				if(!this.props.dragAndDropState.canDrop) {
+					this.removePlaceholder();
+				}
+
+				window.removeEventListener('mousemove', this.trackMouse);
+				this.props.clearMousePosition();
+				this.props.selectDraggable();
+
+				if(!this.props.dragAndDropState.canDrop) {
+					this.isDragging = false;			
+					this.returnDraggableToOriginalPosition();
+				}
+				else
+				{
+					this.appendDraggableToDropZone();
+					this.props.dropSuccessful(this.props.dragId, this.props.zoneId);
+					// if(this.props.isInvItem) {	
+					// 	this.props.removeItemFromInventory(this.props.dragId);
+					// }
+				}
 			}
 		}
+	},
+
+	checkForZoneNode() {
+		return document.getElementById(this.props.zoneId) ? true : false;
+	},
+
+	createPlaceholder() {
+		this.placeholder = (
+			<div style={{
+				width: this.dragElement.getBoundingClientRect().width, 
+				height: this.dragElement.getBoundingClientRect().height
+			}}>
+			</div>
+		);
+	},
+
+	removePlaceholder() {
+		this.placeholder = null;
 	},
 
 	appendDraggableToDocumentBody() {
@@ -106,8 +164,8 @@ const Draggable = React.createClass({
 		zoneNode.appendChild(this.dragElement);
 
 		this.dragElement.style.position = 'relative';
-		this.dragElement.style.left = (this.dragElement.getBoundingClientRect().width / zoneNode.getBoundingClientRect().width * 100) / 2 + '%';
-		this.dragElement.style.top = (this.dragElement.getBoundingClientRect().height / zoneNode.getBoundingClientRect().height * 100) / 2 + '%';
+		this.dragElement.style.left = ((zoneNode.getBoundingClientRect().width - this.dragElement.getBoundingClientRect().width)/zoneNode.getBoundingClientRect().width) / 2 * 100 + '%';
+		this.dragElement.style.top = ((zoneNode.getBoundingClientRect().height - this.dragElement.getBoundingClientRect().height)/zoneNode.getBoundingClientRect().height) / 2 * 100 + '%';
 	},
 
 	startTrackingMouse() {
@@ -135,10 +193,12 @@ const Draggable = React.createClass({
 		return (
 			<div
 			style={{
+				width: this.width,
 				height: this.height,
 				float: this.float
 			}}>
 				<div 
+					className={this.props.dragAndDropState.draggables[this.props.dragId] && !this.props.dragAndDropState.draggables[this.props.dragId].droppedInZone ? styles.draggable : ''}
 					onMouseUp={this.toggleDrag} 
 					ref='draggableElement'
 				>
@@ -164,7 +224,8 @@ function mapDispatchToProps(dispatch) {
 		clearMousePosition: mouseTrackingActions.clearMousePosition,
 		createDraggable: dragAndDropActions.createDraggable,
 		selectDraggable: dragAndDropActions.selectDraggable,
-		dropSuccessful: dragAndDropActions.dropSuccessful
+		dropSuccessful: dragAndDropActions.dropSuccessful,
+		removeItemFromInventory: inventoryActions.removeItemFromInventory
 	}, dispatch)
 }
 

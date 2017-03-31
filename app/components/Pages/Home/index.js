@@ -1,15 +1,23 @@
 import React from 'react';
 
-import { ResponsiveContainer, ScrollLoader, Grid, Row, Col, TimedContainer, DropZone } from '../../Containers';
+import { ResponsiveContainer, ScrollLoader, Grid, Row, Col, TimedContainer } from '../../Containers';
+import { DropZone } from '../../Containers/GameContainers';
+
+import GenericEvent from '../../Containers/EventContainers/GenericEvent';
 
 export default class Home extends React.Component {
 	render() {
+		var dropZone2 = {
+			name: 'item2',
+			width: 100,
+			height: 100
+		}
+
 		return (
 			<ResponsiveContainer>
-				<h1>SUP HOMEBOY!</h1>
-
-				<TimedContainer tcDelay={5} tcIncrement={2000} tcDuration={4}>
-
+			
+				<TimedContainer tcIncrement={500} tcDuration={5}>
+					<h1>Hi BUDDY</h1>
 				</TimedContainer>
 
 				<Grid gutter={5} breakPoints={[1100, 800, 600]}>
@@ -33,22 +41,10 @@ export default class Home extends React.Component {
 							</p>
 						</Col>
 						<Col breaks={[33.3, 33.3, 100]}>
-							<p>POOP</p>
+							<DropZone dropZone={dropZone2}/>
 						</Col>
 					</Row>
 				</Grid>
-
-				<DropZone zoneId={'zone'}>
-					<div style={{
-							backgroundColor: 'blue', 
-							height: 200,
-							width: 200,
-							borderRadius: '10%',
-							zIndex: -1,
-							float: 'left'
-						}}>
-					</div>
-				</DropZone>
 			</ResponsiveContainer>
 		)
 	}

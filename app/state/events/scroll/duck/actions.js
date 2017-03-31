@@ -10,6 +10,20 @@ function getScrollPosition() {
 	}
 };
 
+function lockScrollPosition() {
+	return {
+		type: types.LOCK_SCROLL_POSITION
+	}
+};
+
+function unlockScrollPosition() {
+	return {
+		type: types.UNLOCK_SCROLL_POSITION
+	}
+};
+
 export default {
-	getScrollPosition
+	getScrollPosition,
+	lockScrollPosition,
+	unlockScrollPosition
 };
