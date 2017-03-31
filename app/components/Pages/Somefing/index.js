@@ -9,7 +9,18 @@ const SomefingPage = React.createClass({
 	render() {
 		var item = {
 			name: 'item',
-			width: '50px'
+			width: 50
+		}
+
+		var dropZone = {
+			name: 'item',
+			width: 100,
+			height: 100
+		}
+
+		var item1 = {
+			name: 'item1',
+			width: 50
 		}
 
 		return (
@@ -19,7 +30,8 @@ const SomefingPage = React.createClass({
 				<p style={{clear: 'both'}}>
 					Nope...
 				</p>
-				<DropZone drop={'item'} />
+				<DropZone dropZone={dropZone} />
+				<Collectable item={item1} />
 			</ResponsiveContainer>
 		)
 	}

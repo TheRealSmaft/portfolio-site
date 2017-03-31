@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import Item from '../ItemComponent';
 
-import { itemArrayTypes, itemArrayActions } from '../../../../../state/game/itemArray';
+import { itemTypes, itemActions } from '../../../../../state/game/items';
 
 const Collectable = React.createClass({
 	propTypes: {
@@ -13,13 +13,13 @@ const Collectable = React.createClass({
 	},
 
 	componentWillMount() {
-		this.itemArrayIndex = this.getItemArrayIndex();
-		this.prevIndex = this.itemArrayIndex;
+		this.itemIndex = this.getItemIndex();
+		this.prevIndex = this.itemIndex;
 
 		this.item = null;
 		this.placeHolder = null;
 
-		if(this.itemArrayIndex < 0) {
+		if(this.itemIndex < 0) {
 			var newItem = this.props.item;
 
 			newItem.status = 'collectable';
@@ -42,7 +42,7 @@ const Collectable = React.createClass({
 			this.item = newItem;
 		}
 		else {
-			this.item = this.getItemFromArray(this.itemArrayIndex);
+			this.item = this.getItemFromArray(this.itemIndex);
 		}
 
 		if(this.placeHolder === null) {
@@ -51,11 +51,11 @@ const Collectable = React.createClass({
 	},
 
 	componentWillUpdate() {
-		this.itemArrayIndex = this.getItemArrayIndex();
+		this.itemIndex = this.getItemIndex();
 
-		if(this.prevIndex != this.itemArrayIndex) {
-			this.item = this.getItemFromArray(this.itemArrayIndex);
-			this.prevIndex = this.itemArrayIndex;
+		if(this.prevIndex != this.itemIndex) {
+			this.item = this.getItemFromArray(this.itemIndex);
+			this.prevIndex = this.itemIndex;
 		}
 
 		if(this.placeHolder === null) {
@@ -63,10 +63,10 @@ const Collectable = React.createClass({
 		}
 	},
 
-	getItemArrayIndex() {
+	getItemIndex() {
 		var itemName = this.props.item.name;
 
-		var index = _.findIndex(this.props.itemArray, function(obj) {
+		var index = _.findIndex(this.props.items, function(obj) {
 			return obj.name === itemName;
 		});
 
@@ -74,12 +74,12 @@ const Collectable = React.createClass({
 	},
 
 	getItemFromArray(index) {
-		return this.props.itemArray[index];
+		return this.props.items[index];
 	},
 
 	addItemToInventory() {
-		this.itemArrayIndex = this.getItemArrayIndex();
-		this.props.changeItemStatus(this.itemArrayIndex, 'inventory');
+		this.itemIndex = this.getItemIndex();
+		this.props.changeItemStatus(this.itemIndex, 'inventory');
 		this.item.status = 'inventory';
 	},
 
@@ -106,6 +106,7 @@ const Collectable = React.createClass({
 					}}
 				>
 					<Item 
+						ref={'item'}
 						item={this.item}
 					/>
 				</div>
@@ -124,14 +125,15 @@ const Collectable = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		itemArray: store.itemArrayState.items
+		items: store.itemState.items
 	}
 };
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		addItemToArray: itemArrayActions.addItemToArray,
-		changeItemStatus: itemArrayActions.changeItemStatus
+		addItemToArray: itemActions.addItemToArray,
+		setItemHeight: itemActions.setItemHeight,
+		changeItemStatus: itemActions.changeItemStatus
 	}, dispatch);
 };
 

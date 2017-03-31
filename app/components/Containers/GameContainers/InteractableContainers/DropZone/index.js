@@ -3,33 +3,82 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Item from '../../ItemContainers/ItemComponent';
+
+import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
+
 const DropZone = React.createClass({
 	propTypes: {
-		drop: React.PropTypes.string.isRequired
+		dropZone: React.PropTypes.object.isRequired
 	},
 
 	componentWillMount() {
 		this.draggableMatch = false;
 		this.pixelBuffer = this.props.pixelBuffer ? this.props.pixelBuffer : 20;
 		this.userIsHovering = false;
-		this.userAbleToDropDraggable = false;
+
+		this.dropZoneIndex = this.getDropZoneIndex();
+		this.prevIndex = this.dropZoneIndex;
+
+		this.item = null;
+		this.itemCentered = false;
+
+		if(this.dropZoneIndex < 0) {
+			this.dropZone = {
+				name: this.props.dropZone.name,
+				status: 'open'
+			}
+
+			this.props.addDropZoneToArray(this.dropZone);
+		}
+		else
+		{
+			this.dropZone = this.getDropZoneFromArray(this.dropZoneIndex);
+		}
+
+		if(this.dropZone.status === 'closed') {
+			this.item = this.getItem();
+		}
 	},
 
 	componentDidMount() {
-		this.dropZoneNode = ReactDOM.findDOMNode(this);
+		this.dropZoneNode = ReactDOM.findDOMNode(this.refs['dropZone']);
+		this.boundingBox = this.getBoundingBox();
+
+		if(this.dropZoneNode.firstChild != null) {
+			this.centerItemNodeInDropZone();
+		}
 	},
 
 	componentWillUpdate() {
+		this.dropZoneNode = ReactDOM.findDOMNode(this.refs['dropZone']);
 		this.boundingBox = this.getBoundingBox();
+		this.dropZoneIndex = this.getDropZoneIndex();
+
+		if(this.prevIndex != this.dropZoneIndex) {
+			this.dropZone = this.getDropZoneFromArray(this.dropZoneIndex);
+			this.prevIndex = this.dropZoneIndex;
+		}
+
+		if(this.dropZoneIndex > -1 &&
+			this.props.interactables.dropZones[this.dropZoneIndex].status != this.dropZone.status) {
+			this.dropZone = this.getDropZoneFromArray(this.dropZoneIndex);
+		}
+
+		if(this.dropZone.status === 'closed' &&
+			this.item === null) {
+			this.item = this.getItem();
+		}
 	},
 
 	componentDidUpdate() {
-		if(this.lastDragCase != this.props.itemArray.draggable) {
-			if(this.props.itemArray.draggable === this.props.drop) {
+		if(this.lastDragCase != this.props.items.draggable) {
+			if(this.props.items.draggable === this.dropZone.name) {
 				this.draggableMatch = true;
 			}
 			else
 			{
+				this.props.selectDropZone();
 				this.draggableMatch = false;
 			}
 		}
@@ -38,16 +87,35 @@ const DropZone = React.createClass({
 
 		if(this.lastHoverCase != isHovering) {
 			if(this.draggableMatch && isHovering) {
-				this.userAbleToDropDraggable = true;
+				this.props.selectDropZone(this.dropZone.name);
 			}
 			else
 			{
-				this.userAbleToDropDraggable = false;
+				this.props.selectDropZone();
 			}
 		}
 
-		this.lastDragCase = this.props.itemArray.draggable;
+		if(this.dropZoneNode.firstChild != null &&
+			!this.itemCentered) {
+			this.centerItemNodeInDropZone();
+		}
+
+		this.lastDragCase = this.props.items.draggable;
 		this.lastHoverCase = isHovering;
+	},
+
+	getDropZoneIndex() {
+		var zone = this.props.dropZone.name;
+
+		var index = _.findIndex(this.props.interactables.dropZones, function(obj) {
+			return obj.name === zone;
+		});
+
+		return index;
+	},
+
+	getDropZoneFromArray(index) {
+		return this.props.interactables.dropZones[index];
 	},
 
 	getBoundingBox() {
@@ -67,16 +135,39 @@ const DropZone = React.createClass({
 			}
 	},
 
+	getItem() {
+		var item = _.filter(this.props.items.items, ['name', this.dropZone.name]);
+		return (
+			<Item 
+				item={item[0]}
+			/>
+		)
+	},
+
+	centerItemNodeInDropZone() {
+		var itemNode = this.dropZoneNode.firstChild.firstChild;
+		var itemBounds = itemNode.getBoundingClientRect();
+
+		itemNode.style.position = 'relative';
+		itemNode.style.left = (this.boundingBox.width - itemBounds.width) / 2 + 'px';
+		itemNode.style.top = (this.boundingBox.height - itemBounds.height) / 2 + 'px';
+
+		this.itemCentered = true;
+	},
+
 	render() {
 		return (
 			<div
+				ref={'dropZone'}
 				style={{
-					width: 100,
-					height: 100,
+					float: 'left',
+					width: this.props.dropZone.width,
+					height: this.props.dropZone.height,
 					backgroundColor: 'pink',
 					borderRadius: 10
 				}}
 			>
+				{this.item}
 			</div>
 		)
 	}
@@ -84,11 +175,19 @@ const DropZone = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		itemArray: store.itemArrayState,
+		items: store.itemState,
+		interactables: store.interactableState,
 		mouseState: store.mouseState,
 		windowState: store.windowState,
 		scrollState: store.scrollState
 	}
 };
 
-export default connect(mapStateToProps)(DropZone);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		addDropZoneToArray: interactableActions.addDropZoneToArray,
+		selectDropZone: interactableActions.selectDropZone
+	}, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DropZone);

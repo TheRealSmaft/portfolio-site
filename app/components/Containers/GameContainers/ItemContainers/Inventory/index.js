@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import Item from '../ItemComponent';
 
-import { itemArrayActions, itemArrayTypes } from '../../../../../state/game/itemArray';
+import { itemActions, itemTypes } from '../../../../../state/game/items';
+import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
 import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
 import { scrollEventTypes, scrollEventActions } from '../../../../../state/events/scroll';
 
@@ -23,15 +24,22 @@ const Inventory = React.createClass({
 	},
 
 	getInventoryItems() {
-		this.inventory = _.filter(this.props.itemArray.items, ['status', 'inventory']);
+		this.inventory = _.filter(this.props.items.items, ['status', 'inventory']);
 	},
 
 	toggleItemDrag(name) {
-		if(this.props.itemArray.draggable != null) {
-			this.props.toggleItemDrag();
+		if(this.props.items.draggable != null) {
 			this.stopTrackingMouse();
-			this.appendDraggableToOriginalParent();
+			if(this.props.interactables.currentDropZone === this.props.items.draggable) {
+				this.appendDraggableToDropZone();
+			}
+			else
+			{
+				this.appendDraggableToOriginalParent();
+			}
+			this.props.toggleItemDrag();
 			this.draggable = null;
+			this.dragNode = null;
 		}
 		else
 		{
@@ -50,9 +58,27 @@ const Inventory = React.createClass({
 	},
 
 	appendDraggableToOriginalParent() {
-		document.body.removeChild(this.dragNode);
+		this.dragNode.parentNode.removeChild(this.dragNode);
 		this.originalParentNode.appendChild(this.dragNode);
 		this.dragNode.style.position = 'static';
+	},
+
+	appendDraggableToDropZone() {
+		var name = this.draggable;
+		this.originalParentNode.appendChild(this.dragNode);
+
+		var dropZoneIndex = _.findIndex(this.props.interactables.dropZones, function(obj) {
+			return obj.name === name;
+		});
+
+		var itemIndex = _.findIndex(this.props.items.items, function(obj) {
+			return obj.name === name;
+		});
+
+		this.props.changeItemStatus(itemIndex, 'allocated');
+
+		this.props.toggleItemDrag();
+		this.props.changeDropZoneStatus(dropZoneIndex, 'closed');
 	},
 
 	startTrackingMouse() {
@@ -122,7 +148,8 @@ const Inventory = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		itemArray: store.itemArrayState,
+		items: store.itemState,
+		interactables: store.interactableState,
 		mouseState: store.mouseState,
 		scrollState: store.scrollState
 	}
@@ -130,9 +157,10 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		changeItemStatus: itemArrayActions.changeItemStatus,
-		toggleItemDrag: itemArrayActions.toggleItemDrag,
-		toggleItemInspect: itemArrayActions.toggleItemInspect,
+		changeItemStatus: itemActions.changeItemStatus,
+		toggleItemDrag: itemActions.toggleItemDrag,
+		toggleItemInspect: itemActions.toggleItemInspect,
+		changeDropZoneStatus: interactableActions.changeDropZoneStatus,
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
 		unlockScrollPosition: scrollEventActions.unlockScrollPosition

@@ -37,7 +37,7 @@ const itemArrayReducer = (state = {
 
 			state = {
 				...state,
-				draggable: action.payload,
+				draggable: draggable,
 				inspectable: null
 			}
 			break;
