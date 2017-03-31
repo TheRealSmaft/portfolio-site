@@ -23,6 +23,8 @@ const DropZone = React.createClass({
 		this.item = null;
 		this.itemCentered = false;
 
+		this.background = null;
+
 		if(this.dropZoneIndex < 0) {
 			this.dropZone = {
 				name: this.props.dropZone.name,
@@ -38,6 +40,14 @@ const DropZone = React.createClass({
 
 		if(this.dropZone.status === 'closed') {
 			this.item = this.getItem();
+		}
+
+		if(this.props.children != undefined) {
+			this.createBackground();
+		}
+		else
+		{
+			this.showDropZoneBorder = true;
 		}
 	},
 
@@ -155,19 +165,42 @@ const DropZone = React.createClass({
 		this.itemCentered = true;
 	},
 
+	createBackground() {
+		this.background = (
+			<div
+				style={{
+					position: 'absolute',
+					zIndex: -1,
+					top: 0,
+					left: 0
+				}}
+			>
+				{this.props.children}
+			</div>
+		);
+	},
+
 	render() {
 		return (
 			<div
-				ref={'dropZone'}
 				style={{
+					position: 'relative',
 					float: 'left',
-					width: this.props.dropZone.width,
-					height: this.props.dropZone.height,
-					backgroundColor: 'pink',
-					borderRadius: 10
+					display: 'block'
 				}}
 			>
-				{this.item}
+				<div
+					ref={'dropZone'}
+					style={{
+						float: 'left',
+						width: this.props.dropZone.width,
+						height: this.props.dropZone.height,
+						border: this.showDropZoneBorder ? '1px dotted black' : ''
+					}}
+				>
+					{this.item}
+				</div>
+				{this.background}
 			</div>
 		)
 	}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
-import Collectable from '../../Containers/GameContainers/ItemContainers/Collectable';
+import { Collectable } from '../../Containers/GameContainers';
 
 export default class About extends React.Component {
 	render() {

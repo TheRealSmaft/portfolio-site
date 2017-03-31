@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveContainer } from '../../Containers';
 
-import DropZone from '../../Containers/GameContainers/InteractableContainers/DropZone';
+import { DropZone } from '../../Containers/GameContainers';
 
 export default class PortfolioPage extends React.Component {
 	render() {

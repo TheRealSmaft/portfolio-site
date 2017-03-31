@@ -2,8 +2,7 @@ import React from 'react';
 
 import { ResponsiveContainer } from '../../Containers';
 
-import Collectable from '../../Containers/GameContainers/ItemContainers/Collectable';
-import DropZone from '../../Containers/GameContainers/InteractableContainers/DropZone';
+import { Collectable, DropZone } from '../../Containers/GameContainers';
 
 const SomefingPage = React.createClass({
 	render() {
@@ -30,7 +29,9 @@ const SomefingPage = React.createClass({
 				<p style={{clear: 'both'}}>
 					Nope...
 				</p>
-				<DropZone dropZone={dropZone} />
+				<DropZone dropZone={dropZone}> 
+					<img src={require('../Home/images/bunnies.jpg')} style={{width: '100%'}} />
+				</DropZone>
 				<Collectable item={item1} />
 			</ResponsiveContainer>
 		)

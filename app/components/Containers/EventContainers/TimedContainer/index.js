@@ -1,7 +1,5 @@
 import React from 'react';
 
-import TimedComponent from './TimedComponent';
-
 const TimedContainer = React.createClass({
 	getInitialState() {
 		return {
@@ -19,13 +17,15 @@ const TimedContainer = React.createClass({
 	getDefaultProps() {
 		return {
 			tcDelay: 0,
-			tcIncrement: 1000
+			tcIncrement: 1000,
+			eventCount: 1
 		}
 	},
 
 	componentWillMount() {
 		this.delay = 0;
 		this.elapsedTime = 0;
+		this.eventsRemaining = this.props.eventCount;
 	},
 
 	componentDidMount() {
@@ -34,6 +34,15 @@ const TimedContainer = React.createClass({
 
 	componentWillUnmount() {
 		this.stopTimer();
+	},
+
+	componentDidUpdate() {
+		if(this.eventsRemaining > 0 && 
+			this.state.elapsedTime === this.props.tcDuration) {
+			this.fireChildUpdate();
+			this.eventsRemaining--;
+			console.log(this.eventsRemaining)
+		}
 	},
 
 	initializeTimer() {
@@ -63,13 +72,21 @@ const TimedContainer = React.createClass({
 	stopTimer() {
 		clearInterval(this.timer);
 		this.stopped = true;
-	},	
+	},
+
+	fireChildUpdate() {
+		this.refs.timerChild.style.backgroundColor = 'pink';
+	},
 
 	render() {
 		return (
-			<TimedComponent time={this.state.elapsedTime} stop={this.state.elapsedTime >= this.props.tcDuration || this.stopped}>
-				{this.props.children}
-			</TimedComponent>
+			<div>
+				{React.cloneElement(this.props.children, {
+					['data-ElapsedTime']: this.state.elapsedTime,
+					ref: 'timerChild'
+				}
+				)}
+			</div>
 		)
 	}
 });

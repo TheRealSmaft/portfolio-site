@@ -12,14 +12,12 @@ import Inventory from './Containers/GameContainers/ItemContainers/Inventory';
 
 import { NavLinks } from './Pages';
 
-import { siteInfoActions, siteInfoTypes } from '../state/initial';
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 
 
 const App = React.createClass({
 	componentWillMount() {
-		this.props.getSiteInfo();
 		this.props.getWindowSize();
 
 		this.scrollLocked = this.props.scrollState.scrollLocked;
@@ -53,7 +51,11 @@ const App = React.createClass({
 
 	render() {
 		return (
-			<div className={appStyles}>
+			<div className={appStyles}
+				style={{
+					minHeight: window.innerHeight
+				}}
+			>
 				<StickyContainer 
 					stickyStartY={0}
 					stickyPosY={0}
@@ -74,7 +76,6 @@ const App = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		site: store.initialState.site,
 		windowState: store.windowState,
 		scrollState: store.scrollState
 	};
@@ -82,7 +83,6 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		getSiteInfo: siteInfoActions.getSiteInfo,
 		getWindowSize: windowEventActions.getWindowSize,
 		getScrollPosition: scrollEventActions.getScrollPosition
 	}, dispatch)
