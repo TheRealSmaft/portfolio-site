@@ -1,9 +1,30 @@
 import React from 'react';
 
-import { ResponsiveContainer, ScrollLoader, Grid, Row, Col, TimedContainer } from '../../Containers';
+import { ResponsiveContainer, ScrollLoader, Grid, Row, Col, EventExecutor } from '../../Containers';
 import { DropZone } from '../../Containers/GameContainers';
 
-import GenericEvent from '../../Containers/EventContainers/GenericEvent';
+function makeBackgroundPink(target) {
+	target.style.color = 'pink';
+}
+
+function makeTextHuge(target) {
+	target.style.color = 'blue';
+}
+
+function moveTextRight(target) {
+	target.style.color = 'orange';
+}
+
+function moveTextLowerCase(target) {
+	target.style.color = 'black';
+}
+
+const events = [
+	makeBackgroundPink,
+	makeTextHuge,
+	moveTextRight,
+	moveTextLowerCase
+]
 
 export default class Home extends React.Component {
 	render() {
@@ -15,10 +36,10 @@ export default class Home extends React.Component {
 
 		return (
 			<ResponsiveContainer>
-			
-				<TimedContainer tcIncrement={500} tcDuration={5}>
-					<h1>Hi BUDDY</h1>
-				</TimedContainer>
+
+				<EventExecutor increment={500} loop={true} moments={[0, 1, 2, 3]} events={events}>
+					<h1 style={{transition: '500ms'}}>HI THERE!</h1>
+				</EventExecutor>
 
 				<Grid gutter={5} breakPoints={[1100, 800, 600]}>
 					<Row blocks={5}>
