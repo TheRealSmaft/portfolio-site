@@ -4,5 +4,6 @@
   font-family: helvetica, arial, sans-serif;
   line-height: 200%;
   width: 100%;
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=app.css.map */
