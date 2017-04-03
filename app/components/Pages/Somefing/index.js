@@ -22,6 +22,11 @@ const SomefingPage = React.createClass({
 			width: 50
 		}
 
+		var star = {
+			name: 'star',
+			width: 50
+		}
+
 		return (
 			<ResponsiveContainer>
 				<Collectable item={item} />
@@ -33,6 +38,7 @@ const SomefingPage = React.createClass({
 					<img src={require('../Home/images/bunnies.jpg')} style={{width: '100%'}} />
 				</DropZone>
 				<Collectable item={item1} />
+				<Collectable item={star} />
 			</ResponsiveContainer>
 		)
 	}

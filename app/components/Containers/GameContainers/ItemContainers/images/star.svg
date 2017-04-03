@@ -1,0 +1,46 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 719.9">
+  <polygon 
+    points="300,30 120,594 570,237 30,234 480,594"  
+    style="
+      fill:#00BD9D;
+      stroke:#00BD9D;
+      stroke-width:2;
+      fill-rule:nonzero;
+    "
+  >
+  <p>
+    Starry Boy!
+  </p>
+
+<!--     <animateTransform 
+      attributeName="transform" 
+      attributeType="XML"
+      type="scale"
+      from="3" to="8"
+      begin="0s" dur="5s"
+      repeatCount="indefinite"
+      additive="sum"
+    /> -->
+    <!-- <animateTransform 
+      attributeName="transform" 
+      attributeType="XML"
+      type="scale"
+      from="3" to="8"
+      begin="0s" dur="5s"
+      repeatCount="indefinite"
+      additive="sum"
+    /> -->
+
+
+<!--     <animateTransform 
+      attributeName="transform" 
+      attributeType="XML"
+      type="rotate"
+      from="0 130 120"
+      to="360 130 120"
+      begin="0s" dur="10s"
+      repeatCount="indefinite"
+      additive="sum"
+    /> -->
+  </polygon>
+</svg>

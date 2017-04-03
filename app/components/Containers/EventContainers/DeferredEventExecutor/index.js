@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-const EventExecutor = React.createClass({
+import animation from '../../../../styles/animation';
+
+const DeferredEventExecutor = React.createClass({
 	getInitialState() {
 		return {
 			elapsedTime: 0,
@@ -17,7 +21,8 @@ const EventExecutor = React.createClass({
 	getDefaultProps() {
 		return {
 			increment: 1000,
-			loop: false
+			loop: false,
+			fireCondition: null
 		}
 	},
 
@@ -32,17 +37,39 @@ const EventExecutor = React.createClass({
 	},
 
 	componentDidMount() {
-		this.initializeTimer();
+		if(this.checkFireCondition()) {
+			this.initializeTimer();
+			
+			if(this.nextMoment === 0) {
+				this.fireNextEvent();
+			};
+		}
 	},
 
 	componentWillUnmount() {
 		this.stopTimer();
 	},
 
+	componentWillUpdate() {
+
+	},
+
 	componentDidUpdate() {
-		if(this.momentsPassed <= this.momentTotal &&
-		   this.state.elapsedTime === this.nextMoment) {
-			this.fireNextEvent();
+		if(this.checkFireCondition()) {
+			if(this.momentsPassed <= this.momentTotal &&
+			   this.state.elapsedTime === this.nextMoment) {
+				this.fireNextEvent();
+			}
+		}
+	},
+
+	checkFireCondition() {
+		if(this.props.fireCondition != null) {
+			return this.props.interactables.firedEvents.includes(this.props.fireCondition);
+		}
+		else
+		{
+			return true;
 		}
 	},
 
@@ -82,7 +109,13 @@ const EventExecutor = React.createClass({
 	},
 
 	fireNextEvent() {
-		this.props.events[this.momentsPassed](this.refs.target);
+		if(!this.refs.target.props) {
+			this.props.events[this.momentsPassed](this.refs.target, animation);
+		}
+		else
+		{
+			this.props.events[this.momentsPassed](ReactDOM.findDOMNode(this.refs.target), animation, this.refs.target);
+		}
 
 		this.momentsPassed = this.momentsPassed + 1;
 		this.nextMoment = this.props.moments[this.momentsPassed];
@@ -101,4 +134,10 @@ const EventExecutor = React.createClass({
 	}
 });
 
-export default EventExecutor;
+function mapStateToProps(store) {
+	return {
+		interactables: store.interactableState
+	}
+};
+
+export default connect(mapStateToProps)(DeferredEventExecutor);
