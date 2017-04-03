@@ -1,6 +1,6 @@
 export { default as StickyContainer } from './EventContainers/StickyEventContainer';
 export { default as ScrollLoader } from './EventContainers/ScrollLoader';
-export { default as TimedContainer } from './EventContainers/TimedContainer';
+export { default as EventExecutor } from './EventContainers/EventExecutor';
 
 export { default as ResponsiveContainer } from './LayoutContainers/ResponsiveContainer';
 
