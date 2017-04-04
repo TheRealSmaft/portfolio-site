@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 import { Collectable } from '../../Containers/GameContainers';
 
+import { scene1Styles } from '../../../styles/scenes';
+
 import ominousBackground from '../__resources/images/ominous-background.svg';
 
 const Scene1 = React.createClass({
@@ -21,7 +23,22 @@ const Scene1 = React.createClass({
 
 			function (target, animation) {
 				target.style.transform = 'translateY(' + window.innerHeight + 'px)';
-				target.childNodes[0].childNodes[0].classList.add(animation.spinForwards);
+				target.childNodes[0].childNodes[0].classList.add(scene1Styles.spinForwards);
+			},
+
+			function (target, animation) {
+				target.childNodes[0].classList.add(animation.squishX);
+			}
+		];
+
+		this.letterOEvents = [
+			function (target) {
+				target.style.top = (window.innerHeight * .2) * -1 + 'px';
+			},
+
+			function (target, animation) {
+				target.style.transform = 'translateY(' + window.innerHeight + 'px)';
+				target.childNodes[0].childNodes[0].classList.add(scene1Styles.spinBackwards);
 			},
 
 			function (target, animation) {
@@ -32,7 +49,12 @@ const Scene1 = React.createClass({
 		this.letterH = {
 			name: 'letterH',
 			width: '50px'
-		}
+		};
+
+		this.letterO = {
+			name: 'letterO',
+			width: '50px'
+		};
 	},
 
 	// componentDidMount() {
@@ -79,6 +101,22 @@ const Scene1 = React.createClass({
 								transition: '200ms linear'
 							}}
 							item={this.letterH}
+						/>
+					</DeferredEventExecutor>
+					<DeferredEventExecutor
+						moments={[0, 35, 37]}
+						events={this.letterOEvents}
+						increment={100}
+					>
+
+						<Collectable
+							ref='letterO'
+							style={{
+								position: 'absolute',
+								left: '20%',
+								transition: '200ms linear'
+							}}
+							item={this.letterO}
 						/>
 					</DeferredEventExecutor>
 				</ResponsiveContainer>

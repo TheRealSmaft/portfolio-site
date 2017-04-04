@@ -1,0 +1,23 @@
+@keyframes spinForwards {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(85deg);
+  }
+}
+.spinForwards {
+  animation: spinForwards 200ms linear forwards;
+}
+@keyframes spinBackwards {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+.spinBackwards {
+  animation: spinBackwards 200ms linear forwards;
+}
+/*# sourceMappingURL=styles.css.map */
