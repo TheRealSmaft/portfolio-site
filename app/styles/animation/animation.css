@@ -1,3 +1,25 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation: fadeIn 500ms ease-in-out forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fadeOut {
+  animation: fadeOut 500ms ease-in-out forwards;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -5,6 +27,20 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.spin {
+  animation: spin 2s linear infinite;
+}
+@keyframes spinForwards {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(85deg);
+  }
+}
+.spinForwards {
+  animation: spinForwards 200ms linear forwards;
 }
 @keyframes spin-counter {
   0% {
@@ -14,32 +50,121 @@
     transform: rotate(-360deg);
   }
 }
+.spinCounter {
+  animation: spin-counter 2s linear infinite;
+}
 @keyframes shrink {
   0% {
     transform: scale(1, 1);
   }
   100% {
-    transform: scale(0.25, 0.25);
+    transform: scale(0.9, 0.9);
   }
+}
+.shrink {
+  animation: shrink 1s linear forwards;
 }
 @keyframes grow {
   0% {
-    transform: scale(0.25, 0.25);
+    transform: scale(0.9, 0.9);
   }
   100% {
     transform: scale(1, 1);
   }
 }
-.spin {
-  animation: spin 2s linear infinite;
-}
-.spinCounter {
-  animation: spin-counter 2s linear infinite;
-}
-.shrink {
-  animation: shrink 1s linear forwards;
-}
 .grow {
   animation: grow 1s linear forwards;
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.wiggle {
+  animation: wiggle 1s linear infinite;
+}
+@keyframes squishX {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(2, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.squishX {
+  animation: squishX 300ms;
+}
+@keyframes imgAttack {
+  0% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(0.8, 0.8);
+  }
+  40% {
+    transform: scale(3, 3);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  62% {
+    transform: rotate(-10deg);
+  }
+  64% {
+    transform: rotate(10deg);
+  }
+  66% {
+    transform: rotate(-10deg);
+  }
+  68% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  72% {
+    transform: rotate(10deg);
+  }
+  74% {
+    transform: rotate(-10deg);
+  }
+  76% {
+    transform: rotate(10deg);
+  }
+  78% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  82% {
+    transform: rotate(-10deg);
+  }
+  84% {
+    transform: rotate(10deg);
+  }
+  86% {
+    transform: rotate(-5deg);
+    transform: scale(3, 3);
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10, 10);
+    opacity: 0;
+  }
+}
+.imgAttack {
+  animation: imgAttack 5s forwards;
 }
 /*# sourceMappingURL=animation.css.map */

@@ -12,7 +12,7 @@ export default [
 		"url": "/about"
 	},
 	{
-		"name": "Something",
-		"url": "/somefing"
+		"name": "Landing",
+		"url": "/landing"
 	}
 ];
