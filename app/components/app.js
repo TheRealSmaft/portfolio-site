@@ -19,7 +19,6 @@ import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 const App = React.createClass({
 	componentWillMount() {
 		this.props.getWindowSize();
-
 		this.scrollLocked = this.props.scrollState.scrollLocked;
 	},
 
@@ -56,14 +55,19 @@ const App = React.createClass({
 					minHeight: window.innerHeight
 				}}
 			>
-				<StickyContainer 
-					stickyStartY={0}
-					stickyPosY={0}
-					childStyles={navbarStyles.sticky}>
-					
-					<MainNavbar links={NavLinks} />
-					
-				</StickyContainer>
+
+				<div
+					style={{
+						backgroundColor: 'black',
+						position: 'fixed',
+						top: 0,
+						left: 0,
+						width: '100%',
+						height: '100%',
+						zIndex: -99
+					}}
+				>
+				</div>
 
 				{this.props.children}
 
@@ -73,6 +77,15 @@ const App = React.createClass({
 		)
 	}
 });
+
+//				<StickyContainer 
+					//stickyStartY={0}
+					//stickyPosY={0}
+					//childStyles={navbarStyles.sticky}>
+					
+					//<MainNavbar links={NavLinks} />
+					
+				//</StickyContainer>
 
 function mapStateToProps(store) {
 	return {

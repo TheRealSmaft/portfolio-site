@@ -12,6 +12,18 @@ const DropZone = React.createClass({
 		dropZone: React.PropTypes.object.isRequired
 	},
 
+	getDefaultProps() {
+		return {
+			eventTrigger: false
+		}
+	},
+
+	getInitialState() {
+		return {
+			status: 'open'
+		}
+	},
+
 	componentWillMount() {
 		this.draggableMatch = false;
 		this.pixelBuffer = this.props.pixelBuffer ? this.props.pixelBuffer : 20;
@@ -110,6 +122,19 @@ const DropZone = React.createClass({
 			this.centerItemNodeInDropZone();
 		}
 
+		if(this.state.status === 'open' &&
+			this.dropZone.status === 'closed') {
+			this.setState({
+				...this.state,
+				status: 'closed'
+			})
+
+			if(this.props.eventTrigger &&
+				!this.props.interactables.firedEvents.includes(this.dropZone.name)) {
+				this.props.addEventToFiredArray(this.dropZone.name + 'Event');
+			}
+		}
+
 		this.lastDragCase = this.props.items.draggable;
 		this.lastHoverCase = isHovering;
 	},
@@ -183,6 +208,7 @@ const DropZone = React.createClass({
 	render() {
 		return (
 			<div
+				id={this.props.dropZone.name}
 				style={{
 					position: 'relative',
 					float: 'left',
@@ -219,7 +245,8 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		addDropZoneToArray: interactableActions.addDropZoneToArray,
-		selectDropZone: interactableActions.selectDropZone
+		selectDropZone: interactableActions.selectDropZone,
+		addEventToFiredArray: interactableActions.addEventToFiredArray
 	}, dispatch)
 };
 

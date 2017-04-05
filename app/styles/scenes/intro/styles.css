@@ -1,0 +1,23 @@
+h1 {
+  font-size: 72px;
+  line-height: 80px;
+  margin-top: 50px;
+  text-align: center;
+  color: yellow;
+}
+p {
+  color: lightgreen;
+  background-color: red;
+  font-weight: bold;
+}
+.meArrow {
+  float: left;
+  width: 25%;
+  margin-left: 23%;
+}
+.meImg {
+  float: left;
+  width: 25%;
+  margin-left: 2%;
+}
+/*# sourceMappingURL=styles.css.map */
