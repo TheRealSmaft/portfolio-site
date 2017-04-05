@@ -175,3 +175,30 @@
 .imgAttack {
 	animation: imgAttack 5s forwards;
 }
+
+
+
+
+//// TESTING OUT MAKING GRAVITY
+
+@left: 5%;
+@bottom: 5%;
+@width: 90%;
+@height: 90%;
+
+.gravityContainer {
+	position: fixed;
+	left: @left;
+	bottom: @bottom;
+	width: @width;
+	height: @height;
+
+	* {
+		&:extend(.affectedByGravity);
+	}
+}
+
+.affectedByGravity {
+
+}
+

@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"inner",
+				"innerHeight\t.innerHeight()"
+			],
+			[
+				"letter",
+				"letterO"
+			],
+			[
+				"HFall",
+				"HFallY"
+			],
+			[
+				"transla",
+				"translateY"
+			],
+			[
+				"HSquish",
+				"HSquish1"
+			],
+			[
+				"HBounce",
+				"HBounceTranslateY"
+			],
+			[
+				"HBounceTran",
+				"HBounceTranslateX"
+			],
+			[
 				"fade",
 				"fadeOut\t.fadeOut()"
 			],
@@ -34,10 +62,6 @@
 			[
 				"zone",
 				"zoneId"
-			],
-			[
-				"inner",
-				"innerHeight\t.innerHeight()"
 			],
 			[
 				"SE",
@@ -490,67 +514,43 @@
 			[
 				"dis",
 				"disc"
-			],
-			[
-				"list-sty",
-				"list-style-type"
-			],
-			[
-				"p-",
-				"p-0"
-			],
-			[
-				"Eve",
-				"EventEmitter\talias"
-			],
-			[
-				"background",
-				"background-color"
-			],
-			[
-				"col",
-				"col-50-tablets-up"
-			],
-			[
-				"categ",
-				"category\tproperty"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/components/app.js",
+			"file": "app/components/Pages/About/index.js",
 			"settings":
 			{
-				"buffer_size": 2469,
+				"buffer_size": 341,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Scenes/_Intro/index.js",
+			"file": "app/components/Containers/EventContainers/PhysicsContainer/index.js",
 			"settings":
 			{
-				"buffer_size": 3753,
+				"buffer_size": 811,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Scenes/Scene1/index.js",
+			"file": "app/components/Containers/EventContainers/CSSAnimationQueuer/index.js",
 			"settings":
 			{
-				"buffer_size": 2824,
+				"buffer_size": 2479,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/styles/animation/animation.less",
+			"file": "dist/index.html",
 			"settings":
 			{
-				"buffer_size": 2104,
+				"buffer_size": 268,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +559,43 @@
 			"file": "app/styles/scenes/scene1/styles.less",
 			"settings":
 			{
-				"buffer_size": 344,
+				"buffer_size": 2486,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/styles/pages/index.js",
+			"settings":
+			{
+				"buffer_size": 51,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Pages/Landing/index.js",
+			"settings":
+			{
+				"buffer_size": 4858,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/styles/pages/test.less",
+			"settings":
+			{
+				"buffer_size": 110,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/styles/animation/animation.less",
+			"settings":
+			{
+				"buffer_size": 2367,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -624,31 +660,42 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/PhysicsContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Landing",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/animation/animation.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1/styles.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/CSSAnimationQueuer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/_Intro/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/index.html",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/routes.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/intro/styles.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/landingPage/landingPage.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/animation/animation.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/images/letterH.svg",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/index.js",
@@ -657,7 +704,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Landing/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DeferredEventExecutor/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/navLinks.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
@@ -684,7 +730,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/DragAndDropContainers/DropZone/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactableArray/duck/types.js",
@@ -763,12 +808,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DragContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/Draggable/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events/scroll/index.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/types.js"
 	],
 	"find":
 	{
@@ -788,6 +828,31 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"width",
+			"createEventQueue",
+			"animation",
+			"triggeredByEvent",
+			"animationLength",
+			"fireEvent",
+			"initializeTimer",
+			"startEventTimer",
+			"000",
+			"H",
+			"ease-in",
+			"&:",
+			"open",
+			"200ms",
+			"50",
+			"700ms",
+			"Rotate",
+			"1",
+			"X",
+			"Y",
+			"X",
+			"100",
+			"200ms",
+			"spinBackwards",
+			"spinForwards",
 			"Forward",
 			"H",
 			"spinForwards",
@@ -890,32 +955,7 @@
 			"dropZone",
 			"DropZone",
 			"DROP_ZONE",
-			"DropZone",
-			"DROP_ZONE",
-			"INTERACTABLE",
-			"Array",
-			".items",
-			"Array",
-			"ArrayIndex",
-			"Array",
-			".itemArray",
-			"Array",
-			"pixelBuffer",
-			"acceptingDrops",
-			"dragParentNode",
-			"dragChild",
-			"itemArray",
-			"dragNode",
-			"appendItemToDragNode",
-			"dragItem",
-			"300",
-			"getInspectableItems",
-			"TOGGLE_ITEM_DRAG",
-			"List",
-			"inspectable",
-			"addItemToInspectableInventory",
-			"changeItemStatus",
-			"console.log(this.isDragging)"
+			"DropZone"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -933,24 +973,87 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/app.js",
+					"file": "app/components/Pages/About/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2469,
+						"buffer_size": 341,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1589,
-								1589
+								277,
+								277
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/Containers/EventContainers/PhysicsContainer/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 811,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								494,
+								494
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "app/components/Containers/EventContainers/CSSAnimationQueuer/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2479,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1698,
+								1698
 							]
 						],
 						"settings":
@@ -959,32 +1062,116 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 480.0,
+						"translation.y": 516.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "app/components/Scenes/_Intro/index.js",
+					"buffer": 3,
+					"file": "dist/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3753,
+						"buffer_size": 268,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1813,
-								1813
+								178,
+								178
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/styles/scenes/scene1/styles.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2486,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2486,
+								2486
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2994.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/styles/pages/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 51,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/Pages/Landing/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								221,
+								221
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -996,85 +1183,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/components/Scenes/Scene1/index.js",
+					"buffer": 7,
+					"file": "app/styles/pages/test.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2824,
+						"buffer_size": 110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1210,
-								1210
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 52.0,
-						"translation.y": 420.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 3,
-					"file": "app/styles/animation/animation.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2104,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1121,
-								1121
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1407.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/styles/scenes/scene1/styles.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 344,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								265,
-								265
+								108,
+								108
 							]
 						],
 						"settings":
@@ -1087,6 +1209,35 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/styles/animation/animation.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2367,
+								2367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3637.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

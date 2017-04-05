@@ -1,3 +1,5 @@
+@import '../../animation/animation.less';
+
 // Letter H Animations
 
 @keyframes HFallX {
@@ -8,7 +10,7 @@
 
 @keyframes HFallY {
 	100% {
-		top: 80%;
+		bottom: 10%;
 	}
 }
 
@@ -53,7 +55,7 @@
 
 .HFall {
 	position: absolute;
-	top: -20%;
+	bottom: 120%;
 	left: 30%;
 
 	animation: HFallY 200ms linear 3000ms forwards;
@@ -71,7 +73,7 @@
 					animation: HSquish1 100ms 3200ms;
 
 					div {
-						animation: HSquish2 100ms 3400ms;
+						&:extend(.squishX);
 
 						div {
 							animation: HFallRotate 300ms linear 2800ms forwards;
@@ -97,13 +99,13 @@
 
 @keyframes OFallY {
 	100% {
-		top: 80%;
+		bottom: 10%;
 	}
 }
 
 @keyframes OBounceTranslateX {
 	100% {
-		transform: translateX(200%);
+		transform: translateX(100%);
 	}
 }
 
@@ -142,7 +144,7 @@
 
 .OInitial {
 	position: absolute;
-	top: -20%;
+	bottom: 120%;
 	left: 40%;
 }
 

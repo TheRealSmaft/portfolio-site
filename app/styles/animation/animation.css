@@ -156,4 +156,11 @@
 .imgAttack {
   animation: imgAttack 5s forwards;
 }
+.gravityContainer {
+  position: fixed;
+  left: 5%;
+  bottom: 5%;
+  width: 90%;
+  height: 90%;
+}
 /*# sourceMappingURL=animation.css.map */

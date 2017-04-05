@@ -12,6 +12,8 @@ import ominousBackground from '../__resources/images/ominous-background.svg';
 
 const Scene1 = React.createClass({
 	componentWillMount() {
+		document.body.style.overflowY = 'hidden';
+
 		this.backgroundEvents = [
 			function (target) {
 				target.style.opacity = 1;
@@ -27,9 +29,6 @@ const Scene1 = React.createClass({
 			name: 'letterO',
 			width: '50px'
 		};
-	},
-
-	componentWillUpdate() {
 	},
 
 	render() {
