@@ -7,7 +7,7 @@ const AboutPage = React.createClass({
 	render() {
 		return (
 			<ResponsiveContainer>
-				<PhysicsContainer />
+
 			</ResponsiveContainer>
 		)
 	}

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { interactableTypes, interactableActions } from '../../../../state/game/interactables';
+
 import animation from '../../../../styles/animation';
 
 const DeferredEventExecutor = React.createClass({
@@ -22,7 +24,8 @@ const DeferredEventExecutor = React.createClass({
 		return {
 			increment: 1000,
 			loop: false,
-			fireCondition: null
+			fireCondition: null,
+			eventToTrigger: null
 		}
 	},
 
@@ -105,7 +108,9 @@ const DeferredEventExecutor = React.createClass({
 
 	stopTimer() {
 		clearInterval(this.timer);
-		this.stopped = true;
+		if(this.props.eventToTrigger != null) {
+			this.props.addEventToFiredArray(this.props.eventToTrigger);
+		}
 	},
 
 	fireNextEvent() {
@@ -140,4 +145,10 @@ function mapStateToProps(store) {
 	}
 };
 
-export default connect(mapStateToProps)(DeferredEventExecutor);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		addEventToFiredArray: interactableActions.addEventToFiredArray
+	}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeferredEventExecutor);

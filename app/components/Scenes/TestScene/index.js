@@ -6,11 +6,11 @@ import { Collectable } from '../../Containers/GameContainers';
 
 import CSSAnimationQueuer from '../../Containers/EventContainers/CSSAnimationQueuer';
 
-import { scene1Styles } from '../../../styles/scenes';
+import { testStyles } from '../../../styles/scenes';
 
 import ominousBackground from '../__resources/images/ominous-background.svg';
 
-const Scene1 = React.createClass({
+const TestScene = React.createClass({
 	componentWillMount() {
 		document.body.style.overflowY = 'hidden';
 
@@ -20,9 +20,20 @@ const Scene1 = React.createClass({
 			}
 		];
 
-		this.monitorSVG = <img className={scene1Styles.monitorSvg} src={require('../__resources/images/monitor.svg')}/>;
-		this.monitorSideSVG = <img className={scene1Styles.monitorSideSvg} src={require('../__resources/images/monitor-side.svg')}/>;
-		this.uglyGIF = <img className={scene1Styles.uglyGif} src={require('../__resources/images/ugly.gif')}/>;
+		this.letterH = {
+			name: 'letterH',
+			width: '50px'
+		};
+
+		this.letterO = {
+			name: 'letterO',
+			width: '50px'
+		};
+
+		this.letterM = {
+			name: 'letterM',
+			width: '50px'
+		};
 	},
 
 	render() {
@@ -50,19 +61,34 @@ const Scene1 = React.createClass({
 				</DeferredEventExecutor>
 				
 				<ResponsiveContainer>
-					<div className={scene1Styles.monitor}>
-						{this.monitorSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.uglyGIF}
-					</div>
+					<CSSAnimationQueuer
+						queueCount={8}
+						animationClass={testStyles.HFall}
+					>
+						<Collectable
+							item={this.letterH}
+						/>
+					</CSSAnimationQueuer>
+					<CSSAnimationQueuer
+						queueCount={11}
+						animationClass={testStyles.OFall}
+					>
+						<Collectable
+							item={this.letterO}
+						/>
+					</CSSAnimationQueuer>
+					<CSSAnimationQueuer
+						queueCount={9}
+						animationClass={testStyles.MFall}
+					>
+						<Collectable
+							item={this.letterM}
+						/>
+					</CSSAnimationQueuer>
 				</ResponsiveContainer>
 			</div>
 		)
 	}
 });
 
-export default Scene1;
+export default TestScene;
