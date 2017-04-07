@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 import { Collectable } from '../../Containers/GameContainers';
+import Cube from '../../Containers/3DContainers/Cube';
 
 import CSSAnimationQueuer from '../../Containers/EventContainers/CSSAnimationQueuer';
 
@@ -16,12 +17,15 @@ const Scene1 = React.createClass({
 
 		this.backgroundEvents = [
 			function (target) {
-				target.style.opacity = 1;
+				target.style.opacity = 0;
+			},
+
+			function (target) {
+				target.style.display = 'none';
 			}
 		];
 
 		this.monitorSVG = <img className={scene1Styles.monitorSvg} src={require('../__resources/images/monitor.svg')}/>;
-		this.monitorSideSVG = <img className={scene1Styles.monitorSideSvg} src={require('../__resources/images/monitor-side.svg')}/>;
 		this.uglyGIF = <img className={scene1Styles.uglyGif} src={require('../__resources/images/ugly.gif')}/>;
 	},
 
@@ -29,36 +33,33 @@ const Scene1 = React.createClass({
 		return (
 			<div>
 				<DeferredEventExecutor
-					moments={[1]}
+					moments={[1, 6]}
 					events={this.backgroundEvents}
 				>
 					<div
 						style={{
-							opacity: 0,
-							transition: '1000ms',
-							backgroundImage: `url(${ominousBackground})`,
-							backgroundSize: 'cover',
+							opacity: 1,
+							transition: '3000ms ease-in',
+							backgroundColor: 'black',
 							position: 'fixed',
 							top: 0,
 							left: 0,
 							width: '100%',
 							height: '100%',
-							zIndex: -10
+							zIndex: 10
 						}}
 					>
 					</div>
 				</DeferredEventExecutor>
 				
-				<ResponsiveContainer>
-					<div className={scene1Styles.monitor}>
-						{this.monitorSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.monitorSideSVG}
-						{this.uglyGIF}
-					</div>
+				<div
+					className={scene1Styles.ominousBackground}
+					style={{backgroundImage: `url(${ominousBackground})`}}
+				>
+				</div>
+				<ResponsiveContainer className={scene1Styles.scene}>
+					<Cube>
+					</Cube>
 				</ResponsiveContainer>
 			</div>
 		)
@@ -66,3 +67,14 @@ const Scene1 = React.createClass({
 });
 
 export default Scene1;
+
+// <div className={scene1Styles.monitor}>
+// 						<div>
+// 							<div>
+// 								{this.monitorSVG}
+// 								{this.uglyGIF}
+// 							</div>
+// 							<div className={scene1Styles.monitorLeft}>
+// 							</div>
+// 						</div>
+// 					</div>

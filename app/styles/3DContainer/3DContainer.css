@@ -1,0 +1,42 @@
+.cube {
+  position: relative;
+  top: 100px;
+  transform-style: preserve-3d;
+}
+.cube div {
+  position: absolute;
+}
+.front,
+.cube div:nth-of-type(1) {
+  transform: translateZ(200px);
+  background-color: pink;
+}
+.back,
+.cube div:nth-of-type(2) {
+  transform: rotateY(180deg) translateZ(200px);
+  background-color: red;
+}
+.left,
+.cube div:nth-of-type(3) {
+  transform-origin: left;
+  background-color: purple;
+}
+.right,
+.cube div:nth-of-type(4) {
+  transform: rotateY(90deg) translateX(200px);
+  transform-origin: right;
+  background-color: orange;
+}
+.top,
+.cube div:nth-of-type(5) {
+  transform: rotateX(-90deg) translateY(-200px);
+  transform-origin: top;
+  background-color: blue;
+}
+.bottom,
+.cube div:nth-of-type(6) {
+  transform: rotateX(90deg) translateY(200px);
+  transform-origin: bottom;
+  background-color: green;
+}
+/*# sourceMappingURL=3DContainer.css.map */
