@@ -3,122 +3,93 @@ import ReactDOM from 'react-dom';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 import { Collectable } from '../../Containers/GameContainers';
+import Cube from '../../Containers/3DContainers/Cube';
+
+import CSSAnimationQueuer from '../../Containers/EventContainers/CSSAnimationQueuer';
 
 import { scene1Styles } from '../../../styles/scenes';
 
 import ominousBackground from '../__resources/images/ominous-background.svg';
+import uglyGif from '../__resources/images/ugly.gif';
 
 const Scene1 = React.createClass({
 	componentWillMount() {
+		document.body.style.overflow = 'hidden';
 		this.backgroundEvents = [
 			function (target) {
-				target.style.opacity = 1;
-			}
-		];
+				target.style.opacity = 0;
+			},
 
-		this.letterHEvents = [
 			function (target) {
-				target.style.top = (window.innerHeight * .2) * -1 + 'px';
-			},
-
-			function (target, animation) {
-				target.style.transform = 'translateY(' + window.innerHeight + 'px)';
-				target.childNodes[0].childNodes[0].classList.add(scene1Styles.spinForwards);
-			},
-
-			function (target, animation) {
-				target.childNodes[0].classList.add(animation.squishX);
+				target.style.display = 'none';
 			}
 		];
 
-		this.letterOEvents = [
-			function (target) {
-				target.style.top = (window.innerHeight * .2) * -1 + 'px';
-			},
+		this.monitorSide = (
+			<div>
+				<img 
+					className={scene1Styles.monitorSide}
+					src={require('../__resources/images/monitorSide.svg')}
+				/>
+			</div>
+		);
 
-			function (target, animation) {
-				target.style.transform = 'translateY(' + window.innerHeight + 'px)';
-				target.childNodes[0].childNodes[0].classList.add(scene1Styles.spinBackwards);
-			},
+		this.monitorFaces = [
+			(
+				<div>
+					<img 
+						className={scene1Styles.monitorSvg} 
+						src={require('../__resources/images/monitor.svg')}
+						style={{
+							backgroundImage: `url(${uglyGif})`
+						}}
+					/>
+				</div>
+			),
+		]
 
-			function (target, animation) {
-				target.childNodes[0].classList.add(animation.squishX);
-			}
-		];
-
-		this.letterH = {
-			name: 'letterH',
-			width: '50px'
-		};
-
-		this.letterO = {
-			name: 'letterO',
-			width: '50px'
-		};
-	},
-
-	// componentDidMount() {
-	// 	ReactDOM.findDOMNode(this.refs.letterH).style.top = (window.innerHeight * .2) * -1 + 'px';
-	// },
-
-	componentWillUpdate() {
+		for(var i = 0; i < 5; i++) {
+			this.monitorFaces.push(this.monitorSide);
+		}
 	},
 
 	render() {
 		return (
 			<div>
 				<DeferredEventExecutor
-					moments={[1]}
+					moments={[1, 6]}
 					events={this.backgroundEvents}
 				>
 					<div
 						style={{
-							opacity: 0,
-							transition: '1000ms',
-							backgroundImage: `url(${ominousBackground})`,
-							backgroundSize: 'cover',
+							opacity: 1,
+							transition: '3000ms ease-in',
+							backgroundColor: 'black',
 							position: 'fixed',
 							top: 0,
 							left: 0,
 							width: '100%',
 							height: '100%',
-							zIndex: -10
+							zIndex: 10
 						}}
 					>
 					</div>
 				</DeferredEventExecutor>
 				
-				<ResponsiveContainer>
-					<DeferredEventExecutor
-						moments={[0, 30, 32]}
-						events={this.letterHEvents}
-						increment={100}
+				<div
+					className={scene1Styles.ominousBackground}
+					style={{backgroundImage: `url(${ominousBackground})`}}
+				>
+				</div>
+				<ResponsiveContainer className={scene1Styles.scene}>
+					<Cube
+						dimensions={[200, 130, 200]}
+						worldSize={window.innerWidth * .10}
+						responsive={false}
+						faces={this.monitorFaces}
 					>
-						<Collectable
-							ref='letterH'
-							style={{
-								position: 'absolute',
-								transition: '200ms linear'
-							}}
-							item={this.letterH}
-						/>
-					</DeferredEventExecutor>
-					<DeferredEventExecutor
-						moments={[0, 35, 37]}
-						events={this.letterOEvents}
-						increment={100}
-					>
+					</Cube>
 
-						<Collectable
-							ref='letterO'
-							style={{
-								position: 'absolute',
-								left: '20%',
-								transition: '200ms linear'
-							}}
-							item={this.letterO}
-						/>
-					</DeferredEventExecutor>
 				</ResponsiveContainer>
 			</div>
 		)
@@ -126,3 +97,14 @@ const Scene1 = React.createClass({
 });
 
 export default Scene1;
+
+// <div className={scene1Styles.monitor}>
+// 						<div>
+// 							<div>
+// 								{this.monitorSVG}
+// 								{this.uglyGIF}
+// 							</div>
+// 							<div className={scene1Styles.monitorLeft}>
+// 							</div>
+// 						</div>
+// 					</div>

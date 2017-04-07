@@ -5,7 +5,6 @@ import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 import uglyBackground from './images/ugly.gif';
 import ominousBackground from './images/ominous-background.svg';
 
-import { landingPageStyles } from '../../../styles/pages';
 
 const LandingPage = React.createClass({
 	componentWillMount() {

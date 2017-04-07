@@ -1,23 +1,22 @@
-@keyframes spinForwards {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(85deg);
-  }
+.ominousBackground {
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
 }
-.spinForwards {
-  animation: spinForwards 200ms linear forwards;
+.monitorSvg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
 }
-@keyframes spinBackwards {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-40deg);
-  }
-}
-.spinBackwards {
-  animation: spinBackwards 200ms linear forwards;
+.monitorSide {
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
 }
 /*# sourceMappingURL=styles.css.map */

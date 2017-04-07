@@ -1,0 +1,1 @@
+export { default as testStyles } from './test.css';

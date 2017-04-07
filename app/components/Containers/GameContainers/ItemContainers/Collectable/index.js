@@ -32,7 +32,6 @@ const Collectable = React.createClass({
 						'.svg')} 
 					alt={this.props.item.name}
 					style={{
-						width: this.props.item.width,
 						display: 'block'
 					}}
 				/>
@@ -107,6 +106,9 @@ const Collectable = React.createClass({
 					}}
 				>
 					<Item 
+						style={{
+							width: this.props.item.width
+						}}
 						ref={'item'}
 						item={this.item}
 					/>

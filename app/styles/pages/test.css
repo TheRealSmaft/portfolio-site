@@ -1,0 +1,28 @@
+.ball {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: green;
+}
+.tester,
+.fall {
+  position: absolute;
+  top: 0px;
+}
+@keyframes fall {
+  100% {
+    top: 80%;
+  }
+}
+.fall {
+  animation: fall 100ms linear forwards;
+}
+@keyframes bounce {
+  50% {
+    transform: scale(2, 1);
+  }
+}
+.bounce {
+  animation: bounce 100ms;
+}
+/*# sourceMappingURL=test.css.map */
