@@ -4,12 +4,48 @@
 		"selected_items":
 		[
 			[
-				"tran",
-				"translateY"
+				"margin",
+				"margin-top"
+			],
+			[
+				"ack",
+				"background-color"
+			],
+			[
+				"inner",
+				"innerWidth\t.innerWidth()"
+			],
+			[
+				"rota",
+				"rotation"
+			],
+			[
+				"rotate",
+				"rotateY"
+			],
+			[
+				"translat",
+				"translateZ"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"back",
+				"background-color"
 			],
 			[
 				"trans",
-				"transform"
+				"translateZ"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"tran",
+				"translateY"
 			],
 			[
 				"inne",
@@ -22,10 +58,6 @@
 			[
 				"C",
 				"CSSAnimationQueuer"
-			],
-			[
-				"inner",
-				"innerHeight\t.innerHeight()"
 			],
 			[
 				"letter",
@@ -54,10 +86,6 @@
 			[
 				"fade",
 				"fadeOut\t.fadeOut()"
-			],
-			[
-				"margin",
-				"margin-left"
 			],
 			[
 				"isnec",
@@ -90,10 +118,6 @@
 			[
 				"time",
 				"timer"
-			],
-			[
-				"back",
-				"background-color"
 			],
 			[
 				"marg",
@@ -490,30 +514,6 @@
 			[
 				"ma",
 				"margin-right"
-			],
-			[
-				"border-",
-				"border-dark-b"
-			],
-			[
-				"bra",
-				"brand-primary"
-			],
-			[
-				"img",
-				"imageNum\tproperty"
-			],
-			[
-				"ol",
-				"oldY\tlocal var"
-			],
-			[
-				"pos",
-				"position"
-			],
-			[
-				"g",
-				"getElementById\tmethod"
 			]
 		]
 	},
@@ -523,7 +523,25 @@
 			"file": "app/components/Scenes/Scene1/index.js",
 			"settings":
 			{
-				"buffer_size": 1776,
+				"buffer_size": 2387,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Containers/3DContainers/Cube/index.js",
+			"settings":
+			{
+				"buffer_size": 3676,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/styles/3DContainer/3DContainer.less",
+			"settings":
+			{
+				"buffer_size": 1000,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,9 +550,17 @@
 			"file": "app/styles/scenes/scene1/styles.less",
 			"settings":
 			{
-				"buffer_size": 425,
+				"buffer_size": 560,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/styles/scenes/scene1/styles.css",
+			"settings":
+			{
+				"buffer_size": 400,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -597,9 +623,12 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/CSSAnimationQueuer",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Row",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources/images",
@@ -609,15 +638,20 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/animation",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/intro",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/test",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources/images/monitorSide.svg",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources/images/monitor.svg",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer/3DContainer.css",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/mediaQueries/mediaQueries.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1/styles.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/routes.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/TestScene/index.js",
@@ -738,13 +772,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/Inventory/ItemContainer/Item.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/Inventory/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/Inventory/ItemContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/Inventory/Classes/Inventory.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/Inventory/Item/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/inventory/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/dom/window/duck/actions.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/Inventory/Classes/Inventory.js"
 	],
 	"find":
 	{
@@ -764,6 +792,26 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"rotate",
+			"\tbackface-visibility: hidden;\n\t-webkit-backface-visibility: hidden;",
+			"window.innerWidth",
+			"worldSize",
+			"window.innerWidth",
+			"Cube",
+			"responsiveDimensions",
+			"'px'",
+			" + 'px'",
+			"this.props.dimensions[2]",
+			"this.props.dimensions[1]",
+			"this.props.dimensions[0]",
+			"top",
+			"left",
+			"100%",
+			"min",
+			"~",
+			":",
+			"'",
+			",",
 			"Z",
 			"'",
 			",",
@@ -871,27 +919,7 @@
 			"div",
 			"DropZone",
 			"shrink",
-			"25",
-			"spin",
-			"div",
-			"1turn",
-			"animation",
-			"top",
-			"left",
-			"target",
-			"ctx",
-			"margin",
-			"moveTextLowerCase",
-			"moveTextRight",
-			"makeTextHuge",
-			"makeBackgroundPink",
-			"eventCount",
-			"elapsedTime",
-			"Collectable",
-			"interactables",
-			"item",
-			"getItemNode",
-			"this.itemNode"
+			"25"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -918,15 +946,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1776,
+						"buffer_size": 2387,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1106,
-								1106
+								1948,
+								1948
 							]
 						],
 						"settings":
@@ -935,10 +963,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 1260.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/Containers/3DContainers/Cube/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1871,
+								1871
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1127.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -948,20 +1005,49 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
-					"file": "app/styles/scenes/scene1/styles.less",
+					"buffer": 2,
+					"file": "app/styles/3DContainer/3DContainer.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 425,
+						"buffer_size": 1000,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								418,
-								418
+								998,
+								998
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/styles/scenes/scene1/styles.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								370,
+								370
 							]
 						],
 						"settings":
@@ -970,10 +1056,40 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/styles/scenes/scene1/styles.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]

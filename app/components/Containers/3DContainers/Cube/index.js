@@ -1,45 +1,49 @@
 import React from 'react';
 
 import { style3D } from '../../../../styles/3DContainer';
+import { scene1Styles } from '../../../../styles/scenes';
 
 const Cube = React.createClass({
 	propTypes: {
 		faces: React.PropTypes.array,
-		dimensions: React.PropTypes.arrayOf(React.PropTypes.number),
+		dimensions: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
 		rotation: React.PropTypes.arrayOf(React.PropTypes.number),
 		perspective: React.PropTypes.number,
-		responsiveDimensions: React.PropTypes.bool
+		worldSize: React.PropTypes.number,
+		responsive: React.PropTypes.bool
 	},
 
 	getDefaultProps() {
 		return {
-			dimensions: [50, 50, 10],
-			rotation: [25, 10, 36],
-			responsiveDimensions: true,
-			perspective: 800
+			rotation: [0, 0, 0],
+			perspective: 800,
+			responsive: false,
+			worldSize: 500
 		}
 	},
 
 	componentWillMount() {
-		this.z = this.props.dimensions[2];
-
-		if(this.props.responsiveDimensions) {
+		if(this.props.responsive) {
 			this.updateResponsiveDimensions();
 		}
 		else
 		{
 			this.x = this.props.dimensions[0];
 			this.y = this.props.dimensions[1];
+			this.z = this.props.dimensions[2];
 		}
 	},
 
 	componentDidUpdate() {
-		this.updateResponsiveDimensions();
+		if(this.props.responsive) {
+			this.updateResponsiveDimensions();	
+		}
 	},
 
 	updateResponsiveDimensions() {
-		this.x = (this.props.dimensions[0] / 100) * window.innerWidth;
-		this.y = (this.props.dimensions[1] / 100) * window.innerHeight;
+		this.x = (this.props.dimensions[0] / 100) * this.props.worldSize;
+		this.y = (this.props.dimensions[1] / 100) * this.props.worldSize;
+		this.z = (this.props.dimensions[2] / 100) * this.props.worldSize;
 	},
 
 	render() {
@@ -52,7 +56,8 @@ const Cube = React.createClass({
 				className={style3D.world}
 				style={{
 					...this.props.style,
-					width: '400px',
+					width: this.props.worldSize + 'px',
+					height: this.props.worldSize + 'px',
 					perspective: this.props.perspective + 'px'
 				}}
 			>
@@ -71,6 +76,9 @@ const Cube = React.createClass({
 							transform: 'translateZ(' + (this.z / 2) + 'px)'
 						}}
 					>
+						<div style={{width: '100%', height: '100%'}}>
+							{this.props.faces[0].props.children}
+						</div>
 					</div>
 					<div
 						style={{
@@ -79,6 +87,9 @@ const Cube = React.createClass({
 							transform: 'rotateY(180deg) translateZ(' + (this.z / 2) + 'px)'
 						}}
 					>
+						<div style={{width: '100%', height: '100%'}}>
+							{this.props.faces[1].props.children}
+						</div>
 					</div>
 					<div
 						style={{
@@ -87,6 +98,9 @@ const Cube = React.createClass({
 							transform: 'rotateY(-90deg) translateX(' + (this.z * -.5)+ 'px)'
 						}}
 					>
+						<div style={{width: '100%', height: '100%'}}>
+							{this.props.faces[2].props.children}
+						</div>
 					</div>
 					<div
 						style={{
@@ -95,6 +109,9 @@ const Cube = React.createClass({
 							transform: 'rotateY(90deg) translateX(' + (this.z * .5) + 'px) translateZ(' + ((this.z - this.x) * -1) + 'px)'
 						}}
 					>
+						<div style={{width: '100%', height: '100%'}}>
+							{this.props.faces[3].props.children}
+						</div>
 					</div>
 					<div
 						style={{
@@ -103,6 +120,9 @@ const Cube = React.createClass({
 							transform: 'rotateX(-90deg) translateY(' + (this.z / 2 * -1) + 'px)'
 						}}
 					>
+						<div style={{width: '100%', height: '100%'}}>
+							{this.props.faces[4].props.children}
+						</div>
 					</div>
 					<div
 						style={{
@@ -111,6 +131,9 @@ const Cube = React.createClass({
 							transform: 'rotateX(90deg) translateY(' + (this.z / 2) + 'px) translateZ(' + ((this.y - this.z) * -1) + 'px)'
 						}}
 					>
+						<div style={{width: '100%', height: '100%'}}>
+							{this.props.faces[5].props.children}
+						</div>
 					</div>
 				</div>
 			</div>
