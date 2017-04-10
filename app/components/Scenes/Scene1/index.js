@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 import { Collectable } from '../../Containers/GameContainers';
-import Cube from '../../Containers/3DContainers/Cube';
-
 import CSSAnimationQueuer from '../../Containers/EventContainers/CSSAnimationQueuer';
+import Scene1_3DScene from './3DScene';
 
 import { scene1Styles } from '../../../styles/scenes';
+import { style3D } from '../../../styles/3DContainer';
 
 import ominousBackground from '../__resources/images/ominous-background.svg';
-import uglyGif from '../__resources/images/ugly.gif';
 
 const Scene1 = React.createClass({
 	componentWillMount() {
@@ -25,32 +24,45 @@ const Scene1 = React.createClass({
 			}
 		];
 
-		this.monitorSide = (
-			<div>
-				<img 
-					className={scene1Styles.monitorSide}
-					src={require('../__resources/images/monitorSide.svg')}
-				/>
-			</div>
-		);
+		this.threeDEvents = [
+			function (target, animation, reactTarget) {
+				var monitor = reactTarget.refs.monitor;
+				var monitorTransform = [
+					{
+						prop: 'rotate',
+						val: [0, -455, 0]
+					}
+				]
 
-		this.monitorFaces = [
-			(
-				<div>
-					<img 
-						className={scene1Styles.monitorSvg} 
-						src={require('../__resources/images/monitor.svg')}
-						style={{
-							backgroundImage: `url(${uglyGif})`
-						}}
-					/>
-				</div>
-			),
-		]
+				monitor.updateTransform(monitorTransform);
 
-		for(var i = 0; i < 5; i++) {
-			this.monitorFaces.push(this.monitorSide);
-		}
+				var boxGroup = reactTarget.refs.boxGroup;
+				var boxGroupTransform = [
+					{
+						prop: 'rotate',
+						val: [0, 180, 0]
+					},
+					{
+						prop: 'translate',
+						val: [-100, -100, 0]
+					}
+				]
+
+				boxGroup.updateTransform(boxGroupTransform);
+			},
+
+			function (target, animation, reactTarget) {
+				var boxGroup = reactTarget.refs.boxGroup;
+				var boxGroupTransform = [
+					{
+						prop: 'rotate',
+						val: [0, 270, 180]
+					}
+				]
+
+				boxGroup.updateTransform(boxGroupTransform);
+			}
+		];
 	},
 
 	render() {
@@ -81,15 +93,13 @@ const Scene1 = React.createClass({
 					style={{backgroundImage: `url(${ominousBackground})`}}
 				>
 				</div>
-				<ResponsiveContainer className={scene1Styles.scene}>
-					<Cube
-						dimensions={[200, 130, 200]}
-						worldSize={window.innerWidth * .10}
-						responsive={false}
-						faces={this.monitorFaces}
+				<ResponsiveContainer>
+					<DeferredEventExecutor
+						moments={[3, 7]}
+						events={this.threeDEvents}
 					>
-					</Cube>
-
+						<Scene1_3DScene />
+					</DeferredEventExecutor>
 				</ResponsiveContainer>
 			</div>
 		)
@@ -97,14 +107,3 @@ const Scene1 = React.createClass({
 });
 
 export default Scene1;
-
-// <div className={scene1Styles.monitor}>
-// 						<div>
-// 							<div>
-// 								{this.monitorSVG}
-// 								{this.uglyGIF}
-// 							</div>
-// 							<div className={scene1Styles.monitorLeft}>
-// 							</div>
-// 						</div>
-// 					</div>

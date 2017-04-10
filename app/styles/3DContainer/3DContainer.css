@@ -1,19 +1,21 @@
+.world {
+  display: flex;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.objectGroup {
+  display: flex;
+  align-items: center;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
 .cube {
   position: relative;
-  top: 100px;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
 }
 .cube div {
   position: absolute;
-}
-.front,
-.cube div:nth-of-type(1) {
-  transform: translateZ(200px);
-}
-.back,
-.cube div:nth-of-type(2) {
-  transform: rotateY(180deg) translateZ(200px);
 }
 .left,
 .cube div:nth-of-type(3) {
@@ -21,20 +23,17 @@
 }
 .right,
 .cube div:nth-of-type(4) {
-  transform: rotateY(90deg) translateX(200px);
   transform-origin: right;
 }
 .top,
 .cube div:nth-of-type(5) {
-  transform: rotateX(-90deg) translateY(-200px);
   transform-origin: top;
 }
 .bottom,
 .cube div:nth-of-type(6) {
-  transform: rotateX(90deg) translateY(200px);
   transform-origin: bottom;
 }
-@keyframes spinShit {
+@keyframes rotateY {
   50% {
     transform: rotateY(-180deg);
   }
@@ -42,8 +41,7 @@
     transform: rotateY(0deg);
   }
 }
-.spinShit,
-.cube {
-  animation: spinShit 10s linear infinite;
+.rotateY {
+  animation: rotateY 10s linear infinite;
 }
 /*# sourceMappingURL=3DContainer.css.map */
