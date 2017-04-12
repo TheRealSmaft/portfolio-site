@@ -21,28 +21,21 @@ const Collectable = React.createClass({
 		this.placeHolder = null;
 
 		if(this.itemIndex < 0) {
-			var newItem = this.props.item;
-
-			newItem.status = 'collectable';
-			
-			newItem.node = (
-				<img 
-					src={require('../images/' + 
-						this.props.item.name + 
-						'.svg')} 
-					alt={this.props.item.name}
-					style={{
-						display: 'block'
-					}}
-				/>
-			);
-
-			this.props.addItemToArray(newItem);
-
-			this.item = newItem;
+			this.item = this.props.item;
+			this.item.status = 'collectable';
 		}
 		else {
 			this.item = this.getItemFromArray(this.itemIndex);
+			this.createPlaceholder();
+		}
+	},
+
+	componentDidMount() {
+		if(this.itemIndex < 0) {
+			var item = ReactDOM.findDOMNode(this.refs.item);
+			this.item.rect = item.getBoundingClientRect();
+			this.item.position = item.style.position;
+			this.props.addItemToArray(this.item);
 		}
 
 		if(this.placeHolder === null) {
@@ -85,14 +78,15 @@ const Collectable = React.createClass({
 
 	createPlaceholder() {
 		this.placeHolder = (
-			<img 
-				src={this.item.node.props.src} 
+			<div
 				style={{
-					visibility: 'hidden',
+					position: this.item.position,
 					float: 'left',
-					width: this.props.item.width
+					width: this.item.rect.width,
+					height: this.item.rect.height
 				}}
-			/>
+			>
+			</div>
 		);
 	},
 
@@ -100,16 +94,17 @@ const Collectable = React.createClass({
 		if(this.item.status === 'collectable') {
 			return (
 				<div 
-					onClick={this.addItemToInventory}
+					onMouseDown={this.addItemToInventory}
 					style={{
-						...this.props.style
+						...this.props.style,
+						float: 'left'
 					}}
 				>
 					<Item 
 						style={{
 							width: this.props.item.width
 						}}
-						ref={'item'}
+						ref="item"
 						item={this.item}
 					/>
 				</div>
