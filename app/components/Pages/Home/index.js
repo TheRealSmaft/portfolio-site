@@ -4,9 +4,7 @@ import { browserHistory } from 'react-router';
 import { ResponsiveContainer } from '../../Containers';
 
 const HomePage = React.createClass({
-	componentWillMount() {
-		browserHistory.push('/bestPRotfoiloPage');
-	},
+
 
 	render() {
 		return (

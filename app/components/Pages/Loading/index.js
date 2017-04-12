@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ResponsiveContainer } from '../../Containers';
 
-const AboutPage = React.createClass({
+const LoadingPage = React.createClass({
 	render() {
 		return (
 			<ResponsiveContainer>
@@ -12,4 +12,4 @@ const AboutPage = React.createClass({
 	}
 });
 
-export default AboutPage;
+export default LoadingPage;
