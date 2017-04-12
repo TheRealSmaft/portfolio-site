@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { style3D } from '../../../../styles/3DContainer';
 import { scene1Styles } from '../../../../styles/scenes';
@@ -44,7 +43,7 @@ const Cube = React.createClass({
 		this.setTransform();
 	},
 
-	componentDidUpdate() {
+	componentWillUpdate() {
 		if(this.props.responsive) {
 			this.updateResponsiveDimensions();
 		}
@@ -59,33 +58,38 @@ const Cube = React.createClass({
 	},
 
 	setTransform() {
-		this.transformObject = {
-			translate: 'translate3d(' + this.state.translate[0] + 'px, ' + this.state.translate[1] + 'px, ' + this.state.translate[2] + 'px) ',
-			rotate: 'rotateX(' + this.state.rotate[0] + 'deg) rotateY(' + this.state.rotate[1] + 'deg) rotateZ(' + this.state.rotate[2] + 'deg) ',
-			scale: 'scale3d(' + this.state.scale[0] + ', ' + this.state.scale[1] + ', ' + this.state.scale[2] + ') '
+		if(this.props.responsive) {
+			var translate = 'translate3d(' + (this.state.translate[0] / 100 * window.innerWidth) + 'px, ' + (this.state.translate[1] / 100 * window.innerWidth) + 'px, ' + (this.state.translate[2] / 100 * window.innerWidth) + 'px) ';
+		}
+		else
+		{
+			var translate = 'translate3d(' + this.state.translate[0] + 'px, ' + this.state.translate[1] + 'px, ' + this.state.translate[2] + 'px) ';
 		}
 
-		this.transform = this.transformObject.translate + this.transformObject.rotate + this.transformObject.scale;
+		var rotate = 'rotateX(' + this.state.rotate[0] + 'deg) rotateY(' + this.state.rotate[1] + 'deg) rotateZ(' + this.state.rotate[2] + 'deg) ';
+		var scale = 'scale3d(' + this.state.scale[0] + ', ' + this.state.scale[1] + ', ' + this.state.scale[2] + ')';
+
+		this.transform = translate + rotate + scale;
 	},
 
-	updateTransform(props, transitionDuration:number = 1000, transitionTimingFunction:string = 'linear', transformOrigin:string = '50% 50% 0') {
+	updateTransform(transforms, transitionDuration:number = 1000, transitionTimingFunction:string = 'linear', transformOrigin:string = '50% 50% 0') {
 		this.refs.cube.style.transition = 'transform ' + transitionDuration + 'ms ' + transitionTimingFunction;
-		this.refs.cube.transformOrigin = transformOrigin;
-		this.refs.cube.WebkitTransformOrigin = transformOrigin;
+		this.refs.cube.style.transformOrigin = transformOrigin;
+		this.refs.cube.style.WebkitTransformOrigin = transformOrigin;
 
 		var rotate;
 		var translate;
 		var scale;
 
-		for(var i = 0; i < props.length; i++) {
-			if(props[i].prop === 'rotate') {
-				rotate = props[i].val;
+		for(var i = 0; i < transforms.length; i++) {
+			if(transforms[i].prop === 'rotate') {
+				rotate = transforms[i].val;
 			}
-			else if(props[i].prop === 'translate') {
-				translate = props[i].val;
+			else if(transforms[i].prop === 'translate') {
+				translate = transforms[i].val;
 			}
-			else if(props[i].prop === 'scale') {
-				scale = props[i].val;
+			else if(transforms[i].prop === 'scale') {
+				scale = transforms[i].val;
 			}
 		}
 

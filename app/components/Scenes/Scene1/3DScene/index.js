@@ -34,26 +34,6 @@ const Scene1_3DScene = React.createClass({
 		for(var i = 0; i < 5; i++) {
 			this.monitorFaces.push(this.monitorSide);
 		}
-
-		this.otherBoxSide = (
-			<div style={{backgroundColor: 'pink', height: '100%', width: '100%', border: '1px solid black'}}>
-			</div>
-		);
-		this.otherBoxFaces = [];
-
-		for(var i = 0; i < 6; i++) {
-			this.otherBoxFaces.push(this.otherBoxSide);
-		}
-
-		this.planeSide = (
-			<div style={{backgroundColor: 'green', height: '100%', width: '100%', border: '1px solid black'}}>
-			</div>
-		);
-		this.planeFaces = [];
-
-		for(var i = 0; i < 6; i++) {
-			this.planeFaces.push(this.planeSide);
-		}
 	},
 
 	render() {
@@ -81,14 +61,6 @@ const Scene1_3DScene = React.createClass({
 						responsive={true}
 					>
 					</Cube>
-
-					<Cube
-						ref="pinkBox"
-						dimensions={[25, 16, 23]}
-						faces={this.otherBoxFaces}
-						responsive={true}
-					>
-					</Cube>
 				</ThreeDObjectGroup>
 			</ThreeDSpace>
 		)
@@ -96,3 +68,4 @@ const Scene1_3DScene = React.createClass({
 });
 
 export default Scene1_3DScene;
+

@@ -17,31 +17,41 @@
 .cube div {
   position: absolute;
 }
-.left,
+.cube-left,
 .cube div:nth-of-type(3) {
   transform-origin: left;
 }
-.right,
+.cube-right,
 .cube div:nth-of-type(4) {
   transform-origin: right;
 }
-.top,
+.cube-top,
 .cube div:nth-of-type(5) {
   transform-origin: top;
 }
-.bottom,
+.cube-bottom,
 .cube div:nth-of-type(6) {
   transform-origin: bottom;
 }
 @keyframes rotateY {
-  50% {
-    transform: rotateY(-180deg);
-  }
   100% {
-    transform: rotateY(0deg);
+    transform: rotateY(-360deg);
   }
 }
-.rotateY {
+.rotateY,
+.polygon {
   animation: rotateY 10s linear infinite;
+}
+.polygon {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: right;
+}
+.polygon svg,
+.polygon div {
+  position: absolute;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 /*# sourceMappingURL=3DContainer.css.map */

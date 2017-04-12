@@ -120,7 +120,7 @@ const Inventory = React.createClass({
 			<div
 				key={item.name}
 				ref={item.name}
-				onClick={() => {this.toggleItemDrag(item.name)}}
+				onMouseDown={() => {this.toggleItemDrag(item.name)}}
 				style={{
 					float: 'left',
 					display: 'block'

@@ -4,12 +4,32 @@
 		"selected_items":
 		[
 			[
-				"inn",
-				"innerWidth\t.innerWidth()"
+				"inne",
+				"innerHeight\t.innerHeight()"
 			],
 			[
 				"inner",
-				"innerHeight\t.innerHeight()"
+				"innerWidth\t.innerWidth()"
+			],
+			[
+				"mouse",
+				"mousedown\t.mousedown()"
+			],
+			[
+				"transl",
+				"translate3d"
+			],
+			[
+				"pink",
+				"pinkBox"
+			],
+			[
+				"off",
+				"offset\t.offset()"
+			],
+			[
+				"inn",
+				"innerWidth\t.innerWidth()"
 			],
 			[
 				"ine",
@@ -54,10 +74,6 @@
 			[
 				"tran",
 				"translateY"
-			],
-			[
-				"inne",
-				"innerWidth\t.innerWidth()"
 			],
 			[
 				"backgro",
@@ -498,22 +514,6 @@
 			[
 				"ng",
 				"NgFileSelect\talias"
-			],
-			[
-				"Ng",
-				"NgFileSelect\talias"
-			],
-			[
-				"U",
-				"UPLOAD_DIRECTIVES\talias"
-			],
-			[
-				"tar",
-				"targetFile"
-			],
-			[
-				"ta",
-				"targetDir"
 			]
 		]
 	},
@@ -523,25 +523,16 @@
 			"file": "app/components/Scenes/Scene1/index.js",
 			"settings":
 			{
-				"buffer_size": 3676,
+				"buffer_size": 4065,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/3DContainers/ThreeDObjectGroup/index.js",
+			"file": "app/components/Scenes/Scene1/3DScene/index.js",
 			"settings":
 			{
-				"buffer_size": 856,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/3DContainers/ThreeDSpace/index.js",
-			"settings":
-			{
-				"buffer_size": 631,
+				"buffer_size": 1416,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +541,7 @@
 			"file": "app/components/Containers/3DContainers/Cube/index.js",
 			"settings":
 			{
-				"buffer_size": 3347,
+				"buffer_size": 4994,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +550,7 @@
 			"file": "app/styles/3DContainer/3DContainer.less",
 			"settings":
 			{
-				"buffer_size": 946,
+				"buffer_size": 1330,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -625,29 +616,33 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/Cube",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/Test",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/ThreeDSpace",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Row",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources/images",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/duck",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1/3DScene",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/ThreeDSpace/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/Polygon/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/Test/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/Cube/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/ThreeDObjectGroup/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/ThreeDSpace/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1/3DScene/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer/3DContainer.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/3DContainers/LightSource/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1/styles.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/scene1/styles.less",
@@ -664,7 +659,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/test/styles.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/test/test.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/test/styles.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Scene1/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/CSSAnimationQueuer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/animation/animation.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
@@ -767,12 +761,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/dragAndDrop/dragAndDrop.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/inventory/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/dragAndDrop/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Layout/Footer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/initial/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/store.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck/actions.js"
 	],
 	"find":
 	{
@@ -792,6 +781,68 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"50",
+			"this.state.rotate",
+			"this.state.rotate[",
+			"this.state",
+			"30",
+			"100",
+			"40",
+			"this.",
+			"otherBoxFaces",
+			"otherBoxSide",
+			"props",
+			"Polygon",
+			"flex-end",
+			"innerWidth",
+			"80",
+			"objects",
+			"dy",
+			"dx",
+			"ctx",
+			"var ",
+			"x",
+			"this",
+			"canvas",
+			"100",
+			"project",
+			"this.",
+			"new ",
+			"x",
+			"flex-end",
+			"getHypotenuse",
+			"210",
+			"500",
+			"last",
+			"side",
+			"400",
+			"200",
+			"cube",
+			"pinkBox",
+			"cube",
+			"rotate",
+			"pinkBox",
+			"cube",
+			"rotation",
+			"offset",
+			"transitionDuration",
+			"key",
+			"id",
+			"updateTransform",
+			"props",
+			"rotate",
+			"updateTransformObject",
+			"boxGroup",
+			"rotation",
+			"offset",
+			"data",
+			"class",
+			"ref",
+			"id",
+			"ref",
+			"position",
+			"otherBoxFaces",
+			"otherBoxSide",
 			"black",
 			".props.children",
 			"spaceWidth",
@@ -857,69 +908,7 @@
 			"O",
 			"HSquish1",
 			"OSquish2",
-			"OSquish1",
-			"fallTime",
-			"fallElapsed",
-			"absolute",
-			"physObject",
-			"transform",
-			"testStyles.null",
-			"animationClass",
-			"createAnimationQueue",
-			"class",
-			"state",
-			"newQueue",
-			"createAnimationQueue",
-			"initialStyle",
-			"triggeredByEvent",
-			"CSSAnimationQueuer",
-			"width",
-			"createEventQueue",
-			"animation",
-			"triggeredByEvent",
-			"animationLength",
-			"fireEvent",
-			"initializeTimer",
-			"startEventTimer",
-			"000",
-			"H",
-			"ease-in",
-			"&:",
-			"open",
-			"200ms",
-			"50",
-			"700ms",
-			"Rotate",
-			"1",
-			"X",
-			"Y",
-			"X",
-			"100",
-			"200ms",
-			"spinBackwards",
-			"spinForwards",
-			"Forward",
-			"H",
-			"spinForwards",
-			"introSceneStyles",
-			"landingPageStyles",
-			"spin",
-			"squish-x",
-			"LandingScene1",
-			"images",
-			"LandingPage",
-			"Functions",
-			"ResponsiveContainer",
-			"ease",
-			"linear",
-			"In",
-			"%:",
-			":",
-			"meImgFunctions",
-			"div",
-			"triggers",
-			"event1",
-			"div"
+			"OSquish1"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -946,15 +935,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3676,
+						"buffer_size": 4065,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3127,
-								3127
+								1217,
+								1217
 							]
 						],
 						"settings":
@@ -962,128 +951,33 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 2399.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Containers/3DContainers/ThreeDObjectGroup/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 856,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								389,
-								389
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Containers/3DContainers/ThreeDSpace/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 631,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								432,
-								432
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 3,
-					"file": "app/components/Containers/3DContainers/Cube/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3347,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2148,
-								2148
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1266.0,
+						"translation.x": 45.0,
+						"translation.y": 264.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/styles/3DContainer/3DContainer.less",
+					"buffer": 1,
+					"file": "app/components/Scenes/Scene1/3DScene/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 946,
+						"buffer_size": 1416,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								360,
-								360
+								839,
+								839
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
-							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -1091,6 +985,70 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "app/components/Containers/3DContainers/Cube/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4994,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2021,
+								2021
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1188.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/styles/3DContainer/3DContainer.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								995,
+								995
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1196.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
