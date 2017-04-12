@@ -6,14 +6,14 @@ import BodyMovin from '../../../../../plugins/bodymovin.min';
 
 const Item = React.createClass({
 	componentDidMount() {
-		var json = require('../../../../../animations/' + this.props.item.name + '/' + this.props.item.name + '-' + this.props.item.status +'.json');
+		var json = require('../../../../../assets/images/items/' + this.props.item.name + '/' + this.props.item.name + '-' + this.props.item.status +'.json');
 		this.loadAnimation(json);
 	},
 
 	loadAnimation(jsonData) {		
 		var itemAnimation = {
 			animationData: jsonData,
-			path: '../../../../../animations/' + this.props.item.name,
+			path: '../../../../../assets/images/items/' + this.props.item.name,
 			loop: this.props.item.loop,
 			autoplay: this.props.item.autoplay,
 			name: this.props.item.name,

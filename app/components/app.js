@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { appStyles, navbarStyles } from '../styles';
+import { appStyles } from '../styles';
 
-import { MainNavbar, Footer } from './Layout';
-import { ResponsiveContainer, StickyContainer, InventoryContainer } from './Containers';
+import { ResponsiveContainer, StickyContainer } from './Containers';
 
-import Inventory from './Containers/GameContainers/ItemContainers/Inventory';
-
-import { NavLinks } from './Pages';
+import { Inventory } from './Containers/GameContainers';
 
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';

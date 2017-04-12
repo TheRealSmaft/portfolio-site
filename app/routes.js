@@ -3,16 +3,14 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/App';
 
-import { HomePage, AboutPage, PortfolioPage } from './components/Pages';
-import { IntroScene, Scene1, TestScene } from './components/Scenes';
+import { LoadingPage, HomePage, PortfolioPage, ContactPage, AboutPage } from './components/Pages';
 
 export default (
 	<Route path="/" component={App}>
-		<IndexRoute component={HomePage}/>
-		<Route path="/about" component={AboutPage}/>
+		<IndexRoute component={LoadingPage}/>
+		<Route path="/home" component={HomePage}/>
 		<Route path="/portfolio" component={PortfolioPage}/>
-		<Route path="/bestPRotfoiloPage" component={IntroScene}/>
-		<Route path="/whereAmI" component={Scene1}/>
-		<Route path="/testScene" component={TestScene}/>
+		<Route path="/contact" component={ContactPage}/>
+		<Route path="/about" component={AboutPage}/>
 	</Route>
 );
