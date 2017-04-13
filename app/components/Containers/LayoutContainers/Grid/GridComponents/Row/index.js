@@ -29,7 +29,13 @@ const GridRow = React.createClass({
 		});
 
 		return (
-			<div className={gridStyles}>
+			<div 
+				className={gridStyles}
+				style={{
+					width: '100%',
+					clear: 'both'
+				}}
+			>
 				{cols}
 			</div>
 		);
