@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { appStyles } from '../styles';
+import { appStyles, navbarStyles } from '../styles';
 
-import { ResponsiveContainer, StickyContainer } from './Containers';
+import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
 import { Inventory } from './Containers/GameContainers';
 
@@ -53,6 +53,14 @@ const App = React.createClass({
 				}}
 			>
 
+				<StickyContainer 
+					stickyStartY={0}
+					stickyPosY={0}
+					childStyles={navbarStyles.sticky}
+				>
+					<Navbar />
+				</StickyContainer>
+
 				{this.props.children}
 
 				<Inventory />
@@ -62,14 +70,10 @@ const App = React.createClass({
 	}
 });
 
-//				<StickyContainer 
-					//stickyStartY={0}
-					//stickyPosY={0}
-					//childStyles={navbarStyles.sticky}>
+
 					
 					//<MainNavbar links={NavLinks} />
-					
-				//</StickyContainer>
+
 
 function mapStateToProps(store) {
 	return {

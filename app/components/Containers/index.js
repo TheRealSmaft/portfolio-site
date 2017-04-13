@@ -3,6 +3,7 @@ export { default as DeferredEventExecutor } from './EventContainers/DeferredEven
 export { default as CSSAnimationQueuer } from './EventContainers/CSSAnimationQueuer';
 
 export { default as ResponsiveContainer } from './LayoutContainers/ResponsiveContainer';
+export { default as Navbar } from './LayoutContainers/Navbar';
 
 export { default as Grid } from './LayoutContainers/Grid';
 export { default as Row } from './LayoutContainers/Grid/GridComponents/Row';

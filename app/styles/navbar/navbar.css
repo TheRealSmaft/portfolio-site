@@ -1,31 +1,41 @@
 .navbar {
   width: 100%;
-  height: 52px;
-  padding-left: 0px;
-  margin: 0px;
-  background-color: #FFFFE0;
-}
-.navbar li {
-  float: left;
-  padding: 10px 0px;
-  list-style-type: none;
-  background-color: #FFFF99;
-  transition: background-color ease-in-out 200ms;
-}
-.navbar li:hover {
-  cursor: pointer;
-  background-color: #FFFFCC;
-}
-.navbar li:hover a {
-  color: brown;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
 }
 .navbar a {
-  padding: 18px;
   font-weight: bold;
-  color: orange;
   text-decoration: none;
-  text-align: center;
-  transition: color ease-in-out 200ms;
+}
+@media only screen and (min-width: 992px) {
+  .navbar {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .navbar {
+    display: none;
+  }
+}
+.navbarCollapsed {
+  display: none;
+}
+.navbarCollapsed div:first-of-type {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  color: white;
+}
+@media only screen and (max-width: 480px) {
+  .navbarCollapsed {
+    display: block;
+  }
 }
 .sticky {
   position: fixed;
