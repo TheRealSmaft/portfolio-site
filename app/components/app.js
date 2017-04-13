@@ -53,19 +53,6 @@ const App = React.createClass({
 				}}
 			>
 
-				<div
-					style={{
-						backgroundColor: 'black',
-						position: 'fixed',
-						top: 0,
-						left: 0,
-						width: '100%',
-						height: '100%',
-						zIndex: -99
-					}}
-				>
-				</div>
-
 				{this.props.children}
 
 				<Inventory />
