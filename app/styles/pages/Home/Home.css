@@ -1,0 +1,91 @@
+.logoContainer {
+  width: 250px;
+  height: 250px;
+  background-color: orange;
+  border-radius: 50%;
+}
+@media only screen and (min-width: 992px) {
+  .logoContainer {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .logoContainer {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .logoContainer {
+    width: 240px;
+    height: 240px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .logoCol {
+    display: flex;
+    justify-content: center;
+  }
+}
+.homeP {
+  height: 250px;
+  display: flex;
+  align-items: center;
+}
+@media only screen and (min-width: 992px) {
+  .homeP {
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .homeP {
+    height: auto;
+  }
+}
+.homeGrid {
+  margin-top: 100px;
+}
+.portPreview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .portPreview {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .portPreview {
+    width: 100%;
+    margin-left: 0px;
+    justify-content: center;
+  }
+}
+.portPreview div {
+  width: 190px;
+  height: 190px;
+  border: 3px solid red;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .portPreview div {
+    width: 240px;
+    height: 240px;
+  }
+}
+.portPreview span {
+  display: none;
+  height: 1px;
+  width: 100%;
+}
+@media only screen and (min-width: 1200px) {
+  .portPreview span {
+    display: block;
+  }
+}
+/*# sourceMappingURL=Home.css.map */

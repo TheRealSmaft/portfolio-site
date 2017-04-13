@@ -32,12 +32,25 @@ const GridContainer = React.createClass({
 	render() {
 		let rows = React.Children.map(this.props.children, (row, i) => {
 			return (
-				<Row gutter={this.gutter} breakLevel={this.breakLevel}>
+				<Row 
+					gutter={this.gutter} 
+					breakLevel={this.breakLevel}
+				>
 					{row}
 				</Row>
 			)
 		});
-		return <div style={{display: 'inline-block'}}>{rows}</div>;
+		return (
+			<div 
+				className={this.props.className}
+				style={{
+					...this.props.style,
+					display: 'inline-block'
+				}}
+			>
+				{rows}
+			</div>
+		);
 	}
 });
 

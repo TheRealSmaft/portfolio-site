@@ -60,10 +60,13 @@ const GridColumn = React.createClass({
 			var width = this.getBreakColumnWidth(this.props.breakLevel - 1);
 			return (
 				<div 
+					className={this.props.className}
 					style={{
+						...this.props.style,
 						...this.domStyle,
 						width: width + '%'
-					}}>
+					}}
+				>
 					{this.children ? this.children : this.props.children}
 				</div>
 			)
@@ -72,7 +75,12 @@ const GridColumn = React.createClass({
 		{
 			return (
 				<div 
-					style={this.domStyle}>
+					className={this.props.className}
+					style={{
+						...this.props.style,
+						...this.domStyle
+					}}
+				>
 					{this.children ? this.children : this.props.children}
 				</div>
 			)
