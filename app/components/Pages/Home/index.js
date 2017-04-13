@@ -13,12 +13,14 @@ const HomePage = React.createClass({
 			<ResponsiveContainer>
 				<Grid
 					className={HomePageStyles.homeGrid}
-					breakPoints={[992, 768]}
+					breakPoints={[768]}
+					gutter={4}
 				>
-					<Row>
+					<Row blocks={20}>
 						<Col
 							className={HomePageStyles.logoCol}
-							breaks={[45, 100]}
+							breaks={[100]}
+							blocks={9}
 						>
 							<div 
 								className={HomePageStyles.logoContainer}
@@ -27,7 +29,8 @@ const HomePage = React.createClass({
 						</Col>
 						<Col
 							className={HomePageStyles.homeP}
-							breaks={[55, 100]}
+							breaks={[100]}
+							blocks={11}
 						>
 							<p>
 								Farm-to-table twee plaid stumptown chia authentic. Drinking vinegar hell of master cleanse banjo, gentrify enamel pin meditation dreamcatcher bespoke shabby chic ethical bitters blue bottle typewriter portland. Coloring book man braid messenger bag chicharrones, sartorial succulents flannel pug XOXO street art cronut. 

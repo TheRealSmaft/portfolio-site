@@ -45,7 +45,8 @@ const GridContainer = React.createClass({
 				className={this.props.className}
 				style={{
 					...this.props.style,
-					display: 'inline-block'
+					display: 'inline-block',
+					width: '100%'
 				}}
 			>
 				{rows}
