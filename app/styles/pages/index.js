@@ -1,1 +1,1 @@
-export { default as testStyles } from './test.css';
+export { default as LoadingPageStyles } from './Loading/Loading.css';

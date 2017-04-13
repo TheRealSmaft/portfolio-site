@@ -128,7 +128,9 @@ const DeferredEventExecutor = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div
+				style={{...this.props.style}}
+			>
 				{React.cloneElement(this.props.children, {
 					['data-ElapsedTime']: this.state.elapsedTime,
 					ref: 'target'
