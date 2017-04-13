@@ -1,34 +1,5 @@
 @import "../../mediaQueries/mediaQueries.less";
 
-.logoContainer {
-	width: 250px;
-	height: 250px;
-	background-color: orange;
-	border-radius: 50%;
-
-	@media @medium-min {
-		width: 350px;
-		height: 350px;
-	}
-
-	@media @small-max {
-		width: 400px;
-		height: 400px;
-	}
-
-	@media @extra-small-max {
-		width: 240px;
-		height: 240px;
-	}
-}
-
-.logoCol {
-	@media @small-max {
-		display: flex;
-		justify-content: center;
-	}
-}
-
 .homeP {
 	height: 250px;
 	display: flex;
@@ -43,9 +14,9 @@
 	}
 }
 
-.homeGrid {
-	margin-top: 100px;
-}
+// .homeGrid {
+// 	margin-top: 100px;
+// }
 
 .portPreview {
 	display: flex;
@@ -75,6 +46,11 @@
 		@media @small-max {
 			width: 240px;
 			height: 240px;
+		}
+
+		@media @super-small-max {
+			width: 200px;
+			height: 200px;
 		}
 	}
 

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
 
+import Circle from '../../Containers/ShapeContainers/Circle';
+
 import { AboutPageStyles } from '../../../styles/pages';
 
 const AboutPage = React.createClass({
@@ -15,18 +17,19 @@ const AboutPage = React.createClass({
 					breakPoints={[992, 768]}
 					gutter={4}
 				>
-					<Row blocks={5}>
+					<Row blocks={3}>
 						<Col
-							blocks={2}
-							breaks={[35, 100]}
+							blocks={1}
+							breaks={[40, 100]}
 						>
-							<p>
-								Responsive circle with a pic of me (or Sinister Silhouette)
-							</p>
+							<Circle
+								diameter={300}
+								fill={'lightblue'}
+							/>
 						</Col>
 						<Col
-							blocks={3}
-							breaks={[65, 100]}
+							blocks={2}
+							breaks={[60, 100]}
 						>
 							<p>
 								About me paragraph
@@ -37,9 +40,10 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<p>
-								Responsive circle with a brain graphic
-							</p>
+							<Circle
+								diameter={300}
+								fill={'pink'}
+							/>
 						</Col>
 						<Col
 							breaks={[32, 52]}
@@ -82,9 +86,10 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<p>
-								Responsive circle with a heart graphic
-							</p>
+							<Circle
+								diameter={300}
+								fill={'red'}
+							/>
 						</Col>
 						<Col
 							breaks={[32, 52]}
@@ -127,9 +132,10 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<p>
-								Responsive circle with a hand graphic
-							</p>
+							<Circle
+								diameter={300}
+								fill={'lightgreen'}
+							/>
 						</Col>
 						<Col
 							breaks={[32, 52]}
