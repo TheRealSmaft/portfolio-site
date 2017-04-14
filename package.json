@@ -45,7 +45,6 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.1",
-    "svg-to-jsx": "0.0.20",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
   }

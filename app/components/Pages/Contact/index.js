@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SvgToJsx from 'svg-to-jsx';
-
-import blueBall from '../../../assets/images/items/blueBall/BlueBall.svg'
 
 import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor } from '../../Containers';
 import { SVG, Circle, MotionPath } from '../../Containers/ShapeContainers';
@@ -44,14 +41,6 @@ const ContactPage = React.createClass({
 				reactTarget.refs.shape0.addMotionPaths(this.motionPaths);
 			}
 		];
-
-		this.jsx = SvgToJsx(blueBall).then(result => result.data);
-
-		console.log(this.jsx.inspect())
-	},
-
-	componentWillUpdate() {
-		console.log(this.jsx.inspect())
 	},
 
 	render() {
@@ -97,8 +86,16 @@ const ContactPage = React.createClass({
 						</Col>
 					</Row>
 				</Grid>
-				<SVG id="svg">
-				</SVG>
+				<DeferredEventExecutor
+					moments={[2]}
+					events={this.circleEvents}
+				>
+					<SVG>
+						<Circle 
+							diameter={5}
+						/>
+					</SVG>
+				</DeferredEventExecutor>
 			</ResponsiveContainer>
 		)
 	}
