@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Circle = React.createClass({
+const Rect = React.createClass({
 	getDefaultProps() {
 		return {
-			diameter: 100,
+			position: [0, 0],
+			dimensions: [100, 100],
 			strokeWidth: 0,
 			stroke: 'transparent',
 			fill: 'black'
@@ -25,20 +26,21 @@ const Circle = React.createClass({
 
 	render() {
 		return (
-			<circle 
+			<rect 
 				id={this.props.id}
-				cx={(this.props.diameter - this.props.strokeWidth) / 2}
-				cy={(this.props.diameter - this.props.strokeWidth) / 2}
-				r={this.props.diameter / 2 - this.props.strokeWidth}
+				x={this.props.position[0] + this.props.strokeWidth}
+				y={this.props.position[1] + this.props.strokeWidth}
+				width={this.props.dimensions[0] - (this.props.strokeWidth * 2)}
+				height={this.props.dimensions[1] - (this.props.strokeWidth * 2)}
 				strokeWidth={this.props.strokeWidth}
 				stroke={this.props.stroke}
 				fill={this.props.fill}
 			>
 				{this.props.children}
 				{this.state.motionPaths}
-			</circle>
+			</rect>
 		);
 	}
 });
 
-export default Circle;
+export default Rect;
