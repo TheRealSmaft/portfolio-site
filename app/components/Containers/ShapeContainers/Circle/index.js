@@ -6,28 +6,38 @@ const Circle = React.createClass({
 		return {
 			diameter: 100,
 			strokeWidth: 0,
-			stroke: '',
+			stroke: 'transparent',
 			fill: 'black'
 		}
 	},
 
+	getInitialState() {
+		return {
+			motionPaths: null
+		}
+	},
+
+	addMotionPaths(paths) {
+		this.setState({
+			...this.state,
+			motionPaths: paths
+		});
+	},
+
 	render() {
 		return (
-			<svg
-				style={{
-					...this.props.style
-				}}
-				viewBox={"0 0 " + this.props.diameter + ' ' + this.props.diameter}
+			<circle 
+				id={this.props.id}
+				cx={(this.props.diameter - this.props.strokeWidth) / 2}
+				cy={(this.props.diameter - this.props.strokeWidth) / 2}
+				r={this.props.diameter / 2 - this.props.strokeWidth}
+				strokeWidth={this.props.strokeWidth}
+				stroke={this.props.stroke}
+				fill={this.props.fill}
 			>
-				<circle 
-					cx={this.props.diameter / 2}
-					cy={this.props.diameter / 2}
-					r={this.props.diameter / 2}
-					strokeWidth={this.props.strokeWidth}
-					stroke={this.props.stroke}
-					fill={this.props.fill}
-				/>
-			</svg>
+				{this.props.children}
+				{this.state.motionPaths}
+			</circle>
 		);
 	}
 });

@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
 
-import Circle from '../../Containers/ShapeContainers/Circle';
+import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { HomePageStyles } from '../../../styles/pages';
 
@@ -26,10 +26,14 @@ const HomePage = React.createClass({
 							breaks={[100]}
 							blocks={9}
 						>
-							<Circle
-								diameter={300}
-								fill={'orange'}
-							/>
+							<SVG>
+								<Circle
+									fill={'orange'}
+									stroke={'red'}
+									strokeWidth={5}
+								>
+								</Circle>
+							</SVG>
 						</Col>
 						<Col
 							className={HomePageStyles.homeP}

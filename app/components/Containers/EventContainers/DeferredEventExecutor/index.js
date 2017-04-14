@@ -53,10 +53,6 @@ const DeferredEventExecutor = React.createClass({
 		this.stopTimer();
 	},
 
-	componentWillUpdate() {
-
-	},
-
 	componentDidUpdate() {
 		if(this.checkFireCondition()) {
 			if(this.momentsPassed <= this.momentTotal &&

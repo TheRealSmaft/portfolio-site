@@ -1,8 +1,59 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import SvgToJsx from 'svg-to-jsx';
 
-import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
+import blueBall from '../../../assets/images/items/blueBall/BlueBall.svg'
+
+import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor } from '../../Containers';
+import { SVG, Circle, MotionPath } from '../../Containers/ShapeContainers';
 
 const ContactPage = React.createClass({
+	componentWillMount() {
+		this.circleEvents =[
+			function (target, animation, reactTarget) {
+				this.motionPaths = [
+					(
+						<MotionPath
+							key={1}
+							duration={2000}
+							begin="2s"
+	     					pathId="butts"
+	     					draw="M 0,0 C 40,40 60,20 95,30"
+	     				/>
+					),
+					(
+						<MotionPath
+							key={2}
+							duration={3000}
+							begin="buttsAnimation.end"
+							repeatCount="2"
+	     					pathId="shits"
+	     					draw="M 95,30 C 80,20 10,60 5,90 z"
+	     				/>
+					),
+					(
+						<MotionPath
+							key={3}
+							duration={2000}
+							begin="shitsAnimation.end"
+	     					pathId="barfs"
+	     					draw="M 95,30 C 60,20 40,40 0,0"
+	     				/>
+					)
+				];
+				reactTarget.refs.shape0.addMotionPaths(this.motionPaths);
+			}
+		];
+
+		this.jsx = SvgToJsx(blueBall).then(result => result.data);
+
+		console.log(this.jsx.inspect())
+	},
+
+	componentWillUpdate() {
+		console.log(this.jsx.inspect())
+	},
+
 	render() {
 		return (
 			<ResponsiveContainer>
@@ -46,6 +97,8 @@ const ContactPage = React.createClass({
 						</Col>
 					</Row>
 				</Grid>
+				<SVG id="svg">
+				</SVG>
 			</ResponsiveContainer>
 		)
 	}

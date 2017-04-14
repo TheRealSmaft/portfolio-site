@@ -31,6 +31,10 @@ const LoadingPage = React.createClass({
 		];
 	},
 
+	componentWillUnmount() {
+		clearInterval(this.ellipsisTimer);
+	},
+
 	componentDidMount() {
 		this.ellipsisTimeElapsed = 0;
 		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);

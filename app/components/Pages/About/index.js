@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
 
-import Circle from '../../Containers/ShapeContainers/Circle';
+import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { AboutPageStyles } from '../../../styles/pages';
 
@@ -22,10 +22,11 @@ const AboutPage = React.createClass({
 							blocks={1}
 							breaks={[40, 100]}
 						>
-							<Circle
-								diameter={300}
-								fill={'lightblue'}
-							/>
+							<SVG>
+								<Circle
+									fill={'lightblue'}
+								/>
+							</SVG>
 						</Col>
 						<Col
 							blocks={2}
@@ -40,10 +41,11 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<Circle
-								diameter={300}
-								fill={'pink'}
-							/>
+							<SVG>
+								<Circle
+									fill={'pink'}
+								/>
+							</SVG>
 						</Col>
 						<Col
 							breaks={[32, 52]}
@@ -86,10 +88,11 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<Circle
-								diameter={300}
-								fill={'red'}
-							/>
+							<SVG>
+								<Circle
+									fill={'red'}
+								/>
+							</SVG>
 						</Col>
 						<Col
 							breaks={[32, 52]}
@@ -132,10 +135,11 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<Circle
-								diameter={300}
-								fill={'lightgreen'}
-							/>
+							<SVG>
+								<Circle
+									fill={'lightgreen'}
+								/>
+							</SVG>
 						</Col>
 						<Col
 							breaks={[32, 52]}
