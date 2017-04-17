@@ -1,6 +1,10 @@
 import React from 'react';
 
 const SVG = React.createClass({
+	propTypes: {
+		title: React.PropTypes.string.isRequired
+	},
+
 	getDefaultProps() {
 		return {
 			viewBox: "0 0 100 100"
@@ -17,12 +21,19 @@ const SVG = React.createClass({
 				}}
 				viewBox={this.props.viewBox}
 				xmlns="http://www.w3.org/2000/svg"
+				width={this.props.width}
+				height={this.props.height}
 			>
+				<title> 
+					{this.props.title}
+				</title>
+
 				{
-					React.Children.map(this.props.children, (shape, i) => {
-						return React.cloneElement(shape,
+					React.Children.map(this.props.children, (svgElement, i) => {
+						var ref = svgElement.type.displayName ? svgElement.type.displayName : svgElement.type;
+						return React.cloneElement(svgElement,
 							{
-								ref: 'shape' + i
+								ref: ref + i
 							}
 						)
 					})

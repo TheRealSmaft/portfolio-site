@@ -12,14 +12,14 @@ const Circle = React.createClass({
 
 	getInitialState() {
 		return {
-			motionPaths: null
+			animations: null
 		}
 	},
 
-	addMotionPaths(paths) {
+	addAnimations(animations) {
 		this.setState({
 			...this.state,
-			motionPaths: paths
+			animations: animations
 		});
 	},
 
@@ -27,15 +27,16 @@ const Circle = React.createClass({
 		return (
 			<circle 
 				id={this.props.id}
-				cx={(this.props.diameter - this.props.strokeWidth) / 2}
-				cy={(this.props.diameter - this.props.strokeWidth) / 2}
+				cx={this.props.position ? this.props.position[0] : ((this.props.diameter - this.props.strokeWidth) / 2)}
+				cy={this.props.position ? this.props.position[1] : ((this.props.diameter - this.props.strokeWidth) / 2)}
 				r={this.props.diameter / 2 - this.props.strokeWidth}
 				strokeWidth={this.props.strokeWidth}
 				stroke={this.props.stroke}
 				fill={this.props.fill}
+				filter={this.props.filter}
 			>
 				{this.props.children}
-				{this.state.motionPaths}
+				{this.state.animations}
 			</circle>
 		);
 	}

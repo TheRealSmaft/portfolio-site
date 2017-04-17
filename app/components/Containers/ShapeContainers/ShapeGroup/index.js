@@ -3,14 +3,21 @@ import React from 'react';
 const ShapeGroup = React.createClass({
 	getInitialState() {
 		return {
-			motionPaths: null
+			animations: null
 		}
 	},
 
-	addMotionPaths(paths) {
+	getDefaultProps() {
+		return {
+			width: '100%',
+			height: '100%'
+		}
+	},
+
+	addAnimations(animations) {
 		this.setState({
 			...this.state,
-			motionPaths: paths
+			animations: animations
 		});
 	},
 
@@ -21,9 +28,20 @@ const ShapeGroup = React.createClass({
 				fill={this.props.fill}
 				stroke={this.props.stroke}
 				strokeWidth={this.props.strokeWidth}
+				filter={this.props.filter}
+				width={this.props.width}
+				height={this.props.height}
 			>
-				{this.props.children}
-				{this.state.motionPaths}
+				{
+					React.Children.map(this.props.children, (shape, i) => {
+						return React.cloneElement(shape,
+							{
+								ref: 'groupShape' + i
+							}
+						)
+					})
+				}
+				{this.state.animations}
 			</g>
 		);
 	}

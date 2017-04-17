@@ -27,6 +27,8 @@ const MotionPath = React.createClass({
 				repeatCount={this.props.repeatCount}
 				origin={this.props.origin}
 				begin={this.props.begin}
+				end={this.props.end}
+				rotate={this.props.rotate}
 			>
 				<path 
 					id={this.props.pathId}

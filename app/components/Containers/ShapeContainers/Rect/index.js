@@ -13,14 +13,14 @@ const Rect = React.createClass({
 
 	getInitialState() {
 		return {
-			motionPaths: null
+			animations: null
 		}
 	},
 
-	addMotionPaths(paths) {
+	addAnimations(animations) {
 		this.setState({
 			...this.state,
-			motionPaths: paths
+			animations: animations
 		});
 	},
 
@@ -35,9 +35,10 @@ const Rect = React.createClass({
 				strokeWidth={this.props.strokeWidth}
 				stroke={this.props.stroke}
 				fill={this.props.fill}
+				filter={this.props.filter}
 			>
 				{this.props.children}
-				{this.state.motionPaths}
+				{this.state.animations}
 			</rect>
 		);
 	}
