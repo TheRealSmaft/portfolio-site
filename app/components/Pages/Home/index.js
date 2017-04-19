@@ -26,11 +26,13 @@ const HomePage = React.createClass({
 							breaks={[100]}
 							blocks={9}
 						>
-							<SVG>
+							<SVG
+								title="Logo Circle"
+							>
 								<Circle
 									fill={'orange'}
 									stroke={'red'}
-									strokeWidth={5}
+									strokeWidth={2}
 								>
 								</Circle>
 							</SVG>

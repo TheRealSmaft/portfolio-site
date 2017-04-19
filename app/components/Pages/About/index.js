@@ -22,7 +22,9 @@ const AboutPage = React.createClass({
 							blocks={1}
 							breaks={[40, 100]}
 						>
-							<SVG>
+							<SVG
+								title="Me Pic Background"
+							>
 								<Circle
 									fill={'lightblue'}
 								/>
@@ -41,7 +43,9 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<SVG>
+							<SVG
+								title="Brain Background"
+							>
 								<Circle
 									fill={'pink'}
 								/>
@@ -88,7 +92,9 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<SVG>
+							<SVG
+								title="Heart Background"
+							>
 								<Circle
 									fill={'red'}
 								/>
@@ -135,7 +141,9 @@ const AboutPage = React.createClass({
 						<Col
 							breaks={[40, 100]}
 						>
-							<SVG>
+							<SVG
+								title="Hand Background"
+							>
 								<Circle
 									fill={'lightgreen'}
 								/>

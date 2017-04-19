@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"test",
+				"testFilter"
+			],
+			[
 				"po",
 				"poopPath"
 			],
@@ -436,10 +440,6 @@
 				"Subscription\talias"
 			],
 			[
-				"test",
-				"testFile"
-			],
-			[
 				"print",
 				"print_r"
 			],
@@ -520,62 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "app/components/Containers/ShapeContainers/SVG/index.js",
+			"file": "app/components/Pages/Loading/index.js",
 			"settings":
 			{
-				"buffer_size": 825,
+				"buffer_size": 2517,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/ShapeContainers/Circle/index.js",
+			"file": "app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
 			"settings":
 			{
-				"buffer_size": 917,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/ShapeContainers/Filters/Lighting/index.js",
-			"settings":
-			{
-				"buffer_size": 3216,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/ShapeContainers/index.js",
-			"settings":
-			{
-				"buffer_size": 300,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/ShapeContainers/Rect/index.js",
-			"settings":
-			{
-				"buffer_size": 913,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Pages/Contact/index.js",
-			"settings":
-			{
-				"buffer_size": 2014,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
-			"settings":
-			{
-				"buffer_size": 4573,
+				"buffer_size": 1042,
 				"line_ending": "Windows"
 			}
 		}
@@ -639,32 +596,42 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/AE Animations",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/LoadingGears",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/blueBall",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Circle",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Rect",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/loadingSpinner.json",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Polygon/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Path/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/Lighting/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/Lighting/Types/Diffuse/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/Lighting/Types/Specular/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/Lighting/Sources/Spot/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/Lighting/Sources/Distant/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Filters/Lighting/Sources/Point/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/SVG/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Circle/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Rect/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/ShapeGroup/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/MotionPath/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/SVG/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/test/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/blueBall/Blue Ball.svg",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/blueBall.js",
@@ -672,10 +639,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/blueBall/Blue Ball.ai",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DeferredEventExecutor/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Path/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home/Home.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
@@ -777,16 +740,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/itemList/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/itemList/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/itemList/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/InventoryContainers/Collectable/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/inventory/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/inventory/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/DragAndDropContainers/Draggable/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/Draggable/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/dragAndDrop/duck/reducers.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/dragAndDrop/duck/actions.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/dragAndDrop/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DragAndDrop/DropZone/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/InventoryContainers/Item/Item.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/InventoryContainers/Collectable/index.js"
 	],
 	"find":
 	{
@@ -806,6 +760,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"loadingSpinner",
+			"10",
+			"5",
+			"center",
+			"Polygon",
+			"polygon",
+			"points",
+			"rect",
+			"Rect",
+			"Spot",
+			"Diffuse",
+			"Lighting",
+			"DiffuseLighting",
+			"SpotLight",
+			"Spot",
+			"MotionPath",
 			"state.",
 			"2",
 			"pointsAtPosition",
@@ -917,23 +887,7 @@
 			"30",
 			"100",
 			"40",
-			"this.",
-			"otherBoxFaces",
-			"otherBoxSide",
-			"props",
-			"Polygon",
-			"flex-end",
-			"innerWidth",
-			"80",
-			"objects",
-			"dy",
-			"dx",
-			"ctx",
-			"var ",
-			"x",
-			"this",
-			"canvas",
-			"100"
+			"this."
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -951,24 +905,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/Containers/ShapeContainers/SVG/index.js",
+					"file": "app/components/Pages/Loading/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 825,
+						"buffer_size": 2517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								242,
-								242
+								983,
+								983
 							]
 						],
 						"settings":
@@ -976,149 +930,34 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Containers/ShapeContainers/Circle/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 917,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								215,
-								215
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Containers/ShapeContainers/Filters/Lighting/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3216,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2627,
-								2627
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2178.0,
+						"translation.x": 245.0,
+						"translation.y": 682.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/Containers/ShapeContainers/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 300,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								300,
-								300
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/components/Containers/ShapeContainers/Rect/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 913,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								373,
-								213
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 5,
-					"file": "app/components/Pages/Contact/index.js",
+					"buffer": 1,
+					"file": "app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2014,
+						"buffer_size": 1042,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								568,
-								568
+								778,
+								739
 							]
 						],
 						"settings":
@@ -1126,37 +965,8 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
+						"translation.x": 52.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 4573,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1114,
-								1114
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
