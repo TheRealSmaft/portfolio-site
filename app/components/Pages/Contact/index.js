@@ -1,6 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
+import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor } from '../../Containers';
+import { SVG, Rect } from '../../Containers/ShapeContainers';
 
 const ContactPage = React.createClass({
 	render() {
@@ -17,32 +19,55 @@ const ContactPage = React.createClass({
 						<Col
 							breaks={[100]}
 						>
-							<div
-								style={{
-									width: '100%',
-									height: '300px',
-									backgroundColor: 'yellow'
-								}}
-							>
-								<p>
-									This will be a pic of a flying saucer (from Zanahoria) abducting the Sinister Silhouette.
-								</p>
-							</div>
+							<p>
+								This will be a pic of a flying saucer (from Zanahoria) abducting the Sinister Silhouette.
+							</p>
 						</Col>
 						<Col
 							breaks={[100]}
+							style={{
+								position: 'relative'
+							}}
 						>
-							<div
+							<SVG
+								title="Form Background"
+							>
+								<Rect
+									fill="pink"
+									dimensions={[90, 90]}
+									position={[5,5]}
+								>
+								<animateTransform 
+									attributeName="transform"
+									id="forth"
+									attributeType="XML"
+									type="rotate"
+									from="-2 45 45"
+									to="2 45 45"
+									dur="20s"
+									begin="0s; back.end"
+								/>
+								<animateTransform 
+									attributeName="transform"
+									id="back"
+									attributeType="XML"
+									type="rotate"
+									from="2 45 45"
+									to="-2 45 45"
+									dur="20s"
+									begin="forth.end"
+								/>
+								</Rect>
+							</SVG>
+							<p
 								style={{
-									width: '100%',
-									height: '300px',
-									backgroundColor: 'lightgreen'
+									position: 'absolute',
+									top: '5%',
+									left: '8%'
 								}}
 							>
-								<p>
-									This will be a contact form
-								</p>
-							</div>
+								This will be a contact form
+							</p>
 						</Col>
 					</Row>
 				</Grid>

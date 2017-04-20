@@ -3,6 +3,8 @@ import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
 
+import { SVG, Circle } from '../../Containers/ShapeContainers';
+
 import { HomePageStyles } from '../../../styles/pages';
 
 const HomePage = React.createClass({
@@ -11,6 +13,9 @@ const HomePage = React.createClass({
 	render() {
 		return (
 			<ResponsiveContainer>
+				<h1>
+					WELCOME!
+				</h1>
 				<Grid
 					className={HomePageStyles.homeGrid}
 					breakPoints={[768]}
@@ -18,14 +23,19 @@ const HomePage = React.createClass({
 				>
 					<Row blocks={20}>
 						<Col
-							className={HomePageStyles.logoCol}
 							breaks={[100]}
 							blocks={9}
 						>
-							<div 
-								className={HomePageStyles.logoContainer}
+							<SVG
+								title="Logo Circle"
 							>
-							</div>
+								<Circle
+									fill={'orange'}
+									stroke={'red'}
+									strokeWidth={2}
+								>
+								</Circle>
+							</SVG>
 						</Col>
 						<Col
 							className={HomePageStyles.homeP}

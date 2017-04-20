@@ -1,33 +1,3 @@
-.logoContainer {
-  width: 250px;
-  height: 250px;
-  background-color: orange;
-  border-radius: 50%;
-}
-@media only screen and (min-width: 992px) {
-  .logoContainer {
-    width: 350px;
-    height: 350px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .logoContainer {
-    width: 400px;
-    height: 400px;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .logoContainer {
-    width: 240px;
-    height: 240px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .logoCol {
-    display: flex;
-    justify-content: center;
-  }
-}
 .homeP {
   height: 250px;
   display: flex;
@@ -42,9 +12,6 @@
   .homeP {
     height: auto;
   }
-}
-.homeGrid {
-  margin-top: 100px;
 }
 .portPreview {
   display: flex;
@@ -76,6 +43,12 @@
   .portPreview div {
     width: 240px;
     height: 240px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .portPreview div {
+    width: 200px;
+    height: 200px;
   }
 }
 .portPreview span {

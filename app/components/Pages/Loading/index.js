@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 
 import { LoadingPageStyles } from '../../../styles/pages';
+
+import BodyMovin from '../../../plugins/bodymovin.min';
 
 const LoadingPage = React.createClass({
 	getInitialState() {
@@ -34,6 +37,23 @@ const LoadingPage = React.createClass({
 	componentDidMount() {
 		this.ellipsisTimeElapsed = 0;
 		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);
+
+		var jsonData = require('../../../assets/images/interactables/LoadingGears/LoadingGears.json');
+		var loadingGearsAnimation = {
+			animationData: jsonData,
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: true,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
+
+		BodyMovin.loadAnimation(loadingGearsAnimation);
+	},
+
+	componentWillUnmount() {
+		clearInterval(this.ellipsisTimer);
 	},
 
 	ellipsisTimeCounter() {
@@ -83,7 +103,7 @@ const LoadingPage = React.createClass({
 						</h3>
 					</div>
 					<div
-						className={LoadingPageStyles.loaderSpinner}
+						ref="loadingGears"
 					>
 					</div>
 				</div>
