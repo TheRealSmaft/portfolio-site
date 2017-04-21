@@ -38,10 +38,10 @@ const LoadingPage = React.createClass({
 		this.ellipsisTimeElapsed = 0;
 		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);
 
-		var jsonData = require('../../../assets/images/interactables/test.json');
+		var jsonData = require('../../../assets/images/items/Glue/GlueSqueeze.json');
 		var loadingGearsAnimation = {
 			animationData: jsonData,
-			path: '../../../../../assets/images/interactables',
+			path: '../../../../../assets/images/items/Glue',
 			loop: true,
 			autoplay: true,
 			name: 'loadingGears',
