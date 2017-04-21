@@ -38,10 +38,10 @@ const LoadingPage = React.createClass({
 		this.ellipsisTimeElapsed = 0;
 		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);
 
-		var jsonData = require('../../../assets/images/interactables/LoadingGears/LoadingGears.json');
+		var jsonData = require('../../../assets/images/interactables/test.json');
 		var loadingGearsAnimation = {
 			animationData: jsonData,
-			path: '../../../../../assets/images/interactables/LoadingGears',
+			path: '../../../../../assets/images/interactables',
 			loop: true,
 			autoplay: true,
 			name: 'loadingGears',
@@ -87,7 +87,7 @@ const LoadingPage = React.createClass({
 						<h3 
 							className={LoadingPageStyles.loaderText}
 						>
-							Loadingz
+							Loading
 
 							<span>
 								<DeferredEventExecutor
