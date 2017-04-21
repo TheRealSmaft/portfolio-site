@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Loading",
+				"LoadingGears"
+			],
+			[
 				"test",
 				"testFilter"
 			],
@@ -510,29 +514,35 @@
 			[
 				"f",
 				"fileReader\tproperty"
-			],
-			[
-				"readAs",
-				"readAsDataURL\tmethod"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/components/Pages/Loading/index.js",
+			"file": "app/components/Pages/Contact/index.js",
 			"settings":
 			{
-				"buffer_size": 2517,
+				"buffer_size": 2107,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
+			"file": "app/assets/images/items/Paper/uncrumpleEvents.js",
 			"settings":
 			{
-				"buffer_size": 1042,
+				"buffer_size": 6292,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Pages/Loading/index.js",
+			"settings":
+			{
+				"buffer_size": 2484,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -596,23 +606,24 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/AE Animations",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/LoadingGears",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/Paper",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/loadingSpinner.json",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
@@ -637,7 +648,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/blueBall.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Row/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/blueBall/Blue Ball.ai",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/DeferredEventExecutor/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home/Home.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
@@ -657,7 +667,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/routes.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Loading/Loading.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/LoadingPage.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/bundle.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items",
@@ -683,7 +692,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/__resources/images/monitor.svg",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/3DContainer/3DContainer.css",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/TestScene/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/index.js",
@@ -760,6 +768,26 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"./../../assets/images/items/Paper/",
+			"index.js:253",
+			"ple(",
+			"3",
+			"(3",
+			"le(",
+			"e(",
+			").p",
+			")",
+			"LoadingGears",
+			"interactables",
+			"LoadingGears",
+			"interactables",
+			"index.js:283",
+			"01",
+			"1",
+			"src=",
+			")}",
+			"={",
+			"{",
 			"loadingSpinner",
 			"10",
 			"5",
@@ -867,27 +895,7 @@
 			"400px",
 			"300px",
 			"Loading",
-			"4",
-			".",
-			"';",
-			".",
-			"ellipsisGlyph",
-			"ellipsisTimeCounter",
-			"this.",
-			"DeferredEvent",
-			"Container",
-			"DeferredEventExecutor",
-			"About",
-			"AboutPage",
-			"Home",
-			"50",
-			"this.state.rotate",
-			"this.state.rotate[",
-			"this.state",
-			"30",
-			"100",
-			"40",
-			"this."
+			"4"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -905,24 +913,89 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "app/components/Pages/Contact/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2107,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1762,
+								1762
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 3,
+								"tabSize": 3
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 1518.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/assets/images/items/Paper/uncrumpleEvents.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6044,
+								6044
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4712.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "app/components/Pages/Loading/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2517,
+						"buffer_size": 2484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								983,
-								983
+								1006,
+								1006
 							]
 						],
 						"settings":
@@ -930,46 +1003,11 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 245.0,
-						"translation.y": 682.0,
+						"translation.x": 0.0,
+						"translation.y": 70.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 1,
-					"file": "app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1042,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								778,
-								739
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 52.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -992,18 +1030,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
