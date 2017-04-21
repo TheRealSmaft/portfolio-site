@@ -87,7 +87,7 @@ const LoadingPage = React.createClass({
 						<h3 
 							className={LoadingPageStyles.loaderText}
 						>
-							Loading
+							Loadingz
 
 							<span>
 								<DeferredEventExecutor
