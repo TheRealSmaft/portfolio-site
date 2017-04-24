@@ -38,11 +38,11 @@ const LoadingPage = React.createClass({
 		this.ellipsisTimeElapsed = 0;
 		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);
 
-		var jsonData = require('../../../assets/images/items/Gavel/GavelSwinging.json');
+		var jsonData = require('../../../assets/images/interactables/LoadingGears/LoadingGears.json');
 		var loadingGearsAnimation = {
 			animationData: jsonData,
-			path: '../../../../../assets/images/items/Gavel',
-			loop: false,
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: true,
 			autoplay: true,
 			name: 'loadingGears',
 			renderer: 'svg' ,
