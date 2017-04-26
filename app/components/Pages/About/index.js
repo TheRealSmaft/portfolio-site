@@ -1,12 +1,22 @@
 import React from 'react';
 
-import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
+import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor} from '../../Containers';
 
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { AboutPageStyles } from '../../../styles/pages';
 
+import thumbsUpEvents from '../../../assets/images/interactables/Hand/thumbsUpEvents';
+
 const AboutPage = React.createClass({
+	componentWillMount() {
+		this.thumbsUpMoments = [];
+
+		for(var i = 1; i < 12; i++) {
+			this.thumbsUpMoments.push(i);
+		}
+	},
+
 	render() {
 		return (
 			<ResponsiveContainer>
@@ -26,7 +36,7 @@ const AboutPage = React.createClass({
 								title="Me Pic Background"
 							>
 								<Circle
-									fill={'lightblue'}
+									fill={'orange'}
 								/>
 							</SVG>
 						</Col>
@@ -42,14 +52,26 @@ const AboutPage = React.createClass({
 					<Row>
 						<Col
 							breaks={[40, 100]}
+							style={{
+								position: 'relative'
+							}}
 						>
 							<SVG
 								title="Brain Background"
 							>
 								<Circle
-									fill={'pink'}
+									fill={'yellow'}
 								/>
 							</SVG>
+							<img 
+								style={{
+									position: 'absolute',
+									width: '70%',
+									left: '15%',
+									top: '22.5%'
+								}}
+								src={require('../../../assets/images/interactables/Brain/Brain.svg')}
+							/>
 						</Col>
 						<Col
 							breaks={[32, 52]}
@@ -91,14 +113,26 @@ const AboutPage = React.createClass({
 					<Row>
 						<Col
 							breaks={[40, 100]}
+							style={{
+								position: 'relative'
+							}}
 						>
 							<SVG
 								title="Heart Background"
 							>
 								<Circle
-									fill={'red'}
+									fill={'lightblue'}
 								/>
 							</SVG>
+							<img 
+								style={{
+									position: 'absolute',
+									width: '60%',
+									left: '20%',
+									top: '8%'
+								}}
+								src={require('../../../assets/images/interactables/Heart/Heart.svg')}
+							/>
 						</Col>
 						<Col
 							breaks={[32, 52]}
@@ -140,6 +174,9 @@ const AboutPage = React.createClass({
 					<Row>
 						<Col
 							breaks={[40, 100]}
+							style={{
+								position: 'relative'
+							}}
 						>
 							<SVG
 								title="Hand Background"
@@ -148,6 +185,21 @@ const AboutPage = React.createClass({
 									fill={'lightgreen'}
 								/>
 							</SVG>
+							<DeferredEventExecutor
+								moments={this.thumbsUpMoments}
+								events={thumbsUpEvents}
+								increment={42}
+							>
+								<img 
+									style={{
+										position: 'absolute',
+										width: '60%',
+										left: '20%',
+										top: '0px'
+									}}
+									src={require('../../../assets/images/interactables/Hand/ThumbsUp/Hand-01.svg')}
+								/>
+							</DeferredEventExecutor>
 						</Col>
 						<Col
 							breaks={[32, 52]}

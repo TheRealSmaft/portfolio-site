@@ -15,8 +15,6 @@ const ContactPage = React.createClass({
 		}
 	},
 
-
-
 	render() {
 		return (
 			<ResponsiveContainer>

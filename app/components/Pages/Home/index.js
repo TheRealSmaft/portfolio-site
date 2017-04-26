@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
@@ -7,8 +8,23 @@ import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { HomePageStyles } from '../../../styles/pages';
 
-const HomePage = React.createClass({
+import BodyMovin from '../../../plugins/bodymovin.min';
 
+const HomePage = React.createClass({
+	componentDidMount() {
+		var jsonData = require('../../../assets/images/Logo/Logo.json');
+		var loadingGearsAnimation = {
+			animationData: jsonData,
+			path: '../../../../../assets/images/Logo',
+			loop: true,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.logo)
+		};
+
+		BodyMovin.loadAnimation(loadingGearsAnimation);
+	},
 
 	render() {
 		return (
@@ -25,17 +41,28 @@ const HomePage = React.createClass({
 						<Col
 							breaks={[100]}
 							blocks={9}
+							style={{
+								position: 'relative'
+							}}
 						>
 							<SVG
 								title="Logo Circle"
 							>
 								<Circle
-									fill={'orange'}
-									stroke={'red'}
-									strokeWidth={2}
+									fill={'lightblue'}
 								>
 								</Circle>
 							</SVG>
+							<div 
+								ref="logo"
+								style={{
+									position: 'absolute',
+									width: '95%',
+									left: '3%',
+									top: '2%'
+								}}
+							>
+							</div>
 						</Col>
 						<Col
 							className={HomePageStyles.homeP}
