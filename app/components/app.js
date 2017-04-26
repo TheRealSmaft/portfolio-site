@@ -70,11 +70,6 @@ const App = React.createClass({
 	}
 });
 
-
-					
-					//<MainNavbar links={NavLinks} />
-
-
 function mapStateToProps(store) {
 	return {
 		windowState: store.windowState,

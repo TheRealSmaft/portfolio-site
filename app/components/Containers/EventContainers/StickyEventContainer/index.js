@@ -54,7 +54,9 @@ const StickyEventContainer = React.createClass({
 		if(this.props.scrollState.scrollY > this.start.y ||
 			this.props.scrollState.scrollX > this.start.x) {
 			return (
-				<div style={this.placeholderStyles}>
+				<div 
+					style={this.placeholderStyles}
+				>
 					<div 
 						className={this.props.childStyles} 
 						style={this.stickyStyles}>
@@ -66,7 +68,11 @@ const StickyEventContainer = React.createClass({
 		else 
 		{
 			return (
-				<div>
+				<div
+					style={{
+						...this.props.style
+					}}
+				>
 					{this.props.children}
 				</div>
 			)

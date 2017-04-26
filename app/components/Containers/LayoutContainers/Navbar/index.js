@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import { ResponsiveContainer } from '../../../Containers';
+import { SVG, Circle, Rect, Path, MotionPath } from '../../../Containers/ShapeContainers';
 
 import { navbarStyles } from '../../../../styles';
 
@@ -12,9 +13,79 @@ const Navbar = React.createClass({
 		}
 	},
 
+	componentWillMount() {
+		this.navLinkNailTopLeft = (
+			<div
+				style={{
+					position: 'absolute',
+					top: '-12%',
+					left: '2%'
+				}}
+			>
+				<img 
+					style={{
+						width: '8px'
+					}}
+					src={require('../../../../assets/images/interactables/Navbar/LinkNail.svg')}
+				/>
+			</div>
+		);
+
+		this.navLinkNailTopRight = (
+			<div
+				style={{
+					position: 'absolute',
+					top: '-12%',
+					right: '2%'
+				}}
+			>
+				<img 
+					style={{
+						width: '8px'
+					}}
+					src={require('../../../../assets/images/interactables/Navbar/LinkNail.svg')}
+				/>
+			</div>
+		);
+
+		this.navLinkNailBottomLeft = (
+			<div
+				style={{
+					position: 'absolute',
+					bottom: '10%',
+					left: '2%'
+				}}
+			>
+				<img 
+					style={{
+						width: '8px'
+					}}
+					src={require('../../../../assets/images/interactables/Navbar/LinkNail.svg')}
+				/>
+			</div>
+		);
+
+		this.navLinkNailBottomRight = (
+			<div
+				style={{
+					position: 'absolute',
+					bottom: '10%',
+					right: '2%'
+				}}
+			>
+				<img 
+					style={{
+						width: '8px'
+					}}
+					src={require('../../../../assets/images/interactables/Navbar/LinkNail.svg')}
+				/>
+			</div>
+		);
+	}, 
+
 	toggleMobileMenu() {
 		this.setState({
-			...this.state,
+			...this.state, 
 			menuToggled: !this.state.menuToggled
 		})
 	},
@@ -26,16 +97,139 @@ const Navbar = React.createClass({
 					className={navbarStyles.navbar}
 				>
 					<Link to="/home"> 
-						Home
+						<div
+							style={{
+								height: '100%',
+								backgroundColor: "rgb(120,120,164)",
+								border: '1px solid rgb(50,50,62)'
+							}}
+						>
+							<div
+								style={{
+									position: 'relative',
+									display: 'flex',
+									flexDirection: 'row',
+									justifyContent: 'center',
+									alignContent: 'center',
+									textAlign: 'center'
+								}}
+							>
+								<div
+									style={{
+										position: 'absolute',
+										top: '10%',
+										left: '10%'
+									}}
+								>
+									<img 
+										style={{
+											width: '80%',
+											height: '50px'
+										}}
+										src={require('../../../../assets/images/interactables/Navbar/LinkShine.svg')}
+									/>
+								</div>
+								<h4
+									style={{
+										width: '100%',
+										height: '100%',
+										marginTop: '10px'
+									}}
+								>
+									Home
+								</h4>
+							</div>
+						</div>
 					</Link>
 					<Link to="/portfolio"> 
-						Portfolio
+						<div
+							style={{
+								height: '100%',
+								backgroundColor: "rgb(120,120,164)",
+								border: '1px solid rgb(50,50,62)'
+							}}
+						>
+							<div
+								style={{
+									position: 'relative',
+									display: 'flex',
+									flexDirection: 'row',
+									justifyContent: 'center',
+									alignContent: 'center',
+									textAlign: 'center'
+								}}
+							>
+								<h4
+									style={{
+										width: '100%',
+										height: '100%',
+										marginTop: '10px'
+									}}
+								>
+									Portfolio
+								</h4>
+							</div>
+						</div>
 					</Link>
 					<Link to="/contact"> 
-						Contact
+						<div
+							style={{
+								height: '100%',
+								backgroundColor: "rgb(120,120,164)",
+								border: '1px solid rgb(50,50,62)'
+							}}
+						>
+							<div
+								style={{
+									position: 'relative',
+									display: 'flex',
+									flexDirection: 'row',
+									justifyContent: 'center',
+									alignContent: 'center',
+									textAlign: 'center'
+								}}
+							>
+								<h4
+									style={{
+										width: '100%',
+										height: '100%',
+										marginTop: '10px'
+									}}
+								>
+									Contact
+								</h4>
+							</div>
+						</div>
 					</Link>
 					<Link to="/about"> 
-						About
+						<div
+							style={{
+								height: '100%',
+								backgroundColor: "rgb(120,120,164)",
+								border: '1px solid rgb(50,50,62)'
+							}}
+						>
+							<div
+								style={{
+									position: 'relative',
+									display: 'flex',
+									flexDirection: 'row',
+									justifyContent: 'center',
+									alignContent: 'center',
+									textAlign: 'center'
+								}}
+							>
+								<h4
+									style={{
+										width: '100%',
+										height: '100%',
+										marginTop: '10px'
+									}}
+								>
+									About
+								</h4>
+							</div>
+						</div>
 					</Link>
 				</div>
 				<div

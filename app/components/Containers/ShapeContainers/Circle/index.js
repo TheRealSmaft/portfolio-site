@@ -34,6 +34,7 @@ const Circle = React.createClass({
 				stroke={this.props.stroke}
 				fill={this.props.fill}
 				filter={this.props.filter}
+				style={this.props.style}
 			>
 				{this.props.children}
 				{this.state.animations}
