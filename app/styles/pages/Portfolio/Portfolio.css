@@ -1,0 +1,56 @@
+.pieceImage {
+  position: relative;
+  width: 100%;
+  transform-origin: center top;
+}
+.pieceImage img:first-of-type {
+  position: absolute;
+  width: 10%;
+  left: 45%;
+  top: -35px;
+  z-index: -1;
+}
+@media only screen and (max-width: 992px) {
+  .pieceImage img:first-of-type {
+    top: -25px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .pieceImage img:first-of-type {
+    top: -18px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .pieceImage img:first-of-type {
+    top: -25px;
+  }
+}
+.pieceImage img:last-of-type {
+  width: 100%;
+}
+.pieceImage div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.pieceImage div:first-of-type {
+  border-top: 12px solid #dc8200;
+  border-left: 12px solid #b95800;
+  border-right: 12px solid #c86400;
+  border-bottom: 12px solid #aa4b00;
+}
+.pieceImage div:first-of-type div {
+  box-sizing: border-box;
+  border-top: 3px solid #c86400;
+  border-left: 3px solid #aa4b00;
+  border-right: 3px solid #dc8200;
+  border-bottom: 3px solid #b95800;
+}
+.pieceImage div:nth-of-type(2) {
+  border-top: 3px solid rgba(255, 255, 255, 0.2);
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-right: 3px solid rgba(0, 0, 0, 0.2);
+}
+/*# sourceMappingURL=Portfolio.css.map */
