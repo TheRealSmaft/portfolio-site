@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"Patua",
+				"Patua-One"
+			],
+			[
+				"Jul",
+				"Julius-Sans-One"
+			],
+			[
+				"Payto",
+				"Paytone-One"
+			],
+			[
+				"Bow",
+				"Bowlby-One-SC"
+			],
+			[
+				"Passion",
+				"Passion-One"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"border",
+				"border-left"
+			],
+			[
 				"max-",
 				"max-width"
 			],
@@ -14,10 +50,6 @@
 			[
 				"bor",
 				"border-right"
-			],
-			[
-				"border",
-				"border-top"
 			],
 			[
 				"text",
@@ -428,10 +460,6 @@
 				"m-0-b"
 			],
 			[
-				"mar",
-				"margin-bottom"
-			],
-			[
 				"wi",
 				"width"
 			],
@@ -486,72 +514,34 @@
 			[
 				"products",
 				"productsByCategory\tproperty"
-			],
-			[
-				"Ob",
-				"Object\tinterface"
-			],
-			[
-				"prod",
-				"productsByCategory\tproperty"
-			],
-			[
-				"In",
-				"Input\talias"
-			],
-			[
-				"image",
-				"imageDataEmitter\tproperty"
-			],
-			[
-				"Sub",
-				"Subject\talias"
-			],
-			[
-				"Ima",
-				"ImageUploadPartialComponent\talias"
-			],
-			[
-				"s",
-				"selector\tproperty"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/components/Containers/LayoutContainers/Navbar/index.js",
+			"file": "app/components/Pages/Loading/index.js",
 			"settings":
 			{
-				"buffer_size": 5153,
+				"buffer_size": 2517,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/app.js",
+			"file": "app/styles/pages/Loading/Loading.less",
 			"settings":
 			{
-				"buffer_size": 2116,
+				"buffer_size": 466,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/EventContainers/StickyEventContainer/index.js",
+			"file": "app/styles/app/app.less",
 			"settings":
 			{
-				"buffer_size": 1604,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "@import \"../mediaQueries/mediaQueries.less\";\n\n.navbar {\n\twidth: 100%;\n\theight: 50px;\n\n\tbackground-color: rgb(50,50,62);\n\n\tborder-top: 8px solid rgb(100,100,120);\n\tborder-bottom: 8px solid rgb(200,200,240);\n\tborder-right: 8px solid rgb(120,120,150);\n\tborder-left: 8px solid rgb(160,160,200);\n\n\ta {\n\t\tfloat: left;\n\t\twidth: 25%;\n\t\theight: 50px;\n\t\ttext-align: center;\n\t\tcolor: white;\n\t\tfont-weight: bold;\n\t\ttext-decoration: none;\n\t}\n\n\t@media @medium-min {\n\t\twidth: 80%;\n\t\tmargin-left: 10%;\n\t}\n\n\t@media @extra-small-max {\n\t\tdisplay: none;\n\t}\n}\n\n.navbarCollapsed {\n\tdisplay: none;\n\n\tdiv:first-of-type {\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\talign-content: center;\n\n\t\twidth: 40px;\n\t\theight: 40px;\n\t\tbackground-color: blue;\n\t\tcolor: white;\n\t}\n\n\t@media @extra-small-max {\n\t\tdisplay: block;\n\t}\n}\n\n.sticky {\n\tposition: fixed;\n\twidth: 100%;\n}",
-			"file": "app/styles/navbar/navbar.less",
-			"file_size": 916,
-			"file_write_time": 131377126584848170,
-			"settings":
-			{
-				"buffer_size": 838,
+				"buffer_size": 276,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -616,37 +606,36 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/Hand/ThumbsUp",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/Navbar",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/Gavel",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/ResponsiveContainer",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Circle",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Rect",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/SVG",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/PortfolioPiece",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/mediaQueries"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Portfolio/Portfolio.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/PortfolioPiece/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/SVG/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Rect/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/ShapeContainers/Circle/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/StickyEventContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/index.js",
@@ -675,16 +664,11 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/blueBall.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Row/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/blueBall/Blue Ball.ai",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/navbar/navbar.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/About/About.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Contact/Contact.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/PortfolioPiece/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Portfolio/Portfolio.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/PortfolioImage/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Grid/GridComponents/Col/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/mediaQueries/mediaQueries.less",
@@ -789,6 +773,30 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"20",
+			"',",
+			"'",
+			"font-family",
+			"h3",
+			"h3 ",
+			"3",
+			"<div\n\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\theight: '100%',\n\t\t\t\t\t\t\t\tbackgroundColor: \"rgb(120,120,164)\",\n\t\t\t\t\t\t\t\tborder: '1px solid rgb(50,50,62)'\n\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\t\tposition: 'relative',\n\t\t\t\t\t\t\t\t\tdisplay: 'flex',\n\t\t\t\t\t\t\t\t\tflexDirection: 'row',\n\t\t\t\t\t\t\t\t\tjustifyContent: 'center',\n\t\t\t\t\t\t\t\t\talignContent: 'center',\n\t\t\t\t\t\t\t\t\ttextAlign: 'center'\n\t\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<h4\n\t\t\t\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\t\t\t\twidth: '100%',\n\t\t\t\t\t\t\t\t\t\theight: '100%',\n\t\t\t\t\t\t\t\t\t\tmarginTop: '10px'\n\t\t\t\t\t\t\t\t\t}}\n\t\t\t\t\t\t\t\t>",
+			"bunny",
+			"9",
+			"(140, 60, 0)",
+			"75",
+			"170",
+			"150",
+			"230",
+			"12px",
+			"12",
+			"255",
+			"3",
+			"255",
+			"24",
+			"0",
+			"3",
+			"8",
 			"h3",
 			"{this.navLinkNailTopLeft}\n\t\t\t\t\t\t\t\t{this.navLinkNailTopRight}\n\t\t\t\t\t\t\t\t{this.navLinkNailBottomLeft}\n\t\t\t\t\t\t\t\t{this.navLinkNailBottomRight}",
 			"border: '1px solid rgb('",
@@ -892,31 +900,7 @@
 			"motionPaths",
 			"paths",
 			"motionPaths",
-			"addMotionPaths",
-			"shits",
-			"butts",
-			"circle",
-			"Circle",
-			"-",
-			"dimensions",
-			"diameter",
-			"Circle",
-			"MotionPath",
-			"path",
-			"state",
-			"duration",
-			"props",
-			"animation",
-			"dynamicChildren",
-			"test",
-			"3",
-			"pathName",
-			"Motion",
-			"300",
-			"Circle",
-			"SVG",
-			"width",
-			"MotionPath"
+			"addMotionPaths"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -939,19 +923,23 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/Containers/LayoutContainers/Navbar/index.js",
+					"file": "app/components/Pages/Loading/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5153,
+						"buffer_size": 2517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2493,
-								2160
+								1972,
+								1972
+							],
+							[
+								2373,
+								2373
 							]
 						],
 						"settings":
@@ -959,92 +947,34 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 5.0,
-						"translation.y": 2014.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2116,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1519,
-								1519
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 858.0,
+						"translation.x": 0.0,
+						"translation.y": 1518.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Containers/EventContainers/StickyEventContainer/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1604,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1307,
-								1307
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 3,
-					"file": "app/styles/navbar/navbar.less",
+					"buffer": 1,
+					"file": "app/styles/pages/Loading/Loading.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 838,
+						"buffer_size": 466,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								428,
-								428
+								367,
+								367
 							]
 						],
 						"settings":
@@ -1056,7 +986,43 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/styles/app/app.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 276,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								90,
+								90
+							],
+							[
+								92,
+								92
+							],
+							[
+								94,
+								94
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1146,7 +1112,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

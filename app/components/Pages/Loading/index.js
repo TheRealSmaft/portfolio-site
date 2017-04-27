@@ -84,7 +84,7 @@ const LoadingPage = React.createClass({
 					}}
 				>
 					<div>
-						<h3 
+						<h1 
 							className={LoadingPageStyles.loaderText}
 						>
 							Loading
@@ -100,7 +100,7 @@ const LoadingPage = React.createClass({
 									<span data-glyph={this.state.ellipsisGlyph}></span>
 								</DeferredEventExecutor>
 							</span>
-						</h3>
+						</h1>
 					</div>
 					<div
 						ref="loadingGears"

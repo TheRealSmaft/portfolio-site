@@ -1,14 +1,28 @@
+@import "../../mediaQueries/mediaQueries.less";
+
 .loaderContainer {
-	width: 100%;
+	width: 60%;
+	margin-left: 20%;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+
+	@media @small-max {
+		width: 80%;
+		margin-left: 10%;
+	}
+
+	@media @extra-small-max {
+		width: 90%;
+		margin-left: 5%;
+	}
 }
 
 .loaderText {
-	text-align: left;
+	margin: 0px;
 }
 
 .loaderSpinner {

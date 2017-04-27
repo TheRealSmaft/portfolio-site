@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|Poppins');
 .app {
-  color: #646464;
+  color: #404040;
   text-size-adjust: none;
-  font-family: helvetica, arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 200%;
   width: 100%;
   overflow-x: hidden;
+}
+.app h1,
+.app h2,
+.app h3,
+.app h4,
+.app h5,
+.app h6 {
+  font-family: 'Bitter', serif;
 }
 /*# sourceMappingURL=app.css.map */
