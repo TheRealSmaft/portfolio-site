@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
+import { SVG, ShapeGroup } from '../../Containers/ShapeContainers';
 
 import { LoadingPageStyles } from '../../../styles/pages';
 
@@ -35,12 +37,72 @@ const LoadingPage = React.createClass({
 	},
 
 	componentDidMount() {
-		this.ellipsisTimeElapsed = 0;
-		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: 3,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
 
-		var jsonData = require('../../../assets/images/interactables/LoadingGears/LoadingGears.json');
-		var loadingGearsAnimation = {
-			animationData: jsonData,
+		this.loadingGears = BodyMovin.loadAnimation(animationData);
+		this.loadingGears.addEventListener('complete', this.breakGears);
+
+		var paperThrown = {
+			animationData: require('../../../assets/images/items/Paper/CrumpledPaperThrown.json'),
+			path: '../../../../../assets/images/items/Paper',
+			loop: false,
+			autoplay: false,
+			name: 'paperThrown',
+			renderer: 'svg',
+			container: ReactDOM.findDOMNode(this.refs.crumpledPaper)
+		}
+
+		this.paperThrown = BodyMovin.loadAnimation(paperThrown);
+		this.paperThrown.addEventListener('complete', this.makePaperClickable);
+	},
+
+	breakGears() {
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsBreaking.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: false,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
+		this.loadingGears.removeEventListener('complete');
+		this.loadingGears.destroy();
+
+		this.paperThrown.play();
+
+		this.breakingGears = BodyMovin.loadAnimation(animationData);
+		this.changeEllipsisGlyph('?');
+	},
+
+	fixGears() {
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsFixed.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: false,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
+		this.breakingGears.removeEventListener('complete');
+		this.breakingGears.destroy();
+
+		this.fixedGears = BodyMovin.loadAnimation(animationData);
+		this.fixedGears.addEventListener('complete', this.turboChargeGears);
+	},
+
+	turboChargeGears() {
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../../../assets/images/interactables/LoadingGears',
 			loop: true,
 			autoplay: true,
@@ -48,23 +110,16 @@ const LoadingPage = React.createClass({
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.loadingGears)
 		};
+		this.fixedGears.removeEventListener('complete');
+		this.fixedGears.destroy();
 
-		BodyMovin.loadAnimation(loadingGearsAnimation);
-	},
+		this.turboChargedGears = BodyMovin.loadAnimation(animationData);
+		this.turboChargedGears.setSpeed(4);
+		this.changeEllipsisGlyph('!');
 
-	componentWillUnmount() {
-		clearInterval(this.ellipsisTimer);
-	},
-
-	ellipsisTimeCounter() {
-		this.ellipsisTimeElapsed = this.ellipsisTimeElapsed + 1;
-		if(this.ellipsisTimeElapsed === 6) {
-			this.changeEllipsisGlyph('?');
-		}
-		else if(this.ellipsisTimeElapsed === 12) {
-			this.changeEllipsisGlyph('!');
-			clearInterval(this.ellipsisTimer);
-		}
+		setTimeout(() => {
+			browserHistory.push('/home');
+		}, 3000);
 	},
 
 	changeEllipsisGlyph(glyph) {
@@ -72,6 +127,18 @@ const LoadingPage = React.createClass({
 			...this.state,
 			ellipsisGlyph: glyph
 		})
+	},
+
+	makePaperClickable() {
+		this.refs.crumpledPaper.firstChild.childNodes[1].firstChild.addEventListener('onClick', this.fixGears);
+	},
+
+	componentWillUpdate() {
+		if(this.refs.loadingGears != undefined) {
+			var rect = ReactDOM.findDOMNode(this.refs.loadingGears).getBoundingClientRect()
+			this.crumpleDivHeight = rect.height;
+			this.crumpleDivWidth = rect.width;
+		}
 	},
 
 	render() {
@@ -83,6 +150,18 @@ const LoadingPage = React.createClass({
 						height: window.innerHeight + 'px'
 					}}
 				>
+					<div
+						className={LoadingPageStyles.paper}
+						style={{
+							width: this.crumpleDivWidth,
+							height: this.crumpleDivHeight
+						}}
+					>
+						<div
+							ref="crumpledPaper"
+						>
+						</div>
+					</div>
 					<div>
 						<h1 
 							className={LoadingPageStyles.loaderText}

@@ -125,6 +125,7 @@ const DeferredEventExecutor = React.createClass({
 	render() {
 		return (
 			<div
+				className={this.props.className}
 				style={{...this.props.style}}
 			>
 				{React.cloneElement(this.props.children, {

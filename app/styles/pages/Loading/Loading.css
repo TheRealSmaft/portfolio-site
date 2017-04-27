@@ -1,17 +1,11 @@
 .loaderContainer {
-  width: 60%;
-  margin-left: 20%;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
-}
-@media only screen and (max-width: 768px) {
-  .loaderContainer {
-    width: 80%;
-    margin-left: 10%;
-  }
 }
 @media only screen and (max-width: 480px) {
   .loaderContainer {
@@ -27,5 +21,16 @@
   height: 200px;
   background-color: pink;
   border-radius: 50%;
+}
+.paper {
+  position: absolute;
+  left: 45%;
+  z-index: 5;
+}
+.paperSVG {
+  position: absolute;
+  top: -36%;
+  left: 7%;
+  transform: scale(0.04, 0.04);
 }
 /*# sourceMappingURL=Loading.css.map */

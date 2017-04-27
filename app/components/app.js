@@ -57,9 +57,6 @@ const App = React.createClass({
 					stickyStartY={0}
 					stickyPosY={0}
 					childStyles={navbarStyles.sticky}
-					style={{
-						display: window.location.pathname === '/' ? 'none' : 'block'
-					}}
 				>
 					<Navbar />
 				</StickyContainer>

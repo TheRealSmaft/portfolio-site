@@ -1,19 +1,14 @@
 @import "../../mediaQueries/mediaQueries.less";
 
 .loaderContainer {
-	width: 60%;
-	margin-left: 20%;
+	width: 80%;
+	margin-left: 10%;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-
-	@media @small-max {
-		width: 80%;
-		margin-left: 10%;
-	}
 
 	@media @extra-small-max {
 		width: 90%;
@@ -30,4 +25,17 @@
 	height: 200px;
 	background-color: pink;
 	border-radius: 50%;
+}
+
+.paper {
+	position: absolute;
+	left: 45%;
+	z-index: 5;
+}
+
+.paperSVG {
+	position: absolute;
+	top: -36%;
+	left: 7%;
+	transform: scale(.04, .04);
 }
