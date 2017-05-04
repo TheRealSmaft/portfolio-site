@@ -59,6 +59,10 @@ const DeferredEventExecutor = React.createClass({
 			   this.state.elapsedTime === this.nextMoment) {
 				this.fireNextEvent();
 			}
+			
+			if(this.props.fireCondition != null && this.timer === undefined) {
+				this.initializeTimer();
+			}
 		}
 	},
 

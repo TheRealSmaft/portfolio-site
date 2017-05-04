@@ -1,7 +1,7 @@
-const ADD_ITEM_TO_ARRAY = "game/items/ADD_ITEM_TO_ARRAY";
-const CHANGE_ITEM_STATUS = "game/items/CHANGE_ITEM_STATUS";
-const TOGGLE_ITEM_DRAG = "game/items/TOGGLE_ITEM_DRAG";
-const TOGGLE_ITEM_INSPECT = "game/items/TOGGLE_ITEM_INSPECT";
+const ADD_ITEM_TO_ARRAY = "game/items/duck/ADD_ITEM_TO_ARRAY";
+const CHANGE_ITEM_STATUS = "game/items/duck/CHANGE_ITEM_STATUS";
+const TOGGLE_ITEM_DRAG = "game/items/duck/TOGGLE_ITEM_DRAG";
+const TOGGLE_ITEM_INSPECT = "game/items/duck/TOGGLE_ITEM_INSPECT";
 
 export default {
 	ADD_ITEM_TO_ARRAY,

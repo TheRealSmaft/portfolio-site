@@ -40,7 +40,7 @@ const LoadingPage = React.createClass({
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../../../assets/images/interactables/LoadingGears',
-			loop: 3,
+			loop: 1,
 			autoplay: true,
 			name: 'loadingGears',
 			renderer: 'svg' ,
@@ -49,19 +49,6 @@ const LoadingPage = React.createClass({
 
 		this.loadingGears = BodyMovin.loadAnimation(animationData);
 		this.loadingGears.addEventListener('complete', this.breakGears);
-
-		var paperThrown = {
-			animationData: require('../../../assets/images/items/Paper/CrumpledPaperThrown.json'),
-			path: '../../../../../assets/images/items/Paper',
-			loop: false,
-			autoplay: false,
-			name: 'paperThrown',
-			renderer: 'svg',
-			container: ReactDOM.findDOMNode(this.refs.crumpledPaper)
-		}
-
-		this.paperThrown = BodyMovin.loadAnimation(paperThrown);
-		this.paperThrown.addEventListener('complete', this.makePaperClickable);
 	},
 
 	breakGears() {
@@ -77,9 +64,8 @@ const LoadingPage = React.createClass({
 		this.loadingGears.removeEventListener('complete');
 		this.loadingGears.destroy();
 
-		this.paperThrown.play();
-
 		this.breakingGears = BodyMovin.loadAnimation(animationData);
+		this.breakingGears.addEventListener('complete', this.makePaperClickable);
 		this.changeEllipsisGlyph('?');
 	},
 
@@ -98,6 +84,10 @@ const LoadingPage = React.createClass({
 
 		this.fixedGears = BodyMovin.loadAnimation(animationData);
 		this.fixedGears.addEventListener('complete', this.turboChargeGears);
+	},
+
+	makePaperClickable(e) {
+		this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0].addEventListener('mousedown', this.fixGears);
 	},
 
 	turboChargeGears() {
@@ -129,39 +119,19 @@ const LoadingPage = React.createClass({
 		})
 	},
 
-	makePaperClickable() {
-		this.refs.crumpledPaper.firstChild.childNodes[1].firstChild.addEventListener('onClick', this.fixGears);
-	},
-
-	componentWillUpdate() {
-		if(this.refs.loadingGears != undefined) {
-			var rect = ReactDOM.findDOMNode(this.refs.loadingGears).getBoundingClientRect()
-			this.crumpleDivHeight = rect.height;
-			this.crumpleDivWidth = rect.width;
-		}
-	},
-
 	render() {
 		return (
-			<ResponsiveContainer>
+			<div
+				style={{
+					width: '100%'
+				}}
+			>
 				<div 
 					className={LoadingPageStyles.loaderContainer}
 					style={{
 						height: window.innerHeight + 'px'
 					}}
 				>
-					<div
-						className={LoadingPageStyles.paper}
-						style={{
-							width: this.crumpleDivWidth,
-							height: this.crumpleDivHeight
-						}}
-					>
-						<div
-							ref="crumpledPaper"
-						>
-						</div>
-					</div>
 					<div>
 						<h1 
 							className={LoadingPageStyles.loaderText}
@@ -186,7 +156,7 @@ const LoadingPage = React.createClass({
 					>
 					</div>
 				</div>
-			</ResponsiveContainer>
+			</div>
 		)
 	}
 });

@@ -1,0 +1,1 @@
+export { default as SilhouetteStyles } from './silhouette/silhouette.css';

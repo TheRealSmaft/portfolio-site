@@ -25,6 +25,7 @@ const Navbar = React.createClass({
 			<ResponsiveContainer>
 				<div
 					className={navbarStyles.navbar}
+					style={{...this.props.style}}
 				>
 					<Link to="/home"> 
 						<h4>

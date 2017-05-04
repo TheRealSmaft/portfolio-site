@@ -12,7 +12,6 @@ import { Inventory } from './Containers/GameContainers';
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 
-
 const App = React.createClass({
 	componentWillMount() {
 		this.props.getWindowSize();
@@ -58,7 +57,11 @@ const App = React.createClass({
 					stickyPosY={0}
 					childStyles={navbarStyles.sticky}
 				>
-					<Navbar />
+					<Navbar 
+						style={{
+							display: this.props.mode.gameMode ? 'none' : 'block'
+						}}
+					/>
 				</StickyContainer>
 
 				{this.props.children}
@@ -73,7 +76,8 @@ const App = React.createClass({
 function mapStateToProps(store) {
 	return {
 		windowState: store.windowState,
-		scrollState: store.scrollState
+		scrollState: store.scrollState,
+		mode: store.modeState
 	};
 }
 

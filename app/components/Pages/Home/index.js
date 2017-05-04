@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
+import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
 
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
@@ -11,10 +12,14 @@ import { HomePageStyles } from '../../../styles/pages';
 import BodyMovin from '../../../plugins/bodymovin.min';
 
 const HomePage = React.createClass({
+	componentWillMount() {
+
+	},
+
 	componentDidMount() {
-		var jsonData = require('../../../assets/images/Logo/Logo.json');
-		var loadingGearsAnimation = {
-			animationData: jsonData,
+		var logoJson = require('../../../assets/images/Logo/Logo.json');
+		this.logoAnimation = {
+			animationData: logoJson,
 			path: '../../../../../assets/images/Logo',
 			loop: true,
 			autoplay: true,
@@ -23,12 +28,13 @@ const HomePage = React.createClass({
 			container: ReactDOM.findDOMNode(this.refs.logo)
 		};
 
-		BodyMovin.loadAnimation(loadingGearsAnimation);
+		BodyMovin.loadAnimation(this.logoAnimation);
 	},
 
 	render() {
 		return (
 			<ResponsiveContainer>
+				<SilhouetteIntro />
 				<h1>
 					WELCOME!
 				</h1>
