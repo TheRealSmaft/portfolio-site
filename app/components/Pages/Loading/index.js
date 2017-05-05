@@ -51,6 +51,10 @@ const LoadingPage = React.createClass({
 		this.loadingGears.addEventListener('complete', this.breakGears);
 	},
 
+	componentWillUnmount() {
+		BodyMovin.destroy();
+	},
+
 	breakGears() {
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsBreaking.json'),

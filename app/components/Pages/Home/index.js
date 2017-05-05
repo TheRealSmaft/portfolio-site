@@ -32,6 +32,10 @@ const HomePage = React.createClass({
 		BodyMovin.loadAnimation(this.logoAnimation);
 	},
 
+	componentWillUnmount() {
+		BodyMovin.destroy();
+	},
+
 	render() {
 		return (
 			<ResponsiveContainer>
