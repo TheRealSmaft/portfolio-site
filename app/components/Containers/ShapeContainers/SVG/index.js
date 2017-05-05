@@ -7,7 +7,8 @@ const SVG = React.createClass({
 
 	getDefaultProps() {
 		return {
-			viewBox: "0 0 100 100"
+			viewBox: "0 0 100 100",
+			preserveAspectRatio: "xMidYMid"
 		}
 	},
 
@@ -20,6 +21,7 @@ const SVG = React.createClass({
 					...this.props.style
 				}}
 				viewBox={this.props.viewBox}
+				preserveAspectRatio={this.props.preserveAspectRatio}
 				xmlns="http://www.w3.org/2000/svg"
 				width={this.props.width}
 				height={this.props.height}

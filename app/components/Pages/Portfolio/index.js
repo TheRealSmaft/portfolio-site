@@ -8,10 +8,17 @@ import { PortfolioPageStyles } from '../../../styles/pages';
 
 const PortfolioPage = React.createClass({
 	componentWillMount() {
-		this.piece = {
-			name: 'Test Piece',
-			description: 'shkf sdjgjks ksg sjgls isgeio isegj sieg isejg segi!'
-		}
+		this.bunnyPiece = {
+			name: 'BUNNIEZ',
+			description: 'A bunch o\' bunnies!',
+			image: 'download.jpg'
+		};
+
+		this.carrotPiece = {
+			name: 'Carrots?',
+			description: 'A bunch o\' carrots for d\'bunnies!',
+			image: 'carrots.jpg'
+		};
 	},
 
 	render() {
@@ -21,10 +28,12 @@ const PortfolioPage = React.createClass({
 					PORTFOLIO
 				</h1>
 				<PortfolioPiece
-					piece={this.piece}
+					rotation="1deg"
+					piece={this.bunnyPiece}
 				/>
 				<PortfolioPiece
-					piece={this.piece}
+					rotation="-.75deg"
+					piece={this.carrotPiece}
 				/>
 			</ResponsiveContainer>
 		)

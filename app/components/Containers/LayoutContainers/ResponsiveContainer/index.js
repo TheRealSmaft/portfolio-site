@@ -22,7 +22,7 @@ const ResponsiveContainer = React.createClass({
 	render() {
 		return (
 			<div 
-				style={{...this.props.styles, ...this.styles}}
+				style={{...this.props.style, ...this.styles}}
 				className={this.props.className}
 			>
 				{this.props.children}

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
+import { SVG, ShapeGroup } from '../../Containers/ShapeContainers';
 
 import { LoadingPageStyles } from '../../../styles/pages';
 
@@ -35,36 +37,79 @@ const LoadingPage = React.createClass({
 	},
 
 	componentDidMount() {
-		this.ellipsisTimeElapsed = 0;
-		this.ellipsisTimer = setInterval(this.ellipsisTimeCounter, 1000);
-
-		var jsonData = require('../../../assets/images/interactables/test.json');
-		var loadingGearsAnimation = {
-			animationData: jsonData,
-			path: '../../../../../assets/images/interactables',
-			loop: true,
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: 1,
 			autoplay: true,
 			name: 'loadingGears',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.loadingGears)
 		};
 
-		BodyMovin.loadAnimation(loadingGearsAnimation);
+		this.loadingGears = BodyMovin.loadAnimation(animationData);
+		this.loadingGears.addEventListener('complete', this.breakGears);
 	},
 
-	componentWillUnmount() {
-		clearInterval(this.ellipsisTimer);
+	breakGears() {
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsBreaking.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: false,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
+		this.loadingGears.removeEventListener('complete');
+		this.loadingGears.destroy();
+
+		this.breakingGears = BodyMovin.loadAnimation(animationData);
+		this.breakingGears.addEventListener('complete', this.makePaperClickable);
+		this.changeEllipsisGlyph('?');
 	},
 
-	ellipsisTimeCounter() {
-		this.ellipsisTimeElapsed = this.ellipsisTimeElapsed + 1;
-		if(this.ellipsisTimeElapsed === 6) {
-			this.changeEllipsisGlyph('?');
-		}
-		else if(this.ellipsisTimeElapsed === 12) {
-			this.changeEllipsisGlyph('!');
-			clearInterval(this.ellipsisTimer);
-		}
+	fixGears() {
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsFixed.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: false,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
+		this.breakingGears.removeEventListener('complete');
+		this.breakingGears.destroy();
+
+		this.fixedGears = BodyMovin.loadAnimation(animationData);
+		this.fixedGears.addEventListener('complete', this.turboChargeGears);
+	},
+
+	makePaperClickable(e) {
+		this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0].addEventListener('mousedown', this.fixGears);
+	},
+
+	turboChargeGears() {
+		var animationData = {
+			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
+			path: '../../../../../assets/images/interactables/LoadingGears',
+			loop: true,
+			autoplay: true,
+			name: 'loadingGears',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.loadingGears)
+		};
+		this.fixedGears.removeEventListener('complete');
+		this.fixedGears.destroy();
+
+		this.turboChargedGears = BodyMovin.loadAnimation(animationData);
+		this.turboChargedGears.setSpeed(4);
+		this.changeEllipsisGlyph('!');
+
+		setTimeout(() => {
+			browserHistory.push('/home');
+		}, 3000);
 	},
 
 	changeEllipsisGlyph(glyph) {
@@ -76,7 +121,11 @@ const LoadingPage = React.createClass({
 
 	render() {
 		return (
-			<ResponsiveContainer>
+			<div
+				style={{
+					width: '100%'
+				}}
+			>
 				<div 
 					className={LoadingPageStyles.loaderContainer}
 					style={{
@@ -84,7 +133,7 @@ const LoadingPage = React.createClass({
 					}}
 				>
 					<div>
-						<h3 
+						<h1 
 							className={LoadingPageStyles.loaderText}
 						>
 							Loading
@@ -100,14 +149,14 @@ const LoadingPage = React.createClass({
 									<span data-glyph={this.state.ellipsisGlyph}></span>
 								</DeferredEventExecutor>
 							</span>
-						</h3>
+						</h1>
 					</div>
 					<div
 						ref="loadingGears"
 					>
 					</div>
 				</div>
-			</ResponsiveContainer>
+			</div>
 		)
 	}
 });

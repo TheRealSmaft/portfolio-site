@@ -59,6 +59,10 @@ const DeferredEventExecutor = React.createClass({
 			   this.state.elapsedTime === this.nextMoment) {
 				this.fireNextEvent();
 			}
+			
+			if(this.props.fireCondition != null && this.timer === undefined) {
+				this.initializeTimer();
+			}
 		}
 	},
 
@@ -125,6 +129,7 @@ const DeferredEventExecutor = React.createClass({
 	render() {
 		return (
 			<div
+				className={this.props.className}
 				style={{...this.props.style}}
 			>
 				{React.cloneElement(this.props.children, {

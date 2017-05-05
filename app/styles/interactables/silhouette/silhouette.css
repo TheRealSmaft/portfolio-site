@@ -1,0 +1,85 @@
+.navbar,
+.dummyNav {
+  width: 100%;
+  height: 50px;
+  background-color: #32323e;
+  border-top: 8px solid #646478;
+  border-bottom: 8px solid #c8c8f0;
+  border-right: 8px solid #787896;
+  border-left: 8px solid #a0a0c8;
+}
+.navbar a,
+.dummyNav div {
+  float: left;
+  width: 25%;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navbar a h4,
+.dummyNav div h4 {
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  margin: 0px;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
+}
+@media only screen and (max-width: 480px) {
+  .navbar,
+  .dummyNav {
+    display: none;
+  }
+}
+.navbarCollapsed {
+  display: none;
+}
+.navbarCollapsed div:first-of-type {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  color: white;
+}
+@media only screen and (max-width: 480px) {
+  .navbarCollapsed {
+    display: block;
+  }
+}
+.sticky {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+.scene {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+}
+.dummyNav {
+  position: absolute;
+  width: 80%;
+  max-width: 1000px;
+}
+.placeholderNav {
+  height: 68px;
+}
+.silhouette {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .silhouette {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=silhouette.css.map */

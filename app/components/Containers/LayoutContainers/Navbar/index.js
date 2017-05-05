@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import { ResponsiveContainer } from '../../../Containers';
+import { SVG, Circle, Rect, Path, MotionPath } from '../../../Containers/ShapeContainers';
 
 import { navbarStyles } from '../../../../styles';
 
@@ -14,7 +15,7 @@ const Navbar = React.createClass({
 
 	toggleMobileMenu() {
 		this.setState({
-			...this.state,
+			...this.state, 
 			menuToggled: !this.state.menuToggled
 		})
 	},
@@ -24,18 +25,27 @@ const Navbar = React.createClass({
 			<ResponsiveContainer>
 				<div
 					className={navbarStyles.navbar}
+					style={{...this.props.style}}
 				>
 					<Link to="/home"> 
-						Home
+						<h4>
+							Home
+						</h4>
 					</Link>
 					<Link to="/portfolio"> 
-						Portfolio
+						<h4>
+							Portfolio
+						</h4>
 					</Link>
 					<Link to="/contact"> 
-						Contact
+						<h4>
+							Contact
+						</h4>
 					</Link>
 					<Link to="/about"> 
-						About
+						<h4>
+							About
+						</h4>
 					</Link>
 				</div>
 				<div

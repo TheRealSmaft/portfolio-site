@@ -1,0 +1,64 @@
+@import "../../mediaQueries/mediaQueries.less";
+
+.pieceImage {
+	position: relative;
+
+	width: 100%;
+
+	transform-origin: center top;
+
+	img:first-of-type {
+		position: absolute;
+		width: 10%;
+		left: 45%;
+		top: -35px;
+		z-index: -1;
+
+		@media @medium-max {
+			top: -25px;
+		}
+
+		@media @small-max {
+			top: -18px;
+		}
+
+		@media @extra-small-max {
+			top: -25px;
+		}
+	}
+
+	img:last-of-type {
+		width: 100%;
+	}
+
+	div {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		box-sizing: border-box;
+	}
+
+	div:first-of-type {
+		border-top: 12px solid rgb(220, 130, 0);
+		border-left: 12px solid rgb(185, 88, 0);
+		border-right: 12px solid rgb(200, 100, 0);
+		border-bottom: 12px solid rgb(170, 75, 0);
+
+		div {
+			box-sizing: border-box;
+
+			border-top: 3px solid rgb(200, 100, 0);
+			border-left: 3px solid rgb(170, 75, 0);
+			border-right: 3px solid rgb(220, 130, 0);
+			border-bottom: 3px solid rgb(185, 88, 0);
+		}
+	}
+
+	div:nth-of-type(2) {
+		border-top: 3px solid rgba(255,255,255,0.2);
+		border-left: 3px solid rgba(255,255,255,0.2);
+		border-bottom: 3px solid rgba(0,0,0,0.2);
+		border-right: 3px solid rgba(0,0,0,0.2);
+	}
+}

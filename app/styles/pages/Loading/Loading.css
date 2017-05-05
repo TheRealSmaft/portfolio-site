@@ -1,18 +1,36 @@
 .loaderContainer {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
+@media only screen and (max-width: 480px) {
+  .loaderContainer {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
 .loaderText {
-  text-align: left;
+  margin: 0px;
 }
 .loaderSpinner {
   width: 200px;
   height: 200px;
   background-color: pink;
   border-radius: 50%;
+}
+.paper {
+  position: absolute;
+  left: 45%;
+  z-index: 5;
+}
+.paperSVG {
+  position: absolute;
+  top: -36%;
+  left: 7%;
+  transform: scale(0.04, 0.04);
 }
 /*# sourceMappingURL=Loading.css.map */

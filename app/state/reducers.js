@@ -5,11 +5,13 @@ import windowEventReducer from './events/window';
 import mouseTrackingReducer from './mouse/tracking';
 import itemReducer from './game/items';
 import interactableReducer from './game/interactables';
+import modeReducer from './game/mode';
 
 export default combineReducers({
 	scrollState: scrollEventReducer,
 	windowState: windowEventReducer,
 	mouseState: mouseTrackingReducer,
 	itemState: itemReducer,
-	interactableState: interactableReducer
+	interactableState: interactableReducer,
+	modeState: modeReducer
 });

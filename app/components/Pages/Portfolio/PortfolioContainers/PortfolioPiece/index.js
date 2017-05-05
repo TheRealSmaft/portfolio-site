@@ -2,14 +2,26 @@ import React from 'react';
 
 import { Grid, Row, Col } from '../../../../Containers';
 
+import { PortfolioPageStyles } from '../../../../../styles/pages';
+
 const PortfolioPiece = React.createClass({
 	propTypes: {
 		piece: React.PropTypes.object.isRequired
 	},
 
+	getDefaultProps() {
+		return {
+			rotation: '0deg'
+		}
+	},
+
 	render() {
 		return (
-			<div>
+			<div
+				style={{
+					...this.props.style
+				}}
+			>
 				<h2>
 					{this.props.piece.name}
 				</h2>
@@ -28,12 +40,25 @@ const PortfolioPiece = React.createClass({
 							breaks={[60, 50, 100]}
 						>
 							<div
+								className={PortfolioPageStyles.pieceImage}
 								style={{
-									width: '100%',
-									height: '200px',
-									backgroundColor: 'lightblue'
+									transform: 'rotate(' + this.props.rotation + ')'
 								}}
 							>
+								<img 
+									src={require('../../../../../assets/images/interactables/PortfolioFrames/FrameNail.svg')}
+								/>
+								<div>
+									<div>
+									</div>
+								</div>
+								<div>
+								</div>
+								<div>
+								</div>
+								<img 
+									src={require('../../../../../assets/images/PortfolioPieces/' + this.props.piece.image)}
+								/>
 							</div>
 						</Col>
 						<Col 
