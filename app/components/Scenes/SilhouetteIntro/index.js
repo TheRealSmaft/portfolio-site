@@ -26,17 +26,27 @@ const SilhouetteIntroScene = React.createClass({
 			},
 			function(target) {
 				target.style.transition = "300ms linear";
-				target.style.transform = "rotate(11deg) translate(-65px, 250px)";
+				target.style.transform = "rotate(11deg) translate(-24%, 300%)";
+				target.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+				target.childNodes[4].style.transition = "200ms ease-in";
+				target.childNodes[4].style.opacity = 1;
+			},
+			function(target) {
+				target.style.transition = "600ms ease-in";
+				target.style.transform = "rotate(13deg) translate(78%, 300%)";
+				target.style.clipPath = "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)";
+				target.childNodes[4].style.transition = "600ms ease-in";
+				target.childNodes[4].style.right = "85%";
 			}
 		];
 	},
 
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
-			var silhouetteJson = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro.json');
-			var silhouetteAnimation = {
-				animationData: silhouetteJson,
-				path: '../../../../../assets/images/interactables/SinisterSilhouette',
+			var introPart1Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro.json');
+			var introPart1 = {
+				animationData: introPart1Json,
+				path: '../../../assets/images/interactables/SinisterSilhouette',
 				loop: 1,
 				autoplay: true,
 				name: 'logo',
@@ -44,13 +54,48 @@ const SilhouetteIntroScene = React.createClass({
 				container: ReactDOM.findDOMNode(this.refs.silhouette)
 			}
 
-			this.silhouetteAnimation = BodyMovin.loadAnimation(silhouetteAnimation);
-			this.silhouetteAnimation.addEventListener('complete', this.triggerNavAnimation);
+			this.introPart1 = BodyMovin.loadAnimation(introPart1);
+			this.introPart1.addEventListener('complete', this.runIntroPart2);
 		}
 	},
 
-	triggerNavAnimation() {
+	runIntroPart2() {
 		this.props.addEventToFiredArray('navStolen');
+		var introPart2Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro2.json');
+		var introPart2 = {
+			animationData: introPart2Json,
+			path: '../../../assets/images/interactables/SinisterSilhouette',
+			loop: 1,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.silhouette)
+		};
+
+		this.introPart1.removeEventListener('complete', this.runIntroPart2);
+		this.introPart1.destroy();
+
+		this.introPart2 = BodyMovin.loadAnimation(introPart2);
+		this.introPart2.addEventListener('complete', this.runIntroPart3);
+	},
+
+	runIntroPart3() {
+		this.props.addEventToFiredArray('navStolen');
+		var introPart3Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro3.json');
+		var introPart3 = {
+			animationData: introPart3Json,
+			path: '../../../assets/images/interactables/SinisterSilhouette',
+			loop: 1,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.silhouette)
+		};
+
+		this.introPart2.removeEventListener('complete', this.runIntroPart3);
+		this.introPart2.destroy();
+
+		this.introPart3 = BodyMovin.loadAnimation(introPart3);
 	},
 
 	render() {
@@ -66,7 +111,7 @@ const SilhouetteIntroScene = React.createClass({
 					>
 						<ResponsiveContainer>
 							<DeferredEventExecutor
-								moments={[0, 9, 10]}
+								moments={[0, 9, 10, 13]}
 								events={this.navEvents}
 								fireCondition={'navStolen'}
 								increment={100}
@@ -95,6 +140,10 @@ const SilhouetteIntroScene = React.createClass({
 											About
 										</h4>
 									</div>
+									<img 
+										className={SilhouetteStyles.navbarShadow}
+										src={require('../../../assets/images/interactables/Navbar/NavbarShadow.svg')}
+									/>
 								</div>
 							</DeferredEventExecutor>
 						</ResponsiveContainer>

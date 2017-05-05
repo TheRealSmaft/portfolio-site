@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
 import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
+import IntroParagraph from './HomeComponents/IntroParagraph';
 
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
@@ -71,13 +72,12 @@ const HomePage = React.createClass({
 							</div>
 						</Col>
 						<Col
-							className={HomePageStyles.homeP}
 							breaks={[100]}
 							blocks={11}
 						>
-							<p>
-								Farm-to-table twee plaid stumptown chia authentic. Drinking vinegar hell of master cleanse banjo, gentrify enamel pin meditation dreamcatcher bespoke shabby chic ethical bitters blue bottle typewriter portland. Coloring book man braid messenger bag chicharrones, sartorial succulents flannel pug XOXO street art cronut. 
-							</p>
+							<IntroParagraph 
+								className={HomePageStyles.homeP}
+							/>
 						</Col>
 					</Row>
 				</Grid>
