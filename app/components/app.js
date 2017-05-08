@@ -7,7 +7,7 @@ import { appStyles, navbarStyles } from '../styles';
 
 import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
-import { Inventory } from './Containers/GameContainers';
+import { Inventory, Examinable } from './Containers/GameContainers';
 
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
@@ -67,6 +67,13 @@ const App = React.createClass({
 				{this.props.children}
 
 				<Inventory />
+
+				<Examinable 
+					style={{
+						width: window.innerWidth + 'px',
+						height: window.innerHeight + 'px'
+					}}
+				/>
 
 			</div>
 		)

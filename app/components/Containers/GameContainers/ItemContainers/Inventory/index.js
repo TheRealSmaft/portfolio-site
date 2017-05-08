@@ -22,6 +22,7 @@ const Inventory = React.createClass({
 		this.dragNode = null;
 
 		this.slotCount = 8;
+		this.examinable = null;
 	},
 
 	componentWillUpdate(nextProps) {
@@ -113,21 +114,31 @@ const Inventory = React.createClass({
 		this.props.unlockScrollPosition();
 	},
 
+	examineItem(item) {
+		this.props.toggleItemExamine(item);
+	},
+
 	render() {
 		var inventory = this.inventory.map((item, index) =>
 			<div
 				key={item.name}
-				ref={item.name}
-				className={InventoryStyles.item}
-				onMouseDown={() => {this.toggleItemDrag(item.name)}}
-				style={{
-					float: 'left',
-					display: 'block'
-				}}
 			>
-				<Item 
-					item={item}
-				/>
+				<div
+					ref={item.name}
+					className={InventoryStyles.item}
+					onMouseDown={() => {this.toggleItemDrag(item.name)}}
+				>
+					<Item 
+						item={item}
+					/>
+				</div>
+				{item.examinable === true ? (
+					<img
+						className={InventoryStyles.examineButton}
+						src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
+						onMouseDown={() => {this.examineItem(item.name)}}
+					/>
+				) : ''}
 			</div>
 		);
 
@@ -177,7 +188,7 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemDrag: itemActions.toggleItemDrag,
-		toggleItemInspect: itemActions.toggleItemInspect,
+		toggleItemExamine: itemActions.toggleItemExamine,
 		changeDropZoneStatus: interactableActions.changeDropZoneStatus,
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,

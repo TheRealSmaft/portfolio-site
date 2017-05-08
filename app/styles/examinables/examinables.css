@@ -1,0 +1,9 @@
+.examinationScene {
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 110;
+  position: fixed;
+  top: 0px;
+}
+/*# sourceMappingURL=examinables.css.map */

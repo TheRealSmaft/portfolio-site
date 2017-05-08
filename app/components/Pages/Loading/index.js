@@ -11,6 +11,8 @@ import { LoadingPageStyles } from '../../../styles/pages';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
+import uncrumpleEvents from '../../../assets/images/items/Paper/uncrumpleEvents';
+
 const LoadingPage = React.createClass({
 	getInitialState() {
 		return {
@@ -37,11 +39,25 @@ const LoadingPage = React.createClass({
 			}
 		];
 
+		var uncrumpleMoments = [];
+
+		for(var i = 1; i < 81; i++) {
+			uncrumpleMoments.push(i);
+		}
+
 		this.paperItem = {
 			name: 'Crumpled Paper',
 			image: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
 			width: '100px',
-			status: 'inventory'
+			status: 'inventory',
+			examinable: true,
+			examineImage: require('../../../assets/images/items/Paper/Crumple/Crumple(1).png'),
+			deferredEvents: {
+				events: uncrumpleEvents,
+				moments: uncrumpleMoments,
+				increment: 34,
+				loop: false
+			}
 		};
 	},
 

@@ -9,6 +9,9 @@
   align-items: center;
   background-color: pink;
 }
+.item {
+  float: left;
+}
 .item div {
   display: flex;
   align-items: center;
@@ -21,13 +24,22 @@
   cursor: pointer;
 }
 .slot {
+  position: relative;
   width: 100px;
   height: 100%;
   float: left;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: inset 1px solid green;
-  background-color: brown;
+  background-color: lightgreen;
+}
+.examineButton {
+  position: absolute;
+  width: 35%;
+  right: 4px;
+  bottom: 4px;
+}
+.examineButton text {
+  color: red;
 }
 /*# sourceMappingURL=inventory.css.map */

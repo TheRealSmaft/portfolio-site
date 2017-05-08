@@ -3,7 +3,7 @@ import types from './types';
 const itemArrayReducer = (state = {
 	items: [],
 	draggable: null,
-	inspectable: null
+	examinable: null
 }, action) => {
 	switch(action.type) {
 		case types.ADD_ITEM_TO_ARRAY: {
@@ -38,15 +38,15 @@ const itemArrayReducer = (state = {
 			state = {
 				...state,
 				draggable: draggable,
-				inspectable: null
+				examinable: null
 			}
 			break;
 		}
-		case types.TOGGLE_ITEM_INSPECT: {
+		case types.TOGGLE_ITEM_EXAMINE: {
 			state = {
 				...state,
 				draggable: null,
-				inspectable: action.payload
+				examinable: action.payload
 			}
 			break;
 		}
