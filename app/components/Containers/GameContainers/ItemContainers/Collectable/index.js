@@ -130,7 +130,6 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		addItemToArray: itemActions.addItemToArray,
-		setItemHeight: itemActions.setItemHeight,
 		changeItemStatus: itemActions.changeItemStatus
 	}, dispatch);
 };

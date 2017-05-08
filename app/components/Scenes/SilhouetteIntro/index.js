@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 
 import { interactableActions, interactableTypes } from '../../../state/game/interactables';
+import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
 
 import { SilhouetteStyles } from '../../../styles/interactables';
 import { navbarStyles } from '../../../styles';
@@ -26,23 +27,18 @@ const SilhouetteIntroScene = React.createClass({
 			},
 			function(target) {
 				target.style.transition = "300ms linear";
-				target.style.transform = "rotate(11deg) translate(-24%, 300%)";
-				target.style.clipPath = "url(#clipping)";
-				target.childNodes[4].style.transition = "200ms ease-in";
-				target.childNodes[4].style.opacity = 1;
+				target.style.transform = "rotate(11deg) translate(-5%, 300%)";
 			},
 			function(target) {
-				target.style.transition = "600ms ease-in";
-				target.style.transform = "rotate(13deg) translate(78%, 300%)";
-				target.childNodes[4].style.transition = "600ms ease-in";
-				target.childNodes[4].style.right = "85%";
-				target.childNodes[5].firstChild.firstChild.firstChild.style.transition = "600ms ease-in";
-				target.childNodes[5].firstChild.firstChild.firstChild.style.transform = "translateX(-100%)";
+				target.style.transition = "500ms ease-in";
+				target.style.transform = "rotate(-4deg) translate(-5%, -1000%)";
 			},
 			function(target) {
 				target.style.display = "none";
 			}
 		];
+
+		this.props.lockScrollPosition();
 	},
 
 	componentDidMount() {
@@ -84,7 +80,6 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	runIntroPart3() {
-		this.props.addEventToFiredArray('navStolen');
 		var introPart3Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro3.json');
 		var introPart3 = {
 			animationData: introPart3Json,
@@ -100,29 +95,45 @@ const SilhouetteIntroScene = React.createClass({
 		this.introPart2.destroy();
 
 		this.introPart3 = BodyMovin.loadAnimation(introPart3);
-		this.introPart3.addEventListener('complete', this.runIntroPart4);
+		this.introPart3.addEventListener('complete', this.makeTearInteractable);
 	},
 
-	runIntroPart4() {
-		this.introPart3.removeEventListener('complete', this.runIntroPart4);
-		var silhouette = ReactDOM.findDOMNode(this.refs.silhouette);
-		silhouette.style.transition = "300ms";
-		silhouette.style.transform = "scale(5,5)";
-		silhouette.style.opacity = "0";
+	makeTearInteractable() {
+		var tearJson = require('../../../assets/images/interactables/Tear/Tear.json');
+		var tearAnimation = {
+			animationData: tearJson,
+			path: '../../../assets/images/interactables/Tear',
+			loop: false,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.silhouette)
+		};
 
-		setTimeout(() => {
-			this.runIntroPart5();
-		}, 600)
+		this.introPart3.removeEventListener('complete', this.makeTearInteractable);
+		this.introPart3.destroy();
+
+		this.tearAnimation = BodyMovin.loadAnimation(tearAnimation);
+		this.tearAnimation.goToAndStop(1);
+
+		var tear = ReactDOM.findDOMNode(this.refs.silhouette).firstChild.childNodes[1].firstChild;
+		tear.style.pointerEvents = "auto";
+		tear.addEventListener('mousedown', this.tearClicked);
+		this.props.unlockScrollPosition();
 	},
 
-	runIntroPart5() {
-		console.log("YEP")
-	},
+	tearClicked() {
+		this.tearAnimation.play();
+	},	
 
 	render() {
 		if(this.props.mode.gameMode) {
 			return (
-				<div>
+				<div
+					style={{
+						position: 'relative'
+					}}
+				>
 					<div
 						className={SilhouetteStyles.placeholderNav}
 					>
@@ -165,13 +176,6 @@ const SilhouetteIntroScene = React.createClass({
 										className={SilhouetteStyles.navbarShadow}
 										src={require('../../../assets/images/interactables/Navbar/NavbarShadow.svg')}
 									/>
-									<svg width='100%' height='100%'>
-									  <defs>
-									    <clipPath id="clipping" clipPathUnits="objectBoundingBox">
-									      <polygon points="0 0, 1 0, 1 1, 0 1" />
-									    </clipPath>
-									  </defs>
-									</svg>
 								</div>
 							</DeferredEventExecutor>
 						</ResponsiveContainer>
@@ -199,7 +203,9 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		addEventToFiredArray: interactableActions.addEventToFiredArray
+		addEventToFiredArray: interactableActions.addEventToFiredArray,
+		lockScrollPosition: scrollEventActions.lockScrollPosition,
+		unlockScrollPosition: scrollEventActions.unlockScrollPosition
 	}, dispatch)
 }
 

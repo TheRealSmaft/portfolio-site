@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
+import { DropZone, Collectable } from '../../Containers/GameContainers';
+
 import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
-import IntroParagraph from './HomeComponents/IntroParagraph';
 
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
@@ -14,7 +15,11 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const HomePage = React.createClass({
 	componentWillMount() {
-
+		this.knife = {
+			name: 'Artist\'s Knife',
+			image: require('../../../assets/images/items/Knife/Knife.svg'),
+			width: '100px'
+		}
 	},
 
 	componentDidMount() {
@@ -76,12 +81,18 @@ const HomePage = React.createClass({
 							</div>
 						</Col>
 						<Col
+							className={HomePageStyles.homeP}
 							breaks={[100]}
 							blocks={11}
 						>
-							<IntroParagraph 
-								className={HomePageStyles.homeP}
-							/>
+							<p>
+								Farm-to-table twee plaid stumptown chia authentic. 
+								Drinking vinegar hell of master cleanse banjo, gentrify
+								enamel pin meditation dreamcatcher bespoke shabby chic
+								ethical bitters blue bottle typewriter portland. Coloring
+								book man braid messenger bag chicharrones, sartorial
+								succulents flannel pug XOXO street art cronut.
+							</p>
 						</Col>
 					</Row>
 				</Grid>
@@ -103,6 +114,9 @@ const HomePage = React.createClass({
 					<div></div>
 					<div></div>
 				</div>
+				<Collectable
+					item={this.knife}
+				/>
 			</ResponsiveContainer>
 		)
 	}

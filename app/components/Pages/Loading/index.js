@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
-import { SVG, ShapeGroup } from '../../Containers/ShapeContainers';
+import { itemTypes, itemActions } from '../../../state/game/items';
 
 import { LoadingPageStyles } from '../../../styles/pages';
 
@@ -34,9 +36,18 @@ const LoadingPage = React.createClass({
 				target.innerHTML = target.dataset.glyph + target.dataset.glyph + target.dataset.glyph;
 			}
 		];
+
+		this.paperItem = {
+			name: 'Crumpled Paper',
+			image: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
+			width: '100px',
+			status: 'inventory'
+		};
 	},
 
 	componentDidMount() {
+		ReactDOM.findDOMNode(this.refs.loadingGears).style.pointerEvents = 'none';
+
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../../../assets/images/interactables/LoadingGears',
@@ -74,6 +85,7 @@ const LoadingPage = React.createClass({
 	},
 
 	fixGears() {
+		this.props.addItemToArray(this.paperItem);
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsFixed.json'),
 			path: '../../../../../assets/images/interactables/LoadingGears',
@@ -90,7 +102,8 @@ const LoadingPage = React.createClass({
 		this.fixedGears.addEventListener('complete', this.turboChargeGears);
 	},
 
-	makePaperClickable(e) {
+	makePaperClickable() {
+		this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0].style.pointerEvents = 'auto';
 		this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0].addEventListener('mousedown', this.fixGears);
 	},
 
@@ -165,4 +178,16 @@ const LoadingPage = React.createClass({
 	}
 });
 
-export default LoadingPage;
+function mapStateToProps(store) {
+	return {
+		items: store.itemState.items
+	}
+};
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		addItemToArray: itemActions.addItemToArray
+	}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoadingPage);
