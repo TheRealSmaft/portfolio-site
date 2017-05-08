@@ -15,9 +15,9 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const HomePage = React.createClass({
 	componentWillMount() {
-		this.knife = {
-			name: 'Artist\'s Knife',
-			image: require('../../../assets/images/items/Knife/Knife.svg'),
+		this.pencil = {
+			name: 'Pencil',
+			image: require('../../../assets/images/items/Pencil/Pencil.svg'),
 			width: '100px'
 		}
 	},
@@ -115,7 +115,7 @@ const HomePage = React.createClass({
 					<div></div>
 				</div>
 				<Collectable
-					item={this.knife}
+					item={this.pencil}
 				/>
 			</ResponsiveContainer>
 		)

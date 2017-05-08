@@ -9,6 +9,14 @@
   align-items: center;
   background-color: pink;
 }
+.item div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item div img {
+  max-width: 80%;
+}
 .item:hover {
   cursor: pointer;
 }
@@ -18,6 +26,7 @@
   float: left;
   display: flex;
   align-items: center;
+  justify-content: center;
   border: inset 1px solid green;
   background-color: brown;
 }
