@@ -10,6 +10,8 @@ import { interactableActions, interactableTypes } from '../../../../../state/gam
 import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
 import { scrollEventTypes, scrollEventActions } from '../../../../../state/events/scroll';
 
+import InventoryStyles from '../../../../../styles/inventory';
+
 const Inventory = React.createClass({
 	componentWillMount() {
 		this.getInventoryItems();
@@ -18,10 +20,14 @@ const Inventory = React.createClass({
 		this.lastDraggable = this.draggable;
 
 		this.dragNode = null;
+
+		this.slotCount = 8;
 	},
 
-	componentWillUpdate() {
-		this.getInventoryItems();
+	componentWillUpdate(nextProps) {
+		if(this.props.items.items != nextProps.items.items) {
+			this.getInventoryItems();
+		}
 	},
 
 	getInventoryItems() {
@@ -107,19 +113,12 @@ const Inventory = React.createClass({
 		this.props.unlockScrollPosition();
 	},
 
-	// inspectItem(name) {
-	// 	clearTimeout(this.clickTimer);
-	// 	this.cancelClick = true;
-	// 	if(!this.cancelDoubleClick) {
-	// 		this.props.toggleItemInspect(name);
-	// 	}
-	// },
-
 	render() {
 		var inventory = this.inventory.map((item, index) =>
 			<div
 				key={item.name}
 				ref={item.name}
+				className={InventoryStyles.item}
 				onMouseDown={() => {this.toggleItemDrag(item.name)}}
 				style={{
 					float: 'left',
@@ -129,19 +128,37 @@ const Inventory = React.createClass({
 				<Item 
 					item={item}
 				/>
-			</div> 
+			</div>
 		);
 
+		var slots = [];
+
+		for(var i = 0; i < this.slotCount; i++) {
+			slots.push(
+				<div
+					key={'slot' + i}
+					ref={'slot' + i}
+					className={InventoryStyles.slot}
+				>
+					{inventory[i] ? inventory[i] : ''}
+				</div>
+			);
+		};
+
 		return (
-			<div 
-				style={{
-					position: 'fixed',
-					bottom: '0px',
-					left: '0px',
-					width: '100%'
-				}}
-			>
-				{inventory}
+			<div>
+				<div 
+					className={this.inventory.length > 0 ? InventoryStyles.inventory : ''}
+				>
+					{slots}
+				</div>
+				<div
+					style={{
+						width: '100%',
+						height: this.inventory.length > 0 ? '200px' : '0px'
+					}}
+				>
+				</div>
 			</div>
 		)
 	}

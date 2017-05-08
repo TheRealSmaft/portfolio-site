@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 
 import { interactableActions, interactableTypes } from '../../../state/game/interactables';
+import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
 
 import { SilhouetteStyles } from '../../../styles/interactables';
 import { navbarStyles } from '../../../styles';
@@ -26,17 +27,26 @@ const SilhouetteIntroScene = React.createClass({
 			},
 			function(target) {
 				target.style.transition = "300ms linear";
-				target.style.transform = "rotate(11deg) translate(-65px, 250px)";
+				target.style.transform = "rotate(11deg) translate(-5%, 300%)";
+			},
+			function(target) {
+				target.style.transition = "500ms ease-in";
+				target.style.transform = "rotate(-4deg) translate(-5%, -1000%)";
+			},
+			function(target) {
+				target.style.display = "none";
 			}
 		];
+
+		this.props.lockScrollPosition();
 	},
 
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
-			var silhouetteJson = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro.json');
-			var silhouetteAnimation = {
-				animationData: silhouetteJson,
-				path: '../../../../../assets/images/interactables/SinisterSilhouette',
+			var introPart1Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro.json');
+			var introPart1 = {
+				animationData: introPart1Json,
+				path: '../../../assets/images/interactables/SinisterSilhouette',
 				loop: 1,
 				autoplay: true,
 				name: 'logo',
@@ -44,19 +54,86 @@ const SilhouetteIntroScene = React.createClass({
 				container: ReactDOM.findDOMNode(this.refs.silhouette)
 			}
 
-			this.silhouetteAnimation = BodyMovin.loadAnimation(silhouetteAnimation);
-			this.silhouetteAnimation.addEventListener('complete', this.triggerNavAnimation);
+			this.introPart1 = BodyMovin.loadAnimation(introPart1);
+			this.introPart1.addEventListener('complete', this.runIntroPart2);
 		}
 	},
 
-	triggerNavAnimation() {
+	runIntroPart2() {
 		this.props.addEventToFiredArray('navStolen');
+		var introPart2Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro2.json');
+		var introPart2 = {
+			animationData: introPart2Json,
+			path: '../../../assets/images/interactables/SinisterSilhouette',
+			loop: 1,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.silhouette)
+		};
+
+		this.introPart1.removeEventListener('complete', this.runIntroPart2);
+		this.introPart1.destroy();
+
+		this.introPart2 = BodyMovin.loadAnimation(introPart2);
+		this.introPart2.addEventListener('complete', this.runIntroPart3);
 	},
+
+	runIntroPart3() {
+		var introPart3Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro3.json');
+		var introPart3 = {
+			animationData: introPart3Json,
+			path: '../../../assets/images/interactables/SinisterSilhouette',
+			loop: 1,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.silhouette)
+		};
+
+		this.introPart2.removeEventListener('complete', this.runIntroPart3);
+		this.introPart2.destroy();
+
+		this.introPart3 = BodyMovin.loadAnimation(introPart3);
+		this.introPart3.addEventListener('complete', this.makeTearInteractable);
+	},
+
+	makeTearInteractable() {
+		var tearJson = require('../../../assets/images/interactables/Tear/Tear.json');
+		var tearAnimation = {
+			animationData: tearJson,
+			path: '../../../assets/images/interactables/Tear',
+			loop: false,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.silhouette)
+		};
+
+		this.introPart3.removeEventListener('complete', this.makeTearInteractable);
+		this.introPart3.destroy();
+
+		this.tearAnimation = BodyMovin.loadAnimation(tearAnimation);
+		this.tearAnimation.goToAndStop(1);
+
+		var tear = ReactDOM.findDOMNode(this.refs.silhouette).firstChild.childNodes[1].firstChild;
+		tear.style.pointerEvents = "auto";
+		tear.addEventListener('mousedown', this.tearClicked);
+		this.props.unlockScrollPosition();
+	},
+
+	tearClicked() {
+		this.tearAnimation.play();
+	},	
 
 	render() {
 		if(this.props.mode.gameMode) {
 			return (
-				<div>
+				<div
+					style={{
+						position: 'relative'
+					}}
+				>
 					<div
 						className={SilhouetteStyles.placeholderNav}
 					>
@@ -66,7 +143,7 @@ const SilhouetteIntroScene = React.createClass({
 					>
 						<ResponsiveContainer>
 							<DeferredEventExecutor
-								moments={[0, 9, 10]}
+								moments={[0, 9, 10, 13, 20]}
 								events={this.navEvents}
 								fireCondition={'navStolen'}
 								increment={100}
@@ -95,6 +172,10 @@ const SilhouetteIntroScene = React.createClass({
 											About
 										</h4>
 									</div>
+									<img 
+										className={SilhouetteStyles.navbarShadow}
+										src={require('../../../assets/images/interactables/Navbar/NavbarShadow.svg')}
+									/>
 								</div>
 							</DeferredEventExecutor>
 						</ResponsiveContainer>
@@ -122,7 +203,9 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		addEventToFiredArray: interactableActions.addEventToFiredArray
+		addEventToFiredArray: interactableActions.addEventToFiredArray,
+		lockScrollPosition: scrollEventActions.lockScrollPosition,
+		unlockScrollPosition: scrollEventActions.unlockScrollPosition
 	}, dispatch)
 }
 

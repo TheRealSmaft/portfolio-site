@@ -1,9 +1,41 @@
 .inventory {
-	
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: pink;
 }
 
 .item {
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	
+		img {
+			max-width: 80%;
+		}
+	}
+
 	&:hover {
 		cursor: pointer;
 	}
+}
+
+.slot {
+	width: 100px;
+	height: 100%;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border: inset 1px solid green;
+	background-color: brown;
 }

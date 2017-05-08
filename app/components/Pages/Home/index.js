@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
+import { DropZone, Collectable } from '../../Containers/GameContainers';
+
 import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
 
 import { SVG, Circle } from '../../Containers/ShapeContainers';
@@ -13,7 +15,11 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const HomePage = React.createClass({
 	componentWillMount() {
-
+		this.pencil = {
+			name: 'Pencil',
+			image: require('../../../assets/images/items/Pencil/Pencil.svg'),
+			width: '100px'
+		}
 	},
 
 	componentDidMount() {
@@ -29,6 +35,10 @@ const HomePage = React.createClass({
 		};
 
 		BodyMovin.loadAnimation(this.logoAnimation);
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
 	},
 
 	render() {
@@ -76,7 +86,12 @@ const HomePage = React.createClass({
 							blocks={11}
 						>
 							<p>
-								Farm-to-table twee plaid stumptown chia authentic. Drinking vinegar hell of master cleanse banjo, gentrify enamel pin meditation dreamcatcher bespoke shabby chic ethical bitters blue bottle typewriter portland. Coloring book man braid messenger bag chicharrones, sartorial succulents flannel pug XOXO street art cronut. 
+								Farm-to-table twee plaid stumptown chia authentic. 
+								Drinking vinegar hell of master cleanse banjo, gentrify
+								enamel pin meditation dreamcatcher bespoke shabby chic
+								ethical bitters blue bottle typewriter portland. Coloring
+								book man braid messenger bag chicharrones, sartorial
+								succulents flannel pug XOXO street art cronut.
 							</p>
 						</Col>
 					</Row>
@@ -99,6 +114,9 @@ const HomePage = React.createClass({
 					<div></div>
 					<div></div>
 				</div>
+				<Collectable
+					item={this.pencil}
+				/>
 			</ResponsiveContainer>
 		)
 	}
