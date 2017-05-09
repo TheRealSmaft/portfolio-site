@@ -158,16 +158,16 @@ const DropZone = React.createClass({
 	},
 
 	checkForHover() {
-			if(this.props.mouseState.position.x > (this.boundingBox.left - this.pixelBuffer) &&
-				this.props.mouseState.position.x < (this.boundingBox.right + this.pixelBuffer) &&
-				this.props.mouseState.position.y > (this.boundingBox.top - this.pixelBuffer) &&
-				this.props.mouseState.position.y < (this.boundingBox.bottom + this.pixelBuffer)) {
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+		if(this.props.mouseState.position.x > (this.boundingBox.left - this.pixelBuffer) &&
+			this.props.mouseState.position.x < (this.boundingBox.right + this.pixelBuffer) &&
+			this.props.mouseState.position.y > (this.boundingBox.top - this.pixelBuffer) &&
+			this.props.mouseState.position.y < (this.boundingBox.bottom + this.pixelBuffer)) {
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	},
 
 	getItem() {

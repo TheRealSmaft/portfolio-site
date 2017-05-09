@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 
 import { DeferredEventExecutor } from '../../../../Containers';
 
+import { TriggerZone } from '../../../GameContainers';
+
 import { itemActions, itemTypes } from '../../../../../state/game/items';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
+import { scrollEventActions, scrollEventTypes } from '../../../../../state/events/scroll';
 
 import ExaminableStyles from '../../../../../styles/examinables';
 
@@ -56,7 +59,9 @@ const Examinable = React.createClass({
 						onClick={() => {this.clickEvent()}}
 					/>
 				</DeferredEventExecutor>
-			) : null
+			) : null;
+
+		var triggerItem = this.item != null && this.item.triggerItem ? this.item.triggerItem : 'none';
 
 		return (
 			<div
@@ -71,7 +76,11 @@ const Examinable = React.createClass({
 					onClick={this.closeExamination}
 					src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
 				/>
-				{itemElement}
+				<TriggerZone
+					triggerItem={triggerItem}
+				>
+					{itemElement}
+				</TriggerZone>
 			</div>
 		);
 	}
@@ -88,7 +97,9 @@ function mapDispatchToProps(dispatch) {
 		addItemToArray: itemActions.addItemToArray,
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemExamine: itemActions.toggleItemExamine,
-		addEventToFiredArray: interactableActions.addEventToFiredArray
+		addEventToFiredArray: interactableActions.addEventToFiredArray,
+		lockScrollPosition: scrollEventActions.lockScrollPosition,
+		unlockScrollPosition: scrollEventActions.unlockScrollPosition,
 	}, dispatch)
 };
 

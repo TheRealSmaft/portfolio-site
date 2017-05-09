@@ -39,10 +39,15 @@ const Inventory = React.createClass({
 			if(this.props.interactables.currentDropZone === this.props.items.draggable) {
 				this.appendDraggableToDropZone();
 			}
+			else if(this.props.interactables.currentTriggerZone === this.props.items.draggable) {
+				// TRIGGER EVENT HERE YOU TRIG COVE!
+				console.log('YESSIR')
+			}
 			else
 			{
 				this.appendDraggableToOriginalParent();
 			}
+
 			this.props.toggleItemDrag();
 			this.draggable = null;
 			this.dragNode = null;

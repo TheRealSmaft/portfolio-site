@@ -77,6 +77,8 @@ const LoadingPage = React.createClass({
 					events: [],
 					moments: []
 				},
+				hasTriggerZone: true,
+				triggerItem: "Pencil"
 			}
 		};
 	},
