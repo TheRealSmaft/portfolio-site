@@ -7,6 +7,7 @@ import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 
 import { interactableActions, interactableTypes } from '../../../state/game/interactables';
 import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
+import { sceneActions, sceneTypes } from '../../../state/game/scenes';
 
 import { SilhouetteStyles } from '../../../styles/interactables';
 import { navbarStyles } from '../../../styles';
@@ -39,6 +40,7 @@ const SilhouetteIntroScene = React.createClass({
 		];
 
 		this.props.lockScrollPosition();
+		this.props.toggleSceneStart();
 	},
 
 	componentDidMount() {
@@ -99,6 +101,7 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	makeTearInteractable() {
+		this.props.toggleSceneStop();
 		var tearJson = require('../../../assets/images/interactables/Tear/Tear.json');
 		var tearAnimation = {
 			animationData: tearJson,
@@ -205,7 +208,9 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		addEventToFiredArray: interactableActions.addEventToFiredArray,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
-		unlockScrollPosition: scrollEventActions.unlockScrollPosition
+		unlockScrollPosition: scrollEventActions.unlockScrollPosition,
+		toggleSceneStart: sceneActions.toggleSceneStart,
+		toggleSceneStop: sceneActions.toggleSceneStop
 	}, dispatch)
 }
 

@@ -20,11 +20,10 @@
 	margin: 0px;
 }
 
-.loaderSpinner {
-	width: 200px;
-	height: 200px;
-	background-color: pink;
-	border-radius: 50%;
+.gears {
+	@media @extra-small-max {
+		width: 140%;
+	}
 }
 
 .paper {
@@ -38,4 +37,11 @@
 	top: -36%;
 	left: 7%;
 	transform: scale(.04, .04);
+}
+
+.paperItem {
+	pointer-events: auto;
+	&:hover {
+		cursor: pointer;
+	}
 }

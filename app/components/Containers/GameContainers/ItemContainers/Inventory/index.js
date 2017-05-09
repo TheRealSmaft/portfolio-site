@@ -21,14 +21,12 @@ const Inventory = React.createClass({
 
 		this.dragNode = null;
 
-		this.slotCount = 8;
+		this.slotCount = 6;
 		this.examinable = null;
 	},
 
 	componentWillUpdate(nextProps) {
-		if(this.props.items.items != nextProps.items.items) {
-			this.getInventoryItems();
-		}
+		this.getInventoryItems();
 	},
 
 	getInventoryItems() {
@@ -60,6 +58,8 @@ const Inventory = React.createClass({
 
 	appendDraggableToDocumentBody() {
 		this.dragNode = this.refs[this.draggable];
+		this.dragNode.style.zIndex = 100;
+		this.dragNode.style.width = '150px';
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
 		document.body.appendChild(this.dragNode);
@@ -159,7 +159,11 @@ const Inventory = React.createClass({
 		return (
 			<div>
 				<div 
-					className={this.inventory.length > 0 ? InventoryStyles.inventory : ''}
+					ref="inventory"
+					className={InventoryStyles.inventory}
+					style={{
+						bottom: this.props.sceneState.playing ? '-150px' : '0px'
+					}}
 				>
 					{slots}
 				</div>
@@ -180,7 +184,8 @@ function mapStateToProps(store) {
 		items: store.itemState,
 		interactables: store.interactableState,
 		mouseState: store.mouseState,
-		scrollState: store.scrollState
+		scrollState: store.scrollState,
+		sceneState: store.sceneState
 	}
 };
 

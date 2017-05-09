@@ -17,7 +17,8 @@ const HomePage = React.createClass({
 	componentWillMount() {
 		this.pencil = {
 			name: 'Pencil',
-			image: require('../../../assets/images/items/Pencil/Pencil.svg'),
+			collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
+			inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
 			width: '100px'
 		}
 	},

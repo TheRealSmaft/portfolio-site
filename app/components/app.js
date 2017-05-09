@@ -71,9 +71,22 @@ const App = React.createClass({
 				<Examinable 
 					style={{
 						width: window.innerWidth + 'px',
-						height: window.innerHeight + 'px'
+						height: (window.innerHeight - 150) + 'px'
 					}}
 				/>
+
+				<div
+					style={{
+						display: this.props.sceneState.playing ? 'block' : 'none',
+						position: 'fixed',
+						top: '0px',
+						left: '0px',
+						zIndex: 200,
+						width: window.innerWidth + 'px',
+						height: window.innerHeight + 'px'
+					}}
+				>
+				</div>
 
 			</div>
 		)
@@ -84,7 +97,8 @@ function mapStateToProps(store) {
 	return {
 		windowState: store.windowState,
 		scrollState: store.scrollState,
-		mode: store.modeState
+		mode: store.modeState,
+		sceneState: store.sceneState
 	};
 }
 

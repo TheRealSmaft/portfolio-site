@@ -54,14 +54,14 @@
 .sticky {
   position: fixed;
   width: 100%;
-  z-index: 99;
+  z-index: 51;
 }
 .scene {
   position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
-  z-index: 100;
+  z-index: 40;
 }
 .dummyNav {
   position: absolute;

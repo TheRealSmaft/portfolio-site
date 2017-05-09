@@ -1,9 +1,35 @@
 .examinationScene {
-	justify-content: center;
-	align-items: center;
-
-	background-color: rgba(0,0,0,0.2);
-	z-index: 110;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 45;
 	position: fixed;
 	top: 0px;
+
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		height: 100%;
+
+		img {
+			max-height: 80%;
+		}
+	}
+}
+
+.exitButton {
+	width: 50px;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.clickWillFireEvent {
+	&:hover {
+		cursor: pointer;
+	}
 }

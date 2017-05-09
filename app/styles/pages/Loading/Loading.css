@@ -16,11 +16,10 @@
 .loaderText {
   margin: 0px;
 }
-.loaderSpinner {
-  width: 200px;
-  height: 200px;
-  background-color: pink;
-  border-radius: 50%;
+@media only screen and (max-width: 480px) {
+  .gears {
+    width: 140%;
+  }
 }
 .paper {
   position: absolute;
@@ -32,5 +31,11 @@
   top: -36%;
   left: 7%;
   transform: scale(0.04, 0.04);
+}
+.paperItem {
+  pointer-events: auto;
+}
+.paperItem:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=Loading.css.map */

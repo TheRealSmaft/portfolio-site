@@ -7,12 +7,14 @@ const itemArrayReducer = (state = {
 }, action) => {
 	switch(action.type) {
 		case types.ADD_ITEM_TO_ARRAY: {
-			state = {
-				...state,
-				items: [
-					...state.items,
-					action.payload
-				]
+			if(!state.items.includes(action.payload)) {
+				state = {
+					...state,
+					items: [
+						...state.items,
+						action.payload
+					]
+				}
 			}
 			break;
 		}
@@ -37,8 +39,7 @@ const itemArrayReducer = (state = {
 
 			state = {
 				...state,
-				draggable: draggable,
-				examinable: null
+				draggable: draggable
 			}
 			break;
 		}
