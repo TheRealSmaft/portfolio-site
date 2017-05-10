@@ -8,6 +8,8 @@ import Item from '../ItemComponent';
 
 import { itemTypes, itemActions } from '../../../../../state/game/items';
 
+import CollectableStyles from '../../../../../styles/collectables';
+
 const Collectable = React.createClass({
 	propTypes: {
 		item: React.PropTypes.object.isRequired
@@ -94,6 +96,7 @@ const Collectable = React.createClass({
 		if(this.item.status === 'collectable') {
 			return (
 				<div 
+					className={CollectableStyles.collectable}
 					onMouseDown={this.addItemToInventory}
 					style={{
 						...this.props.style,

@@ -125,6 +125,12 @@ const SilhouetteIntroScene = React.createClass({
 		this.props.unlockScrollPosition();
 	},
 
+	emergencyPanelSubmit() {
+		if(this.refs.passwordInput.value === this.props.mode.password) {
+			console.log('YEP')
+		}
+	},
+
 	tearClicked() {
 		this.tearAnimation.play();
 	},	
@@ -138,13 +144,31 @@ const SilhouetteIntroScene = React.createClass({
 					}}
 				>
 					<div
+						className={SilhouetteStyles.emergencyPanel}
+					>
+						<label for="emergencyPanel">
+							Emergency Panel:&nbsp;
+						</label>
+						<input 
+							ref="passwordInput"
+							type="text"
+							placeholder="ENTER PASSWORD"
+						/>
+						&nbsp;
+						<button
+							onClick={this.emergencyPanelSubmit}
+						>
+							Submit
+						</button>
+					</div>
+					<div
 						className={SilhouetteStyles.placeholderNav}
 					>
 					</div>
 					<div
 						className={SilhouetteStyles.scene}
 					>
-						<ResponsiveContainer>
+						
 							<DeferredEventExecutor
 								moments={[0, 9, 10, 13, 20]}
 								events={this.navEvents}
@@ -181,7 +205,6 @@ const SilhouetteIntroScene = React.createClass({
 									/>
 								</div>
 							</DeferredEventExecutor>
-						</ResponsiveContainer>
 						<div
 							ref="silhouette"
 							className={SilhouetteStyles.silhouette}

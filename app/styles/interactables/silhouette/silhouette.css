@@ -65,7 +65,6 @@
 }
 .dummyNav {
   position: absolute;
-  width: 80%;
   max-width: 1000px;
 }
 .placeholderNav {
@@ -86,5 +85,9 @@
   z-index: 101;
   height: 66px;
   width: 10%;
+}
+.emergencyPanel {
+  float: right;
+  padding: 20px;
 }
 /*# sourceMappingURL=silhouette.css.map */

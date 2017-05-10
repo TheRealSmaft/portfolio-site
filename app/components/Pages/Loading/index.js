@@ -78,7 +78,17 @@ const LoadingPage = React.createClass({
 					moments: []
 				},
 				hasTriggerZone: true,
-				triggerItem: "Pencil"
+				triggerItem: "Pencil",
+				fireCondition: 'PencilAllocated',
+				password: this.props.mode.password,
+				animationToTrigger: {
+					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
+					path: '../../../../../assets/images/items/Pencil',
+					loop: false,
+					autoplay: false,
+					name: 'penclWriting',
+					renderer: 'svg'
+				}
 			}
 		};
 	},
@@ -221,7 +231,8 @@ const LoadingPage = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		items: store.itemState.items
+		items: store.itemState.items,
+		mode: store.modeState
 	}
 };
 

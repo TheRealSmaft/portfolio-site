@@ -40,8 +40,14 @@ const Inventory = React.createClass({
 				this.appendDraggableToDropZone();
 			}
 			else if(this.props.interactables.currentTriggerZone === this.props.items.draggable) {
-				// TRIGGER EVENT HERE YOU TRIG COVE!
-				console.log('YESSIR')
+				var name = this.draggable;
+				var itemIndex = _.findIndex(this.props.items.items, function(obj) {
+					return obj.name === name;
+				});
+
+				this.appendDraggableToOriginalParent();
+				this.props.changeItemStatus(itemIndex, 'allocated');
+				this.props.addEventToFiredArray(name + 'Allocated');
 			}
 			else
 			{
@@ -167,7 +173,7 @@ const Inventory = React.createClass({
 					ref="inventory"
 					className={InventoryStyles.inventory}
 					style={{
-						bottom: this.props.sceneState.playing ? '-150px' : '0px'
+						bottom: this.props.sceneState.playing || inventory.length < 1 ? '-150px' : '0px'
 					}}
 				>
 					{slots}
@@ -200,6 +206,7 @@ function mapDispatchToProps(dispatch) {
 		toggleItemDrag: itemActions.toggleItemDrag,
 		toggleItemExamine: itemActions.toggleItemExamine,
 		changeDropZoneStatus: interactableActions.changeDropZoneStatus,
+		addEventToFiredArray:  interactableActions.addEventToFiredArray,
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
 		unlockScrollPosition: scrollEventActions.unlockScrollPosition

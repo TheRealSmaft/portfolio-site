@@ -12,7 +12,60 @@ import { scrollEventActions, scrollEventTypes } from '../../../../../state/event
 
 import ExaminableStyles from '../../../../../styles/examinables';
 
+import BodyMovin from '../../../../../plugins/bodymovin.min';
+
 const Examinable = React.createClass({
+	componentDidUpdate() {
+		if(this.item != null) {
+			if(this.item.animationToTrigger && !this.animation) {
+				var animationData = this.item.animationToTrigger;
+				var animationData = {
+					...animationData,
+					container: this.refs.animation
+				}
+
+				this.animation = BodyMovin.loadAnimation(animationData);
+			}
+
+			if(this.checkFireCondition() && !this.animationFired) {
+				this.animationFired = true;
+				this.refs.animation.style.visibility = 'visible';
+				if(this.item.password) {
+					var passwordElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+					passwordElement.setAttribute("font-size", "80");
+					passwordElement.setAttribute("font-family", "Comic Sans MS");
+					passwordElement.setAttribute("fill", "rgba(255,255,255,0.85)");
+					passwordElement.setAttribute("x", "-5%");
+					passwordElement.setAttribute("y", "16%");
+					passwordElement.style.transform = "rotateZ(-20deg)";
+					passwordElement.style.width = '50%';
+
+					passwordElement.innerHTML = this.item.password;
+					this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
+				}
+				setTimeout(() => {
+					this.animation.play();
+				}, 50)
+			}
+		}
+	},
+
+	checkFireCondition() {
+		if(this.item.fireCondition != undefined) {
+			if(this.props.interactables.firedEvents.includes(this.item.fireCondition)){
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	},
+
 	closeExamination() {
 		this.props.toggleItemExamine();
 	},
@@ -81,6 +134,17 @@ const Examinable = React.createClass({
 				>
 					{itemElement}
 				</TriggerZone>
+				<div
+					className={ExaminableStyles.animationContainer}
+				>
+					<div
+						ref="animation"
+						style={{
+							visibility: 'hidden'
+						}}
+					>
+					</div>
+				</div>
 			</div>
 		);
 	}
@@ -88,7 +152,8 @@ const Examinable = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		items: store.itemState
+		items: store.itemState,
+		interactables: store.interactableState
 	}
 };
 
