@@ -4,8 +4,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
+import { Collectable, TriggerZone } from '../../Containers/GameContainers';
 
 import { interactableActions, interactableTypes } from '../../../state/game/interactables';
+import { itemActions, itemTypes } from '../../../state/game/items';
 import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
 import { sceneActions, sceneTypes } from '../../../state/game/scenes';
 
@@ -41,6 +43,13 @@ const SilhouetteIntroScene = React.createClass({
 
 		this.props.lockScrollPosition();
 		this.props.toggleSceneStart();
+
+		this.knife = {
+			name: 'Artist\'s Knife',
+			collectableImage: require('../../../assets/images/items/Knife/KnifeCollectable.svg'),
+			inventoryImage: require('../../../assets/images/items/Knife/KnifeInventory.svg'),
+			width: '100px'
+		}
 	},
 
 	componentDidMount() {
@@ -101,7 +110,6 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	makeTearInteractable() {
-		this.props.toggleSceneStop();
 		var tearJson = require('../../../assets/images/interactables/Tear/Tear.json');
 		var tearAnimation = {
 			animationData: tearJson,
@@ -119,21 +127,34 @@ const SilhouetteIntroScene = React.createClass({
 		this.tearAnimation = BodyMovin.loadAnimation(tearAnimation);
 		this.tearAnimation.goToAndStop(1);
 
-		var tear = ReactDOM.findDOMNode(this.refs.silhouette).firstChild.childNodes[1].firstChild;
-		tear.style.pointerEvents = "auto";
-		tear.addEventListener('mousedown', this.tearClicked);
 		this.props.unlockScrollPosition();
+		this.props.toggleSceneStop();
+
+		var tear = this.refs.silhouette.firstChild.childNodes[1].firstChild.firstChild;
+		var tearBounds = tear.getBoundingClientRect();
+		var zone = ReactDOM.findDOMNode(this.refs.tearTriggerZone);
+		//// FIX THIS!
+		// zone.parentNode.removeChild(zone);
+		// zone.style.width = tearBounds.width + 'px';
+		// zone.style.height = tearBounds.height + 'px';
+		// tear.appendChild(document.body);
+		console.log(zone)
 	},
 
 	emergencyPanelSubmit() {
-		if(this.refs.passwordInput.value === this.props.mode.password) {
-			console.log('YEP')
+		var panel = this.refs.emergencyPanel;
+		if(panel.childNodes[1].value === this.props.mode.password) {
+			panel.classList.add(SilhouetteStyles.panelOpen);
+			var itemIndex = _.findIndex(this.props.items.items, function(obj) {
+				return obj.name === 'Paper';
+			});
+			this.props.changeItemStatus(itemIndex, 'allocated');
 		}
 	},
 
-	tearClicked() {
-		this.tearAnimation.play();
-	},	
+	// tearClicked() {
+	// 	this.tearAnimation.play();
+	// },	
 
 	render() {
 		if(this.props.mode.gameMode) {
@@ -144,22 +165,45 @@ const SilhouetteIntroScene = React.createClass({
 					}}
 				>
 					<div
-						className={SilhouetteStyles.emergencyPanel}
+						ref="tearTriggerZone"
+						style={{
+							position: 'absolute'
+						}}
 					>
-						<label for="emergencyPanel">
-							Emergency Panel:&nbsp;
-						</label>
-						<input 
-							ref="passwordInput"
-							type="text"
-							placeholder="ENTER PASSWORD"
-						/>
-						&nbsp;
-						<button
-							onClick={this.emergencyPanelSubmit}
+						<TriggerZone
+							triggerItem="Artist's Knife"
 						>
-							Submit
-						</button>
+						</TriggerZone>
+					</div>
+					<div
+						className={SilhouetteStyles.emergencyPanelContainer}
+					>
+						<div
+							className={SilhouetteStyles.emergencyPanel}
+							ref="emergencyPanel"
+						>
+							<label for="emergencyInput">
+								Emergency Panel:&nbsp;
+							</label>
+							<input 
+								name="emergencyInput"
+								type="text"
+								placeholder="ENTER PASSWORD"
+							/>
+							&nbsp;
+							<button
+								onClick={this.emergencyPanelSubmit}
+							>
+								Submit
+							</button>
+						</div>
+						<div
+							className={SilhouetteStyles.knifeCubby}
+						>
+							<Collectable
+								item={this.knife}
+							/>
+						</div>
 					</div>
 					<div
 						className={SilhouetteStyles.placeholderNav}
@@ -223,12 +267,14 @@ const SilhouetteIntroScene = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		items: store.itemState,
 		mode: store.modeState
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		changeItemStatus: itemActions.changeItemStatus,
 		addEventToFiredArray: interactableActions.addEventToFiredArray,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
 		unlockScrollPosition: scrollEventActions.unlockScrollPosition,

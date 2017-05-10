@@ -47,7 +47,68 @@
 	width: 10%;
 }
 
+.emergencyPanelContainer {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	perspective: 700;
+}
+
 .emergencyPanel {
 	float: right;
-	padding: 20px;
+	padding: 10px;
+
+	color: white;
+	background-color: red;
+
+	transform-origin: bottom left;
+
+	label, input, button {
+		-webkit-backface-visibility: hidden;
+    	backface-visibility: hidden;
+	}
+}
+
+@keyframes panelOpen {
+	30% {
+		transform: rotateX(-180deg);
+	}
+
+	50% {
+		transform: rotateX(-150deg);
+	}
+
+	75% {
+		transform: rotateX(-180deg);
+	}
+
+	90% {
+		transform: rotateX(-180deg) rotateZ(-6deg);
+	}
+
+	100% {
+		transform: rotateX(-180deg) rotateZ(-4deg);
+	}
+}
+
+.panelOpen {
+	animation: panelOpen 1500ms ease-in-out forwards;
+}
+
+.knifeCubby {
+	position: absolute;
+	top: 0px;
+	padding: 8px;
+	box-shadow: inset 0px 0px 20px black;
+	border: 2px solid rgb(150,150,150);
+
+	z-index: -1;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	background-color: rgb(100,100,100);
 }

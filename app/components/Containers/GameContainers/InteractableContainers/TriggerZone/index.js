@@ -13,6 +13,12 @@ const TriggerZone = React.createClass({
 		eventToTrigger: React.PropTypes.string
 	},
 
+	getDefaultProps() {
+		return {
+			svgElement: false
+		}
+	},
+
 	componentWillMount() {
 		this.pixelBuffer = this.props.pixelBuffer ? this.props.pixelBuffer : 20;
 		this.userIsHovering = false;
@@ -63,6 +69,7 @@ const TriggerZone = React.createClass({
 		if(this.lastHoverCase != isHovering) {
 			if(this.draggableMatch && isHovering) {
 				this.props.selectTriggerZone(this.props.triggerItem);
+				console.log('YOEP')
 			}
 			else
 			{	
@@ -102,13 +109,18 @@ const TriggerZone = React.createClass({
 	},
 
 	render() {
-		return (
-			<div
-				ref="triggerZone"
-			>
-				{this.props.children}
-			</div>
-		);
+		
+			return (
+				<div
+					ref="triggerZone"
+					style={{
+						...this.props.style
+					}}
+				>
+					{this.props.children}
+				</div>
+			);
+		
 	}
 });
 
