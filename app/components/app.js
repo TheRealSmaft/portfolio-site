@@ -45,6 +45,21 @@ const App = React.createClass({
 	},
 
 	render() {
+		var clickBlocker = this.props.mode.gameMode ? (
+			<div
+				style={{
+					display: this.props.sceneState.playing ? 'block' : 'none',
+					position: 'fixed',
+					top: '0px',
+					left: '0px',
+					zIndex: 200,
+					width: window.innerWidth + 'px',
+					height: window.innerHeight + 'px'
+				}}
+			>
+			</div>
+		) : null;
+
 		return (
 			<div className={appStyles}
 				style={{
@@ -57,11 +72,7 @@ const App = React.createClass({
 					stickyPosY={0}
 					childStyles={navbarStyles.sticky}
 				>
-					<Navbar 
-						style={{
-							display: this.props.mode.gameMode ? 'none' : 'block'
-						}}
-					/>
+					<Navbar/>
 				</StickyContainer>
 
 				{this.props.children}
@@ -75,18 +86,7 @@ const App = React.createClass({
 					}}
 				/>
 
-				<div
-					style={{
-						display: this.props.sceneState.playing ? 'block' : 'none',
-						position: 'fixed',
-						top: '0px',
-						left: '0px',
-						zIndex: 200,
-						width: window.innerWidth + 'px',
-						height: window.innerHeight + 'px'
-					}}
-				>
-				</div>
+				{clickBlocker}
 
 			</div>
 		)

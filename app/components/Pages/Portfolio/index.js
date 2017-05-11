@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ResponsiveContainer } from '../../Containers';
+import LinkScribble from './PortfolioContainers/LinkScribble';
 
 import PortfolioPiece from './PortfolioContainers/PortfolioPiece';
 
@@ -27,6 +28,15 @@ const PortfolioPage = React.createClass({
 				<h1>
 					PORTFOLIO
 				</h1>
+				<div
+					className={PortfolioPageStyles.portIntro}
+				>
+					If you like what you see please
+					<LinkScribble 
+						className={PortfolioPageStyles.linkScribble}
+					/>
+				</div>
+
 				<PortfolioPiece
 					rotation="1deg"
 					piece={this.bunnyPiece}

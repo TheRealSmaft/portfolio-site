@@ -19,37 +19,39 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const SilhouetteIntroScene = React.createClass({
 	componentWillMount() {
-		this.navEvents = [
-			function(target) {
-				target.style.transition = "800ms ease-out";
-				target.style.transformOrigin = "top right";
-				target.style.transform = "rotate(-1deg)";
-			},
-			function(target) {
-				target.style.transition = "100ms linear";
-				target.style.transform = "rotate(-4deg) translate(-40px, 64px)";
-			},
-			function(target) {
-				target.style.transition = "300ms linear";
-				target.style.transform = "rotate(11deg) translate(-5%, 300%)";
-			},
-			function(target) {
-				target.style.transition = "500ms ease-in";
-				target.style.transform = "rotate(-4deg) translate(-5%, -1000%)";
-			},
-			function(target) {
-				target.style.display = "none";
+		if(this.props.mode.gameMode) {
+			this.navEvents = [
+				function(target) {
+					target.style.transition = "800ms ease-out";
+					target.style.transformOrigin = "top right";
+					target.style.transform = "rotate(-1deg)";
+				},
+				function(target) {
+					target.style.transition = "100ms linear";
+					target.style.transform = "rotate(-4deg) translate(-40px, 64px)";
+				},
+				function(target) {
+					target.style.transition = "300ms linear";
+					target.style.transform = "rotate(11deg) translate(-5%, 300%)";
+				},
+				function(target) {
+					target.style.transition = "500ms ease-in";
+					target.style.transform = "rotate(-4deg) translate(-5%, -1000%)";
+				},
+				function(target) {
+					target.style.display = "none";
+				}
+			];
+
+			this.props.lockScrollPosition();
+			this.props.toggleSceneStart();
+
+			this.knife = {
+				name: 'Artist\'s Knife',
+				collectableImage: require('../../../assets/images/items/Knife/KnifeCollectable.svg'),
+				inventoryImage: require('../../../assets/images/items/Knife/KnifeInventory.svg'),
+				width: '100px'
 			}
-		];
-
-		this.props.lockScrollPosition();
-		this.props.toggleSceneStart();
-
-		this.knife = {
-			name: 'Artist\'s Knife',
-			collectableImage: require('../../../assets/images/items/Knife/KnifeCollectable.svg'),
-			inventoryImage: require('../../../assets/images/items/Knife/KnifeInventory.svg'),
-			width: '100px'
 		}
 	},
 
@@ -158,6 +160,7 @@ const SilhouetteIntroScene = React.createClass({
 		this.refs.silhouette.style.transform = 'scale(10)';
 		setTimeout(() => {
 			this.props.unlockScrollPosition();
+			this.props.toggleSceneStop();
 			browserHistory.push('/portfolio');
 		},600)
 	},
@@ -210,10 +213,6 @@ const SilhouetteIntroScene = React.createClass({
 								item={this.knife}
 							/>
 						</div>
-					</div>
-					<div
-						className={SilhouetteStyles.placeholderNav}
-					>
 					</div>
 					<div
 						className={SilhouetteStyles.scene}
