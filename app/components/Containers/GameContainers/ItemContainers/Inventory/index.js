@@ -31,13 +31,32 @@ const Inventory = React.createClass({
 
 	componentDidUpdate() {
 		if(this.props.interactables.firedEvents.includes('knifeUsed') &&
-			this.draggable === "Artist's Knife") {
+			this.draggable === "Artist's Knife" ||
+			this.props.interactables.firedEvents.includes('eraserUsed') &&
+			this.draggable === "Eraser") {
 			this.stopTrackingMouse();
 			this.triggerZoneUsed(this.draggable);
 			this.props.toggleItemDrag();
 			this.draggable = null;
 			this.dragNode = null;
 		}
+
+		if(this.draggable === "Artist's Knife" ||
+			this.draggable === "Eraser") {
+			document.addEventListener('click', this.returnItem);
+		}
+	},
+
+	returnItem(e) {
+		e.target.removeEventListener('click', this.returnItem);
+		this.stopTrackingMouse();
+		this.appendDraggableToOriginalParent();
+		this.props.toggleItemDrag();
+		if(this.dragNode != null) {
+			this.dragNode.style.pointerEvents = 'auto';
+		}
+		this.draggable = null;
+		this.dragNode = null;
 	},
 
 	getInventoryItems() {
@@ -88,15 +107,22 @@ const Inventory = React.createClass({
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
 		document.body.appendChild(this.dragNode);
-		if(this.draggable === "Artist's Knife") {
+		if(this.draggable === "Artist's Knife" ||
+			this.draggable === "Eraser") {
 			this.dragNode.style.pointerEvents = 'none';
 		}
 	},
 
 	appendDraggableToOriginalParent() {
-		this.dragNode.parentNode.removeChild(this.dragNode);
-		this.originalParentNode.appendChild(this.dragNode);
-		this.dragNode.style.position = 'static';
+		if(this.dragNode != null) {
+			this.dragNode.parentNode.removeChild(this.dragNode);
+			this.originalParentNode.appendChild(this.dragNode);
+			this.dragNode.style.position = 'static';
+		}
+		else
+		{
+			document.removeEventListener('click', this.returnItem);
+		}
 	},
 
 	appendDraggableToDropZone() {

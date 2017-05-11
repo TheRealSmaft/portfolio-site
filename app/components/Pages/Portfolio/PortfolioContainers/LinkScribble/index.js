@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
 
 import BodyMovin from '../../../../../plugins/bodymovin.min';
 
@@ -26,7 +29,10 @@ const LinkScribble = React.createClass({
 	},
 
 	eraseScribble() {
-		this.scribble.play();
+		if(this.props.items.draggable === "Eraser") {
+			this.props.addEventToFiredArray('eraserUsed');
+			this.scribble.play();	
+		}
 	},
 
 	makeLinkClickable() {
@@ -51,7 +57,7 @@ const LinkScribble = React.createClass({
 				</Link>
 				<div
 					ref="scribble"
-					onClick={this.eraseScribble}
+					onMouseUp={this.eraseScribble}
 				>
 				</div>
 			</div>
@@ -61,8 +67,15 @@ const LinkScribble = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		items: store.itemState,
 		mode: store.modeState
 	}
 };
 
-export default connect(mapStateToProps)(LinkScribble);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		addEventToFiredArray:  interactableActions.addEventToFiredArray
+	}, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LinkScribble);

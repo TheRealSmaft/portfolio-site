@@ -21,6 +21,10 @@ const Navbar = React.createClass({
 		})
 	},
 
+	componentDidMount() {
+
+	},
+
 	render() {
 		if(!this.props.mode.gameMode) {
 			return (
@@ -88,7 +92,7 @@ const Navbar = React.createClass({
 		else
 		{
 			if(window.location.pathname != '/home' &&
-				window.location.pathname != '/loading') {
+				window.location.pathname != '/') {
 				return (
 					<div
 						className={navbarStyles.navbar}
