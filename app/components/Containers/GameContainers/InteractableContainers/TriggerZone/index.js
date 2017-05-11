@@ -69,7 +69,6 @@ const TriggerZone = React.createClass({
 		if(this.lastHoverCase != isHovering) {
 			if(this.draggableMatch && isHovering) {
 				this.props.selectTriggerZone(this.props.triggerItem);
-				console.log('YOEP')
 			}
 			else
 			{	

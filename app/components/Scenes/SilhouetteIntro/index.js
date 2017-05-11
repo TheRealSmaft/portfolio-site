@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -126,19 +127,39 @@ const SilhouetteIntroScene = React.createClass({
 
 		this.tearAnimation = BodyMovin.loadAnimation(tearAnimation);
 		this.tearAnimation.goToAndStop(1);
+		this.tearAnimation.addEventListener('complete', this.linkHoleToPortfolio)
 
 		this.props.unlockScrollPosition();
 		this.props.toggleSceneStop();
 
-		var tear = this.refs.silhouette.firstChild.childNodes[1].firstChild.firstChild;
-		var tearBounds = tear.getBoundingClientRect();
-		var zone = ReactDOM.findDOMNode(this.refs.tearTriggerZone);
-		//// FIX THIS!
-		// zone.parentNode.removeChild(zone);
-		// zone.style.width = tearBounds.width + 'px';
-		// zone.style.height = tearBounds.height + 'px';
-		// tear.appendChild(document.body);
-		console.log(zone)
+		this.tear = this.refs.silhouette.firstChild.childNodes[1].firstChild;
+		this.tear.style.pointerEvents = 'auto';
+		this.tear.addEventListener('click', this.tearClicked);
+	},
+
+	tearClicked() {
+		if(this.props.items.draggable === "Artist's Knife") {
+			this.tear.removeEventListener('click', this.tearClicked);
+			this.props.addEventToFiredArray('knifeUsed');
+			this.tearAnimation.play();	
+		}
+	},	
+
+	linkHoleToPortfolio() {
+		this.hole = this.refs.silhouette.firstChild.childNodes[1];
+		this.hole.style.pointerEvents = 'auto';
+		this.hole.classList.add(SilhouetteStyles.hole);
+		this.hole.addEventListener('click', this.goToPortfolio);
+	},
+
+	goToPortfolio() {
+		this.props.lockScrollPosition();
+		this.hole.removeEventListener('click', this.goToPortfolio);
+		this.refs.silhouette.style.transform = 'scale(10)';
+		setTimeout(() => {
+			this.props.unlockScrollPosition();
+			browserHistory.push('/portfolio');
+		},600)
 	},
 
 	emergencyPanelSubmit() {
@@ -152,10 +173,6 @@ const SilhouetteIntroScene = React.createClass({
 		}
 	},
 
-	// tearClicked() {
-	// 	this.tearAnimation.play();
-	// },	
-
 	render() {
 		if(this.props.mode.gameMode) {
 			return (
@@ -164,17 +181,6 @@ const SilhouetteIntroScene = React.createClass({
 						position: 'relative'
 					}}
 				>
-					<div
-						ref="tearTriggerZone"
-						style={{
-							position: 'absolute'
-						}}
-					>
-						<TriggerZone
-							triggerItem="Artist's Knife"
-						>
-						</TriggerZone>
-					</div>
 					<div
 						className={SilhouetteStyles.emergencyPanelContainer}
 					>
