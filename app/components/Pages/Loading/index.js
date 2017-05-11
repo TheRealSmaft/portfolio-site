@@ -6,10 +6,13 @@ import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
 import { itemTypes, itemActions } from '../../../state/game/items';
+import { sceneTypes, sceneActions } from '../../../state/game/scenes';
 
 import { LoadingPageStyles } from '../../../styles/pages';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
+
+import uncrumpleEvents from '../../../assets/images/items/Paper/uncrumpleEvents';
 
 const LoadingPage = React.createClass({
 	getInitialState() {
@@ -37,11 +40,56 @@ const LoadingPage = React.createClass({
 			}
 		];
 
+		var uncrumpleMoments = [];
+
+		for(var i = 1; i < 81; i++) {
+			uncrumpleMoments.push(i);
+		}
+
 		this.paperItem = {
 			name: 'Crumpled Paper',
-			image: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
+			collectableImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
+			inventoryImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
 			width: '100px',
-			status: 'inventory'
+			status: 'inventory',
+			examinable: true,
+			examineImage: require('../../../assets/images/items/Paper/Crumple/Crumple(1).png'),
+			examineWidth: '40%',
+			deferredEvents: {
+				events: uncrumpleEvents,
+				moments: uncrumpleMoments,
+				increment: 34,
+				loop: false,
+				fireCondition: 'uncrumplePaper'
+			},
+			eventToFire: 'uncrumplePaper',
+			changeAfterEvent: true,
+			nextItemState: {
+				name: 'Paper',
+				collectableImage: require('../../../assets/images/items/Paper/Paper.png'),
+				inventoryImage: require('../../../assets/images/items/Paper/Paper.png'),
+				width: '100px',
+				status: 'inventory',
+				examinable: true,
+				examineImage: require('../../../assets/images/items/Paper/Paper.png'),
+				examineWidth: '40%',
+				deferredEvents: {
+					events: [],
+					moments: []
+				},
+				hasTriggerZone: true,
+				triggerItem: "Pencil",
+				fireCondition: 'PencilAllocated',
+				password: this.props.mode.password,
+				animationToTrigger: {
+					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
+					path: '../../../../../assets/images/items/Pencil',
+					loop: false,
+					autoplay: false,
+					name: 'penclWriting',
+					renderer: 'svg'
+				}
+			}
 		};
 	},
 
@@ -103,8 +151,10 @@ const LoadingPage = React.createClass({
 	},
 
 	makePaperClickable() {
-		this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0].style.pointerEvents = 'auto';
-		this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0].addEventListener('mousedown', this.fixGears);
+		this.props.toggleSceneStop();
+		var paper = this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0];
+		paper.classList.add(LoadingPageStyles.paperItem);
+		paper.addEventListener('mousedown', this.fixGears);
 	},
 
 	turboChargeGears() {
@@ -170,6 +220,7 @@ const LoadingPage = React.createClass({
 					</div>
 					<div
 						ref="loadingGears"
+						className={LoadingPageStyles.gears}
 					>
 					</div>
 				</div>
@@ -180,13 +231,16 @@ const LoadingPage = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		items: store.itemState.items
+		items: store.itemState.items,
+		mode: store.modeState
 	}
 };
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		addItemToArray: itemActions.addItemToArray
+		addItemToArray: itemActions.addItemToArray,
+		toggleSceneStart: sceneActions.toggleSceneStart,
+		toggleSceneStop: sceneActions.toggleSceneStop
 	}, dispatch);
 };
 

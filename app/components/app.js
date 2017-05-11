@@ -7,7 +7,7 @@ import { appStyles, navbarStyles } from '../styles';
 
 import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
-import { Inventory } from './Containers/GameContainers';
+import { Inventory, Examinable } from './Containers/GameContainers';
 
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
@@ -68,6 +68,26 @@ const App = React.createClass({
 
 				<Inventory />
 
+				<Examinable 
+					style={{
+						width: window.innerWidth + 'px',
+						height: (window.innerHeight - 150) + 'px'
+					}}
+				/>
+
+				<div
+					style={{
+						display: this.props.sceneState.playing ? 'block' : 'none',
+						position: 'fixed',
+						top: '0px',
+						left: '0px',
+						zIndex: 200,
+						width: window.innerWidth + 'px',
+						height: window.innerHeight + 'px'
+					}}
+				>
+				</div>
+
 			</div>
 		)
 	}
@@ -77,7 +97,8 @@ function mapStateToProps(store) {
 	return {
 		windowState: store.windowState,
 		scrollState: store.scrollState,
-		mode: store.modeState
+		mode: store.modeState,
+		sceneState: store.sceneState
 	};
 }
 

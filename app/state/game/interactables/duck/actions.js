@@ -31,10 +31,37 @@ function addEventToFiredArray(event) {
 	}
 };
 
+function addTriggerZoneToArray(triggerZone) {
+	return {
+		type: types.ADD_TRIGGER_ZONE_TO_ARRAY,
+		payload: triggerZone
+	}
+};
+
+function changeTriggerZoneStatus(triggerZoneIndex:number, status:string) {
+	return {
+		type: types.CHANGE_TRIGGER_ZONE_STATUS,
+		payload: {
+			triggerZoneIndex: triggerZoneIndex,
+			status: status
+		}
+	}
+};
+
+function selectTriggerZone(triggerZoneName:string = null) {
+	return {
+		type: types.SELECT_TRIGGER_ZONE,
+		payload: triggerZoneName
+	}
+};
+
 
 export default {
 	addDropZoneToArray,
 	changeDropZoneStatus,
 	selectDropZone,
-	addEventToFiredArray
+	addEventToFiredArray,
+	addTriggerZoneToArray,
+	changeTriggerZoneStatus,
+	selectTriggerZone
 };

@@ -21,13 +21,12 @@ const Inventory = React.createClass({
 
 		this.dragNode = null;
 
-		this.slotCount = 8;
+		this.slotCount = 6;
+		this.examinable = null;
 	},
 
 	componentWillUpdate(nextProps) {
-		if(this.props.items.items != nextProps.items.items) {
-			this.getInventoryItems();
-		}
+		this.getInventoryItems();
 	},
 
 	getInventoryItems() {
@@ -40,10 +39,21 @@ const Inventory = React.createClass({
 			if(this.props.interactables.currentDropZone === this.props.items.draggable) {
 				this.appendDraggableToDropZone();
 			}
+			else if(this.props.interactables.currentTriggerZone === this.props.items.draggable) {
+				var name = this.draggable;
+				var itemIndex = _.findIndex(this.props.items.items, function(obj) {
+					return obj.name === name;
+				});
+
+				this.appendDraggableToOriginalParent();
+				this.props.changeItemStatus(itemIndex, 'allocated');
+				this.props.addEventToFiredArray(name + 'Allocated');
+			}
 			else
 			{
 				this.appendDraggableToOriginalParent();
 			}
+
 			this.props.toggleItemDrag();
 			this.draggable = null;
 			this.dragNode = null;
@@ -59,6 +69,8 @@ const Inventory = React.createClass({
 
 	appendDraggableToDocumentBody() {
 		this.dragNode = this.refs[this.draggable];
+		this.dragNode.style.zIndex = 100;
+		this.dragNode.style.width = '150px';
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
 		document.body.appendChild(this.dragNode);
@@ -113,21 +125,31 @@ const Inventory = React.createClass({
 		this.props.unlockScrollPosition();
 	},
 
+	examineItem(item) {
+		this.props.toggleItemExamine(item);
+	},
+
 	render() {
 		var inventory = this.inventory.map((item, index) =>
 			<div
 				key={item.name}
-				ref={item.name}
-				className={InventoryStyles.item}
-				onMouseDown={() => {this.toggleItemDrag(item.name)}}
-				style={{
-					float: 'left',
-					display: 'block'
-				}}
 			>
-				<Item 
-					item={item}
-				/>
+				<div
+					ref={item.name}
+					className={InventoryStyles.item}
+					onMouseDown={() => {this.toggleItemDrag(item.name)}}
+				>
+					<Item 
+						item={item}
+					/>
+				</div>
+				{item.examinable === true ? (
+					<img
+						className={InventoryStyles.examineButton}
+						src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
+						onMouseDown={() => {this.examineItem(item.name)}}
+					/>
+				) : ''}
 			</div>
 		);
 
@@ -148,7 +170,11 @@ const Inventory = React.createClass({
 		return (
 			<div>
 				<div 
-					className={this.inventory.length > 0 ? InventoryStyles.inventory : ''}
+					ref="inventory"
+					className={InventoryStyles.inventory}
+					style={{
+						bottom: this.props.sceneState.playing || inventory.length < 1 ? '-150px' : '0px'
+					}}
 				>
 					{slots}
 				</div>
@@ -169,7 +195,8 @@ function mapStateToProps(store) {
 		items: store.itemState,
 		interactables: store.interactableState,
 		mouseState: store.mouseState,
-		scrollState: store.scrollState
+		scrollState: store.scrollState,
+		sceneState: store.sceneState
 	}
 };
 
@@ -177,8 +204,9 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemDrag: itemActions.toggleItemDrag,
-		toggleItemInspect: itemActions.toggleItemInspect,
+		toggleItemExamine: itemActions.toggleItemExamine,
 		changeDropZoneStatus: interactableActions.changeDropZoneStatus,
+		addEventToFiredArray:  interactableActions.addEventToFiredArray,
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
 		unlockScrollPosition: scrollEventActions.unlockScrollPosition

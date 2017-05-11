@@ -2,8 +2,10 @@ import types from './types';
 
 const interactableReducer = (state = {
 	dropZones: [],
+	triggerZones: [],
 	firedEvents: [],
-	currentDropZone: null
+	currentDropZone: null,
+	currentTriggerZone: null
 }, action) => {
 	switch(action.type) {
 		case types.ADD_DROP_ZONE_TO_ARRAY: {
@@ -32,7 +34,7 @@ const interactableReducer = (state = {
 			state = {
 				...state,
 				currentDropZone: action.payload,
-				currentEventZone: null
+				currentTriggerZone: null
 			}
 			break;
 		}
@@ -43,6 +45,36 @@ const interactableReducer = (state = {
 					...state.firedEvents,
 					action.payload
 				]
+			}
+			break;
+		}
+		case types.ADD_TRIGGER_ZONE_TO_ARRAY: {
+			state = {
+				...state,
+				triggerZones: [
+					...state.triggerZones,
+					action.payload
+				]
+			}
+			break;
+		}
+		case types.CHANGE_TRIGGER_ZONE_STATUS: {
+			state = {
+				...state,
+				triggerZones: state.triggerZones.map((triggerZone, i) => 
+					i === action.payload.triggerZoneIndex ? {
+						...triggerZone,
+						status: action.payload.status
+					} : triggerZone
+				)
+			}
+			break;
+		}
+		case types.SELECT_TRIGGER_ZONE: {
+			state = {
+				...state,
+				currentTriggerZone: action.payload,
+				currentDropZone: null
 			}
 			break;
 		}

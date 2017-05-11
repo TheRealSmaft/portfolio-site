@@ -24,9 +24,9 @@ function toggleItemDrag(itemName:string = null) {
 	}
 };
 
-function toggleItemInspect(itemName:string = null) {
+function toggleItemExamine(itemName:string = null) {
 	return {
-		type: types.TOGGLE_ITEM_INSPECT,
+		type: types.TOGGLE_ITEM_EXAMINE,
 		payload: itemName
 	}
 };
@@ -35,5 +35,5 @@ export default {
 	addItemToArray,
 	changeItemStatus,
 	toggleItemDrag,
-	toggleItemInspect
+	toggleItemExamine
 };
