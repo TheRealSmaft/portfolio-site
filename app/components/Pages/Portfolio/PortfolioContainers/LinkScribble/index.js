@@ -67,8 +67,7 @@ const LinkScribble = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		items: store.itemState,
-		mode: store.modeState
+		items: store.itemState
 	}
 };
 

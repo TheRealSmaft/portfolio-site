@@ -83,7 +83,7 @@ const Examinable = React.createClass({
 			return obj.name === name;
 		});
 
-		this.props.changeItemStatus(index, 'allocated');
+		this.props.changeItemStatus(index, 'used');
 		this.props.addItemToArray(this.item.nextItemState);
 	},
 

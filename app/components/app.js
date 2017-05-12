@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -7,7 +8,7 @@ import { appStyles, navbarStyles } from '../styles';
 
 import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
-import { Inventory, Examinable } from './Containers/GameContainers';
+import { Inventory } from './Containers/GameContainers';
 
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
@@ -16,6 +17,33 @@ const App = React.createClass({
 	componentWillMount() {
 		this.props.getWindowSize();
 		this.scrollLocked = this.props.scrollState.scrollLocked;
+
+		this.clickBlocker = null;
+		this.inventory = null;
+
+		if(this.props.mode.gameMode) {
+			this.clickBlocker = (
+				<div
+					style={{
+						display: this.props.sceneState.playing ? 'block' : 'none',
+						position: 'fixed',
+						top: '0px',
+						left: '0px',
+						zIndex: 200,
+						width: window.innerWidth + 'px',
+						height: window.innerHeight + 'px'
+					}}
+				>
+				</div>
+			);
+			this.inventory = <Inventory />;
+		}
+		else
+		{
+			if(browserHistory.getCurrentLocation().pathname === '/') {
+				browserHistory.replace('/home');
+			}
+		}
 	},
 
 	componentDidMount() {
@@ -45,21 +73,6 @@ const App = React.createClass({
 	},
 
 	render() {
-		var clickBlocker = this.props.mode.gameMode ? (
-			<div
-				style={{
-					display: this.props.sceneState.playing ? 'block' : 'none',
-					position: 'fixed',
-					top: '0px',
-					left: '0px',
-					zIndex: 200,
-					width: window.innerWidth + 'px',
-					height: window.innerHeight + 'px'
-				}}
-			>
-			</div>
-		) : null;
-
 		return (
 			<div className={appStyles}
 				style={{
@@ -77,16 +90,9 @@ const App = React.createClass({
 
 				{this.props.children}
 
-				<Inventory />
+				{this.inventory}
 
-				<Examinable 
-					style={{
-						width: window.innerWidth + 'px',
-						height: (window.innerHeight - 150) + 'px'
-					}}
-				/>
-
-				{clickBlocker}
+				{this.clickBlocker}
 
 			</div>
 		)

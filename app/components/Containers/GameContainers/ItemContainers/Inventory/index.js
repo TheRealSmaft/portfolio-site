@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import lodash from 'lodash';
 
 import Item from '../ItemComponent';
+import Examinable from '../Examinable';
 
 import { itemActions, itemTypes } from '../../../../../state/game/items';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
@@ -62,7 +63,7 @@ const Inventory = React.createClass({
 			var index = _.findIndex(this.props.items.items, function(obj) {
 				return obj.name === name;
 			});
-			this.props.changeItemStatus(index, 'Used');
+			this.props.changeItemStatus(index, 'used');
 		}
 		this.draggable = null;
 		this.dragNode = null;
@@ -157,6 +158,13 @@ const Inventory = React.createClass({
 					}}
 				>
 				</div>
+				
+				<Examinable 
+					style={{
+						width: window.innerWidth + 'px',
+						height: (window.innerHeight - 150) + 'px'
+					}}
+				/>
 			</div>
 		)
 	}

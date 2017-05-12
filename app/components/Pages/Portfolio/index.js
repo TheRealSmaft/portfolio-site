@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer } from '../../Containers';
@@ -23,12 +24,36 @@ const PortfolioPage = React.createClass({
 			image: 'carrots.jpg'
 		};
 
-		this.eraser = {
-			name: 'Eraser',
-			collectableImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
-			inventoryImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
-			width: '100px'
-		};
+		this.linkScribble = (
+			<Link 
+				to="/contact"
+			>
+				contact&nbsp;me!
+			</Link>
+		);
+
+		this.eraserCollectable = null;
+
+		if(this.props.mode.gameMode) {
+			this.eraser = {
+				name: 'Eraser',
+				collectableImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
+				inventoryImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
+				width: '100px'
+			};
+
+			this.linkScribble = (
+				<LinkScribble 
+					className={PortfolioPageStyles.linkScribble}
+				/>
+			);
+
+			this.eraserCollectable = (
+				<Collectable 
+					item={this.eraser}
+				/>
+			);
+		}
 	},
 
 	render() {
@@ -40,10 +65,8 @@ const PortfolioPage = React.createClass({
 				<div
 					className={PortfolioPageStyles.portIntro}
 				>
-					If you like what you see please
-					<LinkScribble 
-						className={PortfolioPageStyles.linkScribble}
-					/>
+					If you like what you see please&nbsp;
+					{this.linkScribble}
 				</div>
 
 				<PortfolioPiece
@@ -55,9 +78,7 @@ const PortfolioPage = React.createClass({
 					piece={this.carrotPiece}
 				/>
 
-				<Collectable 
-					item={this.eraser}
-				/>
+				{this.eraserCollectable}
 			</ResponsiveContainer>
 		)
 	}
@@ -69,4 +90,4 @@ function mapStateToProps(store) {
 	}
 };
 
-export default PortfolioPage;
+export default connect(mapStateToProps)(PortfolioPage);
