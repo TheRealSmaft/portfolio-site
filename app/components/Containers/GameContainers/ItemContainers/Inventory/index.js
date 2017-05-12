@@ -17,8 +17,6 @@ const Inventory = React.createClass({
 		this.getInventoryItems();
 
 		this.draggable = null;
-		this.lastDraggable = this.draggable;
-
 		this.dragNode = null;
 
 		this.slotCount = 6;
@@ -29,31 +27,42 @@ const Inventory = React.createClass({
 		this.getInventoryItems();
 	},
 
-	componentDidUpdate() {
-		if(this.props.interactables.firedEvents.includes('knifeUsed') &&
-			this.draggable === "Artist's Knife" ||
-			this.props.interactables.firedEvents.includes('eraserUsed') &&
-			this.draggable === "Eraser") {
-			this.stopTrackingMouse();
-			this.triggerZoneUsed(this.draggable);
-			this.props.toggleItemDrag();
-			this.draggable = null;
-			this.dragNode = null;
-		}
-
-		if(this.draggable === "Artist's Knife" ||
-			this.draggable === "Eraser") {
-			document.addEventListener('click', this.returnItem);
-		}
+	startDraggingItem(name) {
+		this.draggable = name;
+		this.props.toggleItemDrag(name);
+		this.appendDraggableToDocumentBody();
+		this.startTrackingMouse();
 	},
 
-	returnItem(e) {
-		e.target.removeEventListener('click', this.returnItem);
+	stopDraggingItem() {
 		this.stopTrackingMouse();
 		this.appendDraggableToOriginalParent();
 		this.props.toggleItemDrag();
-		if(this.dragNode != null) {
-			this.dragNode.style.pointerEvents = 'auto';
+	},
+
+	appendDraggableToDocumentBody() {
+		this.dragNode = this.refs[this.draggable];
+		this.dragNode.style.zIndex = 100;
+		this.dragNode.style.width = '150px';
+		this.dragNode.style.pointerEvents = 'none';
+		this.originalParentNode = this.dragNode.parentNode;
+		this.originalParentNode.removeChild(this.dragNode);
+		document.body.appendChild(this.dragNode);
+		document.addEventListener('click', this.stopDraggingItem);
+	},
+
+	appendDraggableToOriginalParent() {
+		this.dragNode.parentNode.removeChild(this.dragNode);
+		this.originalParentNode.appendChild(this.dragNode);
+		this.dragNode.style.position = 'static';
+		this.dragNode.style.pointerEvents = 'auto';
+		document.removeEventListener('click', this.stopDraggingItem);
+		if(this.props.interactables.firedEvents.includes(this.draggable + 'Used')) {
+			var name = this.draggable;
+			var index = _.findIndex(this.props.items.items, function(obj) {
+				return obj.name === name;
+			});
+			this.props.changeItemStatus(index, 'Used');
 		}
 		this.draggable = null;
 		this.dragNode = null;
@@ -61,86 +70,6 @@ const Inventory = React.createClass({
 
 	getInventoryItems() {
 		this.inventory = _.filter(this.props.items.items, ['status', 'inventory']);
-	},
-
-	toggleItemDrag(name) {
-		if(this.props.items.draggable != null) {
-			this.stopTrackingMouse();
-			if(this.props.interactables.currentDropZone === this.props.items.draggable) {
-				this.appendDraggableToDropZone();
-			}
-			else if(this.props.interactables.currentTriggerZone === this.props.items.draggable) {
-				this.triggerZoneUsed(this.draggable);
-			}
-			else
-			{
-				this.appendDraggableToOriginalParent();
-			}
-
-			this.props.toggleItemDrag();
-			this.draggable = null;
-			this.dragNode = null;
-		}
-		else
-		{
-			this.draggable = name;
-			this.props.toggleItemDrag(name);
-			this.appendDraggableToDocumentBody();
-			this.startTrackingMouse();
-		}
-	},
-
-	triggerZoneUsed(draggable) {
-		var itemIndex = _.findIndex(this.props.items.items, function(obj) {
-			return obj.name === draggable;
-		});
-
-		this.appendDraggableToOriginalParent();
-		this.props.changeItemStatus(itemIndex, 'allocated');
-		this.props.addEventToFiredArray(draggable + 'Allocated');
-	},
-
-	appendDraggableToDocumentBody() {
-		this.dragNode = this.refs[this.draggable];
-		this.dragNode.style.zIndex = 100;
-		this.dragNode.style.width = '150px';
-		this.originalParentNode = this.dragNode.parentNode;
-		this.originalParentNode.removeChild(this.dragNode);
-		document.body.appendChild(this.dragNode);
-		if(this.draggable === "Artist's Knife" ||
-			this.draggable === "Eraser") {
-			this.dragNode.style.pointerEvents = 'none';
-		}
-	},
-
-	appendDraggableToOriginalParent() {
-		if(this.dragNode != null) {
-			this.dragNode.parentNode.removeChild(this.dragNode);
-			this.originalParentNode.appendChild(this.dragNode);
-			this.dragNode.style.position = 'static';
-		}
-		else
-		{
-			document.removeEventListener('click', this.returnItem);
-		}
-	},
-
-	appendDraggableToDropZone() {
-		var name = this.draggable;
-		this.originalParentNode.appendChild(this.dragNode);
-
-		var dropZoneIndex = _.findIndex(this.props.interactables.dropZones, function(obj) {
-			return obj.name === name;
-		});
-
-		var itemIndex = _.findIndex(this.props.items.items, function(obj) {
-			return obj.name === name;
-		});
-
-		this.props.changeItemStatus(itemIndex, 'allocated');
-
-		this.props.toggleItemDrag();
-		this.props.changeDropZoneStatus(dropZoneIndex, 'closed');
 	},
 
 	startTrackingMouse() {
@@ -180,7 +109,7 @@ const Inventory = React.createClass({
 				<div
 					ref={item.name}
 					className={InventoryStyles.item}
-					onMouseDown={() => {this.toggleItemDrag(item.name)}}
+					onClick={() => {this.startDraggingItem(item.name)}}
 				>
 					<Item 
 						item={item}
@@ -190,7 +119,7 @@ const Inventory = React.createClass({
 					<img
 						className={InventoryStyles.examineButton}
 						src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
-						onMouseDown={() => {this.examineItem(item.name)}}
+						onClick={() => {this.examineItem(item.name)}}
 					/>
 				) : ''}
 			</div>
@@ -248,7 +177,6 @@ function mapDispatchToProps(dispatch) {
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemDrag: itemActions.toggleItemDrag,
 		toggleItemExamine: itemActions.toggleItemExamine,
-		changeDropZoneStatus: interactableActions.changeDropZoneStatus,
 		addEventToFiredArray:  interactableActions.addEventToFiredArray,
 		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,

@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import { DeferredEventExecutor } from '../../../../Containers';
 
-import { TriggerZone } from '../../../GameContainers';
-
 import { itemActions, itemTypes } from '../../../../../state/game/items';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
 import { scrollEventActions, scrollEventTypes } from '../../../../../state/events/scroll';
@@ -114,8 +112,6 @@ const Examinable = React.createClass({
 				</DeferredEventExecutor>
 			) : null;
 
-		var triggerItem = this.item != null && this.item.triggerItem ? this.item.triggerItem : 'none';
-
 		return (
 			<div
 				className={ExaminableStyles.examinationScene}
@@ -129,11 +125,7 @@ const Examinable = React.createClass({
 					onClick={this.closeExamination}
 					src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
 				/>
-				<TriggerZone
-					triggerItem={triggerItem}
-				>
-					{itemElement}
-				</TriggerZone>
+				{itemElement}
 				<div
 					className={ExaminableStyles.animationContainer}
 				>

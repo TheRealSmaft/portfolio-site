@@ -142,7 +142,7 @@ const SilhouetteIntroScene = React.createClass({
 	tearClicked() {
 		if(this.props.items.draggable === "Artist's Knife") {
 			this.tear.removeEventListener('click', this.tearClicked);
-			this.props.addEventToFiredArray('knifeUsed');
+			this.props.addEventToFiredArray('Artist\'s KnifeUsed');
 			this.tearAnimation.play();	
 		}
 	},	

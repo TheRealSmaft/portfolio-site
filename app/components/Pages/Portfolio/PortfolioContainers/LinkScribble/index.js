@@ -30,7 +30,7 @@ const LinkScribble = React.createClass({
 
 	eraseScribble() {
 		if(this.props.items.draggable === "Eraser") {
-			this.props.addEventToFiredArray('eraserUsed');
+			this.props.addEventToFiredArray('EraserUsed');
 			this.scribble.play();	
 		}
 	},

@@ -520,11 +520,21 @@
 	"buffers":
 	[
 		{
+			"contents": "import React from 'react';\nimport { bindActionCreators } from 'redux';\nimport { connect } from 'react-redux';\n\nimport { DeferredEventExecutor } from '../../../../Containers';\n\nimport { itemActions, itemTypes } from '../../../../../state/game/items';\nimport { interactableActions, interactableTypes } from '../../../../../state/game/interactables';\nimport { scrollEventActions, scrollEventTypes } from '../../../../../state/events/scroll';\n\nimport ExaminableStyles from '../../../../../styles/examinables';\n\nimport BodyMovin from '../../../../../plugins/bodymovin.min';\n\nconst Examinable = React.createClass({\n\tcomponentDidUpdate() {\n\t\tif(this.item != null) {\n\t\t\tif(this.item.animationToTrigger && !this.animation) {\n\t\t\t\tvar animationData = this.item.animationToTrigger;\n\t\t\t\tvar animationData = {\n\t\t\t\t\t...animationData,\n\t\t\t\t\tcontainer: this.refs.animation\n\t\t\t\t}\n\n\t\t\t\tthis.animation = BodyMovin.loadAnimation(animationData);\n\t\t\t}\n\n\t\t\tif(this.checkFireCondition() && !this.animationFired) {\n\t\t\t\tthis.animationFired = true;\n\t\t\t\tthis.refs.animation.style.visibility = 'visible';\n\t\t\t\tif(this.item.password) {\n\t\t\t\t\tvar passwordElement = document.createElementNS(\"http://www.w3.org/2000/svg\", \"text\");\n\t\t\t\t\tpasswordElement.setAttribute(\"font-size\", \"80\");\n\t\t\t\t\tpasswordElement.setAttribute(\"font-family\", \"Comic Sans MS\");\n\t\t\t\t\tpasswordElement.setAttribute(\"fill\", \"rgba(255,255,255,0.85)\");\n\t\t\t\t\tpasswordElement.setAttribute(\"x\", \"-5%\");\n\t\t\t\t\tpasswordElement.setAttribute(\"y\", \"16%\");\n\t\t\t\t\tpasswordElement.style.transform = \"rotateZ(-20deg)\";\n\t\t\t\t\tpasswordElement.style.width = '50%';\n\n\t\t\t\t\tpasswordElement.innerHTML = this.item.password;\n\t\t\t\t\tthis.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);\n\t\t\t\t}\n\t\t\t\tsetTimeout(() => {\n\t\t\t\t\tthis.animation.play();\n\t\t\t\t}, 50)\n\t\t\t}\n\t\t}\n\t},\n\n\tcheckFireCondition() {\n\t\tif(this.item.fireCondition != undefined) {\n\t\t\tif(this.props.interactables.firedEvents.includes(this.item.fireCondition)){\n\t\t\t\treturn true;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\treturn false;\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\treturn false;\n\t\t}\n\t},\n\n\tcloseExamination() {\n\t\tthis.props.toggleItemExamine();\n\t},\n\n\tclickEvent() {\n\t\tif(this.item.clickEvent) {\n\t\t\tthis.item.clickEvent();\n\t\t}\n\t\tif(this.item.eventToFire) {\n\t\t\tthis.props.addEventToFiredArray(this.item.eventToFire);\n\t\t}\n\t},\n\n\tupdateItem() {\n\t\tvar name = this.item.name;\n\t\tvar index = _.findIndex(this.props.items.items, function(obj) {\n\t\t\treturn obj.name === name;\n\t\t});\n\n\t\tthis.props.changeItemStatus(index, 'allocated');\n\t\tthis.props.addItemToArray(this.item.nextItemState);\n\t},\n\n\trender() {\n\t\tthis.item = this.props.items.examinable != null ? \n\t\t\t\t\t  _.find(this.props.items.items, ['name', this.props.items.examinable]) :\n\t\t\t\t\t  null;\n\t\tif(this.item != null) {\n\t\t\tthis.item.deferredEvents.moments.push(this.item.deferredEvents.moments[this.item.deferredEvents.moments.length - 1] + 1);\n\t\t\tthis.item.deferredEvents.events.push(() => {this.updateItem()});\n\t\t}\n\t\tvar itemElement = this.item != null ?\n\t\t\t(\n\t\t\t\t<DeferredEventExecutor\n\t\t\t\t\tmoments={this.item.deferredEvents.moments}\n\t\t\t\t\tevents={this.item.deferredEvents.events}\n\t\t\t\t\tincrement={this.item.deferredEvents.increment ? this.item.deferredEvents.increment : 1000}\n\t\t\t\t\tloop={this.item.deferredEvents.loop ? this.item.deferredEvents.loop : false}\n\t\t\t\t\tfireCondition={this.item.deferredEvents.fireCondition ? this.item.deferredEvents.fireCondition : null}\n\t\t\t\t>\n\t\t\t\t\t<img\n\t\t\t\t\t\tclassName={this.item.eventToFire || this.item.clickEvent ? ExaminableStyles.clickWillFireEvent : ''}\n\t\t\t\t\t\tsrc={this.item.examineImage}\n\t\t\t\t\t\tonClick={() => {this.clickEvent()}}\n\t\t\t\t\t/>\n\t\t\t\t</DeferredEventExecutor>\n\t\t\t) : null;\n\n\t\treturn (\n\t\t\t<div\n\t\t\t\tclassName={ExaminableStyles.examinationScene}\n\t\t\t\tstyle={{\n\t\t\t\t\t...this.props.style,\n\t\t\t\t\tdisplay: this.item === null ? 'none' : 'block'\n\t\t\t\t}}\n\t\t\t>\n\t\t\t\t<img\n\t\t\t\t\tclassName={ExaminableStyles.exitButton}\n\t\t\t\t\tonClick={this.closeExamination}\n\t\t\t\t\tsrc={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}\n\t\t\t\t/>\n\t\t\t\t{itemElement}\n\t\t\t\t<div\n\t\t\t\t\tclassName={ExaminableStyles.animationContainer}\n\t\t\t\t>\n\t\t\t\t\t<div\n\t\t\t\t\t\tref=\"animation\"\n\t\t\t\t\t\tstyle={{\n\t\t\t\t\t\t\tvisibility: 'hidden'\n\t\t\t\t\t\t}}\n\t\t\t\t\t>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t);\n\t}\n});\n\nfunction mapStateToProps(store) {\n\treturn {\n\t\titems: store.itemState,\n\t\tinteractables: store.interactableState\n\t}\n};\n\nfunction mapDispatchToProps(dispatch) {\n\treturn bindActionCreators({\n\t\taddItemToArray: itemActions.addItemToArray,\n\t\tchangeItemStatus: itemActions.changeItemStatus,\n\t\ttoggleItemExamine: itemActions.toggleItemExamine,\n\t\taddEventToFiredArray: interactableActions.addEventToFiredArray,\n\t\tlockScrollPosition: scrollEventActions.lockScrollPosition,\n\t\tunlockScrollPosition: scrollEventActions.unlockScrollPosition,\n\t}, dispatch)\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(Examinable);",
+			"file": "app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
+			"file_size": 5225,
+			"file_write_time": 131389801290379981,
+			"settings":
+			{
+				"buffer_size": 4827,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "app/components/Pages/Contact/index.js",
 			"settings":
 			{
 				"buffer_size": 1613,
-				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -586,13 +596,10 @@
 	[
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
@@ -602,27 +609,26 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/LinkScribble",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables/silhouette"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Portfolio/Portfolio.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/LinkScribble/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/InteractableContainers/TriggerZone/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/LinkScribble/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Portfolio/Portfolio.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/InteractableContainers/TriggerZone/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/scenes/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables/silhouette/silhouette.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/routes.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode/duck/actions.js",
@@ -647,7 +653,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/Paper/uncrumpleEvents.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/examinables/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/Inventory/ExaminableButton.svg",
@@ -757,6 +762,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"appendDraggableToOriginalParent",
+			"onMouseDown",
 			"document",
 			"onScroll",
 			"true",
@@ -882,9 +889,7 @@
 			"\"",
 			"10",
 			"\"",
-			"Diffuse",
-			"feDistantLight",
-			"motionPaths"
+			"Diffuse"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -907,8 +912,43 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/Pages/Contact/index.js",
+					"file": "app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
 					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4066,
+								4066
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2026.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "app/components/Pages/Contact/index.js",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 1613,
@@ -918,8 +958,8 @@
 						"selection":
 						[
 							[
-								219,
-								219
+								342,
+								342
 							]
 						],
 						"settings":
@@ -927,18 +967,13 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -970,7 +1005,7 @@
 		"cols":
 		[
 			0.0,
-			0.477884040646,
+			0.5,
 			1.0
 		],
 		"rows":

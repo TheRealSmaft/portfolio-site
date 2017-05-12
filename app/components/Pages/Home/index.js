@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
-import { DropZone, Collectable } from '../../Containers/GameContainers';
+import { Collectable } from '../../Containers/GameContainers';
 
 import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
 

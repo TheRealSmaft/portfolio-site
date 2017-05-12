@@ -79,8 +79,9 @@ const LoadingPage = React.createClass({
 				},
 				hasTriggerZone: true,
 				triggerItem: "Pencil",
-				fireCondition: 'PencilAllocated',
+				fireCondition: 'PencilUsed',
 				password: this.props.mode.password,
+				eventToFire: 'PencilUsed',
 				animationToTrigger: {
 					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
 					path: '../../../assets/images/items/Pencil',
