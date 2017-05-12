@@ -30,7 +30,7 @@ const Examinable = React.createClass({
 				this.refs.animation.style.visibility = 'visible';
 				if(this.item.password) {
 					var passwordElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-					passwordElement.setAttribute("font-size", "80");
+					passwordElement.setAttribute("font-size", "72");
 					passwordElement.setAttribute("font-family", "Comic Sans MS");
 					passwordElement.setAttribute("fill", "rgba(255,255,255,0.85)");
 					passwordElement.setAttribute("x", "-5%");

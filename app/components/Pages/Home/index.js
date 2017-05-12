@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
@@ -15,8 +16,14 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const HomePage = React.createClass({
 	componentWillMount() {
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel < 1) {
+				browserHistory.replace('/');
+			}
+		}
 		this.pencil = {
 			name: 'Pencil',
+			usePoint: 2,
 			collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
 			inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
 			width: '100px'
@@ -123,4 +130,10 @@ const HomePage = React.createClass({
 	}
 });
 
-export default HomePage;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState
+	}
+};
+
+export default connect(mapStateToProps)(HomePage);

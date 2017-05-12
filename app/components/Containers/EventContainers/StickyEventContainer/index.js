@@ -55,7 +55,10 @@ const StickyEventContainer = React.createClass({
 			this.props.scrollState.scrollX > this.start.x) {
 			return (
 				<div 
-					style={this.placeholderStyles}
+					style={{
+						...this.placeholderStyles,
+						...this.props.style
+					}}
 				>
 					<div 
 						className={this.props.childStyles} 

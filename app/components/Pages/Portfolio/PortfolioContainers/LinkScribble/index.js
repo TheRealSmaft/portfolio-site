@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { modeActions, modeTypes } from '../../../../../state/game/mode';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
 
 import BodyMovin from '../../../../../plugins/bodymovin.min';
@@ -14,24 +15,33 @@ const LinkScribble = React.createClass({
 	},
 
 	componentDidMount() {
-		var animationData = {
-			animationData: require('../../../../../assets/images/interactables/LinkScribble/LinkScribble.json'),
-			path: '../../../../../assets/images/interactables/LinkScribble',
-			loop: false,
-			autoplay: false,
-			name: 'linkScribble',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.scribble)
-		};
+		if(this.props.mode.progressLevel < 4) {
+			var animationData = {
+				animationData: require('../../../../../assets/images/interactables/LinkScribble/LinkScribble.json'),
+				path: '../../../../../assets/images/interactables/LinkScribble',
+				loop: false,
+				autoplay: false,
+				name: 'linkScribble',
+				renderer: 'svg' ,
+				container: ReactDOM.findDOMNode(this.refs.scribble)
+			};
 
-		this.scribble = BodyMovin.loadAnimation(animationData);
-		this.scribble.addEventListener('complete', this.makeLinkClickable);
+			this.scribble = BodyMovin.loadAnimation(animationData);
+			this.scribble.addEventListener('complete', this.makeLinkClickable);
+		}
+		else
+		{
+			this.linkClickable = true;
+			this.refs.scribble.style.display = 'none';
+			this.refs.scribble.parentNode.childNodes[0].style.pointerEvents = 'auto';
+		}
 	},
 
 	eraseScribble() {
 		if(this.props.items.draggable === "Eraser") {
 			this.props.addEventToFiredArray('EraserUsed');
-			this.scribble.play();	
+			this.scribble.play();
+			this.props.updateGameProgress(4);
 		}
 	},
 
@@ -57,7 +67,7 @@ const LinkScribble = React.createClass({
 				</Link>
 				<div
 					ref="scribble"
-					onMouseUp={this.eraseScribble}
+					onClick={this.eraseScribble}
 				>
 				</div>
 			</div>
@@ -67,12 +77,14 @@ const LinkScribble = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		mode: store.modeState,
 		items: store.itemState
 	}
 };
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		updateGameProgress: modeActions.updateGameProgress,
 		addEventToFiredArray:  interactableActions.addEventToFiredArray
 	}, dispatch)
 };

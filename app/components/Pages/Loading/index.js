@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
+
+import { modeActions, modeTypes } from '../../../state/game/mode';
 import { itemTypes, itemActions } from '../../../state/game/items';
 import { sceneTypes, sceneActions } from '../../../state/game/scenes';
 
@@ -22,6 +24,9 @@ const LoadingPage = React.createClass({
 	},
 
 	componentWillMount() {
+		if(this.props.mode.progressLevel > 0) {
+			browserHistory.replace('/home');
+		}
 		this.ellipsisEvents = [
 			function (target) {
 				target.innerHTML = '';
@@ -176,6 +181,7 @@ const LoadingPage = React.createClass({
 		this.changeEllipsisGlyph('!');
 
 		setTimeout(() => {
+			this.props.updateGameProgress(1);
 			browserHistory.push('/home');
 		}, 3000);
 	},
@@ -239,6 +245,7 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		updateGameProgress: modeActions.updateGameProgress,
 		addItemToArray: itemActions.addItemToArray,
 		toggleSceneStart: sceneActions.toggleSceneStart,
 		toggleSceneStop: sceneActions.toggleSceneStop
