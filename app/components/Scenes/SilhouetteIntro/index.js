@@ -195,6 +195,7 @@ const SilhouetteIntroScene = React.createClass({
 
 		this.refs.emergencyPanel.classList.add(SilhouetteStyles.panelAlreadyOpen);
 		this.refs.emergencyPanel.childNodes[1].value = this.props.mode.password;
+		this.refs.emergencyPanel.style.pointerEvents = "none";
 
 		this.linkHoleToPortfolio();
 	},
