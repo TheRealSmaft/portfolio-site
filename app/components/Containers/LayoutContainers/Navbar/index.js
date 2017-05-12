@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import { ResponsiveContainer } from '../../../Containers';
@@ -20,67 +21,101 @@ const Navbar = React.createClass({
 		})
 	},
 
+	componentDidMount() {
+
+	},
+
 	render() {
-		return (
-			<ResponsiveContainer>
-				<div
-					className={navbarStyles.navbar}
-					style={{...this.props.style}}
-				>
-					<Link to="/home"> 
-						<h4>
-							Home
-						</h4>
-					</Link>
-					<Link to="/portfolio"> 
-						<h4>
-							Portfolio
-						</h4>
-					</Link>
-					<Link to="/contact"> 
-						<h4>
-							Contact
-						</h4>
-					</Link>
-					<Link to="/about"> 
-						<h4>
-							About
-						</h4>
-					</Link>
-				</div>
-				<div
-					className={navbarStyles.navbarCollapsed}
-				>
+		if(!this.props.mode.gameMode) {
+			return (
+				<ResponsiveContainer>
 					<div
-						onClick={this.toggleMobileMenu}
-					>
-						<span>
-							M
-						</span>
-					</div>
-					<div
-						ref="mobileMenu"
+						className={navbarStyles.navbar}
 						style={{
-							display: this.state.menuToggled ? 'block' : 'none'
+							...this.props.style
 						}}
 					>
 						<Link to="/home"> 
-							Home
+							<h4>
+								Home
+							</h4>
 						</Link>
 						<Link to="/portfolio"> 
-							Portfolio
+							<h4>
+								Portfolio
+							</h4>
 						</Link>
 						<Link to="/contact"> 
-							Contact
+							<h4>
+								Contact
+							</h4>
 						</Link>
 						<Link to="/about"> 
-							About
+							<h4>
+								About
+							</h4>
 						</Link>
 					</div>
-				</div>
-			</ResponsiveContainer>
-		);
+					<div
+						className={navbarStyles.navbarCollapsed}
+					>
+						<div
+							onClick={this.toggleMobileMenu}
+						>
+							<span>
+								M
+							</span>
+						</div>
+						<div
+							ref="mobileMenu"
+							style={{
+								display: this.state.menuToggled ? 'block' : 'none'
+							}}
+						>
+							<Link to="/home"> 
+								Home
+							</Link>
+							<Link to="/portfolio"> 
+								Portfolio
+							</Link>
+							<Link to="/contact"> 
+								Contact
+							</Link>
+							<Link to="/about"> 
+								About
+							</Link>
+						</div>
+					</div>
+				</ResponsiveContainer>
+			);
+		}
+		else
+		{
+			if(window.location.pathname != '/home' &&
+				window.location.pathname != '/') {
+				return (
+					<div
+						className={navbarStyles.navbar}
+						style={{
+							...this.props.style,
+							visibility: 'hidden'
+						}}
+					>
+					</div>
+				);
+			}
+			else
+			{
+				return null;
+			}
+		}
 	}
 });
 
-export default Navbar;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState
+	}
+};
+
+export default connect(mapStateToProps)(Navbar);

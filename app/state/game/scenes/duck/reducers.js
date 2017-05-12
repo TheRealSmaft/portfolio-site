@@ -1,7 +1,7 @@
 import types from './types';
 
 const sceneReducer = (state = {
-	playing: true,
+	playing: false,
 	scenesElapsed: 0
 }, action) => {
 	switch(action.type) {

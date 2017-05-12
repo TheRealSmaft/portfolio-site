@@ -83,7 +83,7 @@ const LoadingPage = React.createClass({
 				password: this.props.mode.password,
 				animationToTrigger: {
 					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
-					path: '../../../../../assets/images/items/Pencil',
+					path: '../../../assets/images/items/Pencil',
 					loop: false,
 					autoplay: false,
 					name: 'penclWriting',
@@ -98,7 +98,7 @@ const LoadingPage = React.createClass({
 
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
-			path: '../../../../../assets/images/interactables/LoadingGears',
+			path: '../../../assets/images/interactables/LoadingGears',
 			loop: 1,
 			autoplay: true,
 			name: 'loadingGears',
@@ -117,7 +117,7 @@ const LoadingPage = React.createClass({
 	breakGears() {
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsBreaking.json'),
-			path: '../../../../../assets/images/interactables/LoadingGears',
+			path: '../../../assets/images/interactables/LoadingGears',
 			loop: false,
 			autoplay: true,
 			name: 'loadingGears',
@@ -136,7 +136,7 @@ const LoadingPage = React.createClass({
 		this.props.addItemToArray(this.paperItem);
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsFixed.json'),
-			path: '../../../../../assets/images/interactables/LoadingGears',
+			path: '../../../assets/images/interactables/LoadingGears',
 			loop: false,
 			autoplay: true,
 			name: 'loadingGears',
@@ -160,7 +160,7 @@ const LoadingPage = React.createClass({
 	turboChargeGears() {
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
-			path: '../../../../../assets/images/interactables/LoadingGears',
+			path: '../../../assets/images/interactables/LoadingGears',
 			loop: true,
 			autoplay: true,
 			name: 'loadingGears',

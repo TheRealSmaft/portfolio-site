@@ -20,7 +20,7 @@ const HomePage = React.createClass({
 			collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
 			inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
 			width: '100px'
-		}
+		};
 	},
 
 	componentDidMount() {
