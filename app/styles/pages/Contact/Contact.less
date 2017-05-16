@@ -1,0 +1,21 @@
+@import "../../mediaQueries/mediaQueries.less";
+
+.sceneAndForm {
+	display: flex;
+	flex-direction: row;
+
+	width: 100%;
+
+	@media @small-max {
+		flex-direction: column;
+	}
+
+	div {
+		position: static;
+		flex: 1;
+
+		@media @small-max {
+			width: 100%;
+		}
+	}
+}
