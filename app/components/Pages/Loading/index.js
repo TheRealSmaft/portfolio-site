@@ -47,7 +47,7 @@ const LoadingPage = React.createClass({
 
 		var uncrumpleMoments = [];
 
-		for(var i = 1; i < 81; i++) {
+		for(var i = 1; i < 80; i++) {
 			uncrumpleMoments.push(i);
 		}
 
@@ -58,8 +58,7 @@ const LoadingPage = React.createClass({
 			width: '100px',
 			status: 'inventory',
 			examinable: true,
-			examineImage: require('../../../assets/images/items/Paper/Crumple/Crumple(1).png'),
-			examineWidth: '40%',
+			examineImage: require('../../../assets/images/items/Paper/CrumpledPaperExaminable.png'),			
 			deferredEvents: {
 				events: uncrumpleEvents,
 				moments: uncrumpleMoments,
@@ -76,8 +75,7 @@ const LoadingPage = React.createClass({
 				width: '100px',
 				status: 'inventory',
 				examinable: true,
-				examineImage: require('../../../assets/images/items/Paper/Paper.png'),
-				examineWidth: '40%',
+				examineImage: require('../../../assets/images/items/Paper/PaperExaminable.png'),
 				deferredEvents: {
 					events: [],
 					moments: []

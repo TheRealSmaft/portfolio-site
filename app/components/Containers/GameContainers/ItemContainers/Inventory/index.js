@@ -21,7 +21,6 @@ const Inventory = React.createClass({
 		this.dragNode = null;
 
 		this.slotCount = 6;
-		this.examinable = null;
 	},
 
 	componentWillUpdate() {
@@ -99,7 +98,8 @@ const Inventory = React.createClass({
 	},
 
 	examineItem(item) {
-		this.props.toggleItemExamine(item);
+		this.props.toggleItemExamine(item.name);
+		this.examinable = item;
 	},
 
 	render() {
@@ -120,7 +120,7 @@ const Inventory = React.createClass({
 					<img
 						className={InventoryStyles.examineButton}
 						src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
-						onClick={() => {this.examineItem(item.name)}}
+						onClick={() => {this.examineItem(item)}}
 					/>
 				) : ''}
 			</div>
@@ -140,8 +140,18 @@ const Inventory = React.createClass({
 			);
 		};
 
+		var examinable = this.props.items.examinable ? (
+			<Examinable 
+				style={{
+					width: '100%',
+					height: '100%'
+				}}
+			/>
+		) : null;
+
 		return (
 			<div>
+				{examinable}
 				<div 
 					ref="inventory"
 					className={InventoryStyles.inventory}
@@ -158,13 +168,6 @@ const Inventory = React.createClass({
 					}}
 				>
 				</div>
-				
-				<Examinable 
-					style={{
-						width: window.innerWidth + 'px',
-						height: (window.innerHeight - 150) + 'px'
-					}}
-				/>
 			</div>
 		)
 	}
@@ -172,6 +175,7 @@ const Inventory = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		mode: store.modeState,
 		items: store.itemState,
 		interactables: store.interactableState,
 		mouseState: store.mouseState,

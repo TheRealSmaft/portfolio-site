@@ -3,11 +3,13 @@
   z-index: 45;
   position: fixed;
   top: 0px;
+  left: 0px;
 }
 .examinationScene div {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   height: 100%;
 }
 .examinationScene div img {

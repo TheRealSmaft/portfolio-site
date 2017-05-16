@@ -1,0 +1,12 @@
+Adobe After Effects v14.2 Windows 64 render log for project “Paper.aep”
+
+Rendering started on 5/16/2017 at 3:38:07 PM
+
+  5/16/2017 3:38:07 PM: Starting composition “Crumple”.
+
+  Output To: C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple\Crumple.png    5/16/2017 3:38:07 PM: Finished composition “Crumple”.
+
+
+  5/16/2017 3:38:07 PM: Starting composition “Crumple”.
+
+  Output To: C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple\Crumple_1.png  After Effects warning: Could not create the file 'C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple\Crumple_1.png'. Access was denied.After Effects: AEGP Plugin PNGIO Support: Unable to create PNGIO. (5027  ::  12)After Effects error: cannot close a closed file. (3  ::  5)After Effects error: attempt to remove an item from a position outside of list length. (27  ::  9)

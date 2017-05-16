@@ -1,0 +1,17 @@
+Adobe After Effects v14.2 Windows 64 render log for project “Paper.aep”
+
+Rendering started on 5/16/2017 at 3:32:30 PM
+
+  5/16/2017 3:32:30 PM: Starting composition “Crumple”.
+
+  Output To: C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple (0;00;00;00).psd    5/16/2017 3:32:30 PM: Finished composition “Crumple”.
+
+
+  5/16/2017 3:32:30 PM: Starting composition “Crumple”.
+
+  Output To: C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple (0;00;03;00).psd    5/16/2017 3:32:30 PM: Finished composition “Crumple”.
+
+
+  Total Time Elapsed: 0 Seconds
+Log closed on 5/16/2017 at 3:32:30 PM
+

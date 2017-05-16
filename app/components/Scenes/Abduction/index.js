@@ -1,37 +1,74 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { itemActions, itemTypes } from '../../../state/game/items';
+import { modeActions, modeTypes } from '../../../state/game/mode';
+
+import { ContactPageStyles } from '../../../styles/pages';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
 const Abduction = React.createClass({
 	componentDidMount() {
-		var ufoArrival = {
-			animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
-			path: '../../../assets/images/interactables/UFO',
-			loop: false,
-			autoplay: false,
-			name: 'ufoArrival',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.alienContact)
-		};
+		if(this.props.mode.progressLevel > 3) {
+			var ufoArrival = {
+				animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
+				path: '../../../assets/images/interactables/UFO',
+				loop: false,
+				autoplay: false,
+				name: 'ufoArrival',
+				renderer: 'svg' ,
+				container: ReactDOM.findDOMNode(this.refs.alienContact)
+			};
 
-		this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
-		this.ufoArrival.addEventListener('complete', this.ufoHover);
-		setTimeout(() => {
-			this.ufoArrival.play();
-		}, 500);
+			this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
+			this.ufoArrival.addEventListener('complete', this.ufoHover);
+			setTimeout(() => {
+				this.ufoArrival.play();
+			}, 500);
 
-		var silhouetteChewing = {
-			animationData: require('../../../assets/images/interactables/UFO/SilhouetteChewing.json'),
-			path: '../../../assets/images/interactables/UFO',
-			loop: true,
-			autoplay: true,
-			name: 'silhouetteChewing',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.silhouette)
-		};
+			var silhouetteChewing = {
+				animationData: require('../../../assets/images/interactables/UFO/SilhouetteChewing.json'),
+				path: '../../../assets/images/interactables/UFO',
+				loop: true,
+				autoplay: true,
+				name: 'silhouetteChewing',
+				renderer: 'svg' ,
+				container: ReactDOM.findDOMNode(this.refs.silhouette)
+			};
 
-		this.silhouetteChewing = BodyMovin.loadAnimation(silhouetteChewing);
+			if(this.props.mode.progressLevel < 5) {
+				this.silhouetteChewing = BodyMovin.loadAnimation(silhouetteChewing);
+			}
+
+			this.brokenLinkItem = {
+				name: 'Broken Link',
+				collectableImage: require('../../../assets/images/items/AboutLink/BrokenAboutLink.svg'),
+				inventoryImage: require('../../../assets/images/items/AboutLink/BrokenAboutLink.svg'),
+				width: '100px',
+				status: 'inventory',
+				examinable: true,
+				examineImage: require('../../../assets/images/items/AboutLink/AboutLinkBrokenExamine.svg'),
+				deferredEvents: {
+					events: [],
+					moments: []
+				},
+				triggerItem: "Glue",
+				fireCondition: "GlueUsed",
+				eventToFire: "GlueUsed",
+				animationToTrigger: {
+					animationData: require('../../../assets/images/items/AboutLink/AboutLinkFixed.json'),
+					path: '../../../assets/images/items/AboutLink',
+					loop: false,
+					autoplay: false,
+					name: 'aboutLinkFixed',
+					renderer: 'svg'
+				},
+				animationReplacesImage: true
+			}
+		}
 	},
 
 	ufoHover() {
@@ -63,11 +100,12 @@ const Abduction = React.createClass({
 
 		this.carrot = BodyMovin.loadAnimation(carrotAnimationData);
 
-		this.silhouetteAbduction();
-
-		setTimeout(() => {
-			this.useTractorBeam();
-		}, 3000);
+		if(this.props.mode.progressLevel < 5) {
+			this.silhouetteAbduction();
+			setTimeout(() => {
+				this.useTractorBeam();
+			}, 3000);
+		}
 	},
 
 	useTractorBeam() {
@@ -97,6 +135,25 @@ const Abduction = React.createClass({
 
 		this.silhouetteChewing.destroy();
 		this.silhouetteAbduction = BodyMovin.loadAnimation(silhouetteAbduction);
+		this.silhouetteAbduction.addEventListener('complete', this.makeBrokenLinkClickable);
+	},
+
+	makeBrokenLinkClickable() {
+		this.silhouetteAbduction.removeEventListener('complete', this.makeBrokenLinkClickable);
+		this.refs.silhouette.style.pointerEvents = 'none';
+		this.refs.carrot.style.pointerEvents = 'none';
+		this.refs.alienContact.style.pointerEvents = 'none';
+		this.refs.tractorBeam.style.pointerEvents = 'none';
+		this.brokenLink = this.refs.silhouette.firstChild.childNodes[1].childNodes[3];
+		this.brokenLink.style.pointerEvents = 'auto';
+		this.brokenLink.classList.add(ContactPageStyles.itemHover);
+		this.brokenLink.addEventListener('click', this.getBrokenLink);
+	},
+
+	getBrokenLink() {
+		this.brokenLink.style.display = 'none';
+		this.props.addItemToArray(this.brokenLinkItem);
+		this.props.updateGameProgress(5);
 	},
 
 	render() {
@@ -139,7 +196,8 @@ const Abduction = React.createClass({
 						style={{
 							position: 'absolute',
 							top: '0px',
-							left: '0px'
+							left: '0px',
+							zIndex: 11
 						}}
 					>
 					</div>
@@ -149,4 +207,18 @@ const Abduction = React.createClass({
 	}
 });
 
-export default Abduction;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState,
+		interactables: store.interactableState
+	}
+};
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		addItemToArray: itemActions.addItemToArray,
+		updateGameProgress: modeActions.updateGameProgress
+	}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Abduction);

@@ -235,9 +235,6 @@ const uncrumpleEvents = [
 	},
 	function (target) {
 		target.src = require('./Crumple/Crumple(80).png');
-	},
-	function (target) {
-		target.src = require('./Crumple/Crumple(81).png');
 	}
 ];
 

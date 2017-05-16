@@ -1,0 +1,17 @@
+Adobe After Effects v14.2 Windows 64 render log for project “Paper.aep”
+
+Rendering started on 5/16/2017 at 3:39:50 PM
+
+  5/16/2017 3:39:50 PM: Starting composition “Crumple”.
+
+  Output To: C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple (0;00;00;00).png  After Effects warning: Could not create the file 'C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple (0;00;00;00).png'. Access was denied.After Effects: AEGP Plugin PNGIO Support: Unable to create PNGIO. (5027  ::  12)After Effects error: cannot close a closed file. (3  ::  5)  5/16/2017 3:39:50 PM: Finished composition “Crumple”.
+
+
+  5/16/2017 3:39:50 PM: Starting composition “Crumple”.
+
+  Output To: C:\Users\Matthew\Documents\GitHub\site\portfolio-site\app\assets\images\items\Paper\Crumple (0;00;03;00).png    5/16/2017 3:39:50 PM: Finished composition “Crumple”.
+
+
+  Total Time Elapsed: 0 Seconds
+Log closed on 5/16/2017 at 3:39:50 PM
+

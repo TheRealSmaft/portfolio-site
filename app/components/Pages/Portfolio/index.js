@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer } from '../../Containers';
@@ -12,6 +12,11 @@ import { PortfolioPageStyles } from '../../../styles/pages';
 
 const PortfolioPage = React.createClass({
 	componentWillMount() {
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel < 1) {
+				browserHistory.replace('/');
+			}
+		}
 		this.bunnyPiece = {
 			name: 'BUNNIEZ',
 			description: 'A bunch o\' bunnies!',

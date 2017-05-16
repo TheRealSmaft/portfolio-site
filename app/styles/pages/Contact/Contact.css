@@ -17,4 +17,7 @@
     width: 100%;
   }
 }
+.itemHover:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=Contact.css.map */

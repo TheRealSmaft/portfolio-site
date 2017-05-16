@@ -13,9 +13,39 @@ import ExaminableStyles from '../../../../../styles/examinables';
 import BodyMovin from '../../../../../plugins/bodymovin.min';
 
 const Examinable = React.createClass({
+	componentWillMount() {
+		var name = this.props.items.examinable;
+		var index = _.findIndex(this.props.items.items, function(obj) {
+			return obj.name === name;
+		});
+
+		if(index > -1) {
+			this.item = this.props.items.items[index];
+		}
+		else
+		{
+			this.item = null;
+		}
+
+		if(this.item != null) {
+			this.item.deferredEvents.moments.push(this.item.deferredEvents.moments[this.item.deferredEvents.moments.length - 1] + 1);
+			this.item.deferredEvents.events.push(() => {this.updateItem()});
+		}
+	},
+
+	componentWillUnmount() {
+		if(this.animation) {
+			this.animation.destroy();
+		}
+	},
+
 	componentDidUpdate() {
 		if(this.item != null) {
-			if(this.item.animationToTrigger && !this.animation) {
+			if(!this.props.scrollState.scrollLocked) {
+				this.props.lockScrollPosition();
+			}
+			
+			if(this.item.animationToTrigger) {
 				var animationData = this.item.animationToTrigger;
 				var animationData = {
 					...animationData,
@@ -23,6 +53,14 @@ const Examinable = React.createClass({
 				}
 
 				this.animation = BodyMovin.loadAnimation(animationData);
+
+				if(this.item.animationReplacesImage) {
+					this.refs.animation.style.visibility = 'visible';
+					this.animation.goToAndStop(0, true);
+					this.refs.animation.style.pointerEvents = 'none';
+					this.refs.animation.firstChild.childNodes[1].style.pointerEvents = 'auto';
+					this.refs.animation.firstChild.childNodes[1].addEventListener('click', this.clickEvent);
+				}
 			}
 
 			if(this.checkFireCondition() && !this.animationFired) {
@@ -66,6 +104,7 @@ const Examinable = React.createClass({
 
 	closeExamination() {
 		this.props.toggleItemExamine();
+		this.props.unlockScrollPosition();
 	},
 
 	clickEvent() {
@@ -85,67 +124,67 @@ const Examinable = React.createClass({
 
 		this.props.changeItemStatus(index, 'used');
 		this.props.addItemToArray(this.item.nextItemState);
+		this.props.toggleItemExamine(this.item.nextItemState.name);
 	},
 
 	render() {
-		this.item = this.props.items.examinable != null ? 
-					  _.find(this.props.items.items, ['name', this.props.items.examinable]) :
-					  null;
-		if(this.item != null) {
-			this.item.deferredEvents.moments.push(this.item.deferredEvents.moments[this.item.deferredEvents.moments.length - 1] + 1);
-			this.item.deferredEvents.events.push(() => {this.updateItem()});
+		if(this.item === null) {
+			return null;
 		}
-		var itemElement = this.item != null ?
-			(
-				<DeferredEventExecutor
-					moments={this.item.deferredEvents.moments}
-					events={this.item.deferredEvents.events}
-					increment={this.item.deferredEvents.increment ? this.item.deferredEvents.increment : 1000}
-					loop={this.item.deferredEvents.loop ? this.item.deferredEvents.loop : false}
-					fireCondition={this.item.deferredEvents.fireCondition ? this.item.deferredEvents.fireCondition : null}
+		else
+		{
+			return (
+				<div
+					className={ExaminableStyles.examinationScene}
+					style={{
+						...this.props.style,
+						display: this.item === null ? 'none' : 'block'
+					}}
 				>
 					<img
-						className={this.item.eventToFire || this.item.clickEvent ? ExaminableStyles.clickWillFireEvent : ''}
-						src={this.item.examineImage}
-						onClick={() => {this.clickEvent()}}
+						className={ExaminableStyles.exitButton}
+						onClick={this.closeExamination}
+						src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
 					/>
-				</DeferredEventExecutor>
-			) : null;
-
-		return (
-			<div
-				className={ExaminableStyles.examinationScene}
-				style={{
-					...this.props.style,
-					display: this.item === null ? 'none' : 'block'
-				}}
-			>
-				<img
-					className={ExaminableStyles.exitButton}
-					onClick={this.closeExamination}
-					src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
-				/>
-				{itemElement}
-				<div
-					className={ExaminableStyles.animationContainer}
-				>
-					<div
-						ref="animation"
-						style={{
-							visibility: 'hidden'
-						}}
+					<DeferredEventExecutor
+						moments={this.item.deferredEvents.moments}
+						events={this.item.deferredEvents.events}
+						increment={this.item.deferredEvents.increment ? this.item.deferredEvents.increment : 1000}
+						loop={this.item.deferredEvents.loop ? this.item.deferredEvents.loop : false}
+						fireCondition={this.item.deferredEvents.fireCondition ? this.item.deferredEvents.fireCondition : null}
 					>
+						<img
+							className={this.item.eventToFire || this.item.clickEvent ? ExaminableStyles.clickWillFireEvent : ''}
+							src={this.item.examineImage}
+							style={{
+								display: this.item.animationReplacesImage ? 'none' : 'block',
+								width: this.item.examineWidth ? this.item.examineWidth : 'auto'
+							}}
+							onClick={() => {this.clickEvent()}}
+						/>
+					</DeferredEventExecutor>
+					<div
+						className={ExaminableStyles.animationContainer}
+					>
+						<div
+							ref="animation"
+							style={{
+								visibility: 'hidden'
+							}}
+						>
+						</div>
 					</div>
 				</div>
-			</div>
-		);
+			);
+		}
 	}
 });
 
 function mapStateToProps(store) {
 	return {
 		items: store.itemState,
-		interactables: store.interactableState
+		interactables: store.interactableState,
+		scrollState: store.scrollState
 	}
 };
 
