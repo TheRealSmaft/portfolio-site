@@ -6,6 +6,14 @@ function changeToSiteMode() {
 	}
 };
 
+function updateGameProgress(level:number) {
+	return {
+		type: types.UPDATE_GAME_PROGRESS,
+		payload: level
+	}
+};
+
 export default {
-	changeToSiteMode
+	changeToSiteMode,
+	updateGameProgress
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import { ResponsiveContainer } from '../../../Containers';
 import { SVG, Circle, Rect, Path, MotionPath } from '../../../Containers/ShapeContainers';
@@ -19,10 +19,6 @@ const Navbar = React.createClass({
 			...this.state, 
 			menuToggled: !this.state.menuToggled
 		})
-	},
-
-	componentDidMount() {
-
 	},
 
 	render() {
@@ -89,25 +85,18 @@ const Navbar = React.createClass({
 				</ResponsiveContainer>
 			);
 		}
-		else
+		else 
 		{
-			if(window.location.pathname != '/home' &&
-				window.location.pathname != '/') {
-				return (
-					<div
-						className={navbarStyles.navbar}
-						style={{
-							...this.props.style,
-							visibility: 'hidden'
-						}}
-					>
-					</div>
-				);
-			}
-			else
-			{
-				return null;
-			}
+			return (
+				<div
+					className={navbarStyles.navbar}
+					style={{
+						...this.props.style,
+						visibility: 'hidden'
+					}}
+				>
+				</div>
+			);
 		}
 	}
 });

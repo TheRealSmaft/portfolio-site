@@ -1,79 +1,78 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor } from '../../Containers';
 import { SVG, Rect } from '../../Containers/ShapeContainers';
 
+import Abduction from '../../Scenes/Abduction';
+
+import { ContactPageStyles } from '../../../styles/pages';
+
+import BodyMovin from '../../../plugins/bodymovin.min';
+
 const ContactPage = React.createClass({
+	componentWillMount() {
+		this.scene = this.props.mode.gameMode ? (
+			<Abduction />
+		) : null;
+	},
+
 	render() {
 		return (
 			<ResponsiveContainer>
 				<h1>
 					CONTACT ME
 				</h1>
-				<Grid
-					breakPoints={[768]}
-					gutter={4}
+
+				<div
+					className={ContactPageStyles.sceneAndForm}
 				>
-					<Row>
-						<Col
-							breaks={[100]}
+					<div>
+						{this.scene}
+					</div>
+					<div>
+						<SVG
+							title="Form Background"
 						>
-							<p>
-								This will be a pic of a flying saucer (from Zanahoria) abducting the Sinister Silhouette.
-							</p>
-						</Col>
-						<Col
-							breaks={[100]}
-							style={{
-								position: 'relative'
-							}}
-						>
-							<SVG
-								title="Form Background"
+							<Rect
+								fill="pink"
+								dimensions={[90, 90]}
+								position={[5,5]}
 							>
-								<Rect
-									fill="pink"
-									dimensions={[90, 90]}
-									position={[5,5]}
-								>
-								<animateTransform 
-									attributeName="transform"
-									id="forth"
-									attributeType="XML"
-									type="rotate"
-									from="-2 45 45"
-									to="2 45 45"
-									dur="20s"
-									begin="0s; back.end"
-								/>
-								<animateTransform 
-									attributeName="transform"
-									id="back"
-									attributeType="XML"
-									type="rotate"
-									from="2 45 45"
-									to="-2 45 45"
-									dur="20s"
-									begin="forth.end"
-								/>
-								</Rect>
-							</SVG>
-							<p
-								style={{
-									position: 'absolute',
-									top: '5%',
-									left: '8%'
-								}}
-							>
-								This will be a contact form
-							</p>
-						</Col>
-					</Row>
-				</Grid>
+							<animateTransform 
+								attributeName="transform"
+								id="forth"
+								attributeType="XML"
+								type="rotate"
+								from="-2 45 45"
+								to="2 45 45"
+								dur="20s"
+								begin="0s; back.end"
+							/>
+							<animateTransform 
+								attributeName="transform"
+								id="back"
+								attributeType="XML"
+								type="rotate"
+								from="2 45 45"
+								to="-2 45 45"
+								dur="20s"
+								begin="forth.end"
+							/>
+							</Rect>
+						</SVG>
+					</div>
+				</div>
 			</ResponsiveContainer>
 		)
 	}
 });
 
-export default ContactPage;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState
+	}
+};
+
+export default connect(mapStateToProps)(ContactPage);

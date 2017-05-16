@@ -1,43 +1,23 @@
 import types from './types';
-
-function createRandomPassword() {
-	var beg = [
-		'evil',
-		'yummy',
-		'fuzzy',
-		'jumbo'
-	];
-
-	var mid = [
-		'Baby',
-		'Cows',
-		'Farts',
-		'Toes'
-	];
-
-	var end = [
-		'69',
-		'187',
-		'420',
-		'911'
-	];
-
-	return beg[getRandomNumber()] + mid[getRandomNumber()] + end[getRandomNumber()];
-};
-
-function getRandomNumber() {
-	return Math.floor(Math.random() * 4);
-};
+import PasswordRandomizer from '../../../../assets/images/items/Paper/passwordRandomizer';
 
 const modeReducer = (state = {
 	gameMode: true,
-	password: createRandomPassword()
+	password: PasswordRandomizer.getPassword(),
+	progressLevel: 4
 }, action) => {
 	switch(action.type) {
 		case types.CHANGE_TO_SITE_MODE: {
 			state = {
 				...state,
 				gameMode: false
+			}
+			break;
+		}
+		case types.UPDATE_GAME_PROGRESS: {
+			state = {
+				...state,
+				progressLevel: action.payload
 			}
 			break;
 		}

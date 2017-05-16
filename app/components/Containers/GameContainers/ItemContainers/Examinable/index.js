@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import { DeferredEventExecutor } from '../../../../Containers';
 
-import { TriggerZone } from '../../../GameContainers';
-
 import { itemActions, itemTypes } from '../../../../../state/game/items';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
 import { scrollEventActions, scrollEventTypes } from '../../../../../state/events/scroll';
@@ -32,7 +30,7 @@ const Examinable = React.createClass({
 				this.refs.animation.style.visibility = 'visible';
 				if(this.item.password) {
 					var passwordElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-					passwordElement.setAttribute("font-size", "80");
+					passwordElement.setAttribute("font-size", "72");
 					passwordElement.setAttribute("font-family", "Comic Sans MS");
 					passwordElement.setAttribute("fill", "rgba(255,255,255,0.85)");
 					passwordElement.setAttribute("x", "-5%");
@@ -85,7 +83,7 @@ const Examinable = React.createClass({
 			return obj.name === name;
 		});
 
-		this.props.changeItemStatus(index, 'allocated');
+		this.props.changeItemStatus(index, 'used');
 		this.props.addItemToArray(this.item.nextItemState);
 	},
 
@@ -114,8 +112,6 @@ const Examinable = React.createClass({
 				</DeferredEventExecutor>
 			) : null;
 
-		var triggerItem = this.item != null && this.item.triggerItem ? this.item.triggerItem : 'none';
-
 		return (
 			<div
 				className={ExaminableStyles.examinationScene}
@@ -129,11 +125,7 @@ const Examinable = React.createClass({
 					onClick={this.closeExamination}
 					src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
 				/>
-				<TriggerZone
-					triggerItem={triggerItem}
-				>
-					{itemElement}
-				</TriggerZone>
+				{itemElement}
 				<div
 					className={ExaminableStyles.animationContainer}
 				>

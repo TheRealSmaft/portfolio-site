@@ -37,6 +37,15 @@ const Collectable = React.createClass({
 			var item = ReactDOM.findDOMNode(this.refs.item);
 			this.item.rect = item.getBoundingClientRect();
 			this.item.position = item.style.position;
+
+			if(this.item.collectPoint < this.props.mode.progressLevel) {
+				this.item.status = 'inventory';
+			}
+
+			if(this.item.usePoint < this.props.mode.progressLevel) {
+				this.item.status = 'used';
+			}
+
 			this.props.addItemToArray(this.item);
 		}
 
@@ -126,6 +135,7 @@ const Collectable = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		mode: store.modeState,
 		items: store.itemState.items
 	}
 };
