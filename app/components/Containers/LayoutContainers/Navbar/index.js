@@ -88,14 +88,16 @@ const Navbar = React.createClass({
 		else 
 		{
 			return (
-				<div
-					className={navbarStyles.navbar}
-					style={{
-						...this.props.style,
-						visibility: 'hidden'
-					}}
-				>
-				</div>
+				<ResponsiveContainer>
+					<div
+						className={navbarStyles.navbar}
+						style={{
+							...this.props.style,
+							display: this.props.currentLoc === '/' ? 'none' : 'block'
+						}}
+					>
+					</div>
+				</ResponsiveContainer>
 			);
 		}
 	}

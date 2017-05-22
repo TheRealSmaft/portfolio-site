@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor} from '../../Containers';
 
@@ -10,6 +12,12 @@ import thumbsUpEvents from '../../../assets/images/interactables/Hand/thumbsUpEv
 
 const AboutPage = React.createClass({
 	componentWillMount() {
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel < 6) {
+				browserHistory.replace('/home');
+			}
+		}
+
 		this.thumbsUpMoments = [];
 
 		for(var i = 1; i < 12; i++) {
@@ -244,4 +252,10 @@ const AboutPage = React.createClass({
 	}
 });
 
-export default AboutPage;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState
+	}
+};
+
+export default connect(mapStateToProps)(AboutPage);

@@ -14,7 +14,7 @@ import { LoadingPageStyles } from '../../../styles/pages';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
-import uncrumpleEvents from '../../../assets/images/items/Paper/uncrumpleEvents';
+import paper from '../../../assets/images/items/Paper';
 
 const LoadingPage = React.createClass({
 	getInitialState() {
@@ -25,7 +25,7 @@ const LoadingPage = React.createClass({
 
 	componentWillMount() {
 		if(this.props.mode.progressLevel > 0) {
-			browserHistory.replace('/home');
+			browserHistory.replace('/home#scene');
 		}
 		this.ellipsisEvents = [
 			function (target) {
@@ -45,54 +45,11 @@ const LoadingPage = React.createClass({
 			}
 		];
 
-		var uncrumpleMoments = [];
-
-		for(var i = 1; i < 80; i++) {
-			uncrumpleMoments.push(i);
-		}
-
 		this.paperItem = {
-			name: 'Crumpled Paper',
-			collectableImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
-			inventoryImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
-			width: '100px',
-			status: 'inventory',
-			examinable: true,
-			examineImage: require('../../../assets/images/items/Paper/CrumpledPaperExaminable.png'),			
-			deferredEvents: {
-				events: uncrumpleEvents,
-				moments: uncrumpleMoments,
-				increment: 34,
-				loop: false,
-				fireCondition: 'uncrumplePaper'
-			},
-			eventToFire: 'uncrumplePaper',
-			changeAfterEvent: true,
+			...paper,
 			nextItemState: {
-				name: 'Paper',
-				collectableImage: require('../../../assets/images/items/Paper/Paper.png'),
-				inventoryImage: require('../../../assets/images/items/Paper/Paper.png'),
-				width: '100px',
-				status: 'inventory',
-				examinable: true,
-				examineImage: require('../../../assets/images/items/Paper/PaperExaminable.png'),
-				deferredEvents: {
-					events: [],
-					moments: []
-				},
-				hasTriggerZone: true,
-				triggerItem: "Pencil",
-				fireCondition: 'PencilUsed',
-				password: this.props.mode.password,
-				eventToFire: 'PencilUsed',
-				animationToTrigger: {
-					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
-					path: '../../../assets/images/items/Pencil',
-					loop: false,
-					autoplay: false,
-					name: 'penclWriting',
-					renderer: 'svg'
-				}
+				...paper.nextItemState,
+				password: this.props.mode.password
 			}
 		};
 	},
@@ -201,28 +158,29 @@ const LoadingPage = React.createClass({
 				<div 
 					className={LoadingPageStyles.loaderContainer}
 					style={{
-						height: window.innerHeight + 'px'
+						height: window.innerHeight * .9 + 'px'
 					}}
 				>
-					<div>
-						<h1 
-							className={LoadingPageStyles.loaderText}
-						>
-							Loading
+					<h1 
+						className={LoadingPageStyles.loaderText}
+					>
+						Loading
 
-							<span>
-								<DeferredEventExecutor
-									style={{display: 'inline'}}
-									moments={[0, 1, 2, 3]}
-									events={this.ellipsisEvents}
-									increment={500}
-									loop={true}
+						<span>
+							<DeferredEventExecutor
+								style={{display: 'inline'}}
+								moments={[0, 1, 2, 3]}
+								events={this.ellipsisEvents}
+								increment={500}
+								loop={true}
+							>
+								<span 
+									data-glyph={this.state.ellipsisGlyph}
 								>
-									<span data-glyph={this.state.ellipsisGlyph}></span>
-								</DeferredEventExecutor>
-							</span>
-						</h1>
-					</div>
+								</span>
+							</DeferredEventExecutor>
+						</span>
+					</h1>
 					<div
 						ref="loadingGears"
 						className={LoadingPageStyles.gears}
@@ -237,7 +195,8 @@ const LoadingPage = React.createClass({
 function mapStateToProps(store) {
 	return {
 		items: store.itemState.items,
-		mode: store.modeState
+		mode: store.modeState,
+		windowState: store.windowState
 	}
 };
 

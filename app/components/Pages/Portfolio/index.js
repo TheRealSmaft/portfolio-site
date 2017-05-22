@@ -38,6 +38,7 @@ const PortfolioPage = React.createClass({
 		);
 
 		this.eraserCollectable = null;
+		this.glueCollectable = null;
 
 		if(this.props.mode.gameMode) {
 			this.eraser = {
@@ -45,6 +46,13 @@ const PortfolioPage = React.createClass({
 				usePoint: 3,
 				collectableImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
 				inventoryImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
+				width: '100px'
+			};
+
+			this.glue = {
+				name: 'Glue',
+				collectableImage: require('../../../assets/images/items/Glue/Glue.svg'),
+				inventoryImage: require('../../../assets/images/items/Glue/GlueInventory.svg'),
 				width: '100px'
 			};
 
@@ -57,6 +65,12 @@ const PortfolioPage = React.createClass({
 			this.eraserCollectable = (
 				<Collectable 
 					item={this.eraser}
+				/>
+			);
+
+			this.glueCollectable = (
+				<Collectable 
+					item={this.glue}
 				/>
 			);
 		}
@@ -85,6 +99,7 @@ const PortfolioPage = React.createClass({
 				/>
 
 				{this.eraserCollectable}
+				{this.glueCollectable}
 			</ResponsiveContainer>
 		)
 	}

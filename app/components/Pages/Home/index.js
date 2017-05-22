@@ -52,7 +52,7 @@ const HomePage = React.createClass({
 	render() {
 		return (
 			<ResponsiveContainer>
-				<SilhouetteIntro />
+				<SilhouetteIntro/>
 				<h1>
 					WELCOME!
 				</h1>

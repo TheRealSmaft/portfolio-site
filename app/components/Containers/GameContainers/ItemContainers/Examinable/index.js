@@ -14,6 +14,43 @@ import BodyMovin from '../../../../../plugins/bodymovin.min';
 
 const Examinable = React.createClass({
 	componentWillMount() {
+		this.getItemInfo();
+	},
+
+	componentDidMount() {
+		this.createAnimation();
+	},
+
+	componentWillUnmount() {
+		if(this.animation) {
+			this.animation.destroy();
+		}
+
+		this.props.unlockScrollPosition();
+	},
+
+	componentWillReceiveProps(nextProps) {
+		if(!this.props.interactables.firedEvents.includes('updatePaper') && 
+			nextProps.interactables.firedEvents.includes('updatePaper')) {
+			this.updateItem();
+		}
+	},
+
+	componentDidUpdate() {
+		if(this.checkFireCondition() && !this.animationFired &&
+			!this.alreadyFired) {
+			this.animationFired = true;
+			this.refs.animation.style.visibility = 'visible';
+			if(this.item.password) {
+				this.createPasswordElement();
+			}
+			setTimeout(() => {
+				this.animation.play();
+			}, 50)
+		}
+	},
+
+	getItemInfo() {
 		var name = this.props.items.examinable;
 		var index = _.findIndex(this.props.items.items, function(obj) {
 			return obj.name === name;
@@ -28,60 +65,43 @@ const Examinable = React.createClass({
 		}
 
 		if(this.item != null) {
-			this.item.deferredEvents.moments.push(this.item.deferredEvents.moments[this.item.deferredEvents.moments.length - 1] + 1);
-			this.item.deferredEvents.events.push(() => {this.updateItem()});
+			this.deferredMoments = this.item.deferredEvents.moments;
+			this.deferredEvents = this.item.deferredEvents.events;
+
+			this.props.lockScrollPosition();
+			this.alreadyFired = this.checkFireCondition();
 		}
 	},
 
-	componentWillUnmount() {
-		if(this.animation) {
-			this.animation.destroy();
-		}
-	},
-
-	componentDidUpdate() {
-		if(this.item != null) {
-			if(!this.props.scrollState.scrollLocked) {
-				this.props.lockScrollPosition();
-			}
-			
-			if(this.item.animationToTrigger) {
-				var animationData = this.item.animationToTrigger;
-				var animationData = {
-					...animationData,
-					container: this.refs.animation
-				}
-
-				this.animation = BodyMovin.loadAnimation(animationData);
-
-				if(this.item.animationReplacesImage) {
-					this.refs.animation.style.visibility = 'visible';
-					this.animation.goToAndStop(0, true);
-					this.refs.animation.style.pointerEvents = 'none';
-					this.refs.animation.firstChild.childNodes[1].style.pointerEvents = 'auto';
-					this.refs.animation.firstChild.childNodes[1].addEventListener('click', this.clickEvent);
-				}
+	createAnimation() {
+		if(this.item.animationToTrigger) {
+			var animationData = this.item.animationToTrigger;
+			var animationData = {
+				...animationData,
+				container: this.refs.animation
 			}
 
-			if(this.checkFireCondition() && !this.animationFired) {
-				this.animationFired = true;
+			this.animation = BodyMovin.loadAnimation(animationData);
+
+			if(this.item.changeAfterAnimation) {
+				this.animation.addEventListener('complete', this.updateItem);
+			}
+
+			if(this.item.animationReplacesImage) {
 				this.refs.animation.style.visibility = 'visible';
-				if(this.item.password) {
-					var passwordElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-					passwordElement.setAttribute("font-size", "72");
-					passwordElement.setAttribute("font-family", "Comic Sans MS");
-					passwordElement.setAttribute("fill", "rgba(255,255,255,0.85)");
-					passwordElement.setAttribute("x", "-5%");
-					passwordElement.setAttribute("y", "16%");
-					passwordElement.style.transform = "rotateZ(-20deg)";
-					passwordElement.style.width = '50%';
+				var initialFrame = this.item.initialFrame > -1 ? this.item.initialFrame : this.animation.totalFrames;
+				this.animation.goToAndStop(initialFrame, true);
+				this.refs.animation.style.pointerEvents = 'none';
+				this.refs.animation.firstChild.childNodes[1].style.pointerEvents = 'auto';
+				this.refs.animation.firstChild.childNodes[1].addEventListener('click', this.clickEvent);
+			}
 
-					passwordElement.innerHTML = this.item.password;
-					this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
+			if(this.alreadyFired) {
+				this.refs.animation.style.visibility = 'visible';
+				this.animation.goToAndStop(this.animation.totalFrames, true);
+				if(this.item.password) {
+					this.createPasswordElement();
 				}
-				setTimeout(() => {
-					this.animation.play();
-				}, 50)
 			}
 		}
 	},
@@ -102,17 +122,46 @@ const Examinable = React.createClass({
 		}
 	},
 
+	createPasswordElement() {
+		var passwordElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+		passwordElement.setAttribute("font-size", "72");
+		passwordElement.setAttribute("font-family", "Comic Sans MS");
+		passwordElement.setAttribute("fill", "rgba(255,255,255,0.85)");
+		passwordElement.setAttribute("x", "-5%");
+		passwordElement.setAttribute("y", "16%");
+		passwordElement.style.transform = "rotateZ(-20deg)";
+		passwordElement.style.width = '50%';
+
+		passwordElement.innerHTML = this.item.password;
+		this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
+	},
+
 	closeExamination() {
 		this.props.toggleItemExamine();
 		this.props.unlockScrollPosition();
+
+		if(this.animation) {
+			this.animation.destroy();
+		}
 	},
 
 	clickEvent() {
 		if(this.item.clickEvent) {
-			this.item.clickEvent();
+			var event = this.item.clickEvent();
+			if(event === true) {
+				this.closeExamination();
+			}
 		}
 		if(this.item.eventToFire) {
-			this.props.addEventToFiredArray(this.item.eventToFire);
+			if(this.item.triggerItem) {
+				if(this.item.triggerItem === this.props.items.draggable) {
+					this.props.addEventToFiredArray(this.item.eventToFire);
+				}
+			}
+			else
+			{
+				this.props.addEventToFiredArray(this.item.eventToFire);
+			}
 		}
 	},
 
@@ -123,8 +172,15 @@ const Examinable = React.createClass({
 		});
 
 		this.props.changeItemStatus(index, 'used');
-		this.props.addItemToArray(this.item.nextItemState);
-		this.props.toggleItemExamine(this.item.nextItemState.name);
+		var nextItem = this.item.nextItemState;
+
+		this.props.addItemToArray(nextItem);
+
+		this.props.toggleItemExamine(nextItem.name);
+		this.item = nextItem;
+
+		this.getItemInfo();
+		this.createAnimation();
 	},
 
 	render() {
@@ -152,13 +208,16 @@ const Examinable = React.createClass({
 						increment={this.item.deferredEvents.increment ? this.item.deferredEvents.increment : 1000}
 						loop={this.item.deferredEvents.loop ? this.item.deferredEvents.loop : false}
 						fireCondition={this.item.deferredEvents.fireCondition ? this.item.deferredEvents.fireCondition : null}
+						eventToTrigger={this.item.deferredEvents.eventToTrigger ? this.item.deferredEvents.eventToTrigger : null}
 					>
 						<img
 							className={this.item.eventToFire || this.item.clickEvent ? ExaminableStyles.clickWillFireEvent : ''}
 							src={this.item.examineImage}
 							style={{
 								display: this.item.animationReplacesImage ? 'none' : 'block',
-								width: this.item.examineWidth ? this.item.examineWidth : 'auto'
+								width: this.item.examineWidth ? this.item.examineWidth : 'auto',
+								height: '60%',
+								marginTop: '5%'
 							}}
 							onClick={() => {this.clickEvent()}}
 						/>

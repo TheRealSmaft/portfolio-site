@@ -115,11 +115,23 @@ const DeferredEventExecutor = React.createClass({
 
 	fireNextEvent() {
 		if(!this.refs.target.props) {
-			this.props.events[this.momentsPassed](this.refs.target, animation);
+			if(this.props.events[this.momentsPassed]) {
+				this.props.events[this.momentsPassed](this.refs.target, animation);
+			}
+			else
+			{
+				this.stopTimer();
+			}
 		}
 		else
 		{
-			this.props.events[this.momentsPassed](ReactDOM.findDOMNode(this.refs.target), animation, this.refs.target);
+			if(this.props.events[this.momentsPassed]) {
+				this.props.events[this.momentsPassed](ReactDOM.findDOMNode(this.refs.target), animation, this.refs.target);
+			}
+			else
+			{
+				this.stopTimer();
+			}
 		}
 
 		this.momentsPassed = this.momentsPassed + 1;

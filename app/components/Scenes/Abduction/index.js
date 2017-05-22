@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
 
 import { itemActions, itemTypes } from '../../../state/game/items';
 import { modeActions, modeTypes } from '../../../state/game/mode';
@@ -12,63 +13,90 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const Abduction = React.createClass({
 	componentDidMount() {
-		if(this.props.mode.progressLevel > 3) {
-			var ufoArrival = {
-				animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
-				path: '../../../assets/images/interactables/UFO',
-				loop: false,
-				autoplay: false,
-				name: 'ufoArrival',
-				renderer: 'svg' ,
-				container: ReactDOM.findDOMNode(this.refs.alienContact)
-			};
-
-			this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
-			this.ufoArrival.addEventListener('complete', this.ufoHover);
-			setTimeout(() => {
-				this.ufoArrival.play();
-			}, 500);
-
-			var silhouetteChewing = {
-				animationData: require('../../../assets/images/interactables/UFO/SilhouetteChewing.json'),
-				path: '../../../assets/images/interactables/UFO',
-				loop: true,
-				autoplay: true,
-				name: 'silhouetteChewing',
-				renderer: 'svg' ,
-				container: ReactDOM.findDOMNode(this.refs.silhouette)
-			};
-
-			if(this.props.mode.progressLevel < 5) {
-				this.silhouetteChewing = BodyMovin.loadAnimation(silhouetteChewing);
-			}
-
-			this.brokenLinkItem = {
-				name: 'Broken Link',
-				collectableImage: require('../../../assets/images/items/AboutLink/BrokenAboutLink.svg'),
-				inventoryImage: require('../../../assets/images/items/AboutLink/BrokenAboutLink.svg'),
-				width: '100px',
-				status: 'inventory',
-				examinable: true,
-				examineImage: require('../../../assets/images/items/AboutLink/AboutLinkBrokenExamine.svg'),
-				deferredEvents: {
-					events: [],
-					moments: []
-				},
-				triggerItem: "Glue",
-				fireCondition: "GlueUsed",
-				eventToFire: "GlueUsed",
-				animationToTrigger: {
-					animationData: require('../../../assets/images/items/AboutLink/AboutLinkFixed.json'),
-					path: '../../../assets/images/items/AboutLink',
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel > 3) {
+				var ufoArrival = {
+					animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
+					path: '../../../assets/images/interactables/UFO',
 					loop: false,
 					autoplay: false,
-					name: 'aboutLinkFixed',
-					renderer: 'svg'
-				},
-				animationReplacesImage: true
+					name: 'ufoArrival',
+					renderer: 'svg' ,
+					container: ReactDOM.findDOMNode(this.refs.alienContact)
+				};
+
+				this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
+				this.ufoArrival.addEventListener('complete', this.ufoHover);
+				setTimeout(() => {
+					this.ufoArrival.play();
+				}, 500);
+
+				var silhouetteChewing = {
+					animationData: require('../../../assets/images/interactables/UFO/SilhouetteChewing.json'),
+					path: '../../../assets/images/interactables/UFO',
+					loop: true,
+					autoplay: true,
+					name: 'silhouetteChewing',
+					renderer: 'svg' ,
+					container: ReactDOM.findDOMNode(this.refs.silhouette)
+				};
+
+				if(this.props.mode.progressLevel < 5) {
+					this.silhouetteChewing = BodyMovin.loadAnimation(silhouetteChewing);
+				}
+
+				this.brokenLinkItem = {
+					name: 'Broken Link',
+					collectableImage: require('../../../assets/images/items/AboutLink/BrokenAboutLink.svg'),
+					inventoryImage: require('../../../assets/images/items/AboutLink/BrokenAboutLink.svg'),
+					width: '100px',
+					status: 'inventory',
+					examinable: true,
+					examineImage: require('../../../assets/images/items/AboutLink/AboutLinkBrokenExamine.svg'),
+					deferredEvents: {
+						events: [],
+						moments: []
+					},
+					triggerItem: "Glue",
+					fireCondition: "GlueUsed",
+					eventToFire: "GlueUsed",
+					animationToTrigger: {
+						animationData: require('../../../assets/images/items/AboutLink/AboutLinkFixed.json'),
+						path: '../../../assets/images/items/AboutLink',
+						loop: false,
+						autoplay: false,
+						name: 'aboutLinkFixed',
+						renderer: 'svg'
+					},
+					animationReplacesImage: true,
+					initialFrame: 0,
+					changeAfterAnimation: true,
+					nextItemState: {
+						name: 'About Link',
+						collectableImage: require('../../../assets/images/items/AboutLink/AboutLinkFixed.svg'),
+						inventoryImage: require('../../../assets/images/items/AboutLink/AboutLinkFixed.svg'),
+						width: '100px',
+						status: 'inventory',
+						examinable: true,
+						examineImage: require('../../../assets/images/items/AboutLink/AboutLinkFixed.svg'),
+						animationReplacesImage: true,
+						initialFrame: -1,
+						clickEvent: function() {
+							browserHistory.push('/about');
+							return true;
+						},
+						deferredEvents: {
+							events: [],
+							moments: []
+						},
+					}
+				}
 			}
 		}
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
 	},
 
 	ufoHover() {

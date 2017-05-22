@@ -263,6 +263,7 @@ const SilhouetteIntroScene = React.createClass({
 								}}
 							>
 								<div
+									id="nav"
 									ref="dummyNav"
 									className={SilhouetteStyles.dummyNav}
 								>
