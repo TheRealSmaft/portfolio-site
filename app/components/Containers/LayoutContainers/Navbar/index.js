@@ -93,7 +93,9 @@ const Navbar = React.createClass({
 						className={navbarStyles.navbar}
 						style={{
 							...this.props.style,
-							display: this.props.currentLoc === '/' ? 'none' : 'block'
+							display: this.props.currentLoc === '/' ||
+									   this.props.currentLoc === '/home' ? 'none' : 'block',
+							visibility: 'hidden'
 						}}
 					>
 					</div>

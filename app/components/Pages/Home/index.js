@@ -23,7 +23,7 @@ const HomePage = React.createClass({
 		}
 		this.pencil = {
 			name: 'Pencil',
-			usePoint: 2,
+			usePoint: 4,
 			collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
 			inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
 			width: '100px'

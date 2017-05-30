@@ -7,11 +7,11 @@ function addItemToArray(item) {
 	}
 };
 
-function changeItemStatus(itemIndex:number, status:string) {
+function changeItemStatus(itemName:string, status:string) {
 	return {
 		type: types.CHANGE_ITEM_STATUS,
 		payload: {
-			itemIndex: itemIndex,
+			name: itemName,
 			status: status
 		}
 	}

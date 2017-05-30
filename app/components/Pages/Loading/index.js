@@ -14,7 +14,7 @@ import { LoadingPageStyles } from '../../../styles/pages';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
-import paper from '../../../assets/images/items/Paper';
+import uncrumpleEvents from '../../../assets/images/items/Paper/uncrumpleEvents';
 
 const LoadingPage = React.createClass({
 	getInitialState() {
@@ -25,7 +25,7 @@ const LoadingPage = React.createClass({
 
 	componentWillMount() {
 		if(this.props.mode.progressLevel > 0) {
-			browserHistory.replace('/home#scene');
+			browserHistory.replace('/home');
 		}
 		this.ellipsisEvents = [
 			function (target) {
@@ -45,11 +45,56 @@ const LoadingPage = React.createClass({
 			}
 		];
 
+		var uncrumpleMoments = [];
+
+		for(var i = 1; i < uncrumpleEvents.length; i++) {
+			uncrumpleMoments.push(i);
+		}
+
 		this.paperItem = {
-			...paper,
+			name: 'Crumpled Paper',
+			collectableImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
+			inventoryImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
+			width: '100px',
+			status: 'inventory',
+			examinable: true,
+			examineImage: require('../../../assets/images/items/Paper/CrumpledPaperExaminable.png'),
+			eventCount: uncrumpleEvents.length,
+			deferredEvents: {
+				events: uncrumpleEvents,
+				moments: uncrumpleMoments,
+				increment: 34,
+				loop: false,
+				fireCondition: 'uncrumplePaper',
+				eventToTrigger: 'updatePaper'
+			},
+			eventToFire: 'uncrumplePaper',
+			changeAfterEvent: true,
 			nextItemState: {
-				...paper.nextItemState,
-				password: this.props.mode.password
+				name: 'Paper',
+				collectableImage: require('../../../assets/images/items/Paper/Paper.png'),
+				inventoryImage: require('../../../assets/images/items/Paper/Paper.png'),
+				width: '100px',
+				status: 'inventory',
+				examinable: true,
+				examineImage: require('../../../assets/images/items/Paper/PaperExaminable.png'),
+				deferredEvents: {
+					events: [],
+					moments: []
+				},
+				hasTriggerZone: true,
+				triggerItem: "Pencil",
+				fireCondition: 'PencilUsed',
+				eventToFire: 'PencilUsed',
+				password: this.props.mode.password,
+				animationToTrigger: {
+					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
+					path: '../Pencil',
+					loop: false,
+					autoplay: false,
+					name: 'penclWriting',
+					renderer: 'svg'
+				}
 			}
 		};
 	},

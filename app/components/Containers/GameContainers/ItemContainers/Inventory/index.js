@@ -13,6 +13,8 @@ import { scrollEventTypes, scrollEventActions } from '../../../../../state/event
 
 import InventoryStyles from '../../../../../styles/inventory';
 
+import itemList from '../../../../../assets/gameObjects/items';
+
 const Inventory = React.createClass({
 	componentWillMount() {
 		this.getInventoryItems();
@@ -21,10 +23,108 @@ const Inventory = React.createClass({
 		this.dragNode = null;
 
 		this.slotCount = 6;
+		this.getItemsBasedOnProgressLevel();
 	},
 
 	componentWillUpdate() {
 		this.getInventoryItems();
+	},
+
+	getItemsBasedOnProgressLevel() {
+		switch(this.props.mode.progressLevel) {
+			case 0: {
+				break;
+			}
+			case 1: 
+			case 2: {
+				this.props.addItemToArray(itemList.crumpledPaper);
+				this.props.changeItemStatus('Crumpled Paper', 'inventory');
+				break;
+			}
+			case 2.5: {
+				this.props.addItemToArray(itemList.crumpledPaper);
+				this.props.changeItemStatus('Crumpled Paper', 'inventory');
+
+				this.props.changeItemStatus('Pencil', 'inventory');
+				break;
+			}
+			case 3: {
+				this.props.addItemToArray(itemList.paper);
+				this.props.changeItemStatus('Paper', 'inventory');
+				break;
+			}
+			case 3.5: {
+				this.props.addItemToArray(itemList.paper);
+				this.props.changeItemStatus('Paper', 'inventory');
+
+				this.props.changeItemStatus('Pencil', 'inventory');
+				break;
+			}
+			case 4: {
+				break;
+			}
+			case 5: {
+				this.props.changeItemStatus('Knife', 'inventory');
+				break;
+			}
+			case 6: {
+				break;
+			}
+			case 6.5: {
+				this.props.changeItemStatus('Glue', 'inventory');
+				break;
+			}
+			case 7: {
+				this.props.changeItemStatus('Eraser', 'inventory');
+				break;
+			}
+			case 7.5: {
+				this.props.changeItemStatus('Glue', 'inventory');
+
+				this.props.changeItemStatus('Eraser', 'inventory');
+				break;
+			}
+			case 8: {
+				break;
+			}
+			case 8.5: {
+				this.props.addItemToArray(itemList.glue);
+				this.props.changeItemStatus('Glue', 'inventory');
+				break;
+			}
+			case 9: {
+				this.props.addItemToArray(itemList.brokenLink);
+				this.props.changeItemStatus('Broken Link', 'inventory');
+				break;
+			}
+			case 9.5: {
+				this.props.addItemToArray(itemList.brokenLink);
+				this.props.changeItemStatus('Broken Link', 'inventory');
+
+				this.props.addItemToArray(itemList.glue);
+				this.props.changeItemStatus('Glue', 'inventory');
+				break;
+			}
+			case 10: {
+				this.props.addItemToArray(itemList.aboutLink);
+				this.props.changeItemStatus('About Link', 'inventory');
+				break;
+			}
+			case 11: {
+				console.log('Acquire Gavel')
+				break;
+			}
+			case 12: {
+				break;
+			}
+			case 13: {
+				console.log('Acquire Nav')
+				break;
+			}
+			default: { 
+				break;
+			}
+		}
 	},
 
 	startDraggingItem(name) {
@@ -48,6 +148,7 @@ const Inventory = React.createClass({
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
 		document.body.appendChild(this.dragNode);
+		document.body.classList.add(InventoryStyles.noCursor);
 		document.addEventListener('click', this.stopDraggingItem);
 	},
 
@@ -57,12 +158,10 @@ const Inventory = React.createClass({
 		this.dragNode.style.position = 'static';
 		this.dragNode.style.pointerEvents = 'auto';
 		document.removeEventListener('click', this.stopDraggingItem);
+		document.body.classList.remove(InventoryStyles.noCursor);
 		if(this.props.interactables.firedEvents.includes(this.draggable + 'Used')) {
 			var name = this.draggable;
-			var index = _.findIndex(this.props.items.items, function(obj) {
-				return obj.name === name;
-			});
-			this.props.changeItemStatus(index, 'used');
+			this.props.changeItemStatus(name, 'used');
 		}
 		this.draggable = null;
 		this.dragNode = null;
@@ -186,6 +285,7 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		addItemToArray: itemActions.addItemToArray,
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemDrag: itemActions.toggleItemDrag,
 		toggleItemExamine: itemActions.toggleItemExamine,

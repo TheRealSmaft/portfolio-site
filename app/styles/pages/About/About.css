@@ -1,0 +1,40 @@
+.grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.row:not(:last-of-type) {
+  margin-bottom: 50px;
+}
+.picCol,
+.sectionImg {
+  width: 30%;
+}
+.textCol {
+  width: 65%;
+  padding-left: 5%;
+}
+.sectionImg {
+  position: relative;
+}
+.skillList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.hand {
+  position: absolute;
+  width: 90%;
+  left: 8%;
+  bottom: 16%;
+}
+.hover:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=About.css.map */

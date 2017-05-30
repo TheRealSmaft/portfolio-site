@@ -43,7 +43,8 @@ const PortfolioPage = React.createClass({
 		if(this.props.mode.gameMode) {
 			this.eraser = {
 				name: 'Eraser',
-				usePoint: 3,
+				collectPoint: 7,
+				usePoint: 8,
 				collectableImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
 				inventoryImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
 				width: '100px'
@@ -51,6 +52,7 @@ const PortfolioPage = React.createClass({
 
 			this.glue = {
 				name: 'Glue',
+				usePoint: 10,
 				collectableImage: require('../../../assets/images/items/Glue/Glue.svg'),
 				inventoryImage: require('../../../assets/images/items/Glue/GlueInventory.svg'),
 				width: '100px'

@@ -1,14 +1,18 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
-import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor} from '../../Containers';
+import { itemTypes, itemActions } from '../../../state/game/items';
+
+import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
 
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { AboutPageStyles } from '../../../styles/pages';
 
-import thumbsUpEvents from '../../../assets/images/interactables/Hand/thumbsUpEvents';
+import BodyMovin from '../../../plugins/bodymovin.min';
 
 const AboutPage = React.createClass({
 	componentWillMount() {
@@ -17,12 +21,76 @@ const AboutPage = React.createClass({
 				browserHistory.replace('/home');
 			}
 		}
+	},
 
-		this.thumbsUpMoments = [];
-
-		for(var i = 1; i < 12; i++) {
-			this.thumbsUpMoments.push(i);
+	componentDidMount() {
+		if(this.props.mode.gameMode) {
+			this.createHandAnimation();
 		}
+		else
+		{
+			this.thumbsUp();
+		}
+	},
+
+	createHandAnimation() {
+		var json = require('../../../assets/images/interactables/Hand/HandWithGavel.json');
+		var animation = {
+			animationData: json,
+			path: '../../../assets/images/interactables/Hand',
+			loop: false,
+			autoplay: false,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.hand)
+		};
+
+		this.handWithGavel = BodyMovin.loadAnimation(animation);
+		this.handWithGavel.goToAndStop(0, true);
+
+		this.makeGavelClickable();
+	},
+
+	makeGavelClickable() {
+		var gavel = this.refs.hand.firstChild.childNodes[1].childNodes[1];
+		gavel.classList.add(AboutPageStyles.hover);
+		gavel.addEventListener('click', this.collectGavel);
+	},
+
+	collectGavel() {
+		var gavelItem = {
+			name: 'Gavel',
+			status: 'inventory',
+			collectProgress: 11,
+			inventoryImage: require('../../../assets/images/items/Gavel/GavelInventory.svg'),
+			width: '100px'
+		}
+
+		this.props.addItemToArray(gavelItem);
+
+		this.handWithGavel.destroy();
+		this.thumbsUp();
+	},
+
+	thumbsUp() {
+		var json = require('../../../assets/images/interactables/Hand/ThumbsUp.json');
+		var animation = {
+			animationData: json,
+			path: '../../../assets/images/interactables/Hand',
+			loop: false,
+			autoplay: false,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.hand)
+		};
+
+		this.thumbsUpAnimation = BodyMovin.loadAnimation(animation);
+		this.thumbsUpAnimation.goToAndStop(0, true);
+		this.thumbsUpAnimation.setSpeed(1.5);
+
+		setTimeout(() => {
+			this.thumbsUpAnimation.play();
+		}, 250);
 	},
 
 	render() {
@@ -31,14 +99,14 @@ const AboutPage = React.createClass({
 				<h1>
 					ABOUT ME
 				</h1>
-				<Grid
-					breakPoints={[992, 768]}
-					gutter={4}
+				<div
+					className={AboutPageStyles.grid}
 				>
-					<Row blocks={3}>
-						<Col
-							blocks={1}
-							breaks={[40, 100]}
+					<div
+						className={AboutPageStyles.row}
+					>
+						<div
+							className={AboutPageStyles.picCol}
 						>
 							<SVG
 								title="Me Pic Background"
@@ -47,22 +115,21 @@ const AboutPage = React.createClass({
 									fill={'orange'}
 								/>
 							</SVG>
-						</Col>
-						<Col
-							blocks={2}
-							breaks={[60, 100]}
+						</div>
+						<div
+							className={AboutPageStyles.textCol}
 						>
 							<p>
 								About me paragraph
 							</p>
-						</Col>
-					</Row>
-					<Row>
-						<Col
-							breaks={[40, 100]}
-							style={{
-								position: 'relative'
-							}}
+						</div>
+					</div>
+
+					<div
+						className={AboutPageStyles.row}
+					>
+						<div
+							className={AboutPageStyles.sectionImg}
 						>
 							<SVG
 								title="Brain Background"
@@ -80,50 +147,50 @@ const AboutPage = React.createClass({
 								}}
 								src={require('../../../assets/images/interactables/Brain/Brain.svg')}
 							/>
-						</Col>
-						<Col
-							breaks={[32, 52]}
+						</div>
+						<div
+							className={AboutPageStyles.textCol}
 						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									brain
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-						<Col
-							breaks={[28, 48]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									brain
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-					</Row>
-					<Row>
-						<Col
-							breaks={[40, 100]}
-							style={{
-								position: 'relative'
-							}}
+							<div
+								className={AboutPageStyles.skillList}
+							>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										brain
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										brain
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div
+						className={AboutPageStyles.row}
+					>
+						<div
+							className={AboutPageStyles.sectionImg}
 						>
 							<SVG
 								title="Heart Background"
@@ -141,50 +208,50 @@ const AboutPage = React.createClass({
 								}}
 								src={require('../../../assets/images/interactables/Heart/Heart.svg')}
 							/>
-						</Col>
-						<Col
-							breaks={[32, 52]}
+						</div>
+						<div
+							className={AboutPageStyles.textCol}
 						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									heart
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-						<Col
-							breaks={[28, 48]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									heart
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-					</Row>
-					<Row>
-						<Col
-							breaks={[40, 100]}
-							style={{
-								position: 'relative'
-							}}
+							<div
+								className={AboutPageStyles.skillList}
+							>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										heart
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										heart
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div
+						className={AboutPageStyles.row}
+					>
+						<div
+							className={AboutPageStyles.sectionImg}
 						>
 							<SVG
 								title="Hand Background"
@@ -193,60 +260,50 @@ const AboutPage = React.createClass({
 									fill={'lightgreen'}
 								/>
 							</SVG>
-							<DeferredEventExecutor
-								moments={this.thumbsUpMoments}
-								events={thumbsUpEvents}
-								increment={42}
+							<div
+								ref="hand"
+								className={AboutPageStyles.hand}
 							>
-								<img 
-									style={{
-										position: 'absolute',
-										width: '60%',
-										left: '20%',
-										top: '0px'
-									}}
-									src={require('../../../assets/images/interactables/Hand/ThumbsUp/Hand-01.svg')}
-								/>
-							</DeferredEventExecutor>
-						</Col>
-						<Col
-							breaks={[32, 52]}
+							</div>
+						</div>
+						<div
+							className={AboutPageStyles.textCol}
 						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									hand
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-						<Col
-							breaks={[28, 48]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									hand
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-					</Row>
-				</Grid>
+							<div
+								className={AboutPageStyles.skillList}
+							>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										hand
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										hand
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</ResponsiveContainer>
 		)
 	}
@@ -258,4 +315,10 @@ function mapStateToProps(store) {
 	}
 };
 
-export default connect(mapStateToProps)(AboutPage);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		addItemToArray: itemActions.addItemToArray
+	}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);

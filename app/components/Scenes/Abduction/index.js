@@ -14,7 +14,7 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 const Abduction = React.createClass({
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
-			if(this.props.mode.progressLevel > 3) {
+			if(this.props.mode.progressLevel > 7.5) {
 				var ufoArrival = {
 					animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
 					path: '../../../assets/images/interactables/UFO',
@@ -41,7 +41,7 @@ const Abduction = React.createClass({
 					container: ReactDOM.findDOMNode(this.refs.silhouette)
 				};
 
-				if(this.props.mode.progressLevel < 5) {
+				if(this.props.mode.progressLevel < 9) {
 					this.silhouetteChewing = BodyMovin.loadAnimation(silhouetteChewing);
 				}
 
@@ -128,7 +128,7 @@ const Abduction = React.createClass({
 
 		this.carrot = BodyMovin.loadAnimation(carrotAnimationData);
 
-		if(this.props.mode.progressLevel < 5) {
+		if(this.props.mode.progressLevel < 9) {
 			this.silhouetteAbduction();
 			setTimeout(() => {
 				this.useTractorBeam();
@@ -181,7 +181,13 @@ const Abduction = React.createClass({
 	getBrokenLink() {
 		this.brokenLink.style.display = 'none';
 		this.props.addItemToArray(this.brokenLinkItem);
-		this.props.updateGameProgress(5);
+		if(Number.isInteger(this.props.mode.progressLevel)){
+			this.props.updateGameProgress(9);
+		}
+		else
+		{
+			this.props.updateGameProgress(9.5);
+		}
 	},
 
 	render() {

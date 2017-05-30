@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { DeferredEventExecutor } from '../../../../Containers';
 
+import { modeActions, modeTypes } from '../../../../../state/game/mode';
 import { itemActions, itemTypes } from '../../../../../state/game/items';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
 import { scrollEventActions, scrollEventTypes } from '../../../../../state/events/scroll';
@@ -33,6 +34,9 @@ const Examinable = React.createClass({
 		if(!this.props.interactables.firedEvents.includes('updatePaper') && 
 			nextProps.interactables.firedEvents.includes('updatePaper')) {
 			this.updateItem();
+			if(this.props.mode.progressLevel === 2) {
+				this.props.updateGameProgress(2.5)
+			}
 		}
 	},
 
@@ -65,11 +69,13 @@ const Examinable = React.createClass({
 		}
 
 		if(this.item != null) {
-			this.deferredMoments = this.item.deferredEvents.moments;
-			this.deferredEvents = this.item.deferredEvents.events;
-
+			this.updateDeferredEvents();
 			this.props.lockScrollPosition();
 			this.alreadyFired = this.checkFireCondition();
+
+			if(this.item.name === 'Paper') {
+				this.item.password = this.props.mode.password;
+			}
 		}
 	},
 
@@ -103,6 +109,13 @@ const Examinable = React.createClass({
 					this.createPasswordElement();
 				}
 			}
+		}
+	},
+
+	updateDeferredEvents() {
+		if(this.item.deferredEvents.moments.length > 0) {
+			this.item.deferredEvents.moments.push(this.item.deferredEvents.moments[this.item.deferredEvents.moments.length - 1] + 1);
+			this.item.deferredEvents.events.push(() => {this.updateItem()});
 		}
 	},
 
@@ -167,20 +180,24 @@ const Examinable = React.createClass({
 
 	updateItem() {
 		var name = this.item.name;
-		var index = _.findIndex(this.props.items.items, function(obj) {
-			return obj.name === name;
-		});
+		
+		this.props.changeItemStatus(name, 'used');
 
-		this.props.changeItemStatus(index, 'used');
-		var nextItem = this.item.nextItemState;
+		if(name === "Broken Link") {
+			this.animation.destroy();
+		}
 
-		this.props.addItemToArray(nextItem);
+		this.item = this.item.nextItemState;
 
-		this.props.toggleItemExamine(nextItem.name);
-		this.item = nextItem;
+		this.props.addItemToArray(this.item);
+
+		this.props.toggleItemExamine(this.item.name);
 
 		this.getItemInfo();
 		this.createAnimation();
+		this.updateDeferredEvents();
+
+		this.alreadyFired = this.checkFireCondition();
 	},
 
 	render() {
@@ -241,6 +258,7 @@ const Examinable = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		mode: store.modeState,
 		items: store.itemState,
 		interactables: store.interactableState,
 		scrollState: store.scrollState
@@ -249,6 +267,7 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		updateGameProgress: modeActions.updateGameProgress,
 		addItemToArray: itemActions.addItemToArray,
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemExamine: itemActions.toggleItemExamine,
