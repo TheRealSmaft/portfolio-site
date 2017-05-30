@@ -20,21 +20,7 @@ var aboutLink = {
 		renderer: 'svg'
 	},
 	clickEvent: function() {
-		// var last = null;
-
-		// checkHistory(last);
-
-		// function checkHistory(last) {
-		// 	browserHistory.goBack();
-		// 	if(last != browserHistory.getCurrentLocation().pathname) {
-		// 		last = browserHistory.getCurrentLocation().pathname;
-		// 		console.log(last)
-		// 		checkHistory(last);
-		// 	}
-		// }
-
-		browserHistory.replace('/about');
-
+		browserHistory.push('/about');
 		return true;
 	},
 	deferredEvents: {

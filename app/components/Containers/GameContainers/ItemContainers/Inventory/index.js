@@ -111,7 +111,12 @@ const Inventory = React.createClass({
 				break;
 			}
 			case 11: {
-				console.log('Acquire Gavel')
+				this.props.addItemToArray(itemList.aboutLink);
+				this.props.changeItemStatus('About Link', 'inventory');
+
+				this.props.addItemToArray(itemList.gavel);
+				this.props.changeItemStatus('Gavel', 'inventory');
+
 				break;
 			}
 			case 12: {

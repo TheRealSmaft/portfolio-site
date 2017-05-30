@@ -1,18 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
-import { itemTypes, itemActions } from '../../../state/game/items';
-
 import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
-
 import { SVG, Circle } from '../../Containers/ShapeContainers';
+import Hand from './AboutContainers/Hand';
 
 import { AboutPageStyles } from '../../../styles/pages';
-
-import BodyMovin from '../../../plugins/bodymovin.min';
 
 const AboutPage = React.createClass({
 	componentWillMount() {
@@ -22,77 +16,7 @@ const AboutPage = React.createClass({
 			}
 		}
 	},
-
-	componentDidMount() {
-		if(this.props.mode.gameMode) {
-			this.createHandAnimation();
-		}
-		else
-		{
-			this.thumbsUp();
-		}
-	},
-
-	createHandAnimation() {
-		var json = require('../../../assets/images/interactables/Hand/HandWithGavel.json');
-		var animation = {
-			animationData: json,
-			path: '../../../assets/images/interactables/Hand',
-			loop: false,
-			autoplay: false,
-			name: 'logo',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.hand)
-		};
-
-		this.handWithGavel = BodyMovin.loadAnimation(animation);
-		this.handWithGavel.goToAndStop(0, true);
-
-		this.makeGavelClickable();
-	},
-
-	makeGavelClickable() {
-		var gavel = this.refs.hand.firstChild.childNodes[1].childNodes[1];
-		gavel.classList.add(AboutPageStyles.hover);
-		gavel.addEventListener('click', this.collectGavel);
-	},
-
-	collectGavel() {
-		var gavelItem = {
-			name: 'Gavel',
-			status: 'inventory',
-			collectProgress: 11,
-			inventoryImage: require('../../../assets/images/items/Gavel/GavelInventory.svg'),
-			width: '100px'
-		}
-
-		this.props.addItemToArray(gavelItem);
-
-		this.handWithGavel.destroy();
-		this.thumbsUp();
-	},
-
-	thumbsUp() {
-		var json = require('../../../assets/images/interactables/Hand/ThumbsUp.json');
-		var animation = {
-			animationData: json,
-			path: '../../../assets/images/interactables/Hand',
-			loop: false,
-			autoplay: false,
-			name: 'logo',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.hand)
-		};
-
-		this.thumbsUpAnimation = BodyMovin.loadAnimation(animation);
-		this.thumbsUpAnimation.goToAndStop(0, true);
-		this.thumbsUpAnimation.setSpeed(1.5);
-
-		setTimeout(() => {
-			this.thumbsUpAnimation.play();
-		}, 250);
-	},
-
+	
 	render() {
 		return (
 			<ResponsiveContainer>
@@ -260,11 +184,9 @@ const AboutPage = React.createClass({
 									fill={'lightgreen'}
 								/>
 							</SVG>
-							<div
-								ref="hand"
+							<Hand
 								className={AboutPageStyles.hand}
-							>
-							</div>
+							/>
 						</div>
 						<div
 							className={AboutPageStyles.textCol}
@@ -315,10 +237,4 @@ function mapStateToProps(store) {
 	}
 };
 
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators({
-		addItemToArray: itemActions.addItemToArray
-	}, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);
+export default connect(mapStateToProps)(AboutPage);
