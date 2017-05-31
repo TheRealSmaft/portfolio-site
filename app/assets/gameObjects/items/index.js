@@ -106,7 +106,7 @@ var paper = {
 	collectableImage: require('../../images/items/Paper/Paper.png'),
 	inventoryImage: require('../../images/items/Paper/Paper.png'),
 	width: '100px',
-	status: 'collectable',
+	status: 'inventory',
 	examinable: true,
 	examineImage: require('../../images/items/Paper/PaperExaminable.png'),
 	deferredEvents: {

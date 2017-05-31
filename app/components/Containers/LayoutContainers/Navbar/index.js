@@ -87,20 +87,7 @@ const Navbar = React.createClass({
 		}
 		else 
 		{
-			return (
-				<ResponsiveContainer>
-					<div
-						className={navbarStyles.navbar}
-						style={{
-							...this.props.style,
-							display: this.props.currentLoc === '/' ||
-									   this.props.currentLoc === '/home' ? 'none' : 'block',
-							visibility: 'hidden'
-						}}
-					>
-					</div>
-				</ResponsiveContainer>
-			);
+			return null;
 		}
 	}
 });
