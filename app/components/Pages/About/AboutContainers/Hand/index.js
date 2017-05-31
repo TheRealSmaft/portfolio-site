@@ -68,7 +68,7 @@ const Hand = React.createClass({
 			path: '../../../../../assets/images/interactables/Hand',
 			loop: false,
 			autoplay: false,
-			name: 'logo',
+			name: 'handAnimation',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.hand)
 		};

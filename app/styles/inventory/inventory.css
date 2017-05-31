@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: lightgreen;
+  background-color: #ffff64;
 }
 .examineButton {
   position: absolute;

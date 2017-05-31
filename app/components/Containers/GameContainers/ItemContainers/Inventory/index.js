@@ -120,6 +120,8 @@ const Inventory = React.createClass({
 				break;
 			}
 			case 12: {
+				this.props.addItemToArray(itemList.aboutLink);
+				this.props.changeItemStatus('About Link', 'inventory');
 				break;
 			}
 			case 13: {

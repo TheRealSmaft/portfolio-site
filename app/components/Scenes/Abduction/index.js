@@ -81,6 +81,14 @@ const Abduction = React.createClass({
 						examineImage: require('../../../assets/images/items/AboutLink/AboutLinkFixed.svg'),
 						animationReplacesImage: true,
 						initialFrame: -1,
+						animationToTrigger: {
+							animationData: require('../../../assets/images/items/AboutLink/AboutLinkFixed.json'),
+							path: '../../../assets/images/items/AboutLink',
+							loop: false,
+							autoplay: false,
+							name: 'aboutLink',
+							renderer: 'svg'
+						},
 						clickEvent: function() {
 							browserHistory.push('/about');
 							return true;

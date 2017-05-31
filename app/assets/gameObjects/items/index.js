@@ -16,7 +16,7 @@ var aboutLink = {
 		path: '../../images/items/AboutLink',
 		loop: false,
 		autoplay: false,
-		name: 'aboutLinkFixed',
+		name: 'aboutLink',
 		renderer: 'svg'
 	},
 	clickEvent: function() {

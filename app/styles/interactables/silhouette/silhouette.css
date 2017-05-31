@@ -59,7 +59,7 @@
 .scene {
   position: absolute;
   left: 0px;
-  top: -68px;
+  top: 0px;
   width: 100%;
   z-index: 40;
 }

@@ -4,6 +4,9 @@ import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
 import { SVG, Circle } from '../../Containers/ShapeContainers';
+
+import Brain from './AboutContainers/Brain';
+import Heart from './AboutContainers/Heart';
 import Hand from './AboutContainers/Hand';
 
 import { AboutPageStyles } from '../../../styles/pages';
@@ -52,26 +55,7 @@ const AboutPage = React.createClass({
 					<div
 						className={AboutPageStyles.row}
 					>
-						<div
-							className={AboutPageStyles.sectionImg}
-						>
-							<SVG
-								title="Brain Background"
-							>
-								<Circle
-									fill={'yellow'}
-								/>
-							</SVG>
-							<img 
-								style={{
-									position: 'absolute',
-									width: '70%',
-									left: '15%',
-									top: '22.5%'
-								}}
-								src={require('../../../assets/images/interactables/Brain/Brain.svg')}
-							/>
-						</div>
+						<Brain />
 						<div
 							className={AboutPageStyles.textCol}
 						>
@@ -113,26 +97,7 @@ const AboutPage = React.createClass({
 					<div
 						className={AboutPageStyles.row}
 					>
-						<div
-							className={AboutPageStyles.sectionImg}
-						>
-							<SVG
-								title="Heart Background"
-							>
-								<Circle
-									fill={'lightblue'}
-								/>
-							</SVG>
-							<img 
-								style={{
-									position: 'absolute',
-									width: '60%',
-									left: '20%',
-									top: '8%'
-								}}
-								src={require('../../../assets/images/interactables/Heart/Heart.svg')}
-							/>
-						</div>
+						<Heart />
 						<div
 							className={AboutPageStyles.textCol}
 						>
@@ -181,7 +146,7 @@ const AboutPage = React.createClass({
 								title="Hand Background"
 							>
 								<Circle
-									fill={'lightgreen'}
+									fill={'lightblue'}
 								/>
 							</SVG>
 							<Hand
