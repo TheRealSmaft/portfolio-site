@@ -47,7 +47,7 @@ const LoadingPage = React.createClass({
 
 		var uncrumpleMoments = [];
 
-		for(var i = 1; i < 81; i++) {
+		for(var i = 1; i < uncrumpleEvents.length; i++) {
 			uncrumpleMoments.push(i);
 		}
 
@@ -58,14 +58,15 @@ const LoadingPage = React.createClass({
 			width: '100px',
 			status: 'inventory',
 			examinable: true,
-			examineImage: require('../../../assets/images/items/Paper/Crumple/Crumple(1).png'),
-			examineWidth: '40%',
+			examineImage: require('../../../assets/images/items/Paper/CrumpledPaperExaminable.png'),
+			eventCount: uncrumpleEvents.length,
 			deferredEvents: {
 				events: uncrumpleEvents,
 				moments: uncrumpleMoments,
 				increment: 34,
 				loop: false,
-				fireCondition: 'uncrumplePaper'
+				fireCondition: 'uncrumplePaper',
+				eventToTrigger: 'updatePaper'
 			},
 			eventToFire: 'uncrumplePaper',
 			changeAfterEvent: true,
@@ -76,8 +77,7 @@ const LoadingPage = React.createClass({
 				width: '100px',
 				status: 'inventory',
 				examinable: true,
-				examineImage: require('../../../assets/images/items/Paper/Paper.png'),
-				examineWidth: '40%',
+				examineImage: require('../../../assets/images/items/Paper/PaperExaminable.png'),
 				deferredEvents: {
 					events: [],
 					moments: []
@@ -85,11 +85,11 @@ const LoadingPage = React.createClass({
 				hasTriggerZone: true,
 				triggerItem: "Pencil",
 				fireCondition: 'PencilUsed',
-				password: this.props.mode.password,
 				eventToFire: 'PencilUsed',
+				password: this.props.mode.password,
 				animationToTrigger: {
 					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
-					path: '../../../assets/images/items/Pencil',
+					path: '../Pencil',
 					loop: false,
 					autoplay: false,
 					name: 'penclWriting',
@@ -203,28 +203,29 @@ const LoadingPage = React.createClass({
 				<div 
 					className={LoadingPageStyles.loaderContainer}
 					style={{
-						height: window.innerHeight + 'px'
+						height: window.innerHeight * .9 + 'px'
 					}}
 				>
-					<div>
-						<h1 
-							className={LoadingPageStyles.loaderText}
-						>
-							Loading
+					<h1 
+						className={LoadingPageStyles.loaderText}
+					>
+						Loading
 
-							<span>
-								<DeferredEventExecutor
-									style={{display: 'inline'}}
-									moments={[0, 1, 2, 3]}
-									events={this.ellipsisEvents}
-									increment={500}
-									loop={true}
+						<span>
+							<DeferredEventExecutor
+								style={{display: 'inline'}}
+								moments={[0, 1, 2, 3]}
+								events={this.ellipsisEvents}
+								increment={500}
+								loop={true}
+							>
+								<span 
+									data-glyph={this.state.ellipsisGlyph}
 								>
-									<span data-glyph={this.state.ellipsisGlyph}></span>
-								</DeferredEventExecutor>
-							</span>
-						</h1>
-					</div>
+								</span>
+							</DeferredEventExecutor>
+						</span>
+					</h1>
 					<div
 						ref="loadingGears"
 						className={LoadingPageStyles.gears}
@@ -239,7 +240,8 @@ const LoadingPage = React.createClass({
 function mapStateToProps(store) {
 	return {
 		items: store.itemState.items,
-		mode: store.modeState
+		mode: store.modeState,
+		windowState: store.windowState
 	}
 };
 

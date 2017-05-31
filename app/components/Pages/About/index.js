@@ -1,36 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
-import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor} from '../../Containers';
-
+import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
 import { SVG, Circle } from '../../Containers/ShapeContainers';
+
+import Brain from './AboutContainers/Brain';
+import Heart from './AboutContainers/Heart';
+import Hand from './AboutContainers/Hand';
 
 import { AboutPageStyles } from '../../../styles/pages';
 
-import thumbsUpEvents from '../../../assets/images/interactables/Hand/thumbsUpEvents';
-
 const AboutPage = React.createClass({
 	componentWillMount() {
-		this.thumbsUpMoments = [];
-
-		for(var i = 1; i < 12; i++) {
-			this.thumbsUpMoments.push(i);
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel < 6) {
+				browserHistory.replace('/home');
+			}
 		}
 	},
-
+	
 	render() {
 		return (
 			<ResponsiveContainer>
 				<h1>
 					ABOUT ME
 				</h1>
-				<Grid
-					breakPoints={[992, 768]}
-					gutter={4}
+				<div
+					className={AboutPageStyles.grid}
 				>
-					<Row blocks={3}>
-						<Col
-							blocks={1}
-							breaks={[40, 100]}
+					<div
+						className={AboutPageStyles.row}
+					>
+						<div
+							className={AboutPageStyles.picCol}
 						>
 							<SVG
 								title="Me Pic Background"
@@ -39,209 +42,164 @@ const AboutPage = React.createClass({
 									fill={'orange'}
 								/>
 							</SVG>
-						</Col>
-						<Col
-							blocks={2}
-							breaks={[60, 100]}
+						</div>
+						<div
+							className={AboutPageStyles.textCol}
 						>
 							<p>
 								About me paragraph
 							</p>
-						</Col>
-					</Row>
-					<Row>
-						<Col
-							breaks={[40, 100]}
-							style={{
-								position: 'relative'
-							}}
+						</div>
+					</div>
+
+					<div
+						className={AboutPageStyles.row}
+					>
+						<Brain />
+						<div
+							className={AboutPageStyles.textCol}
 						>
-							<SVG
-								title="Brain Background"
+							<div
+								className={AboutPageStyles.skillList}
 							>
-								<Circle
-									fill={'yellow'}
-								/>
-							</SVG>
-							<img 
-								style={{
-									position: 'absolute',
-									width: '70%',
-									left: '15%',
-									top: '22.5%'
-								}}
-								src={require('../../../assets/images/interactables/Brain/Brain.svg')}
-							/>
-						</Col>
-						<Col
-							breaks={[32, 52]}
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										brain
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										brain
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div
+						className={AboutPageStyles.row}
+					>
+						<Heart />
+						<div
+							className={AboutPageStyles.textCol}
 						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									brain
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-						<Col
-							breaks={[28, 48]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									brain
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-					</Row>
-					<Row>
-						<Col
-							breaks={[40, 100]}
-							style={{
-								position: 'relative'
-							}}
-						>
-							<SVG
-								title="Heart Background"
+							<div
+								className={AboutPageStyles.skillList}
 							>
-								<Circle
-									fill={'lightblue'}
-								/>
-							</SVG>
-							<img 
-								style={{
-									position: 'absolute',
-									width: '60%',
-									left: '20%',
-									top: '8%'
-								}}
-								src={require('../../../assets/images/interactables/Heart/Heart.svg')}
-							/>
-						</Col>
-						<Col
-							breaks={[32, 52]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									heart
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-						<Col
-							breaks={[28, 48]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									heart
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-					</Row>
-					<Row>
-						<Col
-							breaks={[40, 100]}
-							style={{
-								position: 'relative'
-							}}
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										heart
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										heart
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div
+						className={AboutPageStyles.row}
+					>
+						<div
+							className={AboutPageStyles.sectionImg}
 						>
 							<SVG
 								title="Hand Background"
 							>
 								<Circle
-									fill={'lightgreen'}
+									fill={'lightblue'}
 								/>
 							</SVG>
-							<DeferredEventExecutor
-								moments={this.thumbsUpMoments}
-								events={thumbsUpEvents}
-								increment={42}
+							<Hand
+								className={AboutPageStyles.hand}
+							/>
+						</div>
+						<div
+							className={AboutPageStyles.textCol}
+						>
+							<div
+								className={AboutPageStyles.skillList}
 							>
-								<img 
-									style={{
-										position: 'absolute',
-										width: '60%',
-										left: '20%',
-										top: '0px'
-									}}
-									src={require('../../../assets/images/interactables/Hand/ThumbsUp/Hand-01.svg')}
-								/>
-							</DeferredEventExecutor>
-						</Col>
-						<Col
-							breaks={[32, 52]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									hand
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-						<Col
-							breaks={[28, 48]}
-						>
-							<ul>
-								<li>
-									List
-								</li>
-								<li>
-									of
-								</li>
-								<li>
-									hand
-								</li>
-								<li>
-									skills
-								</li>
-							</ul>
-						</Col>
-					</Row>
-				</Grid>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										hand
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+								<ul>
+									<li>
+										List
+									</li>
+									<li>
+										of
+									</li>
+									<li>
+										hand
+									</li>
+									<li>
+										skills
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</ResponsiveContainer>
 		)
 	}
 });
 
-export default AboutPage;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState
+	}
+};
+
+export default connect(mapStateToProps)(AboutPage);

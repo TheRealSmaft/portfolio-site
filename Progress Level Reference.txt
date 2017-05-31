@@ -1,0 +1,60 @@
+0: Beginning
+
+1: Home Intro Scene Start
+	Items: Crumpled Paper
+
+2: Home Intro Scene Complete
+	Items: Crumpled Paper
+
+/2.5: Pencil Acquired
+	Items: Crumpled Paper, Pencil
+
+3: Paper Uncrumpled
+	Items: Paper
+
+/3.5: Paper Uncrumpled
+	Items: Paper, Pencil
+
+4: Emergency Panel Open
+	Items: None
+
+5: Knife Acquired
+	Items: Knife
+
+6: Knife Used
+	Items: None
+
+/6.5: Glue Acquired, Eraser Not Acquired
+	Items: Glue
+
+7: Eraser Acquired
+	Items: Eraser
+
+/7.5: Glue Acquired, Eraser Not Used
+	Items: Eraser, Glue
+
+8: Eraser Used, Glue Not Acquired
+	Items: None
+
+/8.5: Eraser Used, Glue Acquired
+	Items: Glue
+
+9: Broken Link Acquired, Glue Not Acquired
+	Items: Broken Link
+
+/9.5: Broken Link Acquired, Glue Acquired
+	Items: Broken Link, Glue
+
+10: Link Fixed & Clicked
+	Items: About Link
+
+11: Gavel Acquired
+	Items: Gavel
+
+12: Heart and Brain Glass Broken
+	Items: None
+
+13: Nav Acquired
+	Items: Nav
+
+>13: Site Mode Restored

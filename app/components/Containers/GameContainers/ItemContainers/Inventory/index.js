@@ -13,6 +13,8 @@ import { scrollEventTypes, scrollEventActions } from '../../../../../state/event
 
 import InventoryStyles from '../../../../../styles/inventory';
 
+import itemList from '../../../../../assets/gameObjects/items';
+
 const Inventory = React.createClass({
 	componentWillMount() {
 		this.getInventoryItems();
@@ -21,11 +23,115 @@ const Inventory = React.createClass({
 		this.dragNode = null;
 
 		this.slotCount = 6;
-		this.examinable = null;
+		this.getItemsBasedOnProgressLevel();
 	},
 
 	componentWillUpdate() {
 		this.getInventoryItems();
+	},
+
+	getItemsBasedOnProgressLevel() {
+		switch(this.props.mode.progressLevel) {
+			case 0: {
+				break;
+			}
+			case 1: 
+			case 2: {
+				this.props.addItemToArray(itemList.crumpledPaper);
+				this.props.changeItemStatus('Crumpled Paper', 'inventory');
+				break;
+			}
+			case 2.5: {
+				this.props.addItemToArray(itemList.crumpledPaper);
+				this.props.changeItemStatus('Crumpled Paper', 'inventory');
+
+				this.props.changeItemStatus('Pencil', 'inventory');
+				break;
+			}
+			case 3: {
+				this.props.addItemToArray(itemList.paper);
+				this.props.changeItemStatus('Paper', 'inventory');
+				break;
+			}
+			case 3.5: {
+				this.props.addItemToArray(itemList.paper);
+				this.props.changeItemStatus('Paper', 'inventory');
+
+				this.props.changeItemStatus('Pencil', 'inventory');
+				break;
+			}
+			case 4: {
+				break;
+			}
+			case 5: {
+				this.props.changeItemStatus('Knife', 'inventory');
+				break;
+			}
+			case 6: {
+				break;
+			}
+			case 6.5: {
+				this.props.changeItemStatus('Glue', 'inventory');
+				break;
+			}
+			case 7: {
+				this.props.changeItemStatus('Eraser', 'inventory');
+				break;
+			}
+			case 7.5: {
+				this.props.changeItemStatus('Glue', 'inventory');
+
+				this.props.changeItemStatus('Eraser', 'inventory');
+				break;
+			}
+			case 8: {
+				break;
+			}
+			case 8.5: {
+				this.props.addItemToArray(itemList.glue);
+				this.props.changeItemStatus('Glue', 'inventory');
+				break;
+			}
+			case 9: {
+				this.props.addItemToArray(itemList.brokenLink);
+				this.props.changeItemStatus('Broken Link', 'inventory');
+				break;
+			}
+			case 9.5: {
+				this.props.addItemToArray(itemList.brokenLink);
+				this.props.changeItemStatus('Broken Link', 'inventory');
+
+				this.props.addItemToArray(itemList.glue);
+				this.props.changeItemStatus('Glue', 'inventory');
+				break;
+			}
+			case 10: {
+				this.props.addItemToArray(itemList.aboutLink);
+				this.props.changeItemStatus('About Link', 'inventory');
+				break;
+			}
+			case 11: {
+				this.props.addItemToArray(itemList.aboutLink);
+				this.props.changeItemStatus('About Link', 'inventory');
+
+				this.props.addItemToArray(itemList.gavel);
+				this.props.changeItemStatus('Gavel', 'inventory');
+
+				break;
+			}
+			case 12: {
+				this.props.addItemToArray(itemList.aboutLink);
+				this.props.changeItemStatus('About Link', 'inventory');
+				break;
+			}
+			case 13: {
+				console.log('Acquire Nav')
+				break;
+			}
+			default: { 
+				break;
+			}
+		}
 	},
 
 	startDraggingItem(name) {
@@ -49,6 +155,7 @@ const Inventory = React.createClass({
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
 		document.body.appendChild(this.dragNode);
+		document.body.classList.add(InventoryStyles.noCursor);
 		document.addEventListener('click', this.stopDraggingItem);
 	},
 
@@ -58,12 +165,10 @@ const Inventory = React.createClass({
 		this.dragNode.style.position = 'static';
 		this.dragNode.style.pointerEvents = 'auto';
 		document.removeEventListener('click', this.stopDraggingItem);
+		document.body.classList.remove(InventoryStyles.noCursor);
 		if(this.props.interactables.firedEvents.includes(this.draggable + 'Used')) {
 			var name = this.draggable;
-			var index = _.findIndex(this.props.items.items, function(obj) {
-				return obj.name === name;
-			});
-			this.props.changeItemStatus(index, 'used');
+			this.props.changeItemStatus(name, 'used');
 		}
 		this.draggable = null;
 		this.dragNode = null;
@@ -99,7 +204,8 @@ const Inventory = React.createClass({
 	},
 
 	examineItem(item) {
-		this.props.toggleItemExamine(item);
+		this.props.toggleItemExamine(item.name);
+		this.examinable = item;
 	},
 
 	render() {
@@ -120,7 +226,7 @@ const Inventory = React.createClass({
 					<img
 						className={InventoryStyles.examineButton}
 						src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
-						onClick={() => {this.examineItem(item.name)}}
+						onClick={() => {this.examineItem(item)}}
 					/>
 				) : ''}
 			</div>
@@ -140,8 +246,18 @@ const Inventory = React.createClass({
 			);
 		};
 
+		var examinable = this.props.items.examinable ? (
+			<Examinable 
+				style={{
+					width: '100%',
+					height: '100%'
+				}}
+			/>
+		) : null;
+
 		return (
 			<div>
+				{examinable}
 				<div 
 					ref="inventory"
 					className={InventoryStyles.inventory}
@@ -158,13 +274,6 @@ const Inventory = React.createClass({
 					}}
 				>
 				</div>
-				
-				<Examinable 
-					style={{
-						width: window.innerWidth + 'px',
-						height: (window.innerHeight - 150) + 'px'
-					}}
-				/>
 			</div>
 		)
 	}
@@ -172,6 +281,7 @@ const Inventory = React.createClass({
 
 function mapStateToProps(store) {
 	return {
+		mode: store.modeState,
 		items: store.itemState,
 		interactables: store.interactableState,
 		mouseState: store.mouseState,
@@ -182,6 +292,7 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		addItemToArray: itemActions.addItemToArray,
 		changeItemStatus: itemActions.changeItemStatus,
 		toggleItemDrag: itemActions.toggleItemDrag,
 		toggleItemExamine: itemActions.toggleItemExamine,

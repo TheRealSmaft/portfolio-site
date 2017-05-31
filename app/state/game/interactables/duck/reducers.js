@@ -39,12 +39,14 @@ const interactableReducer = (state = {
 			break;
 		}
 		case types.ADD_EVENT_TO_FIRED_ARRAY: {
-			state = {
-				...state,
-				firedEvents: [
-					...state.firedEvents,
-					action.payload
-				]
+			if(!state.firedEvents.includes(action.payload)) {
+				state = {
+					...state,
+					firedEvents: [
+						...state.firedEvents,
+						action.payload
+					]
+				}
 			}
 			break;
 		}

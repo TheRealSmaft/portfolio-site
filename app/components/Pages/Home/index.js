@@ -23,7 +23,7 @@ const HomePage = React.createClass({
 		}
 		this.pencil = {
 			name: 'Pencil',
-			usePoint: 2,
+			usePoint: 4,
 			collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
 			inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
 			width: '100px'
@@ -52,7 +52,7 @@ const HomePage = React.createClass({
 	render() {
 		return (
 			<ResponsiveContainer>
-				<SilhouetteIntro />
+				<SilhouetteIntro/>
 				<h1>
 					WELCOME!
 				</h1>

@@ -46,7 +46,8 @@ const SilhouetteIntroScene = React.createClass({
 
 			this.knife = {
 				name: 'Artist\'s Knife',
-				usePoint: 2,
+				collectPoint: 5,
+				usePoint: 6,
 				collectableImage: require('../../../assets/images/items/Knife/KnifeCollectable.svg'),
 				inventoryImage: require('../../../assets/images/items/Knife/KnifeInventory.svg'),
 				width: '100px'
@@ -77,11 +78,19 @@ const SilhouetteIntroScene = React.createClass({
 				this.introPart1 = BodyMovin.loadAnimation(introPart1);
 				this.introPart1.addEventListener('complete', this.runIntroPart2);
 			}
-			else if(this.props.mode.progressLevel === 2)
+			
+		if(this.props.mode.progressLevel > 1 &&
+			this.props.mode.progressLevel < 6)
 			{
 				this.makeTearInteractable();
 			}
-			else if(this.props.mode.progressLevel > 2) 
+
+		if(this.props.mode.progressLevel > 3) 
+			{
+				this.emergencyPanelOpen();
+			}
+
+		if(this.props.mode.progressLevel > 5) 
 			{
 				this.skipScene();
 			}
@@ -161,6 +170,9 @@ const SilhouetteIntroScene = React.createClass({
 			this.tear.removeEventListener('click', this.tearClicked);
 			this.props.addEventToFiredArray('Artist\'s KnifeUsed');
 			this.tearAnimation.play();	
+
+			this.props.changeItemStatus('Artist\'s Knife', 'used');
+			this.props.updateGameProgress(6);
 		}
 	},	
 
@@ -172,9 +184,6 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	goToPortfolio() {
-		if(this.props.mode.gameMode.progressLevel < 3) {
-			this.props.updateGameProgress(3);
-		}
 		browserHistory.push('/portfolio');
 	},
 
@@ -193,21 +202,24 @@ const SilhouetteIntroScene = React.createClass({
 		this.tearAnimation = BodyMovin.loadAnimation(tearAnimation);
 		this.tearAnimation.goToAndStop(47, true);
 
+		this.linkHoleToPortfolio();
+	},
+
+	emergencyPanelOpen() {
 		this.refs.emergencyPanel.classList.add(SilhouetteStyles.panelAlreadyOpen);
 		this.refs.emergencyPanel.childNodes[1].value = this.props.mode.password;
 		this.refs.emergencyPanel.style.pointerEvents = "none";
-
-		this.linkHoleToPortfolio();
 	},
 
 	emergencyPanelSubmit() {
 		var panel = this.refs.emergencyPanel;
 		if(panel.childNodes[1].value === this.props.mode.password) {
 			panel.classList.add(SilhouetteStyles.panelOpen);
-			var itemIndex = _.findIndex(this.props.items.items, function(obj) {
-				return obj.name === 'Paper';
-			});
-			this.props.changeItemStatus(itemIndex, 'used');
+			
+			this.props.changeItemStatus('Paper', 'used');
+			this.props.changeItemStatus('Pencil', 'used');
+
+			this.props.updateGameProgress(4);
 		}
 	},
 
@@ -263,6 +275,7 @@ const SilhouetteIntroScene = React.createClass({
 								}}
 							>
 								<div
+									id="nav"
 									ref="dummyNav"
 									className={SilhouetteStyles.dummyNav}
 								>

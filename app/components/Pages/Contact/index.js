@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor } from '../../Containers';
@@ -13,6 +14,11 @@ import BodyMovin from '../../../plugins/bodymovin.min';
 
 const ContactPage = React.createClass({
 	componentWillMount() {
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel < 1) {
+				browserHistory.replace('/');
+			}
+		}
 		this.scene = this.props.mode.gameMode ? (
 			<Abduction />
 		) : null;

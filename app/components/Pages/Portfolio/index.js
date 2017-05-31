@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer } from '../../Containers';
@@ -12,6 +12,11 @@ import { PortfolioPageStyles } from '../../../styles/pages';
 
 const PortfolioPage = React.createClass({
 	componentWillMount() {
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel < 1) {
+				browserHistory.replace('/');
+			}
+		}
 		this.bunnyPiece = {
 			name: 'BUNNIEZ',
 			description: 'A bunch o\' bunnies!',
@@ -33,13 +38,23 @@ const PortfolioPage = React.createClass({
 		);
 
 		this.eraserCollectable = null;
+		this.glueCollectable = null;
 
 		if(this.props.mode.gameMode) {
 			this.eraser = {
 				name: 'Eraser',
-				usePoint: 3,
+				collectPoint: 7,
+				usePoint: 8,
 				collectableImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
 				inventoryImage: require('../../../assets/images/items/Eraser/Eraser.svg'),
+				width: '100px'
+			};
+
+			this.glue = {
+				name: 'Glue',
+				usePoint: 10,
+				collectableImage: require('../../../assets/images/items/Glue/Glue.svg'),
+				inventoryImage: require('../../../assets/images/items/Glue/GlueInventory.svg'),
 				width: '100px'
 			};
 
@@ -52,6 +67,12 @@ const PortfolioPage = React.createClass({
 			this.eraserCollectable = (
 				<Collectable 
 					item={this.eraser}
+				/>
+			);
+
+			this.glueCollectable = (
+				<Collectable 
+					item={this.glue}
 				/>
 			);
 		}
@@ -80,6 +101,7 @@ const PortfolioPage = React.createClass({
 				/>
 
 				{this.eraserCollectable}
+				{this.glueCollectable}
 			</ResponsiveContainer>
 		)
 	}

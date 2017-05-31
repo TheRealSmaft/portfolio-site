@@ -7,7 +7,15 @@ const itemArrayReducer = (state = {
 }, action) => {
 	switch(action.type) {
 		case types.ADD_ITEM_TO_ARRAY: {
-			if(!state.items.includes(action.payload)) {
+			var exists = false;
+
+			for(let item of state.items) {
+				if(item.name === action.payload.name) {
+					exists = true;
+				}
+			}
+
+			if(!exists) {
 				state = {
 					...state,
 					items: [
@@ -19,10 +27,12 @@ const itemArrayReducer = (state = {
 			break;
 		}
 		case types.CHANGE_ITEM_STATUS: {
+			var name = action.payload.name;
+
 			state = {
 				...state,
-				items: state.items.map((item, i) => 
-					i === action.payload.itemIndex ? {
+				items: state.items.map((item) => 
+					item.name === name ? {
 						...item,
 						status: action.payload.status
 					} : item

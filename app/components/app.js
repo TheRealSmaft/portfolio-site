@@ -84,11 +84,10 @@ const App = React.createClass({
 					stickyStartY={0}
 					stickyPosY={0}
 					childStyles={navbarStyles.sticky}
-					style={{
-						display: this.props.mode.gameMode  ? 'none' : 'block'
-					}}
 				>
-					<Navbar />
+					<Navbar 
+						currentLoc={browserHistory.getCurrentLocation().pathname}
+					/>
 				</StickyContainer>
 
 				{this.props.children}

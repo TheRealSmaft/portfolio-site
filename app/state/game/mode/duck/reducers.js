@@ -4,7 +4,7 @@ import PasswordRandomizer from '../../../../assets/images/items/Paper/passwordRa
 const modeReducer = (state = {
 	gameMode: true,
 	password: PasswordRandomizer.getPassword(),
-	progressLevel: 4
+	progressLevel: 7
 }, action) => {
 	switch(action.type) {
 		case types.CHANGE_TO_SITE_MODE: {

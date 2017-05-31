@@ -6,6 +6,7 @@ import lodash from 'lodash';
 
 import Item from '../ItemComponent';
 
+import { modeTypes, modeActions } from '../../../../../state/game/mode';
 import { itemTypes, itemActions } from '../../../../../state/game/items';
 
 import CollectableStyles from '../../../../../styles/collectables';
@@ -28,7 +29,6 @@ const Collectable = React.createClass({
 		}
 		else {
 			this.item = this.getItemFromArray(this.itemIndex);
-			this.createPlaceholder();
 		}
 	},
 
@@ -38,19 +38,29 @@ const Collectable = React.createClass({
 			this.item.rect = item.getBoundingClientRect();
 			this.item.position = item.style.position;
 
-			if(this.item.collectPoint < this.props.mode.progressLevel) {
+			if(this.item.collectPoint <= this.props.mode.progressLevel) {
 				this.item.status = 'inventory';
 			}
 
-			if(this.item.usePoint < this.props.mode.progressLevel) {
+			if(this.item.usePoint <= this.props.mode.progressLevel) {
 				this.item.status = 'used';
 			}
 
-			this.props.addItemToArray(this.item);
-		}
+			if(this.item.name === 'Glue') {
+				if(this.props.mode.progressLevel > 6 &&
+					!Number.isInteger(this.props.mode.progressLevel)) {
+					this.item.status = 'inventory';
+				}
+			}
 
-		if(this.placeHolder === null) {
-			this.createPlaceholder();
+			if(this.item.name === 'Pencil') {
+				if(this.props.mode.progressLevel > 2 &&
+					!Number.isInteger(this.props.mode.progressLevel)) {
+					this.item.status = 'inventory';
+				}
+			}
+
+			this.props.addItemToArray(this.item);
 		}
 	},
 
@@ -60,10 +70,6 @@ const Collectable = React.createClass({
 		if(this.prevIndex != this.itemIndex) {
 			this.item = this.getItemFromArray(this.itemIndex);
 			this.prevIndex = this.itemIndex;
-		}
-
-		if(this.placeHolder === null) {
-			this.createPlaceHolder();
 		}
 	},
 
@@ -82,23 +88,24 @@ const Collectable = React.createClass({
 	},
 
 	addItemToInventory() {
-		this.itemIndex = this.getItemIndex();
-		this.props.changeItemStatus(this.itemIndex, 'inventory');
+		this.props.changeItemStatus(this.item.name, 'inventory');
 		this.item.status = 'inventory';
-	},
 
-	createPlaceholder() {
-		this.placeHolder = (
-			<div
-				style={{
-					position: this.item.position,
-					float: 'left',
-					width: this.item.rect.width,
-					height: this.item.rect.height
-				}}
-			>
-			</div>
-		);
+		if(this.item.name === 'Glue') {
+			if(this.props.mode.progressLevel >= 6 &&
+				this.props.mode.progressLevel < 10) {
+				this.props.updateGameProgress(this.props.mode.progressLevel + .5);
+			}
+		}
+
+		if(this.item.name === 'Eraser') {
+			if(this.props.mode.progressLevel === 6) {
+				this.props.updateGameProgress(7);
+			}
+			else if(this.props.mode.progressLevel === 6.5) {
+				this.props.updateGameProgress(7.5);
+			}
+		}
 	},
 
 	render() {
@@ -106,7 +113,7 @@ const Collectable = React.createClass({
 			return (
 				<div 
 					className={CollectableStyles.collectable}
-					onMouseDown={this.addItemToInventory}
+					onClick={this.addItemToInventory}
 					style={{
 						...this.props.style,
 						float: 'left'
@@ -122,13 +129,27 @@ const Collectable = React.createClass({
 				</div>
 			);
 		}
-		else
-		{
+		else {
 			return (
-				<div>
-					{this.placeHolder}
+				<div 
+					className={CollectableStyles.collectable}
+					style={{
+						...this.props.style,
+						float: 'left',
+						visibility: 'hidden',
+						width: this.props.item.width,
+					}}
+				>
+					<Item 
+						style={{
+							width: this.props.item.width,
+							height: this.item.name === 'Artist\'s Knife' ? '32px' : 'auto'
+						}}
+						ref="item"
+						item={this.item}
+					/>
 				</div>
-			)
+			);
 		}
 	}
 });
@@ -142,6 +163,7 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
+		updateGameProgress: modeActions.updateGameProgress,
 		addItemToArray: itemActions.addItemToArray,
 		changeItemStatus: itemActions.changeItemStatus
 	}, dispatch);

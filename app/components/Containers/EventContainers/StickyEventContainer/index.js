@@ -62,7 +62,11 @@ const StickyEventContainer = React.createClass({
 				>
 					<div 
 						className={this.props.childStyles} 
-						style={this.stickyStyles}>
+						style={{
+							...this.stickyStyles,
+							zIndex: this.props.items.examinable != null ? 44 : 51
+						}}
+					>
 						{this.props.children}
 					</div>
 				</div>
@@ -85,7 +89,8 @@ const StickyEventContainer = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		scrollState: store.scrollState
+		scrollState: store.scrollState,
+		items: store.itemState
 	}
 }
 

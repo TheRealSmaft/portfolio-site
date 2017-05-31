@@ -15,7 +15,7 @@ const LinkScribble = React.createClass({
 	},
 
 	componentDidMount() {
-		if(this.props.mode.progressLevel < 4) {
+		if(this.props.mode.progressLevel < 8) {
 			var animationData = {
 				animationData: require('../../../../../assets/images/interactables/LinkScribble/LinkScribble.json'),
 				path: '../../../../../assets/images/interactables/LinkScribble',
@@ -41,7 +41,12 @@ const LinkScribble = React.createClass({
 		if(this.props.items.draggable === "Eraser") {
 			this.props.addEventToFiredArray('EraserUsed');
 			this.scribble.play();
-			this.props.updateGameProgress(4);
+			if(this.props.mode.progressLevel === 7) {
+				this.props.updateGameProgress(8);
+			}
+			else if(this.props.mode.progressLevel === 7.5) {
+				this.props.updateGameProgress(8.5);
+			}
 		}
 	},
 
