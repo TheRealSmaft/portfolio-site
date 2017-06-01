@@ -520,27 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "webpack.config.js",
+			"file": "app/components/Pages/About/AboutContainers/Brain/index.js",
 			"settings":
 			{
-				"buffer_size": 2111,
+				"buffer_size": 4363,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "npm-debug.log.4028693813",
+			"file": "app/components/Pages/About/AboutContainers/Heart/index.js",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": ".babelrc",
-			"settings":
-			{
-				"buffer_size": 574,
+				"buffer_size": 4503,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -611,11 +603,19 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/GlassDome",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Brain",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Hand",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Heart",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading",
@@ -627,14 +627,17 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/events",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode/duck",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/mouse/tracking/duck",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/collectables",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/examinables",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables/silhouette",
@@ -645,32 +648,35 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Contact",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Loading",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/babel-core"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/GlassDome/GlassDomeBackground.json",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/inventory/inventory.less",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/About/About.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/webpack.config.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/package.json",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/.babelrc",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/GlassDome/GlassDomeBackground.json",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/bundle.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/gameObjects/items/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Abduction/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables/silhouette/silhouette.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/Progress Level Reference.txt",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/About/About.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Brain/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Heart/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Hand/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/inventory/inventory.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/LinkScribble/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/actions.js",
@@ -703,7 +709,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/collectables/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/interactables/duck/types.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/ItemComponent/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/scenes/duck/types.js",
@@ -774,10 +779,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/test/styles.css",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/CSSAnimationQueuer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/animation/animation.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/test.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/PhysicsContainer/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Landing/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/intro/styles.less"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/test.less"
 	],
 	"find":
 	{
@@ -797,6 +799,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"item.width",
+			"Brain",
+			"brain",
+			"glue",
+			"Eraser",
+			"items",
+			"this.brain",
 			",",
 			"'",
 			"brain",
@@ -917,14 +926,7 @@
 			"DropZone",
 			"lock",
 			"interactable",
-			"art",
-			"item",
-			"tart",
-			"PLAY_OFF",
-			"PLAY_ON",
-			"ON",
-			"TOGGLE_SCENE_PLAY",
-			"item"
+			"art"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -942,97 +944,72 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "webpack.config.js",
+					"file": "app/components/Pages/About/AboutContainers/Brain/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2111,
+						"buffer_size": 4363,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2111,
-								2111
+								2736,
+								2603
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1419.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "npm-debug.log.4028693813",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1320.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": ".babelrc",
+					"buffer": 1,
+					"file": "app/components/Pages/About/AboutContainers/Heart/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 574,
+						"buffer_size": 4503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								148,
-								148
+								3136,
+								3136
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -1053,11 +1030,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":

@@ -17,7 +17,36 @@ const Heart = React.createClass({
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
 			this.createDomeAnimations();
+			this.makeHeartCollectable();
 		}
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
+	},
+
+	allowClickThrough() {
+		this.refs.domeForeground.style.pointerEvents = 'none';
+	},
+
+	makeHeartCollectable() {
+		this.refs.heart.addEventListener('click', this.collectHeart);
+		this.refs.heart.classList.add(AboutPageStyles.hover);
+	},
+
+	collectHeart() {
+		this.refs.heart.removeEventListener('click', this.collectHeart);
+		this.refs.heart.style.display = 'none';
+
+		var heartItem = {
+			name: 'Heart',
+			status: 'inventory',
+			inventoryImage: require('../../../../../assets/images/interactables/Heart/Heart.svg'),
+			width: '100%'
+		};
+
+		this.props.addItemToArray(heartItem);
+		this.props.updateGameProgress(this.props.mode.progressLevel);
 	},
 
 	createDomeAnimations() {
@@ -33,6 +62,7 @@ const Heart = React.createClass({
 		};
 
 		this.domeForegroundAnimation = BodyMovin.loadAnimation(foregroundAnimation);
+		this.domeForegroundAnimation.addEventListener('complete', this.allowClickThrough)
 
 		var backgroundJson = require('../../../../../assets/images/interactables/GlassDome/GlassDomeBackground.json');
 		var backgroundAnimation = {
@@ -48,12 +78,14 @@ const Heart = React.createClass({
 		this.domeBackgroundAnimation = BodyMovin.loadAnimation(backgroundAnimation);
 
 		if(this.props.mode.progressLevel < 12) {
-			this.refs.domeForeground.addEventListener('click', this.breakGlass);
+			this.dome = this.refs.domeForeground.firstChild.childNodes[1].childNodes[2];
+			this.dome.addEventListener('click', this.breakGlass);
 		}
 		else
 		{
-			this.domeForegroundAnimation.goToAndStop(this.domeForegroundAnimation.totalFrames, true)
-			this.domeBackgroundAnimation.goToAndStop(this.domeBackgroundAnimation.totalFrames, true)
+			this.domeForegroundAnimation.goToAndStop(this.domeForegroundAnimation.totalFrames, true);
+			this.domeBackgroundAnimation.goToAndStop(this.domeBackgroundAnimation.totalFrames, true);
+			this.refs.domeForeground.style.pointerEvents = 'none';
 		}
 	},
 
@@ -64,7 +96,7 @@ const Heart = React.createClass({
 
 	breakGlass() {
 		if(this.props.items.draggable === "Gavel") {
-			this.refs.domeForeground.removeEventListener('click', this.breakGlass);
+			this.dome.removeEventListener('click', this.breakGlass);
 			this.props.addEventToFiredArray('HeartReleased');
 			this.playAnimations();	
 
@@ -93,6 +125,7 @@ const Heart = React.createClass({
 					/>
 				</SVG>
 				<img 
+					ref="heart"
 					className={AboutPageStyles.heart}
 					src={require('../../../../../assets/images/interactables/Heart/Heart.svg')}
 				/>
@@ -118,6 +151,7 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		updateGameProgress: modeActions.updateGameProgress,
+		addItemToArray: itemActions.addItemToArray,
 		changeItemStatus: itemActions.changeItemStatus,
 		addEventToFiredArray: interactableActions.addEventToFiredArray
 	}, dispatch);
