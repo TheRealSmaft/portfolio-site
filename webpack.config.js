@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require("compression-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: [
@@ -77,6 +78,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
 
+    new webpack.NamedModulesPlugin(),
+    // prints more readable module names in the browser console on HMR updates
+
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
@@ -85,7 +89,8 @@ module.exports = {
       minratio: 0.8
     }),
 
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
+    new UglifyJSPlugin({
+      mangle: false
+    })
   ],
 };
