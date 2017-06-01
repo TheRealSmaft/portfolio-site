@@ -520,44 +520,27 @@
 	"buffers":
 	[
 		{
-			"file": "app/components/Scenes/Abduction/index.js",
+			"file": "webpack.config.js",
 			"settings":
 			{
-				"buffer_size": 7391,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/state/game/mode/duck/reducers.js",
-			"settings":
-			{
-				"buffer_size": 538,
+				"buffer_size": 2111,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Pages/Loading/index.js",
+			"file": "npm-debug.log.4028693813",
 			"settings":
 			{
-				"buffer_size": 7011,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/LayoutContainers/Navbar/index.js",
+			"file": ".babelrc",
 			"settings":
 			{
-				"buffer_size": 1819,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/assets/gameObjects/items/index.js",
-			"settings":
-			{
-				"buffer_size": 4496,
+				"buffer_size": 574,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -623,12 +606,11 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/gameObjects",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/gameObjects/items",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/GlassDome",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Examinable",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages",
@@ -662,12 +644,20 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/About",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Contact",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Loading"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Loading",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/node_modules/babel-core"
 	],
 	"file_history":
 	[
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/GlassDome/GlassDomeBackground.json",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode/duck/reducers.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/bundle.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/gameObjects/items/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Abduction/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/interactables/silhouette/silhouette.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/Progress Level Reference.txt",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/About/About.less",
@@ -678,15 +668,11 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/Hand/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/inventory/inventory.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/gameObjects/items/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/app.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/LayoutContainers/Navbar/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/LinkScribble/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Collectable/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Abduction/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/items/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact/index.js",
@@ -758,7 +744,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/PortfolioImage/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/mediaQueries/mediaQueries.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/LoadingPage.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/bundle.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/_Intro/index.js",
@@ -792,8 +777,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/test.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/EventContainers/PhysicsContainer/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Landing/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/intro/styles.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/landingPage/landingPage.less"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/scenes/intro/styles.less"
 	],
 	"find":
 	{
@@ -958,158 +942,95 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/components/Scenes/Abduction/index.js",
+					"file": "webpack.config.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7391,
+						"buffer_size": 2111,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3216,
-								3216
+								2111,
+								2111
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 1020.0,
+						"translation.x": 0.0,
+						"translation.y": 1419.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/state/game/mode/duck/reducers.js",
-					"semi_transient": false,
+					"file": "npm-debug.log.4028693813",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 538,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								538,
-								538
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Pages/Loading/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7011,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2025,
-								2025
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 1020.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/components/Containers/LayoutContainers/Navbar/index.js",
+					"buffer": 2,
+					"file": ".babelrc",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1819,
+						"buffer_size": 574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								442,
-								442
+								148,
+								148
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 65.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "app/assets/gameObjects/items/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4496,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2937,
-								2937
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1874.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1132,18 +1053,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
