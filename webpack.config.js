@@ -1,22 +1,24 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    // activate HMR for React
+      'react-hot-loader/patch',
+      // activate HMR for React
+  
+      'webpack-dev-server/client?http://localhost:8080',
+      // bundle the client for webpack-dev-server
+      // and connect to the provided endpoint
+  
+      'webpack/hot/only-dev-server',
+      // bundle the client for hot reloading
+      // only- means to only hot reload for successful updates
+  
+      './index.js'
+      // the entry point of our app
+    ],
 
-    'webpack-dev-server/client?http://localhost:8080',
-    // bundle the client for webpack-dev-server
-    // and connect to the provided endpoint
-
-    'webpack/hot/only-dev-server',
-    // bundle the client for hot reloading
-    // only- means to only hot reload for successful updates
-
-    './index.js'
-    // the entry point of our app
-  ],
   output: {
     filename: 'bundle.js',
     // the output bundle
@@ -66,7 +68,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[path][name].[hash].[ext]'
-        }
+        },
       }
     ],
   },
@@ -74,6 +76,14 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
+
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.(js|html|json|css|png|svg)$/,
+      threshold: 10240,
+      minratio: 0.8
+    }),
 
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
