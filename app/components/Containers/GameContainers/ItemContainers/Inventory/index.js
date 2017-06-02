@@ -189,7 +189,9 @@ const Inventory = React.createClass({
 
 	stopTrackingMouse() {
 		window.removeEventListener('mousemove', this.trackMouse);
-		this.unlockScrollPosition();
+		if(this.props.items.examinable === null) {
+			this.unlockScrollPosition();
+		}
 	},
 
 	trackMouse(event) {

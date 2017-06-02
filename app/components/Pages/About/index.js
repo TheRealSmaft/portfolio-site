@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
-import { ResponsiveContainer, Grid, Row, Col} from '../../Containers';
+import { ResponsiveContainer } from '../../Containers';
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
+import Portrait from './AboutContainers/Portrait';
 import Brain from './AboutContainers/Brain';
 import Heart from './AboutContainers/Heart';
 import Hand from './AboutContainers/Hand';
@@ -32,17 +33,7 @@ const AboutPage = React.createClass({
 					<div
 						className={AboutPageStyles.row}
 					>
-						<div
-							className={AboutPageStyles.picCol}
-						>
-							<SVG
-								title="Me Pic Background"
-							>
-								<Circle
-									fill={'orange'}
-								/>
-							</SVG>
-						</div>
+						<Portrait />
 						<div
 							className={AboutPageStyles.textCol}
 						>

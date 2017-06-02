@@ -99,6 +99,7 @@ const Examinable = React.createClass({
 				this.animation.goToAndStop(initialFrame, true);
 				this.refs.animation.style.pointerEvents = 'none';
 				this.refs.animation.firstChild.childNodes[1].style.pointerEvents = 'auto';
+				this.refs.animation.firstChild.childNodes[1].classList.add(ExaminableStyles.clickWillFireEvent);
 				this.refs.animation.firstChild.childNodes[1].addEventListener('click', this.clickEvent);
 			}
 
@@ -232,9 +233,8 @@ const Examinable = React.createClass({
 							src={this.item.examineImage}
 							style={{
 								display: this.item.animationReplacesImage ? 'none' : 'block',
-								width: this.item.examineWidth ? this.item.examineWidth : 'auto',
-								height: '60%',
-								marginTop: '5%'
+								width: this.item.examineWidth ? this.item.examineWidth : '60%',
+								height: 'auto'
 							}}
 							onClick={() => {this.clickEvent()}}
 						/>

@@ -1,22 +1,29 @@
 @import "../../mediaQueries/mediaQueries.less";
 
-.homeP {
-	height: 250px;
+.welcome {
+	width: 100%;
 	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
 	align-items: center;
 
-	@media @medium-min {
-		height: 350px;
+	div {
+		position: relative;
+		flex: 0 0 45%;
+
+		@media @small-max {
+			flex: 0 0 100%;
+		}
 	}
 
-	@media @small-max {
-		height: auto;
+	p {
+		flex: 0 0 50%;
+
+		@media @small-max {
+			flex: 0 0 100%;
+		}
 	}
 }
-
-// .homeGrid {
-// 	margin-top: 100px;
-// }
 
 .portPreview {
 	display: flex;
