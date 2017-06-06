@@ -1,16 +1,25 @@
-.homeP {
-  height: 250px;
+.welcome {
+  width: 100%;
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   align-items: center;
 }
-@media only screen and (min-width: 992px) {
-  .homeP {
-    height: 350px;
-  }
+.welcome div {
+  position: relative;
+  flex: 0 0 45%;
 }
 @media only screen and (max-width: 768px) {
-  .homeP {
-    height: auto;
+  .welcome div {
+    flex: 0 0 100%;
+  }
+}
+.welcome p {
+  flex: 0 0 50%;
+}
+@media only screen and (max-width: 768px) {
+  .welcome p {
+    flex: 0 0 100%;
   }
 }
 .portPreview {
@@ -60,5 +69,15 @@
   .portPreview span {
     display: block;
   }
+}
+.victoryDiv {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 201;
+  pointer-events: none;
+  background-color: white;
+  opacity: 1;
+  transition: 3s ease-out;
 }
 /*# sourceMappingURL=Home.css.map */

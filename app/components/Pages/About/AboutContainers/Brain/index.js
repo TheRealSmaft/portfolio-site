@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { Collectable } from '../../../../Containers/GameContainers';
 import { SVG, Circle } from '../../../../Containers/ShapeContainers';
 
 import { itemTypes, itemActions } from '../../../../../state/game/items';
@@ -17,7 +18,41 @@ const Brain = React.createClass({
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
 			this.createDomeAnimations();
+
+			this.brainItem = {
+				name: 'Brain',
+				collectableImage: require('../../../../../assets/images/interactables/Brain/Brain.svg'),
+				inventoryImage: require('../../../../../assets/images/interactables/Brain/Brain.svg'),
+				width: '100%'
+			};
+
+			this.brain = (
+				<div
+					className={AboutPageStyles.brain}
+				>
+					<Collectable 
+						item={this.brainItem}
+					/>
+				</div>
+			);
 		}
+		else
+		{
+			this.brain = (
+				<img 
+					className={AboutPageStyles.brain}
+					src={require('../../../../../assets/images/interactables/Brain/Brain.svg')}
+				/>
+			)
+		}
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
+	},
+
+	allowClickThrough() {
+		this.refs.domeForeground.style.pointerEvents = 'none';
 	},
 
 	createDomeAnimations() {
@@ -33,6 +68,7 @@ const Brain = React.createClass({
 		};
 
 		this.domeForegroundAnimation = BodyMovin.loadAnimation(foregroundAnimation);
+		this.domeForegroundAnimation.addEventListener('complete', this.allowClickThrough);
 
 		var backgroundJson = require('../../../../../assets/images/interactables/GlassDome/GlassDomeBackground.json');
 		var backgroundAnimation = {
@@ -48,12 +84,14 @@ const Brain = React.createClass({
 		this.domeBackgroundAnimation = BodyMovin.loadAnimation(backgroundAnimation);
 		
 		if(this.props.mode.progressLevel < 12) {
-			this.refs.domeForeground.addEventListener('click', this.breakGlass);
+			this.dome = this.refs.domeForeground.firstChild.childNodes[1].childNodes[2];
+			this.dome.addEventListener('click', this.breakGlass);
 		}
 		else
 		{
-			this.domeForegroundAnimation.goToAndStop(this.domeForegroundAnimation.totalFrames, true)
-			this.domeBackgroundAnimation.goToAndStop(this.domeBackgroundAnimation.totalFrames, true)
+			this.domeForegroundAnimation.goToAndStop(this.domeForegroundAnimation.totalFrames, true);
+			this.domeBackgroundAnimation.goToAndStop(this.domeBackgroundAnimation.totalFrames, true);
+			this.refs.domeForeground.style.pointerEvents = 'none';
 		}
 	},
 
@@ -64,7 +102,7 @@ const Brain = React.createClass({
 
 	breakGlass() {
 		if(this.props.items.draggable === "Gavel") {
-			this.refs.domeForeground.removeEventListener('click', this.breakGlass);
+			this.dome.removeEventListener('click', this.breakGlass);
 			this.props.addEventToFiredArray('BrainReleased');
 			this.playAnimations();	
 
@@ -92,10 +130,7 @@ const Brain = React.createClass({
 						fill={'yellow'}
 					/>
 				</SVG>
-				<img 
-					className={AboutPageStyles.brain}
-					src={require('../../../../../assets/images/interactables/Brain/Brain.svg')}
-				/>
+				{this.brain}
 				<div
 					ref="domeForeground"
 					className={AboutPageStyles.glassDome}

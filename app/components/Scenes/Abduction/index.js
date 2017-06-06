@@ -15,21 +15,7 @@ const Abduction = React.createClass({
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
 			if(this.props.mode.progressLevel > 7.5) {
-				var ufoArrival = {
-					animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
-					path: '../../../assets/images/interactables/UFO',
-					loop: false,
-					autoplay: false,
-					name: 'ufoArrival',
-					renderer: 'svg' ,
-					container: ReactDOM.findDOMNode(this.refs.alienContact)
-				};
-
-				this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
-				this.ufoArrival.addEventListener('complete', this.ufoHover);
-				setTimeout(() => {
-					this.ufoArrival.play();
-				}, 500);
+				this.ufoArrives();
 
 				var silhouetteChewing = {
 					animationData: require('../../../assets/images/interactables/UFO/SilhouetteChewing.json'),
@@ -101,10 +87,32 @@ const Abduction = React.createClass({
 				}
 			}
 		}
+		else
+		{
+			this.ufoArrives();
+		}
 	},
 
 	componentWillUnmount() {
 		BodyMovin.destroy();
+	},
+
+	ufoArrives() {
+		var ufoArrival = {
+			animationData: require('../../../assets/images/interactables/UFO/UFOArrival.json'),
+			path: '../../../assets/images/interactables/UFO',
+			loop: false,
+			autoplay: false,
+			name: 'ufoArrival',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.alienContact)
+		};
+
+		this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
+		this.ufoArrival.addEventListener('complete', this.ufoHover);
+		setTimeout(() => {
+			this.ufoArrival.play();
+		}, 500);
 	},
 
 	ufoHover() {
@@ -136,7 +144,8 @@ const Abduction = React.createClass({
 
 		this.carrot = BodyMovin.loadAnimation(carrotAnimationData);
 
-		if(this.props.mode.progressLevel < 9) {
+		if(this.props.mode.gameMode &&
+			this.props.mode.progressLevel < 9) {
 			this.silhouetteAbduction();
 			setTimeout(() => {
 				this.useTractorBeam();

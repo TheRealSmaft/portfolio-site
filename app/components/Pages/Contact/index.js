@@ -19,9 +19,6 @@ const ContactPage = React.createClass({
 				browserHistory.replace('/');
 			}
 		}
-		this.scene = this.props.mode.gameMode ? (
-			<Abduction />
-		) : null;
 	},
 
 	render() {
@@ -35,7 +32,7 @@ const ContactPage = React.createClass({
 					className={ContactPageStyles.sceneAndForm}
 				>
 					<div>
-						{this.scene}
+						<Abduction />
 					</div>
 					<div>
 						<SVG

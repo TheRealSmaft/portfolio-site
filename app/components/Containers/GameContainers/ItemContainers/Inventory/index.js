@@ -149,13 +149,17 @@ const Inventory = React.createClass({
 
 	appendDraggableToDocumentBody() {
 		this.dragNode = this.refs[this.draggable];
+
 		this.dragNode.style.zIndex = 100;
 		this.dragNode.style.width = '150px';
 		this.dragNode.style.pointerEvents = 'none';
+
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
 		document.body.appendChild(this.dragNode);
+
 		document.body.classList.add(InventoryStyles.noCursor);
+
 		document.addEventListener('click', this.stopDraggingItem);
 	},
 
@@ -185,7 +189,9 @@ const Inventory = React.createClass({
 
 	stopTrackingMouse() {
 		window.removeEventListener('mousemove', this.trackMouse);
-		this.unlockScrollPosition();
+		if(this.props.items.examinable === null) {
+			this.unlockScrollPosition();
+		}
 	},
 
 	trackMouse(event) {

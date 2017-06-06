@@ -13,7 +13,15 @@ function updateGameProgress(level:number) {
 	}
 };
 
+function justBeatGame(bool:bool) {
+	return {
+		type: types.JUST_BEAT_GAME,
+		payload: bool
+	}
+};
+
 export default {
 	changeToSiteMode,
-	updateGameProgress
+	updateGameProgress,
+	justBeatGame
 };

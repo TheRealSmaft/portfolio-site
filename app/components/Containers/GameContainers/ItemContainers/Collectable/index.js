@@ -112,7 +112,7 @@ const Collectable = React.createClass({
 		if(this.item.status === 'collectable') {
 			return (
 				<div 
-					className={CollectableStyles.collectable}
+					className={this.props.className, CollectableStyles.collectable}
 					onClick={this.addItemToInventory}
 					style={{
 						...this.props.style,
@@ -138,6 +138,7 @@ const Collectable = React.createClass({
 						float: 'left',
 						visibility: 'hidden',
 						width: this.props.item.width,
+						pointerEvents: 'none'
 					}}
 				>
 					<Item 

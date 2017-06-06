@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 const Item = React.createClass({
+	componentWillMount() {
+		this.divWidth = this.props.item.name === "Heart" ? '100px' : '140px';
+	},
+
 	render() {
 		return (
 			<div 
 				style={{
 					...this.props.style,
-					width: this.props.item.status === 'inventory' ? '140px' : this.props.item.width
+					width: this.props.item.status === 'inventory' ? this.divWidth : this.props.item.width
 				}}
 			>
 				<img 

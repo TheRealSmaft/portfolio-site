@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
@@ -12,22 +13,33 @@ import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { HomePageStyles } from '../../../styles/pages';
 
+import { modeActions, modeTypes } from '../../../state/game/mode';
+
 import BodyMovin from '../../../plugins/bodymovin.min';
 
 const HomePage = React.createClass({
 	componentWillMount() {
+		this.pencil = null;
+
 		if(this.props.mode.gameMode) {
 			if(this.props.mode.progressLevel < 1) {
 				browserHistory.replace('/');
 			}
+
+			this.pencilItem = {
+				name: 'Pencil',
+				usePoint: 4,
+				collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
+				inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
+				width: '100px'
+			};
+
+			this.pencil = (
+				<Collectable
+					item={this.pencilItem}
+				/>
+			);
 		}
-		this.pencil = {
-			name: 'Pencil',
-			usePoint: 4,
-			collectableImage: require('../../../assets/images/items/Pencil/PencilCollectable.svg'),
-			inventoryImage: require('../../../assets/images/items/Pencil/PencilInventory.svg'),
-			width: '100px'
-		};
 	},
 
 	componentDidMount() {
@@ -45,6 +57,16 @@ const HomePage = React.createClass({
 		BodyMovin.loadAnimation(this.logoAnimation);
 	},
 
+	componentWillUpdate() {
+		if(this.props.mode.justBeatGame) {
+			this.refs.victoryDiv.style.opacity = 0;
+
+			setTimeout(() => {
+				this.props.justBeatGame(false);
+			}, 3100);
+		}
+	},
+
 	componentWillUnmount() {
 		BodyMovin.destroy();
 	},
@@ -56,57 +78,40 @@ const HomePage = React.createClass({
 				<h1>
 					WELCOME!
 				</h1>
-				<Grid
-					className={HomePageStyles.homeGrid}
-					breakPoints={[768]}
-					gutter={4}
+				<div
+					className={HomePageStyles.welcome}
 				>
-					<Row blocks={20}>
-						<Col
-							breaks={[100]}
-							blocks={9}
+					<div>
+						<SVG
+							title="Logo Circle"
+						>
+							<Circle
+								fill={'lightblue'}
+							>
+							</Circle>
+						</SVG>
+						<div 
+							ref="logo"
 							style={{
-								position: 'relative'
+								position: 'absolute',
+								width: '95%',
+								left: '3%',
+								top: '2%'
 							}}
 						>
-							<SVG
-								title="Logo Circle"
-							>
-								<Circle
-									fill={'lightblue'}
-								>
-								</Circle>
-							</SVG>
-							<div 
-								ref="logo"
-								style={{
-									position: 'absolute',
-									width: '95%',
-									left: '3%',
-									top: '2%'
-								}}
-							>
-							</div>
-						</Col>
-						<Col
-							className={HomePageStyles.homeP}
-							breaks={[100]}
-							blocks={11}
-						>
-							<p>
-								Farm-to-table twee plaid stumptown chia authentic. 
-								Drinking vinegar hell of master cleanse banjo, gentrify
-								enamel pin meditation dreamcatcher bespoke shabby chic
-								ethical bitters blue bottle typewriter portland. Coloring
-								book man braid messenger bag chicharrones, sartorial
-								succulents flannel pug XOXO street art cronut.
-							</p>
-						</Col>
-					</Row>
-				</Grid>
+						</div>
+					</div>
+					<p>
+						Farm-to-table twee plaid stumptown chia authentic. 
+						Drinking vinegar hell of master cleanse banjo, gentrify
+						enamel pin meditation dreamcatcher bespoke shabby chic
+						ethical bitters blue bottle typewriter portland. Coloring
+						succulents flannel pug XOXO street art cronut.
+					</p>
+				</div>
 				<div
-						className={HomePageStyles.portPreview}
-					>
+					className={HomePageStyles.portPreview}
+				>
 					<div></div>
 					<div></div>
 					<div></div>
@@ -122,9 +127,17 @@ const HomePage = React.createClass({
 					<div></div>
 					<div></div>
 				</div>
-				<Collectable
-					item={this.pencil}
-				/>
+				{this.pencil}
+				<div
+					ref="victoryDiv"
+					className={HomePageStyles.victoryDiv}
+					style={{
+						display: this.props.mode.justBeatGame ? 'block' : 'none',
+						width: window.innerWidth + 'px',
+						height: window.innerHeight + 'px'
+					}}
+				>
+				</div>
 			</ResponsiveContainer>
 		)
 	}
@@ -136,4 +149,10 @@ function mapStateToProps(store) {
 	}
 };
 
-export default connect(mapStateToProps)(HomePage);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		justBeatGame: modeActions.justBeatGame
+	}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

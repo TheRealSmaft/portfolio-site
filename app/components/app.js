@@ -70,6 +70,12 @@ const App = React.createClass({
 				document.body.style.marginRight = '0px';
 			}
 		}
+
+		if(this.props.mode.gameMode) {
+			if(!nextProps.mode.gameMode) {
+				this.inventory = null;
+			}
+		}
 	},
 
 	render() {
@@ -94,8 +100,7 @@ const App = React.createClass({
 
 				{this.inventory}
 
-				{this.clickBlocker}
-
+				{this.clickBlocker}			
 			</div>
 		)
 	}
