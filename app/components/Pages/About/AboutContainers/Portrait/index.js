@@ -142,6 +142,11 @@ const Portrait = React.createClass({
 				this.props.interactables.firedEvents.includes('BrainUsed')) {
 				this.silhouetteAgony.loop = true;
 				this.silhouetteAgony.playSegments([[0, 15], [16, 23]], true);
+				
+				this.refs.portrait.parentNode.classList.add(AboutPageStyles.portraitSpin);
+				this.refs.portrait.firstChild.style.backfaceVisibility = 'hidden';
+
+				this.props.updateGameProgress(13);
 			}
 			else
 			{

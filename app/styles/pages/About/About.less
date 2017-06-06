@@ -72,6 +72,43 @@
 	left: 13%;
 }
 
+@keyframes portraitSpin {
+	0% {
+		transform: rotateY(0deg);
+	}
+	30% {
+		transform: rotateY(360deg);
+	}
+	55% {
+		transform: rotateY(720deg);
+	}
+	75% {
+		transform: rotateY(1080deg);
+	}
+	90% {
+		transform: rotateY(1440deg);
+	}
+	100% {
+		transform: rotateY(1800deg);
+	}
+}
+
+.portraitSpin {
+	animation: portraitSpin 4s linear forwards;
+}
+
+.whiteOut {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 201;
+
+	background-color: white;
+	opacity: 0;
+
+	transition: 4s ease-in;
+}
+
 .hover {
 	&:hover {
 		cursor: pointer;

@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer } from '../../Containers';
 import { SVG, Circle } from '../../Containers/ShapeContainers';
+
+import { modeActions, modeTypes } from '../../../state/game/mode';
 
 import Portrait from './AboutContainers/Portrait';
 import Brain from './AboutContainers/Brain';
@@ -17,6 +20,23 @@ const AboutPage = React.createClass({
 		if(this.props.mode.gameMode) {
 			if(this.props.mode.progressLevel < 6) {
 				browserHistory.replace('/home');
+			}
+		}
+	},
+
+	componentDidUpdate() {
+		if(this.props.mode.gameMode) {
+			if(this.props.mode.progressLevel > 12) {
+
+				this.refs.whiteOut.style.width = window.innerWidth + 'px';
+				this.refs.whiteOut.style.height = window.innerHeight + 'px';
+				this.refs.whiteOut.style.opacity = 1;
+				
+				setTimeout(() => {
+					this.props.justBeatGame(true);
+					this.props.changeToSiteMode();
+					browserHistory.replace('/home');
+				}, 5000);
 			}
 		}
 	},
@@ -182,6 +202,11 @@ const AboutPage = React.createClass({
 						</div>
 					</div>
 				</div>
+				<div
+					ref="whiteOut"
+					className={AboutPageStyles.whiteOut}
+				>
+				</div>
 			</ResponsiveContainer>
 		)
 	}
@@ -193,4 +218,11 @@ function mapStateToProps(store) {
 	}
 };
 
-export default connect(mapStateToProps)(AboutPage);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		changeToSiteMode: modeActions.changeToSiteMode,
+		justBeatGame: modeActions.justBeatGame
+	}, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);

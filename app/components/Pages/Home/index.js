@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
 import { ResponsiveContainer, Grid, Row, Col } from '../../Containers';
@@ -11,6 +12,8 @@ import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { HomePageStyles } from '../../../styles/pages';
+
+import { modeActions, modeTypes } from '../../../state/game/mode';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
@@ -52,6 +55,16 @@ const HomePage = React.createClass({
 		};
 
 		BodyMovin.loadAnimation(this.logoAnimation);
+	},
+
+	componentWillUpdate() {
+		if(this.props.mode.justBeatGame) {
+			this.refs.victoryDiv.style.opacity = 0;
+
+			setTimeout(() => {
+				this.props.justBeatGame(false);
+			}, 3100);
+		}
 	},
 
 	componentWillUnmount() {
@@ -115,6 +128,16 @@ const HomePage = React.createClass({
 					<div></div>
 				</div>
 				{this.pencil}
+				<div
+					ref="victoryDiv"
+					className={HomePageStyles.victoryDiv}
+					style={{
+						display: this.props.mode.justBeatGame ? 'block' : 'none',
+						width: window.innerWidth + 'px',
+						height: window.innerHeight + 'px'
+					}}
+				>
+				</div>
 			</ResponsiveContainer>
 		)
 	}
@@ -126,4 +149,10 @@ function mapStateToProps(store) {
 	}
 };
 
-export default connect(mapStateToProps)(HomePage);
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		justBeatGame: modeActions.justBeatGame
+	}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
