@@ -14,7 +14,18 @@ import { AboutPageStyles } from '../../../../../styles/pages';
 
 const Portrait = React.createClass({
 	componentDidMount() {
-		this.createPortraitAnimations();
+		if(!this.props.mode.gameMode) {
+			this.createPortraitAnimations();
+		}
+		else
+		{
+			this.refs.portrait.classList.add(AboutPageStyles.hover);
+			this.createSilhouettePortraitAnimation();
+		}
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
 	},
 
 	createPortraitAnimations() {
@@ -38,19 +49,106 @@ const Portrait = React.createClass({
 			loop: false,
 			autoplay: false,
 			name: 'blinking',
-			renderer: 'svg' ,
+			renderer: 'svg',
 			container: ReactDOM.findDOMNode(this.refs.blinking)
 		};
 
 		this.blinkingAnimation = BodyMovin.loadAnimation(blinkingAnimation);
+
+		this.refs.portrait.addEventListener('mouseover', this.smile);
+		this.refs.portrait.addEventListener('mouseleave', this.stopSmiling);
+
+		this.blink();
 	},
 
 	smile() {
-		this.portraitAnimation.playSegments([0, 8]);
+		this.portraitAnimation.setDirection(1);
+		this.portraitAnimation.play();
 	},
 
 	stopSmiling() {
-		this.portraitAnimation.playSegments([10, this.portraitAnimation.totalFrames]);
+		this.portraitAnimation.setDirection(-1);
+		this.portraitAnimation.play();
+	},
+
+	blink() {
+		let delay = Math.floor(Math.random() * (6000 - 3000) + 3000);
+		setTimeout(() => {
+			this.blinkingAnimation.goToAndPlay(0, true);
+			this.blink();
+		}, delay);
+	},
+
+	createSilhouettePortraitAnimation() {
+		if(this.silhouetteAgony) {
+			this.silhouetteAgony.destroy();
+		}
+
+		var silhouettePortraitJson = require('../../../../../assets/images/interactables/AboutPortrait/SilhouetteHiding.json');
+		var silhouettePortrait = {
+			animationData: silhouettePortraitJson,
+			path: '../../../../../assets/images/interactables/AboutPortrait',
+			loop: false,
+			autoplay: false,
+			name: 'silhouettePortrait',
+			renderer: 'svg',
+			container: ReactDOM.findDOMNode(this.refs.portrait)
+		};
+
+		this.silhouettePortrait = BodyMovin.loadAnimation(silhouettePortrait);
+
+		this.refs.portrait.addEventListener('mouseover', this.hide);
+		this.refs.portrait.addEventListener('mouseleave', this.stopHiding);
+		this.refs.portrait.addEventListener('click', this.agonize);
+	},
+
+	hide() {
+		this.silhouettePortrait.setDirection(1);
+		this.silhouettePortrait.play();
+	},
+
+	stopHiding() {
+		this.silhouettePortrait.setDirection(-1);
+		this.silhouettePortrait.play();
+	},
+
+	agonize() {
+		if(this.props.items.draggable === 'Brain' ||
+			this.props.items.draggable === 'Heart') {
+
+			this.props.changeItemStatus(this.props.items.draggable, 'used');
+			this.props.addEventToFiredArray(this.props.items.draggable + 'Used');
+
+			this.refs.portrait.removeEventListener('mouseover', this.hide);
+			this.refs.portrait.removeEventListener('mouseleave', this.stopHiding);
+			this.refs.portrait.removeEventListener('click', this.agonize);
+
+			this.silhouettePortrait.destroy();
+
+			var silhouetteAgonyJson = require('../../../../../assets/images/interactables/AboutPortrait/SilhouetteAgony.json');
+			var silhouetteAgony = {
+				animationData: silhouetteAgonyJson,
+				path: '../../../../../assets/images/interactables/AboutPortrait',
+				loop: false,
+				autoplay: false,
+				name: 'silhouetteAgony',
+				renderer: 'svg',
+				container: ReactDOM.findDOMNode(this.refs.portrait)
+			};
+
+			this.silhouetteAgony = BodyMovin.loadAnimation(silhouetteAgony);
+			
+			if(this.props.interactables.firedEvents.includes('HeartUsed') &&
+				this.props.interactables.firedEvents.includes('BrainUsed')) {
+				this.silhouetteAgony.loop = true;
+				this.silhouetteAgony.playSegments([[0, 15], [16, 23]], true);
+			}
+			else
+			{
+				this.silhouetteAgony.addEventListener('complete', this.createSilhouettePortraitAnimation);
+				this.silhouetteAgony.play();
+			}
+		}
 	},
 
 	render() {
@@ -68,8 +166,6 @@ const Portrait = React.createClass({
 				<div
 					ref="portrait"
 					className={AboutPageStyles.portrait}
-					onMouseOver={this.smile}
-					onMouseLeave={this.stopSmiling}
 				>
 				</div>
 				<div
@@ -85,4 +181,20 @@ const Portrait = React.createClass({
 	}
 });
 
-export default Portrait;
+function mapStateToProps(store) {
+	return {
+		mode: store.modeState,
+		items: store.itemState,
+		interactables: store.interactableState
+	}
+};
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		changeItemStatus: itemActions.changeItemStatus,
+		updateGameProgress: modeActions.updateGameProgress,
+		addEventToFiredArray: interactableActions.addEventToFiredArray
+	}, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Portrait);

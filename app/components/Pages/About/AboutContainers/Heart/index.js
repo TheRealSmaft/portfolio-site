@@ -16,13 +16,31 @@ import { AboutPageStyles } from '../../../../../styles/pages';
 const Heart = React.createClass({
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
+			
+			if(this.checkIfHeartAlreadyCollected()) {
+				this.refs.heart.style.display = 'none';
+			}
+			else
+			{
+				this.makeHeartCollectable();
+			}
+			
 			this.createDomeAnimations();
-			this.makeHeartCollectable();
 		}
 	},
 
 	componentWillUnmount() {
 		BodyMovin.destroy();
+	},
+
+	checkIfHeartAlreadyCollected() {
+		for(let item of this.props.items.items) {
+			if(item.name === 'Heart') {
+				return true;
+			}
+		}
+
+		return false;
 	},
 
 	allowClickThrough() {
