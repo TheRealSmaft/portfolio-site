@@ -1,6 +1,8 @@
 .navbar {
-  width: 100%;
+  position: fixed;
+  width: 80%;
   height: 50px;
+  z-index: 51;
   background-color: #32323e;
   border-top: 8px solid #646478;
   border-bottom: 8px solid #c8c8f0;
@@ -47,9 +49,8 @@
     display: block;
   }
 }
-.sticky {
-  position: fixed;
+.placeholder {
   width: 100%;
-  z-index: 51;
+  height: 68px;
 }
 /*# sourceMappingURL=navbar.css.map */
