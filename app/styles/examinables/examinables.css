@@ -12,12 +12,6 @@
   align-items: center;
   height: 100%;
 }
-.examinationScene div img {
-  max-width: 80%;
-}
-.examinationScene div:last-of-type {
-  align-items: stretch;
-}
 .exitButton {
   width: 50px;
   position: absolute;
@@ -40,5 +34,46 @@
   justify-content: center;
   align-items: center;
   pointer-events: none;
+}
+.paper {
+  width: 30%;
+  margin-left: 35%;
+}
+@media only screen and (max-width: 992px) {
+  .paper {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .paper {
+    width: 70%;
+    margin-left: 15%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .paper {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+.scribble {
+  width: 60%;
+  margin-top: 5%;
+}
+@media only screen and (max-width: 992px) {
+  .scribble {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .scribble {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .scribble {
+    width: 120%;
+  }
 }
 /*# sourceMappingURL=examinables.css.map */

@@ -1,3 +1,5 @@
+@import "../mediaQueries/mediaQueries.less";
+
 .examinationScene {
 	background-color: rgba(0,0,0,0.5);
 	z-index: 45;
@@ -12,15 +14,6 @@
 		align-items: center;
 
 		height: 100%;
-
-		img {
-			max-width: 80%;
-
-		}
-	}
-
-	div:last-of-type {
-		align-items: stretch;
 	}
 }
 
@@ -53,4 +46,41 @@
 	align-items: center;
 
 	pointer-events: none;
+}
+
+.paper {
+	width: 30%;
+	margin-left: 35%;
+
+	@media @medium-max {
+		width: 50%;
+		margin-left: 25%;
+	}
+
+	@media @small-max {
+		width: 70%;
+		margin-left: 15%;
+	}
+
+	@media @extra-small-max {
+		width: 80%;
+		margin-left: 10%;
+	}
+}
+
+.scribble {
+	width: 60%;
+	margin-top: 5%;
+
+	@media @medium-max {
+		width: 85%;
+	}
+
+	@media @small-max {
+		width: 100%;
+	}
+
+	@media @extra-small-max {
+		width: 120%;
+	}
 }

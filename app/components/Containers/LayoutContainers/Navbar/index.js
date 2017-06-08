@@ -82,6 +82,10 @@ const Navbar = React.createClass({
 							</Link>
 						</div>
 					</div>
+					<div
+						className={navbarStyles.placeholder}
+					>
+					</div>
 				</ResponsiveContainer>
 			);
 		}

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -20,6 +21,11 @@ const Examinable = React.createClass({
 
 	componentDidMount() {
 		this.createAnimation();
+
+		if(this.item.name === 'Paper' ||
+			this.item.name === 'Crumpled Paper') {
+			ReactDOM.findDOMNode(this.refs.itemImage).classList.add(ExaminableStyles.paper);
+		}
 	},
 
 	componentWillUnmount() {
@@ -145,8 +151,8 @@ const Examinable = React.createClass({
 		passwordElement.setAttribute("y", "16%");
 		passwordElement.style.transform = "rotateZ(-20deg)";
 		passwordElement.style.width = '50%';
-
 		passwordElement.innerHTML = this.item.password;
+
 		this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
 	},
 
@@ -221,6 +227,7 @@ const Examinable = React.createClass({
 						src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
 					/>
 					<DeferredEventExecutor
+						ref="itemImage"
 						moments={this.item.deferredEvents.moments}
 						events={this.item.deferredEvents.events}
 						increment={this.item.deferredEvents.increment ? this.item.deferredEvents.increment : 1000}
@@ -233,7 +240,7 @@ const Examinable = React.createClass({
 							src={this.item.examineImage}
 							style={{
 								display: this.item.animationReplacesImage ? 'none' : 'block',
-								width: this.item.examineWidth ? this.item.examineWidth : '60%',
+								width: this.item.examineWidth ? this.item.examineWidth : '100%',
 								height: 'auto'
 							}}
 							onClick={() => {this.clickEvent()}}
@@ -244,6 +251,7 @@ const Examinable = React.createClass({
 					>
 						<div
 							ref="animation"
+							className={this.item.name === 'Paper' ? ExaminableStyles.scribble : ''}
 							style={{
 								visibility: 'hidden'
 							}}
