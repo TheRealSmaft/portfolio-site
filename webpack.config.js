@@ -2,9 +2,11 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: [
+  entry: {
+    app: [
       'react-hot-loader/patch',
       // activate HMR for React
   
@@ -19,9 +21,11 @@ module.exports = {
       './index.js'
       // the entry point of our app
     ],
+    vendors: ['react', 'redux', 'react-dom', 'lodash', 'react-router', 'react-redux', './plugins/bodymovin.min.js']
+  },
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     // the output bundle
 
     path: resolve(__dirname, 'dist'),
@@ -32,7 +36,7 @@ module.exports = {
 
   context: resolve(__dirname, 'app'),
 
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-source-map',
 
   devServer: {
     hot: false,
@@ -68,7 +72,7 @@ module.exports = {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name].[hash].[ext]'
+          name: '[path][name].[ext]'
         },
       }
     ],
@@ -76,10 +80,19 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // enable HMR globally
 
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendors",
+      minChunks: Infinity,
+    }),
+
+    // new webpack.DefinePlugin({
+    //   'process.env.NODE_ENV': '"development"'
+    // }),
+
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static'
+    // }),
 
     new CompressionPlugin({
       asset: "[path].gz[query]",
@@ -91,6 +104,6 @@ module.exports = {
 
     new UglifyJSPlugin({
       mangle: false
-    })
+    }),
   ],
 };

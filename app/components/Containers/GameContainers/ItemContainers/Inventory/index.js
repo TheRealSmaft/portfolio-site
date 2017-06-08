@@ -8,7 +8,6 @@ import Examinable from '../Examinable';
 
 import { itemActions, itemTypes } from '../../../../../state/game/items';
 import { interactableActions, interactableTypes } from '../../../../../state/game/interactables';
-import { mouseTrackingActions, mouseTrackingTypes } from '../../../../../state/mouse/tracking';
 import { scrollEventTypes, scrollEventActions } from '../../../../../state/events/scroll';
 
 import InventoryStyles from '../../../../../styles/inventory';
@@ -195,10 +194,9 @@ const Inventory = React.createClass({
 	},
 
 	trackMouse(event) {
-		this.props.trackMousePosition(event.clientX, event.clientY);
 		this.dragNode.style.position = 'absolute';
-		this.dragNode.style.top = ((this.props.mouseState.position.y + this.props.scrollState.scrollY) - this.dragNode.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
-		this.dragNode.style.left = ((this.props.mouseState.position.x + this.props.scrollState.scrollX) - this.dragNode.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
+		this.dragNode.style.top = ((event.clientY + this.props.scrollState.scrollY) - this.dragNode.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
+		this.dragNode.style.left = ((event.clientX + this.props.scrollState.scrollX) - this.dragNode.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
 	},
 
 	lockScrollPosition() {
@@ -290,7 +288,6 @@ function mapStateToProps(store) {
 		mode: store.modeState,
 		items: store.itemState,
 		interactables: store.interactableState,
-		mouseState: store.mouseState,
 		scrollState: store.scrollState,
 		sceneState: store.sceneState
 	}
@@ -303,7 +300,6 @@ function mapDispatchToProps(dispatch) {
 		toggleItemDrag: itemActions.toggleItemDrag,
 		toggleItemExamine: itemActions.toggleItemExamine,
 		addEventToFiredArray:  interactableActions.addEventToFiredArray,
-		trackMousePosition: mouseTrackingActions.trackMousePosition,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
 		unlockScrollPosition: scrollEventActions.unlockScrollPosition
 

@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { appStyles, navbarStyles } from '../styles';
+import { appStyles } from '../styles';
 
 import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
@@ -86,15 +86,7 @@ const App = React.createClass({
 				}}
 			>
 
-				<StickyContainer 
-					stickyStartY={0}
-					stickyPosY={0}
-					childStyles={navbarStyles.sticky}
-				>
-					<Navbar 
-						currentLoc={browserHistory.getCurrentLocation().pathname}
-					/>
-				</StickyContainer>
+				<Navbar/>
 
 				{this.props.children}
 
