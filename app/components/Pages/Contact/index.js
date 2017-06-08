@@ -53,6 +53,20 @@ const ContactPage = React.createClass({
 									<input type="text" name="lastName" id="lastName"/>
 								</div>
 							</fieldset>
+							<fieldset>
+								<div>
+									<label for="email">
+										Email:
+									</label>
+									<input type="email" name="email" id="email"/>
+								</div>
+								<div>
+									<label for="phoneNumber">
+										Phone:
+									</label>
+									<input type="phone" name="phoneNumber" id="phoneNumber"/>
+								</div>
+							</fieldset>
 						</form>
 						
 					</div>
