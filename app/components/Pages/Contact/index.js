@@ -34,37 +34,27 @@ const ContactPage = React.createClass({
 					<div>
 						<Abduction />
 					</div>
-					<div>
-						<SVG
-							title="Form Background"
-						>
-							<Rect
-								fill="pink"
-								dimensions={[90, 90]}
-								position={[5,5]}
-							>
-							<animateTransform 
-								attributeName="transform"
-								id="forth"
-								attributeType="XML"
-								type="rotate"
-								from="-2 45 45"
-								to="2 45 45"
-								dur="20s"
-								begin="0s; back.end"
-							/>
-							<animateTransform 
-								attributeName="transform"
-								id="back"
-								attributeType="XML"
-								type="rotate"
-								from="2 45 45"
-								to="-2 45 45"
-								dur="20s"
-								begin="forth.end"
-							/>
-							</Rect>
-						</SVG>
+					<div
+						className={!this.props.mode.gameMode ? ContactPageStyles.formInSiteMode : ''}
+					>
+
+						<form className={ContactPageStyles.form}>
+							<fieldset>
+								<div>
+									<label for="firstName">
+										First Name:
+									</label>
+									<input type="text" name="firstName" id="firstName"/>
+								</div>
+								<div>
+									<label for="lastName">
+										Last Name:
+									</label>
+									<input type="text" name="lastName" id="lastName"/>
+								</div>
+							</fieldset>
+						</form>
+						
 					</div>
 				</div>
 			</ResponsiveContainer>

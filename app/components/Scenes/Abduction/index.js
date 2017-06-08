@@ -89,7 +89,7 @@ const Abduction = React.createClass({
 		}
 		else
 		{
-			this.ufoArrives();
+			this.ufoHover();
 		}
 	},
 
@@ -116,8 +116,10 @@ const Abduction = React.createClass({
 	},
 
 	ufoHover() {
-		this.ufoArrival.removeEventListener('complete', this.ufoHover);
-		this.ufoArrival.destroy();
+		if(this.ufoArrival) {
+			this.ufoArrival.removeEventListener('complete', this.ufoHover);
+			this.ufoArrival.destroy();
+		}
 
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/UFO/UFOHovering.json'),

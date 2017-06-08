@@ -85,7 +85,7 @@ const SilhouetteIntroScene = React.createClass({
 				this.makeTearInteractable();
 			}
 
-		if(this.props.mode.progressLevel > 3) 
+		if(this.props.mode.progressLevel > 3.5) 
 			{
 				this.emergencyPanelOpen();
 			}
