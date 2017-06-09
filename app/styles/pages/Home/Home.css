@@ -26,12 +26,22 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  margin-top: 30px;
 }
-.portPreview img {
+.portPreview div {
   min-width: 200px;
-  max-width: 250px;
+  max-width: 300px;
   flex: 1 1 250px;
   align-self: center;
+}
+.portPreview div img {
+  width: 100%;
+  filter: sepia(50%);
+  transition: 200ms ease-in;
+}
+.portPreview div img:hover {
+  filter: sepia(0%);
+  cursor: pointer;
 }
 .victoryDiv {
   position: fixed;

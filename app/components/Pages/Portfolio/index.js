@@ -7,6 +7,7 @@ import { Collectable } from '../../Containers/GameContainers';
 import LinkScribble from './PortfolioContainers/LinkScribble';
 
 import PortfolioPiece from './PortfolioContainers/PortfolioPiece';
+import PortfolioModal from './PortfolioContainers/PortfolioModal';
 import portfolio from '../../../assets/portfolio';
 
 import { PortfolioPageStyles } from '../../../styles/pages';
@@ -76,6 +77,7 @@ const PortfolioPage = React.createClass({
 		let port = portfolio.map((piece, index) => 
 			<PortfolioPiece
 				key={index}
+				index={index}
 				piece={piece}
 				rotation={this.getRotation()}
 			/>
@@ -97,6 +99,8 @@ const PortfolioPage = React.createClass({
 
 				{this.eraserCollectable}
 				{this.glueCollectable}
+
+				<PortfolioModal />
 			</ResponsiveContainer>
 		)
 	}

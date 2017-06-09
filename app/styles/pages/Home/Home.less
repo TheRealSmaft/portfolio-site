@@ -30,12 +30,26 @@
 	flex-flow: row wrap;
 	justify-content: center;
 
-	img {
+	margin-top: 30px;
+
+	div {
 		min-width: 200px;
-		max-width: 250px;
+		max-width: 300px;
 		flex: 1 1 250px;
 
 		align-self: center;
+
+		img {
+			width: 100%;
+			filter: sepia(50%);
+
+			transition: 200ms ease-in;
+
+			&:hover {
+				filter: sepia(0%);
+				cursor: pointer;
+			}
+		}
 	}
 }
 

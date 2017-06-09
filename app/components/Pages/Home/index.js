@@ -14,6 +14,7 @@ import { SVG, Circle } from '../../Containers/ShapeContainers';
 import { HomePageStyles } from '../../../styles/pages';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
+import { portfolioActions, portfolioTypes } from '../../../state/portfolio';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
@@ -73,13 +74,22 @@ const HomePage = React.createClass({
 		BodyMovin.destroy();
 	},
 
+	viewPortfolioPiece(index) {
+		this.props.selectModalPiece(index);
+		browserHistory.push('/portfolio');
+	},
+
 	render() {
 		let port = portfolio.map((piece, index) => 
-			<img
+			<div
 				key={index}
-				src={'../../../assets/portfolio/' + piece.image}
-				alt={piece.name}
-			/>
+			>
+				<img
+					src={'../../../assets/portfolio/' + piece.image}
+					alt={piece.name}
+					onClick={() => {this.viewPortfolioPiece(index)}}
+				/>
+			</div>
 		);
 
 		return (
@@ -148,7 +158,8 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		justBeatGame: modeActions.justBeatGame
+		justBeatGame: modeActions.justBeatGame,
+		selectModalPiece: portfolioActions.selectModalPiece
 	}, dispatch)
 }
 

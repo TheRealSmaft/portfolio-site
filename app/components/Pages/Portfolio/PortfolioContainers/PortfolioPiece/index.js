@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { portfolioActions, portfolioTypes } from '../../../../../state/portfolio';
 
 import { PortfolioPageStyles } from '../../../../../styles/pages';
 
@@ -28,7 +32,7 @@ const PortfolioPiece = React.createClass({
 	},
 
 	openModal() {
-		console.log('OPEN MODAL')
+		this.props.selectModalPiece(this.props.index);
 	},
 
 	render() {
@@ -45,7 +49,6 @@ const PortfolioPiece = React.createClass({
 					onClick={this.straightenFrame}
 				>
 					<img 
-						alt={this.props.piece.name}
 						src={require('../../../../../assets/images/interactables/PortfolioFrames/FrameNail.svg')}
 					/>
 					<div>
@@ -57,6 +60,7 @@ const PortfolioPiece = React.createClass({
 					<div>
 					</div>
 					<img 
+						alt={this.props.piece.name}
 						src={require('../../../../../assets/portfolio/' + this.props.piece.image)}
 					/>
 				</div>
@@ -79,4 +83,16 @@ const PortfolioPiece = React.createClass({
 	}
 });
 
-export default PortfolioPiece;
+function mapStateToProps(store) {
+	return {
+		portfolio: store.portfolioState
+	}
+};
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		selectModalPiece: portfolioActions.selectModalPiece
+	}, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioPiece);
