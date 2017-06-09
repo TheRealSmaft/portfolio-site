@@ -13,21 +13,36 @@ const PortfolioPiece = React.createClass({
 		}
 	},
 
+	straightenFrame() {
+		if(!this.pieceStraight) {
+			this.refs.pieceImage.style.transform = 'rotate(0deg)';
+			this.pieceStraight = true;
+			setTimeout(() => {
+				this.openModal();
+			}, 600);
+		}
+		else
+		{
+			this.openModal();
+		}
+	},
+
+	openModal() {
+		console.log('OPEN MODAL')
+	},
+
 	render() {
 		return (
 			<div
-				style={{
-					...this.props.style
-				}}
+				className={PortfolioPageStyles.pieceGrid}
 			>
-				<h2>
-					{this.props.piece.name}
-				</h2>
 				<div
+					ref="pieceImage"
 					className={PortfolioPageStyles.pieceImage}
 					style={{
 						transform: 'rotate(' + this.props.rotation + ')'
 					}}
+					onClick={this.straightenFrame}
 				>
 					<img 
 						src={require('../../../../../assets/images/interactables/PortfolioFrames/FrameNail.svg')}
@@ -41,13 +56,23 @@ const PortfolioPiece = React.createClass({
 					<div>
 					</div>
 					<img 
-						src={require('../../../../../assets/images/PortfolioPieces/' + this.props.piece.image)}
+						src={require('../../../../../assets/portfolio/' + this.props.piece.image)}
 					/>
 				</div>
 
-				<p>
-					{this.props.piece.description}
-				</p>
+				<div
+					className={PortfolioPageStyles.description}
+				>
+					<h2
+						className={PortfolioPageStyles.title}
+						onClick={this.openModal}
+					>
+						{this.props.piece.name}
+					</h2>
+					<p>
+						{this.props.piece.description}
+					</p>
+				</div>
 			</div>
 		);
 	}

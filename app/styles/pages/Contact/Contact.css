@@ -38,7 +38,6 @@
   position: relative;
   z-index: 44;
   background-color: lightblue;
-  animation: formDance 30s linear infinite;
 }
 .form fieldset {
   display: flex;

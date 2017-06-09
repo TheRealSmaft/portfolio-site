@@ -1,11 +1,34 @@
 @import "../../mediaQueries/mediaQueries.less";
 
+.pieceGrid {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	justify-content: space-around;
+
+	margin-top: 60px;
+}
+
 .pieceImage {
 	position: relative;
 
-	width: 100%;
+	min-width: 200px;
+	max-width: 400px;
+	flex-basis: 400px;
+
+	margin-right: 20px;
 
 	transform-origin: center top;
+
+	transition: 500ms ease-in-out;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	@media @small-max {
+		margin-right: 0px;
+	}
 
 	img:first-of-type {
 		position: absolute;
@@ -23,11 +46,13 @@
 		}
 
 		@media @extra-small-max {
-			top: -25px;
+			top: -22px;
 		}
 	}
 
 	img:last-of-type {
+		box-sizing: border-box;
+		padding: 14px 10px 4px 10px;
 		width: 100%;
 	}
 
@@ -61,6 +86,17 @@
 		border-bottom: 3px solid rgba(0,0,0,0.2);
 		border-right: 3px solid rgba(0,0,0,0.2);
 	}
+}
+
+.title {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.description {
+	flex: 1 0 calc(40% - 40px);
+	min-width: 200px;
 }
 
 .linkScribble {
