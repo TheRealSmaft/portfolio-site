@@ -11,7 +11,7 @@
   max-width: 400px;
   flex-basis: 400px;
   margin-right: 20px;
-  transform-origin: center top;
+  transform-origin: center -35px;
   transition: 500ms ease-in-out;
 }
 .pieceImage:hover {

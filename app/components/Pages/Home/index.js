@@ -17,6 +17,8 @@ import { modeActions, modeTypes } from '../../../state/game/mode';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
+import portfolio from '../../../assets/portfolio';
+
 const HomePage = React.createClass({
 	componentWillMount() {
 		this.pencil = null;
@@ -72,6 +74,14 @@ const HomePage = React.createClass({
 	},
 
 	render() {
+		let port = portfolio.map((piece, index) => 
+			<img
+				key={index}
+				src={'../../../assets/portfolio/' + piece.image}
+				alt={piece.name}
+			/>
+		);
+
 		return (
 			<ResponsiveContainer>
 				<SilhouetteIntro/>
@@ -112,20 +122,7 @@ const HomePage = React.createClass({
 				<div
 					className={HomePageStyles.portPreview}
 				>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<span></span>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<span></span>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
+					{port}
 				</div>
 				{this.pencil}
 				<div

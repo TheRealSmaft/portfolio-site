@@ -45,6 +45,7 @@ const PortfolioPiece = React.createClass({
 					onClick={this.straightenFrame}
 				>
 					<img 
+						alt={this.props.piece.name}
 						src={require('../../../../../assets/images/interactables/PortfolioFrames/FrameNail.svg')}
 					/>
 					<div>
