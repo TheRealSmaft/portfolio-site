@@ -6,6 +6,7 @@ import itemReducer from './game/items';
 import interactableReducer from './game/interactables';
 import modeReducer from './game/mode';
 import sceneReducer from './game/scenes';
+import portfolioReducer from './portfolio';
 
 export default combineReducers({
 	scrollState: scrollEventReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
 	itemState: itemReducer,
 	interactableState: interactableReducer,
 	modeState: modeReducer,
-	sceneState: sceneReducer
+	sceneState: sceneReducer,
+	portfolioState: portfolioReducer
 });

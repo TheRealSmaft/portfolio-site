@@ -20,6 +20,50 @@
 	}
 }
 
+@keyframes formDance {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	25% {
+		transform: rotateZ(2deg);
+	}
+	50% {
+		transform: rotateZ(0deg);
+	}
+	75% {
+		transform: rotateZ(-2deg);
+	}
+	100% {
+		transform: rotateZ(0deg);
+	}
+}
+
+.form {
+	position: relative;
+	z-index: 44;
+
+	background-color: lightblue;
+
+	// animation: formDance 30s linear infinite;
+
+	fieldset {
+		display: flex;
+		flex-direction: row;
+		align-items: baseline;
+		
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+.formInSiteMode {
+	@media @small-max {
+		margin-top: -70%;
+	}
+}
+
 .itemHover {
 	&:hover {
 		cursor: pointer;

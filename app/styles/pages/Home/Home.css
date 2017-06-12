@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .welcome div {
@@ -24,51 +24,24 @@
 }
 .portPreview {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-@media only screen and (max-width: 768px) {
-  .portPreview {
-    width: 90%;
-    margin-left: 5%;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .portPreview {
-    width: 100%;
-    margin-left: 0px;
-    justify-content: center;
-  }
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 30px;
 }
 .portPreview div {
-  width: 190px;
-  height: 190px;
-  border: 3px solid red;
-  margin-bottom: 20px;
+  min-width: 200px;
+  max-width: 300px;
+  flex: 1 1 250px;
+  align-self: center;
 }
-@media only screen and (max-width: 768px) {
-  .portPreview div {
-    width: 240px;
-    height: 240px;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .portPreview div {
-    width: 200px;
-    height: 200px;
-  }
-}
-.portPreview span {
-  display: none;
-  height: 1px;
+.portPreview div img {
   width: 100%;
+  filter: sepia(50%);
+  transition: 200ms ease-in;
 }
-@media only screen and (min-width: 1200px) {
-  .portPreview span {
-    display: block;
-  }
+.portPreview div img:hover {
+  filter: sepia(0%);
+  cursor: pointer;
 }
 .victoryDiv {
   position: fixed;

@@ -1,7 +1,26 @@
+.pieceGrid {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-top: 60px;
+}
 .pieceImage {
   position: relative;
-  width: 100%;
-  transform-origin: center top;
+  min-width: 200px;
+  max-width: 400px;
+  flex-basis: 400px;
+  margin-right: 20px;
+  transform-origin: center -35px;
+  transition: 500ms ease-in-out;
+}
+.pieceImage:hover {
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .pieceImage {
+    margin-right: 0px;
+  }
 }
 .pieceImage img:first-of-type {
   position: absolute;
@@ -22,10 +41,12 @@
 }
 @media only screen and (max-width: 480px) {
   .pieceImage img:first-of-type {
-    top: -25px;
+    top: -22px;
   }
 }
 .pieceImage img:last-of-type {
+  box-sizing: border-box;
+  padding: 14px 10px 4px 10px;
   width: 100%;
 }
 .pieceImage div {
@@ -53,6 +74,82 @@
   border-bottom: 3px solid rgba(0, 0, 0, 0.2);
   border-right: 3px solid rgba(0, 0, 0, 0.2);
 }
+.title:hover {
+  cursor: pointer;
+}
+.description {
+  flex: 1 0 calc(0%);
+  min-width: 200px;
+}
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: scroll;
+  z-index: 200;
+  transition: 200ms ease-in;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.modal h2 {
+  min-width: 80%;
+  text-align: center;
+  background-color: white;
+}
+.modal div {
+  min-width: 200px;
+  max-width: 1000px;
+  background-color: white;
+}
+@media only screen and (max-width: 1200px) {
+  .modal div {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+.modalImage {
+  max-width: 80%;
+  max-height: 90%;
+}
+.modalVideo {
+  width: 1000px;
+  height: 563px;
+}
+@media only screen and (max-width: 1200px) {
+  .modalVideo {
+    width: 853px;
+    height: 480px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .modalVideo {
+    width: 640px;
+    height: 360px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .modalVideo {
+    width: 560px;
+    height: 315px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .modalVideo {
+    width: 400px;
+    height: 225px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .modalVideo {
+    width: 250px;
+    height: 141px;
+  }
+}
 .linkScribble {
   position: relative;
 }
@@ -61,5 +158,8 @@
   top: -12px;
   left: -20px;
   width: 150px;
+}
+.hover:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=Portfolio.css.map */

@@ -17,6 +17,42 @@
     width: 100%;
   }
 }
+@keyframes formDance {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(2deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(-2deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+.form {
+  position: relative;
+  z-index: 44;
+  background-color: lightblue;
+}
+.form fieldset {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.form fieldset div {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 768px) {
+  .formInSiteMode {
+    margin-top: -70%;
+  }
+}
 .itemHover:hover {
   cursor: pointer;
 }

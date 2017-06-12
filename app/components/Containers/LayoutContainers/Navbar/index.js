@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
-import { ResponsiveContainer } from '../../../Containers';
 import { SVG, Circle, Rect, Path, MotionPath } from '../../../Containers/ShapeContainers';
 
 import { navbarStyles } from '../../../../styles';
@@ -24,33 +23,34 @@ const Navbar = React.createClass({
 	render() {
 		if(!this.props.mode.gameMode) {
 			return (
-				<ResponsiveContainer>
+				<div>
 					<div
-						className={navbarStyles.navbar}
-						style={{
-							...this.props.style
-						}}
+						className={navbarStyles.navbarContainer}
 					>
-						<Link to="/home"> 
-							<h4>
-								Home
-							</h4>
-						</Link>
-						<Link to="/portfolio"> 
-							<h4>
-								Portfolio
-							</h4>
-						</Link>
-						<Link to="/contact"> 
-							<h4>
-								Contact
-							</h4>
-						</Link>
-						<Link to="/about"> 
-							<h4>
-								About
-							</h4>
-						</Link>
+						<div
+							className={navbarStyles.navbar}
+						>
+							<Link to="/home"> 
+								<h4>
+									Home
+								</h4>
+							</Link>
+							<Link to="/portfolio"> 
+								<h4>
+									Portfolio
+								</h4>
+							</Link>
+							<Link to="/contact"> 
+								<h4>
+									Contact
+								</h4>
+							</Link>
+							<Link to="/about"> 
+								<h4>
+									About
+								</h4>
+							</Link>
+						</div>
 					</div>
 					<div
 						className={navbarStyles.navbarCollapsed}
@@ -85,8 +85,8 @@ const Navbar = React.createClass({
 					<div
 						className={navbarStyles.placeholder}
 					>
-					</div>
-				</ResponsiveContainer>
+					</div>	
+				</div>
 			);
 		}
 		else 

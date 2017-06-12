@@ -4,7 +4,7 @@
 	width: 100%;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 
 	div {
@@ -27,47 +27,28 @@
 
 .portPreview {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	flex-flow: row wrap;
+	justify-content: center;
 
-	margin-top: 20px;
-
-	@media @small-max {
-		width: 90%;
-		margin-left: 5%;
-	}
-
-	@media only screen and (max-width: 700px) {
-		width: 100%;
-		margin-left: 0px;
-		justify-content: center;
-	}
+	margin-top: 30px;
 
 	div {
-		width: 190px;
-		height: 190px;
-		border: 3px solid red;
-		margin-bottom: 20px;
+		min-width: 200px;
+		max-width: 300px;
+		flex: 1 1 250px;
 
-		@media @small-max {
-			width: 240px;
-			height: 240px;
-		}
+		align-self: center;
 
-		@media @super-small-max {
-			width: 200px;
-			height: 200px;
-		}
-	}
+		img {
+			width: 100%;
+			filter: sepia(50%);
 
-	span {
-		display: none;
-		height: 1px;
-		width: 100%;
+			transition: 200ms ease-in;
 
-		@media @large-min {
-			display: block;
+			&:hover {
+				filter: sepia(0%);
+				cursor: pointer;
+			}
 		}
 	}
 }

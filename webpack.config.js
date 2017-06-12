@@ -74,6 +74,10 @@ module.exports = {
         options: {
           name: '[path][name].[ext]'
         },
+      },
+      {
+        test: /\.(psd|ai)$/,
+        loader: 'ignore-loader'
       }
     ],
   },
@@ -97,7 +101,7 @@ module.exports = {
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
-      test: /\.(js|html|json|css|png|svg)$/,
+      test: /\.(js|html|css|png|svg)$/,
       threshold: 10240,
       minratio: 0.8
     }),

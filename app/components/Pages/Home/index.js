@@ -14,8 +14,12 @@ import { SVG, Circle } from '../../Containers/ShapeContainers';
 import { HomePageStyles } from '../../../styles/pages';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
+import { portfolioActions, portfolioTypes } from '../../../state/portfolio';
+import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
+
+import portfolio from '../../../assets/portfolio';
 
 const HomePage = React.createClass({
 	componentWillMount() {
@@ -71,7 +75,25 @@ const HomePage = React.createClass({
 		BodyMovin.destroy();
 	},
 
+	viewPortfolioPiece(index) {
+		this.props.selectModalPiece(index);
+		this.props.lockScrollPosition();
+		browserHistory.push('/portfolio');
+	},
+
 	render() {
+		let port = portfolio.map((piece, index) => 
+			<div
+				key={index}
+			>
+				<img
+					src={'../../../assets/portfolio/' + piece.image}
+					alt={piece.name}
+					onClick={() => {this.viewPortfolioPiece(index)}}
+				/>
+			</div>
+		);
+
 		return (
 			<ResponsiveContainer>
 				<SilhouetteIntro/>
@@ -112,20 +134,7 @@ const HomePage = React.createClass({
 				<div
 					className={HomePageStyles.portPreview}
 				>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<span></span>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<span></span>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
+					{port}
 				</div>
 				{this.pencil}
 				<div
@@ -151,7 +160,9 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		justBeatGame: modeActions.justBeatGame
+		justBeatGame: modeActions.justBeatGame,
+		selectModalPiece: portfolioActions.selectModalPiece,
+		lockScrollPosition: scrollEventActions.lockScrollPosition
 	}, dispatch)
 }
 
