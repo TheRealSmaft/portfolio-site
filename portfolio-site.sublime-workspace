@@ -538,27 +538,22 @@
 			}
 		},
 		{
-			"file": "app/components/Pages/Home/index.js",
+			"contents": "import React from 'react';\nimport { connect } from 'react-redux';\nimport { bindActionCreators } from 'redux';\n\nimport { scrollEventActions, scrollEventTypes } from '../../../../../state/events/scroll';\nimport { portfolioActions, portfolioTypes } from '../../../../../state/portfolio';\n\nimport { PortfolioPageStyles } from '../../../../../styles/pages';\n\nimport portfolio from '../../../../../assets/portfolio';\n\nconst PortfolioModal = React.createClass({\n\tcomponentWillMount() {\n\t\tif(this.props.portfolio.modalPiece > -1) {\n\t\t\tthis.piece = portfolio[this.props.portfolio.modalPiece];\n\t\t}\n\t\telse\n\t\t{\n\t\t\tthis.piece = null;\n\t\t}\n\t},\n\n\tcomponentWillReceiveProps(nextProps) {\n\t\tif(nextProps.portfolio.modalPiece > -1) {\n\t\t\tthis.piece = portfolio[nextProps.portfolio.modalPiece];\n\n\t\t\tthis.props.lockScrollPosition();\n\t\t}\n\t\telse\n\t\t{\n\t\t\tthis.piece = null;\n\t\t\tthis.props.unlockScrollPosition();\n\t\t}\n\t},\n\n\tcomponentWillUnmount() {\n\t\tthis.closeModal();\n\t},\n\n\tcloseModal() {\n\t\tthis.props.selectModalPiece(-1);\n\t\tthis.props.unlockScrollPosition();\n\t},\n\n\trender() {\n\t\tif(this.props.portfolio.modalPiece < 0) {\n\t\t\treturn null;\n\t\t}\n\t\telse\n\t\t{\n\t\t\tvar content;\t\n\t\t\tif(this.piece.largeImage) {\n\t\t\t\tcontent = (\n\t\t\t\t\t<img\n\t\t\t\t\t\tsrc={require('../../../../../assets/portfolio/' + this.piece.largeImage)}\n\t\t\t\t\t\talt={this.piece.name}\n\t\t\t\t\t/>\n\t\t\t\t);\n\t\t\t}\n\t\t\telse if(this.piece.largeImages) {\n\t\t\t\tcontent = this.piece.largeImages.map((img, index) => \n\t\t\t\t\t<img\n\t\t\t\t\t\tkey={index}\n\t\t\t\t\t\tsrc={require('../../../../../assets/portfolio/' + img)}\n\t\t\t\t\t\talt={this.piece.name + ' ' + (index + 1)}\n\t\t\t\t\t/>\n\t\t\t\t);\n\t\t\t}\n\t\t\telse if(this.piece.name === 'Elvisaurus Rex and the Carrot from Outer Space') {\n\t\t\t\tcontent = (\n\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-mrkhbhYLBM\" frameborder=\"0\" allowfullscreen></iframe>\n\t\t\t\t);\n\t\t\t}\n\n\t\t\treturn (\n\t\t\t\t<div\n\t\t\t\t\tclassName={PortfolioPageStyles.modal}\n\t\t\t\t\tstyle={{\n\t\t\t\t\t\twidth: '100%',\n\t\t\t\t\t\theight: '100%',\n\t\t\t\t\t}}\n\t\t\t\t\tonClick={this.closeModal}\n\t\t\t\t>\n\t\t\t\t\t{content}\n\t\t\t\t</div>\n\t\t\t);\n\t\t}\n\t}\n});\n\nfunction mapStateToProps(store) {\n\treturn {\n\t\tportfolio: store.portfolioState,\n\t}\n};\n\nfunction mapDispatchToProps(dispatch) {\n\treturn bindActionCreators({\n\t\tlockScrollPosition: scrollEventActions.lockScrollPosition,\n\t\tunlockScrollPosition: scrollEventActions.unlockScrollPosition,\n\t\tselectModalPiece: portfolioActions.selectModalPiece\n\t}, dispatch);\n};\n\nexport default connect(mapStateToProps, mapDispatchToProps)(PortfolioModal);",
+			"file": "app/components/Pages/Portfolio/PortfolioContainers/PortfolioModal/index.js",
+			"file_size": 2392,
+			"file_write_time": 131417465213127599,
 			"settings":
 			{
-				"buffer_size": 3797,
+				"buffer_size": 2461,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
+			"file": "app/assets/portfolio/index.js",
 			"settings":
 			{
-				"buffer_size": 7734,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Pages/Portfolio/PortfolioContainers/PortfolioModal/index.js",
-			"settings":
-			{
-				"buffer_size": 1872,
+				"buffer_size": 4846,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -576,7 +571,7 @@
 			"file": "app/state/game/mode/duck/reducers.js",
 			"settings":
 			{
-				"buffer_size": 670,
+				"buffer_size": 671,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -642,8 +637,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/portfolio",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/portfolio/BataviaPoster",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/portfolio/TwistedRoots",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/portfolio/CarlaAndI",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
@@ -687,9 +681,9 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/portfolio/duck/reducers.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Examinable/index.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/portfolio/duck/actions.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/portfolio/duck/types.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/reducers.js",
@@ -1005,10 +999,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 600.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1024,8 +1018,8 @@
 						"selection":
 						[
 							[
-								1886,
-								1886
+								1835,
+								1983
 							]
 						],
 						"settings":
@@ -1034,36 +1028,37 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": -0.0,
-						"translation.y": 907.0,
+						"translation.y": 1260.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/components/Pages/Home/index.js",
+					"file": "app/components/Pages/Portfolio/PortfolioContainers/PortfolioModal/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3797,
+						"buffer_size": 2461,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2029,
-								2029
+								1685,
+								1685
 							]
 						],
 						"settings":
 						{
+							"open_with_edit": true,
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 960.0,
+						"translation.x": 0.0,
+						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1071,19 +1066,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
-					"semi_transient": true,
+					"file": "app/assets/portfolio/index.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7734,
+						"buffer_size": 4846,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1237,
+								1237
 							]
 						],
 						"settings":
@@ -1091,40 +1086,11 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 4049.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/components/Pages/Portfolio/PortfolioContainers/PortfolioModal/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1872,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								961,
-								961
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1134,7 +1100,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "app/styles/pages/Portfolio/Portfolio.less",
 					"semi_transient": false,
 					"settings":
@@ -1163,20 +1129,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "app/state/game/mode/duck/reducers.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 670,
+						"buffer_size": 671,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								617,
-								617
+								168,
+								168
 							]
 						],
 						"settings":

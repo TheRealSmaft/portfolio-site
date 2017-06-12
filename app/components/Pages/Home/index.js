@@ -15,6 +15,7 @@ import { HomePageStyles } from '../../../styles/pages';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
 import { portfolioActions, portfolioTypes } from '../../../state/portfolio';
+import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
@@ -76,6 +77,7 @@ const HomePage = React.createClass({
 
 	viewPortfolioPiece(index) {
 		this.props.selectModalPiece(index);
+		this.props.lockScrollPosition();
 		browserHistory.push('/portfolio');
 	},
 
@@ -159,7 +161,8 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		justBeatGame: modeActions.justBeatGame,
-		selectModalPiece: portfolioActions.selectModalPiece
+		selectModalPiece: portfolioActions.selectModalPiece,
+		lockScrollPosition: scrollEventActions.lockScrollPosition
 	}, dispatch)
 }
 

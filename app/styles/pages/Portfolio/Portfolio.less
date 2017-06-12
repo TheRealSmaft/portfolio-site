@@ -103,17 +103,72 @@
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	width: 100%;
+	height: 100%;
 
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
 	align-items: center;
 
+	overflow-y: scroll;
 	z-index: 200;
 
 	transition: 200ms ease-in;
 
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(255,255,255,0.9);
+
+	h2 {
+		min-width: 80%;
+		text-align: center;
+		background-color: white;
+	}
+
+	div {
+		min-width: 200px;
+		max-width: 1000px;
+		background-color: white;
+
+		@media @large-max {
+			padding-left: 10%;
+			padding-right: 10%;
+		}
+	}
+}
+
+.modalImage {
+	max-width: 80%;
+	max-height: 90%;
+}
+
+.modalVideo {
+	width: 1000px;
+	height: 563px;
+
+	@media @large-max {
+		width: 853px;
+		height: 480px;
+	}
+
+	@media @medium-max {
+		width: 640px;
+		height: 360px;
+	}
+
+	@media @small-max {
+		width: 560px;
+		height: 315px;
+	}
+
+	@media @extra-small-max {
+		width: 400px;
+		height: 225px;
+	}
+
+	@media @super-small-max {
+		width: 250px;
+		height: 141px;
+	}
 }
 
 .linkScribble {
@@ -124,5 +179,11 @@
 		top: -12px;
 		left: -20px;
 		width: 150px;
+	}
+}
+
+.hover {
+	&:hover {
+		cursor: pointer;
 	}
 }

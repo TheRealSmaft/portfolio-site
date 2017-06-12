@@ -37,6 +37,10 @@ const PortfolioModal = React.createClass({
 		this.closeModal();
 	},
 
+	link(url) {
+		window.open(url, "_blank");
+	},
+
 	closeModal() {
 		this.props.selectModalPiece(-1);
 		this.props.unlockScrollPosition();
@@ -48,19 +52,62 @@ const PortfolioModal = React.createClass({
 		}
 		else
 		{
-			return (
-				<div
-					className={PortfolioPageStyles.modal}
-					style={{
-						width: '100%',
-						height: '100%',
-					}}
-					onClick={this.closeModal}
-				>
+			var content;	
+			if(this.piece.largeImage) {
+				content = (
+					<img
+						src={require('../../../../../assets/portfolio/' + this.piece.largeImage)}
+						alt={this.piece.name}
+						className={PortfolioPageStyles.modalImage}
+					/>
+				);
+			}
+			else if(this.piece.largeImages) {
+				content = this.piece.largeImages.map((img, index) => 
+					<img
+						key={index}
+						src={require('../../../../../assets/portfolio/' + img)}
+						alt={this.piece.name + ' ' + (index + 1)}
+						className={PortfolioPageStyles.modalImage}
+					/>
+				);
+			}
+			else if(this.piece.siteUrl) {
+				content = (
 					<img
 						src={require('../../../../../assets/portfolio/' + this.piece.image)}
 						alt={this.piece.name}
+						className={PortfolioPageStyles.modalImage, PortfolioPageStyles.hover}
+						onClick={() => {this.link(this.piece.siteUrl)}}
 					/>
+				);
+			}
+			else if(this.piece.name === 'Elvisaurus Rex and the Carrot from Outer Space') {
+				content = (
+					<iframe 
+						className={PortfolioPageStyles.modalVideo}
+						src="https://www.youtube.com/embed/-mrkhbhYLBM" 
+						frameBorder="0" 
+						allowFullScreen
+					>
+					</iframe>
+				);
+			}
+
+			return (
+				<div
+					className={PortfolioPageStyles.modal}
+					onClick={this.closeModal}
+				>
+					<h2>
+						{this.piece.name}
+					</h2>
+					{content}
+					<div>
+						<p>
+							{this.piece.description}
+						</p>
+					</div>
 				</div>
 			);
 		}
