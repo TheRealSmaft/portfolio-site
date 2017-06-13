@@ -59,7 +59,7 @@ var brokenLink = {
 
 var eraser = {
 	name: 'Eraser',
-	status: 'collectable',
+	status: 'inventory',
 	collectProgress: 7,
 	collectableImage: require('../../images/items/Eraser/Eraser.svg'),
 	inventoryImage: require('../../images/items/Eraser/Eraser.svg'),
@@ -76,7 +76,7 @@ var gavel = {
 
 var glue = {
 	name: 'Glue',
-	status: 'collectable',
+	status: 'inventory',
 	collectProgress: 6.5,
 	collectableImage: require('../../images/items/Glue/Glue.svg'),
 	inventoryImage: require('../../images/items/Glue/GlueInventory.svg'),
@@ -85,19 +85,10 @@ var glue = {
 
 var knife = {
 	name: 'Artist\'s Knife',
-	status: 'collectable',
+	status: 'inventory',
 	collectProgress: 5,
 	collectableImage: require('../../images/items/Knife/KnifeCollectable.svg'),
 	inventoryImage: require('../../images/items/Knife/KnifeInventory.svg'),
-	width: '100px'
-};
-
-var navbar = {
-	name: 'Navbar',
-	status: 'collectable',
-	collectProgress: 13,
-	collectableImage: require('../../images/items/Glue/Glue.svg'),
-	inventoryImage: require('../../images/items/Glue/GlueInventory.svg'),
 	width: '100px'
 };
 
@@ -140,7 +131,7 @@ var crumpledPaper = {
 	inventoryImage: require('../../images/items/Paper/CrumpledPaper.png'),
 	width: '100px',
 	maxWidth: '600px',
-	status: 'collectable',
+	status: 'inventory',
 	examinable: true,
 	examineImage: require('../../images/items/Paper/CrumpledPaperExaminable.png'),
 	eventCount: uncrumpleEvents.length,
@@ -159,8 +150,9 @@ var crumpledPaper = {
 
 var pencil = {
 	name: 'Pencil',
-	status: 'collectable',
-	collectProgress: 2.5,
+	status: 'inventory',
+	usePoint: 4,
+	collectProgress: 3,
 	collectableImage: require('../../images/items/Pencil/PencilCollectable.svg'),
 	inventoryImage: require('../../images/items/Pencil/PencilInventory.svg'),
 	width: '100px'
@@ -173,7 +165,6 @@ export default {
 	gavel,
 	glue,
 	knife,
-	navbar,	
 	paper,
 	crumpledPaper,
 	pencil

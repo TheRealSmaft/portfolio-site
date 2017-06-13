@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
-import { Collectable, TriggerZone } from '../../Containers/GameContainers';
+import { Collectable } from '../../Containers/GameContainers';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
 import { interactableActions, interactableTypes } from '../../../state/game/interactables';

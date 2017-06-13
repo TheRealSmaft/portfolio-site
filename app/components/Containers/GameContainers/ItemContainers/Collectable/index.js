@@ -91,6 +91,12 @@ const Collectable = React.createClass({
 		this.props.changeItemStatus(this.item.name, 'inventory');
 		this.item.status = 'inventory';
 
+		if(this.item.collectProgress) {
+			if(this.props.mode.progressLevel < this.item.collectProgress) {
+				this.props.updateGameProgress(Number.isInteger(this.props.mode.progressLevel) ? this.item.collectProgress : this.item.collectProgress + .5);
+			}
+		}
+
 		if(this.item.name === 'Glue') {
 			if(this.props.mode.progressLevel >= 6 &&
 				this.props.mode.progressLevel < 10) {
