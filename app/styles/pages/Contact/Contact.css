@@ -37,16 +37,43 @@
 .form {
   position: relative;
   z-index: 44;
-  background-color: lightblue;
+  color: white;
+  background-color: #7878a4;
+  border-top: 8px solid #646478;
+  border-bottom: 8px solid #c8c8f0;
+  border-right: 8px solid #787896;
+  border-left: 8px solid #a0a0c8;
 }
 .form fieldset {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  border: none;
 }
 .form fieldset div {
   display: flex;
   flex-direction: column;
+}
+.form textarea {
+  resize: none;
+  height: 100px;
+}
+.submitButton {
+  text-align: center;
+}
+.submitButton button {
+  box-shadow: #646478 0px 1px 0px 0px inset;
+  background: linear-gradient(#787896 5%, #a0a0c8 100%) #7878a4;
+  border-radius: 3px;
+  border: 1px solid #646478;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-size: 13px;
+  padding: 6px 24px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  text-shadow: #787896 0px 1px 0px;
 }
 @media only screen and (max-width: 768px) {
   .formInSiteMode {

@@ -13,12 +13,45 @@ import { ContactPageStyles } from '../../../styles/pages';
 import BodyMovin from '../../../plugins/bodymovin.min';
 
 const ContactPage = React.createClass({
+	getInitialState() {
+		return {
+			formData: {
+				firstName: '',
+				lastName: '',
+				email: '',
+				phone: '',
+				message: ''
+			}
+		}
+	},
+
 	componentWillMount() {
 		if(this.props.mode.gameMode) {
 			if(this.props.mode.progressLevel < 1) {
 				browserHistory.replace('/');
 			}
 		}
+	},
+
+	handleInputChange(event) {
+		const target = event.target;
+		const value = target.value;
+		const name = target.name;
+
+		this.setState({
+			formData: {
+				[name]: value
+			}
+		});
+	},
+
+	submitForm() {
+		var post = new XMLHttpRequest();
+		post.open("POST", '../../../assets/formMailer/mailer.php');
+		post.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+		var data = JSON.stringify(this.state.formData);
+		post.send(data);
 	},
 
 	render() {
@@ -44,13 +77,23 @@ const ContactPage = React.createClass({
 									<label for="firstName">
 										First Name:
 									</label>
-									<input type="text" name="firstName" id="firstName"/>
+									<input 
+										type="text" 
+										name="firstName" 
+										id="firstName"
+										onChange={this.handleInputChange}
+									/>
 								</div>
 								<div>
 									<label for="lastName">
 										Last Name:
 									</label>
-									<input type="text" name="lastName" id="lastName"/>
+									<input 
+										type="text" 
+										name="lastName" 
+										id="lastName"
+										onChange={this.handleInputChange}
+									/>
 								</div>
 							</fieldset>
 							<fieldset>
@@ -58,21 +101,51 @@ const ContactPage = React.createClass({
 									<label for="email">
 										Email:
 									</label>
-									<input type="email" name="email" id="email"/>
+									<input 
+										type="email" 
+										name="email" 
+										id="email"
+										onChange={this.handleInputChange}
+									/>
 								</div>
 								<div>
 									<label for="phoneNumber">
 										Phone:
 									</label>
-									<input type="phone" name="phoneNumber" id="phoneNumber"/>
+									<input 
+										type="phone" 
+										name="phoneNumber" 
+										id="phoneNumber"
+										onChange={this.handleInputChange}
+									/>
 								</div>
 							</fieldset>
+							<fieldset>
+								<div>
+									<label for="message">
+										Message:
+									</label>
+									<textarea 
+										name="message" 
+										id="message"
+										onChange={this.handleInputChange}
+									/>
+								</div>
+							</fieldset>
+							<div
+								className={ContactPageStyles.submitButton}
+							>
+								<button
+									onClick={this.submitForm}
+								>
+									Submit
+								</button>
+							</div>
 						</form>
-						
 					</div>
 				</div>
 			</ResponsiveContainer>
-		)
+		);
 	}
 });
 
