@@ -42,7 +42,13 @@
 	position: relative;
 	z-index: 44;
 
-	background-color: lightblue;
+	color: white;
+
+	background-color: rgb(120,120,164);
+	border-top: 8px solid rgb(100,100,120);
+	border-bottom: 8px solid rgb(200,200,240);
+	border-right: 8px solid rgb(120,120,150);
+	border-left: 8px solid rgb(160,160,200);
 
 	// animation: formDance 30s linear infinite;
 
@@ -50,11 +56,48 @@
 		display: flex;
 		flex-direction: row;
 		align-items: baseline;
+		border: none;
 		
 		div {
 			display: flex;
 			flex-direction: column;
 		}
+	}
+
+	textarea {
+		resize: none;
+		height: 100px;
+	}
+}
+
+.submitButton {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+
+	button {
+		box-shadow: rgb(100,100,120) 0px 1px 0px 0px inset; background: linear-gradient(rgb(120,120,150) 5%, rgb(160,160,200) 100%) rgb(120,120,164);
+		border-radius: 3px;
+		border: 1px solid rgb(100,100,120);
+		display: inline-block;
+		cursor: pointer;
+		color: white;
+		font-size: 13px;
+		padding: 6px 24px;
+		margin-bottom: 15px;
+		text-decoration: none;
+		text-shadow: rgb(120,120,150) 0px 1px 0px;
+
+		position: relative;
+		z-index: 11;
+	}
+
+	img {
+		position: absolute;
+		bottom: -10px;
+		width: 120px;
+		z-index: 2;
 	}
 }
 
