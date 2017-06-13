@@ -135,11 +135,25 @@ const ContactPage = React.createClass({
 							<div
 								className={ContactPageStyles.submitButton}
 							>
-								<button
-									onClick={this.submitForm}
-								>
-									Submit
-								</button>
+								{this.props.mode.gameMode ? (
+										<img
+											src={require('../../../assets/images/interactables/ContactForm/ButtonGlue.svg')}
+										/>
+									) : ''
+								}
+								{this.props.mode.gameMode ? (
+										<button disabled>
+											Submit
+										</button>
+									) :
+									(
+										<button
+											onClick={this.submitForm}
+										>
+											Submit
+										</button>
+									)
+								}
 							</div>
 						</form>
 					</div>

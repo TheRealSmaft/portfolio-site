@@ -71,7 +71,10 @@
 }
 
 .submitButton {
-	text-align: center;
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
 
 	button {
 		box-shadow: rgb(100,100,120) 0px 1px 0px 0px inset; background: linear-gradient(rgb(120,120,150) 5%, rgb(160,160,200) 100%) rgb(120,120,164);
@@ -85,6 +88,16 @@
 		margin-bottom: 15px;
 		text-decoration: none;
 		text-shadow: rgb(120,120,150) 0px 1px 0px;
+
+		position: relative;
+		z-index: 11;
+	}
+
+	img {
+		position: absolute;
+		bottom: -10px;
+		width: 120px;
+		z-index: 2;
 	}
 }
 
