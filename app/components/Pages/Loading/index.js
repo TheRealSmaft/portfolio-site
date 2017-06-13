@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
+import { Tooltip } from '../../Containers/GameContainers';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
 import { itemTypes, itemActions } from '../../../state/game/items';
@@ -234,6 +235,10 @@ const LoadingPage = React.createClass({
 					>
 					</div>
 				</div>
+				<Tooltip 
+					delay={1000}
+
+				/>
 			</div>
 		)
 	}

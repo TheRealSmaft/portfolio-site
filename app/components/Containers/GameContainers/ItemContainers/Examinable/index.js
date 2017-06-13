@@ -41,7 +41,10 @@ const Examinable = React.createClass({
 			nextProps.interactables.firedEvents.includes('updatePaper')) {
 			this.updateItem();
 			if(this.props.mode.progressLevel === 2) {
-				this.props.updateGameProgress(2.5)
+				this.props.updateGameProgress(2.5);
+			}
+			if(this.props.mode.progressLevel === 3) {
+				this.props.updateGameProgress(3.5);	
 			}
 		}
 	},
@@ -192,6 +195,7 @@ const Examinable = React.createClass({
 
 		if(name === "Broken Link") {
 			this.animation.destroy();
+			this.props.updateGameProgress(10);
 		}
 
 		this.item = this.item.nextItemState;

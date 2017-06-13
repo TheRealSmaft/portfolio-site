@@ -67,6 +67,11 @@ const PortfolioPage = React.createClass({
 				/>
 			);
 		}
+
+		this.frameRotations = [];
+		for(var i = 0; i < portfolio.length; i++) {
+			this.frameRotations.push(this.getRotation());
+		}
 	},
 
 	getRotation() {
@@ -79,7 +84,7 @@ const PortfolioPage = React.createClass({
 				key={index}
 				index={index}
 				piece={piece}
-				rotation={this.getRotation()}
+				rotation={this.frameRotations[index]}
 			/>
 		);
 

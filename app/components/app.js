@@ -8,7 +8,7 @@ import { appStyles } from '../styles';
 
 import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
-import { Inventory } from './Containers/GameContainers';
+import { Inventory, Tooltip } from './Containers/GameContainers';
 
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
@@ -92,7 +92,9 @@ const App = React.createClass({
 
 				{this.inventory}
 
-				{this.clickBlocker}			
+				{this.clickBlocker}
+
+				{this.props.mode.gameMode ? <Tooltip/>	: ''}
 			</div>
 		)
 	}
