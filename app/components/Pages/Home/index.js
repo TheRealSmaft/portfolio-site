@@ -41,6 +41,13 @@ const HomePage = React.createClass({
 
 			this.pencil = (
 				<Collectable
+					style={{
+						position: 'absolute',
+						bottom: '-20px',
+						right: '-50px',
+						transform: 'rotate(-350deg)',
+						zIndex: 10
+					}}
 					item={this.pencilItem}
 				/>
 			);
@@ -77,21 +84,35 @@ const HomePage = React.createClass({
 	},
 
 	viewPortfolioPiece(index) {
-		this.props.selectModalPiece(index);
-		this.props.lockScrollPosition();
-		browserHistory.push('/portfolio');
+		if(!this.props.mode.gameMode) {
+			this.props.selectModalPiece(index);
+			this.props.lockScrollPosition();
+			browserHistory.push('/portfolio');
+		}
 	},
 
 	render() {
 		let port = portfolio.map((piece, index) => 
 			<div
+				className={this.props.mode.gameMode ? HomePageStyles.vandalizedContainer : ''}
 				key={index}
 			>
 				<img
+					className={!this.props.mode.gameMode ? HomePageStyles.portPreviewImage : HomePageStyles.vandalizedImage}
 					src={'../../../assets/portfolio/' + piece.image}
 					alt={piece.name}
 					onClick={() => {this.viewPortfolioPiece(index)}}
 				/>
+
+				{this.props.mode.gameMode ? (
+					<img 
+						className={HomePageStyles.vandalized}
+						src={'../../../assets/portfolio/' + piece.vandalized}
+					/>)
+					: ''
+				}
+
+				{index === 9 ? this.pencil : ''}
 			</div>
 		);
 
@@ -137,7 +158,6 @@ const HomePage = React.createClass({
 				>
 					{port}
 				</div>
-				{this.pencil}
 				<div
 					ref="victoryDiv"
 					className={HomePageStyles.victoryDiv}
