@@ -36,12 +36,25 @@
 }
 .portPreview div img {
   width: 100%;
+}
+.portPreviewImage {
   filter: sepia(50%);
   transition: 200ms ease-in;
 }
-.portPreview div img:hover {
+.portPreviewImage:hover {
   filter: sepia(0%);
   cursor: pointer;
+}
+.vandalizedContainer {
+  position: relative;
+}
+.vandalizedImage {
+  filter: contrast(50%);
+}
+.vandalized {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 .victoryDiv {
   position: fixed;

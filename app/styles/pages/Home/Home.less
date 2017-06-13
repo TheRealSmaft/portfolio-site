@@ -41,16 +41,33 @@
 
 		img {
 			width: 100%;
-			filter: sepia(50%);
-
-			transition: 200ms ease-in;
-
-			&:hover {
-				filter: sepia(0%);
-				cursor: pointer;
-			}
 		}
 	}
+}
+
+.portPreviewImage {
+	filter: sepia(50%);
+
+	transition: 200ms ease-in;
+
+	&:hover {
+		filter: sepia(0%);
+		cursor: pointer;
+	}
+}
+
+.vandalizedContainer {
+	position: relative;
+}
+
+.vandalizedImage {
+	filter: contrast(50%);
+}
+
+.vandalized {
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 
 .victoryDiv {

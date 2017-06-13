@@ -53,6 +53,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: 11;
   box-sizing: border-box;
 }
 .pieceImage div:first-of-type {
@@ -74,11 +75,20 @@
   border-bottom: 3px solid rgba(0, 0, 0, 0.2);
   border-right: 3px solid rgba(0, 0, 0, 0.2);
 }
+.vandalized {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+.vandalizedImage {
+  filter: contrast(50%);
+}
 .title:hover {
   cursor: pointer;
 }
 .description {
-  flex: 1 0 calc(0%);
+  flex: 1 0 calc(20%);
   min-width: 200px;
 }
 .modal {
