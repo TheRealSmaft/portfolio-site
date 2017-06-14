@@ -2,31 +2,50 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 .row {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
+  justify-content: space-around;
+  transition: 200ms ease-out;
 }
 .row:not(:last-of-type) {
   margin-bottom: 50px;
 }
 .picCol,
 .sectionImg {
-  width: 30%;
+  min-width: 30%;
+  max-width: 100%;
+  flex-basis: 400px;
+  margin-right: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .picCol,
+  .sectionImg {
+    margin-right: 0px;
+  }
 }
 .textCol {
-  width: 65%;
-  padding-left: 5%;
+  flex: 1 0 calc(10%);
+  min-width: 200px;
+  transition: 200ms ease-out;
 }
 .sectionImg {
   position: relative;
 }
 .skillList {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-around;
+}
+.skillList ul {
+  flex: 1 0 200px;
+  max-width: 50%;
+  min-width: 200px;
+  margin: 0;
 }
 .hand {
   position: absolute;
@@ -92,5 +111,23 @@
 }
 .hover:hover {
   cursor: pointer;
+}
+.aboutP {
+  transition: 200ms ease-out;
+}
+.moreButton {
+  box-shadow: #cf866c 0px 1px 0px 0px inset;
+  background: linear-gradient(#d0451b 5%, #bc3315 100%) #d0451b;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 24px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  text-shadow: #854629 0px 1px 0px;
+  transition: 200ms ease-out;
 }
 /*# sourceMappingURL=About.css.map */

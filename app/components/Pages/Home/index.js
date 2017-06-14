@@ -94,7 +94,6 @@ const HomePage = React.createClass({
 						Welcome!
 					</h1>
 					<p>
-						My name is Matthew Brubaker Smith and I am a Graphic and Web Designer.
 						I appreciate you taking time to check out my website and portfolio. 
 					</p>
 					<p>
