@@ -52,13 +52,71 @@ const HomePage = React.createClass({
 				/>
 			);
 		}
+
+		if(this.props.mode.justBeatGame) {
+			this.welcome = (
+				<div>
+					<h1>
+						Congratulations!
+					</h1>
+					<p>
+						You just beat my website! You are now free to peruse my newly non-vandalized portfolio 
+						at your leisure!
+					</p>
+					<p>
+						Thank you for visiting and feel free to contact me if you are an awesome employer or 
+						just otherwise enjoyed yourself!
+					</p>
+				</div>
+			);
+		}
+		else if(this.props.mode.gameMode) {
+			this.welcome = (
+				<div>
+					<h1>
+						Help Me!
+					</h1>
+					<p>
+						Someone has vandalized my site and is still running amok! 
+						This place is all falling apart and I don't know where I lorem. 
+						Oh no! He's ipsum turning dolor my text sit am , consectetur 
+						adipiscing elit. Fusce dui lorem, faucibus eget elit a, 
+						consectetur efficitur ipsum...
+					</p>
+				</div>
+			);
+		}
+		else
+		{
+			this.welcome = (
+				<div>
+					<h1>
+						Welcome!
+					</h1>
+					<p>
+						My name is Matthew Brubaker Smith and I am a Graphic and Web Designer.
+						I appreciate you taking time to check out my website and portfolio. 
+					</p>
+					<p>
+						As you may already know, this site is also a game. I consider the game to be the 
+						centerpiece of my portfolio. If you wish to play it, click the play game button below.
+					</p>
+					<button
+						className={HomePageStyles.playButton}
+						onClick={this.switchToGameMode}
+					>
+						Play Game
+					</button>
+				</div>
+			);
+		}
 	},
 
 	componentDidMount() {
 		var logoJson = require('../../../assets/images/Logo/Logo.json');
 		this.logoAnimation = {
 			animationData: logoJson,
-			path: '../../../../../assets/images/Logo',
+			path: '../../../assets/images/Logo',
 			loop: true,
 			autoplay: true,
 			name: 'logo',
@@ -70,17 +128,24 @@ const HomePage = React.createClass({
 	},
 
 	componentWillUpdate() {
-		if(this.props.mode.justBeatGame) {
+		if(this.props.mode.justBeatGame ||
+			this.props.mode.justSkippedGame) {
 			this.refs.victoryDiv.style.opacity = 0;
 
 			setTimeout(() => {
-				this.props.justBeatGame(false);
+				this.props.justSkippedGame(false);
 			}, 3100);
 		}
 	},
 
 	componentWillUnmount() {
 		BodyMovin.destroy();
+	},
+
+	switchToGameMode() {
+		this.props.updateGameProgress(0);
+		this.props.changeToGameMode();
+		browserHistory.replace('/');
 	},
 
 	viewPortfolioPiece(index) {
@@ -119,9 +184,6 @@ const HomePage = React.createClass({
 		return (
 			<ResponsiveContainer>
 				<SilhouetteIntro/>
-				<h1>
-					WELCOME!
-				</h1>
 				<div
 					className={HomePageStyles.welcome}
 				>
@@ -145,13 +207,7 @@ const HomePage = React.createClass({
 						>
 						</div>
 					</div>
-					<p>
-						Farm-to-table twee plaid stumptown chia authentic. 
-						Drinking vinegar hell of master cleanse banjo, gentrify
-						enamel pin meditation dreamcatcher bespoke shabby chic
-						ethical bitters blue bottle typewriter portland. Coloring
-						succulents flannel pug XOXO street art cronut.
-					</p>
+					{this.welcome}
 				</div>
 				<div
 					className={HomePageStyles.portPreview}
@@ -162,7 +218,7 @@ const HomePage = React.createClass({
 					ref="victoryDiv"
 					className={HomePageStyles.victoryDiv}
 					style={{
-						display: this.props.mode.justBeatGame ? 'block' : 'none',
+						display: this.props.mode.justBeatGame || this.props.mode.justSkippedGame ? 'block' : 'none',
 						width: window.innerWidth + 'px',
 						height: window.innerHeight + 'px'
 					}}
@@ -182,6 +238,9 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		justBeatGame: modeActions.justBeatGame,
+		justSkippedGame: modeActions.justSkippedGame,
+		changeToGameMode: modeActions.changeToGameMode,
+		updateGameProgress: modeActions.updateGameProgress,
 		selectModalPiece: portfolioActions.selectModalPiece,
 		lockScrollPosition: scrollEventActions.lockScrollPosition
 	}, dispatch)

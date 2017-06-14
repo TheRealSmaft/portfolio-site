@@ -76,6 +76,12 @@ const App = React.createClass({
 				this.inventory = null;
 			}
 		}
+		else
+		{
+			if(nextProps.mode.gameMode) {
+				this.inventory = <Inventory />;
+			}
+		}
 	},
 
 	render() {
