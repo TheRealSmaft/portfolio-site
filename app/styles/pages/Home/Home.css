@@ -4,23 +4,38 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  margin-top: 30px;
 }
-.welcome div {
+.welcome div:first-of-type {
   position: relative;
   flex: 0 0 45%;
 }
 @media only screen and (max-width: 768px) {
-  .welcome div {
+  .welcome div:first-of-type {
     flex: 0 0 100%;
   }
 }
-.welcome p {
+.welcome div:last-of-type {
   flex: 0 0 50%;
 }
 @media only screen and (max-width: 768px) {
-  .welcome p {
+  .welcome div:last-of-type {
     flex: 0 0 100%;
   }
+}
+.playButton {
+  box-shadow: #cf866c 0px 1px 0px 0px inset;
+  background: linear-gradient(#d0451b 5%, #bc3315 100%) #d0451b;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 24px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  text-shadow: #854629 0px 1px 0px;
 }
 .portPreview {
   display: flex;

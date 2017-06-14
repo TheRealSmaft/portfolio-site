@@ -28,9 +28,6 @@ const PortfolioPage = React.createClass({
 			</Link>
 		);
 
-		this.eraserCollectable = null;
-		this.glueCollectable = null;
-
 		if(this.props.mode.gameMode) {
 			this.linkScribble = (
 				<LinkScribble 
@@ -62,14 +59,14 @@ const PortfolioPage = React.createClass({
 		return (
 			<ResponsiveContainer>
 				<h1>
-					PORTFOLIO
+					Portfolio
 				</h1>
-				<div
+				<p
 					className={PortfolioPageStyles.portIntro}
 				>
-					If you like what you see please&nbsp;
+					Click on a framed image to view the full piece at higher resolution. If you like what you see please&nbsp;
 					{this.linkScribble}
-				</div>
+				</p>
 
 				{port}
 

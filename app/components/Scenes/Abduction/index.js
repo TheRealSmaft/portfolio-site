@@ -89,7 +89,7 @@ const Abduction = React.createClass({
 		}
 		else
 		{
-			this.ufoHover();
+			this.ufoArrives();
 		}
 	},
 

@@ -1,9 +1,13 @@
 const CHANGE_TO_SITE_MODE = "game/playState/duck/CHANGE_TO_SITE_MODE";
+const CHANGE_TO_GAME_MODE = "game/playState/duck/CHANGE_TO_GAME_MODE";
 const UPDATE_GAME_PROGRESS = "game/playState/duck/UPDATE_GAME_PROGRESS";
 const JUST_BEAT_GAME = "game/playState/duck/JUST_BEAT_GAME";
+const JUST_SKIPPED_GAME = "game/playState/duck/JUST_SKIPPED_GAME";
 
 export default {
 	CHANGE_TO_SITE_MODE,
+	CHANGE_TO_GAME_MODE,
 	UPDATE_GAME_PROGRESS,
-	JUST_BEAT_GAME
+	JUST_BEAT_GAME,
+	JUST_SKIPPED_GAME
 };

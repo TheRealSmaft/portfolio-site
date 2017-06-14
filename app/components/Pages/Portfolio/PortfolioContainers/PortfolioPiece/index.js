@@ -13,6 +13,13 @@ const PortfolioPiece = React.createClass({
 		piece: React.PropTypes.object.isRequired
 	},
 
+	getInitialState() {
+		return {
+			infoIndex: null,
+			infoButtonText: 'More Info'
+		}
+	},
+
 	getDefaultProps() {
 		return {
 			rotation: '0deg'
@@ -68,6 +75,50 @@ const PortfolioPiece = React.createClass({
 		if(!this.props.mode.gameMode) {
 			this.props.selectModalPiece(this.props.index);
 		}
+	},
+
+	moreInfo() {
+		if(this.state.infoIndex === null) {
+			this.setState({
+				infoIndex: 0
+			});
+			this.refs.infoP.style.opacity = 1;
+		}
+		else
+		{
+			this.refs.infoP.style.opacity = 0;
+			setTimeout(() => {
+				if(this.state.infoIndex >= this.props.piece.moreInfo.length - 1) {
+					this.setState({
+						infoIndex: 0,
+						infoButtonText: 'More Info'
+					});
+				}
+				else
+				{
+					this.setState({
+						infoIndex: this.state.infoIndex + 1,
+						infoButtonText: this.getInfoButtonText()
+					});
+				}
+				this.refs.infoP.style.opacity = 1;
+			}, 300);
+		}
+	},
+
+	getInfoButtonText() {
+		const text = [
+			'Even More Info',
+			'Still More Info',
+			'MORE Info?!',
+			'Learn More',
+			'Tell Me More',
+			'Go On',
+			'I Can Keep Going'
+		];
+		var r = Math.floor(Math.random() * text.length);
+
+		return text[r];
 	},
 
 	render() {
@@ -126,8 +177,24 @@ const PortfolioPiece = React.createClass({
 					<p>
 						{this.props.piece.description}
 					</p>
-					{this.props.piece.image === 'SkullAndBowl/SkullAndBowlThumbnail.jpg' ? this.eraserCollectable : ''}
-					{this.props.piece.image === 'CarlaAndI/CarlaAndIThumbnail.png' ? this.glueCollectable : ''}
+					<div
+						className={PortfolioPageStyles.moreInfo}
+					>
+						<p
+							ref="infoP"
+						>
+							{this.state.infoIndex != null ? this.props.piece.moreInfo[this.state.infoIndex] : ''}
+						</p>
+						<button
+							className={PortfolioPageStyles.moreButton}
+							onClick={this.moreInfo}
+						>
+							{this.state.infoButtonText}
+						</button>
+					</div>
+
+					{this.props.piece.image === 'SkullAndBowl/SkullAndBowlThumbnail.jpg' && this.props.mode.gameMode ? this.eraserCollectable : ''}
+					{this.props.piece.image === 'CarlaAndI/CarlaAndIThumbnail.png' && this.props.mode.gameMode ? this.glueCollectable : ''}
 				</div>
 			</div>
 		);

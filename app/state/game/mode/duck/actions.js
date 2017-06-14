@@ -6,6 +6,12 @@ function changeToSiteMode() {
 	}
 };
 
+function changeToGameMode() {
+	return {
+		type: types.CHANGE_TO_GAME_MODE
+	}
+};
+
 function updateGameProgress(level:number) {
 	return {
 		type: types.UPDATE_GAME_PROGRESS,
@@ -20,8 +26,17 @@ function justBeatGame(bool:bool) {
 	}
 };
 
+function justSkippedGame(bool:bool) {
+	return {
+		type: types.JUST_SKIPPED_GAME,
+		payload: bool
+	}
+};
+
 export default {
 	changeToSiteMode,
+	changeToGameMode,
 	updateGameProgress,
-	justBeatGame
+	justBeatGame,
+	justSkippedGame
 };

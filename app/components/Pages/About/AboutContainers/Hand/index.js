@@ -19,6 +19,7 @@ const Hand = React.createClass({
 		else
 		{
 			this.thumbsUp();
+			this.createHandHoverEffect();
 		}
 	},
 
@@ -59,6 +60,10 @@ const Hand = React.createClass({
 
 		this.handWithGavel.destroy();
 		this.thumbsUp();
+
+		setTimeout(() => {
+			this.thumbsUpAnimation.play();
+		}, 250);
 	},
 
 	thumbsUp() {
@@ -76,10 +81,22 @@ const Hand = React.createClass({
 		this.thumbsUpAnimation = BodyMovin.loadAnimation(animation);
 		this.thumbsUpAnimation.goToAndStop(0, true);
 		this.thumbsUpAnimation.setSpeed(1.5);
+	},
 
-		setTimeout(() => {
-			this.thumbsUpAnimation.play();
-		}, 250);
+	createHandHoverEffect() {
+		var hand = this.refs.hand.firstChild.childNodes[1];
+		hand.addEventListener('mouseover', this.playThumbsUp);
+		hand.addEventListener('mouseleave', this.playThumbsDown);
+	},
+
+	playThumbsUp() {
+		this.thumbsUpAnimation.setDirection(1);
+		this.thumbsUpAnimation.play();
+	},
+
+	playThumbsDown() {
+		this.thumbsUpAnimation.setDirection(-1);
+		this.thumbsUpAnimation.play();
 	},
 
 	render() {

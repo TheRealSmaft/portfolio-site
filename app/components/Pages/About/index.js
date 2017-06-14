@@ -13,15 +13,38 @@ import Brain from './AboutContainers/Brain';
 import Heart from './AboutContainers/Heart';
 import Hand from './AboutContainers/Hand';
 
+const brainBullet = require('../../../assets/images/ListBullets/Mind.svg');
+const heartBullet = require('../../../assets/images/ListBullets/Heart.svg');
+const handBullet = require('../../../assets/images/ListBullets/Hand.svg');
+
+import { brainSkills, heartSkills, handSkills } from './AboutContainers/skills';
+
 import { AboutPageStyles } from '../../../styles/pages';
 
 const AboutPage = React.createClass({
+	getInitialState() {
+		return {
+			aboutIndex: 0
+		}
+	},
+
 	componentWillMount() {
 		if(this.props.mode.gameMode) {
 			if(this.props.mode.progressLevel < 6) {
 				browserHistory.replace('/home');
 			}
 		}
+
+		this.aboutParagraphs = [
+			"My name is Matthew Brubaker Smith and I am a Graphic and Web Designer. Though to be honest, my skill set is more broad and varied than that title conveys.",
+			"To prove it, I built this website. Or rather, this React/Redux single page web application to be more accurate. So I suppose that makes me a Web App Developer as well.",
+			"In addition to all of the static graphic art you will find on this web app, I created all of the animations. So I gather that also makes me an Animator.",
+			"I could go on rambling like this for some time (I reckon I'm a rambler!) but for time an readability's sake, I have listed out a plethora of my skills broken down into three categories. Skills of the mind, heart, and hand."	
+		];
+
+		this.brainSkills = this.divideSkillList(brainSkills);
+		this.heartSkills = this.divideSkillList(heartSkills);
+		this.handSkills = this.divideSkillList(handSkills);
 	},
 
 	componentDidUpdate() {
@@ -40,13 +63,38 @@ const AboutPage = React.createClass({
 			}
 		}
 	},
+
+	nextParagraph() {
+		this.refs.aboutP.style.opacity = 0;
+		setTimeout(() => {
+			if(this.state.aboutIndex >= this.aboutParagraphs.length - 1) {
+				this.setState({
+					aboutIndex: 0
+				});
+			}
+			else
+			{
+				this.setState({
+					aboutIndex: this.state.aboutIndex + 1
+				});
+			}
+			this.refs.aboutP.style.opacity = 1;
+		}, 300);
+	},
+
+	divideSkillList(list) {
+		var hl = Math.ceil(list.length / 2);
+		var firstHalf = list.splice(0,hl);
+
+		return [
+			firstHalf,
+			list
+		];
+	},
 	
 	render() {
 		return (
 			<ResponsiveContainer>
-				<h1>
-					ABOUT ME
-				</h1>
 				<div
 					className={AboutPageStyles.grid}
 				>
@@ -57,9 +105,21 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<p>
-								About me paragraph
+							<h1>
+								About Me
+							</h1>
+							<p
+								className={AboutPageStyles.aboutP}
+								ref="aboutP"
+							>
+								{this.aboutParagraphs[this.state.aboutIndex]}
 							</p>
+							<button
+								className={AboutPageStyles.moreButton}
+								onClick={this.nextParagraph}
+							>
+								{this.state.aboutIndex != 3 ? 'Read More' : 'From the Top'}
+							</button>
 						</div>
 					</div>
 
@@ -73,33 +133,31 @@ const AboutPage = React.createClass({
 							<div
 								className={AboutPageStyles.skillList}
 							>
-								<ul>
-									<li>
-										List
-									</li>
-									<li>
-										of
-									</li>
-									<li>
-										brain
-									</li>
-									<li>
-										skills
-									</li>
+								<ul
+									style={{
+										listStyleImage: 'url(' + brainBullet + ')'
+									}}
+								>
+									{this.brainSkills[0].map((skill, index) => 
+										<li
+											key={'brain0' + index}
+										>
+											{skill}
+										</li>
+									)}
 								</ul>
-								<ul>
-									<li>
-										List
-									</li>
-									<li>
-										of
-									</li>
-									<li>
-										brain
-									</li>
-									<li>
-										skills
-									</li>
+								<ul
+									style={{
+										listStyleImage: 'url(' + brainBullet + ')'
+									}}
+								>
+									{this.brainSkills[1].map((skill, index) => 
+										<li
+											key={'brain1' + index}
+										>
+											{skill}
+										</li>
+									)}
 								</ul>
 							</div>
 						</div>
@@ -115,33 +173,31 @@ const AboutPage = React.createClass({
 							<div
 								className={AboutPageStyles.skillList}
 							>
-								<ul>
-									<li>
-										List
-									</li>
-									<li>
-										of
-									</li>
-									<li>
-										heart
-									</li>
-									<li>
-										skills
-									</li>
+								<ul
+									style={{
+										listStyleImage: 'url(' + heartBullet + ')'
+									}}
+								>
+									{this.heartSkills[0].map((skill, index) => 
+										<li
+											key={'heart0' + index}
+										>
+											{skill}
+										</li>
+									)}
 								</ul>
-								<ul>
-									<li>
-										List
-									</li>
-									<li>
-										of
-									</li>
-									<li>
-										heart
-									</li>
-									<li>
-										skills
-									</li>
+								<ul
+									style={{
+										listStyleImage: 'url(' + heartBullet + ')'
+									}}
+								>
+									{this.heartSkills[1].map((skill, index) => 
+										<li
+											key={'heart1' + index}
+										>
+											{skill}
+										</li>
+									)}
 								</ul>
 							</div>
 						</div>
@@ -170,33 +226,31 @@ const AboutPage = React.createClass({
 							<div
 								className={AboutPageStyles.skillList}
 							>
-								<ul>
-									<li>
-										List
-									</li>
-									<li>
-										of
-									</li>
-									<li>
-										hand
-									</li>
-									<li>
-										skills
-									</li>
+								<ul
+									style={{
+										listStyleImage: 'url(' + handBullet + ')'
+									}}
+								>
+									{this.handSkills[0].map((skill, index) => 
+										<li
+											key={'hand0' + index}
+										>
+											{skill}
+										</li>
+									)}
 								</ul>
-								<ul>
-									<li>
-										List
-									</li>
-									<li>
-										of
-									</li>
-									<li>
-										hand
-									</li>
-									<li>
-										skills
-									</li>
+								<ul
+									style={{
+										listStyleImage: 'url(' + handBullet + ')'
+									}}
+								>
+									{this.handSkills[1].map((skill, index) => 
+										<li
+											key={'hand1' + index}
+										>
+											{skill}
+										</li>
+									)}
 								</ul>
 							</div>
 						</div>

@@ -120,12 +120,12 @@ const Tooltip = React.createClass({
 	},
 
 	changeMode() {
-		this.props.justBeatGame(true);
+		this.props.justSkippedGame(true);
 		this.props.changeToSiteMode();
 		browserHistory.replace('/home');
 
 		setTimeout(() => {
-			this.props.justBeatGame(false);
+			this.props.justSkippedGame(false);
 		}, 200);
 	},
 
@@ -195,7 +195,7 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeToSiteMode: modeActions.changeToSiteMode,
-		justBeatGame: modeActions.justBeatGame,
+		justSkippedGame: modeActions.justSkippedGame,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
 		unlockScrollPosition: scrollEventActions.unlockScrollPosition
 	}, dispatch);

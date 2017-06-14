@@ -59,7 +59,7 @@ const LinkScribble = React.createClass({
 
 	render() {
 		return (
-			<div
+			<span
 				className={this.props.className}
 			>
 				<Link 
@@ -75,7 +75,7 @@ const LinkScribble = React.createClass({
 					onClick={this.eraseScribble}
 				>
 				</div>
-			</div>
+			</span>
 		);
 	}
 })

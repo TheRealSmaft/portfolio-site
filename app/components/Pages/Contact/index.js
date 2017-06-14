@@ -10,8 +10,6 @@ import Abduction from '../../Scenes/Abduction';
 
 import { ContactPageStyles } from '../../../styles/pages';
 
-import BodyMovin from '../../../plugins/bodymovin.min';
-
 const ContactPage = React.createClass({
 	getInitialState() {
 		return {
@@ -57,10 +55,6 @@ const ContactPage = React.createClass({
 	render() {
 		return (
 			<ResponsiveContainer>
-				<h1>
-					CONTACT ME
-				</h1>
-
 				<div
 					className={ContactPageStyles.sceneAndForm}
 				>
@@ -70,7 +64,9 @@ const ContactPage = React.createClass({
 					<div
 						className={!this.props.mode.gameMode ? ContactPageStyles.formInSiteMode : ''}
 					>
-
+						<h1>
+							Contact Me
+						</h1>
 						<form className={ContactPageStyles.form}>
 							<fieldset>
 								<div>
