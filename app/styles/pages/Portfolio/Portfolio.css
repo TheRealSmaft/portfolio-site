@@ -90,6 +90,9 @@
 .description {
   flex: 1 0 calc(10%);
   min-width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: space-between;
 }
 .modal {
   position: fixed;
@@ -171,5 +174,24 @@
 }
 .hover:hover {
   cursor: pointer;
+}
+.moreInfo p {
+  opacity: 0;
+  transition: 200ms ease-out;
+}
+.moreButton {
+  box-shadow: #cf866c 0px 1px 0px 0px inset;
+  background: linear-gradient(#d0451b 5%, #bc3315 100%) #d0451b;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 24px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  text-shadow: #854629 0px 1px 0px;
+  transition: 200ms ease-out;
 }
 /*# sourceMappingURL=Portfolio.css.map */

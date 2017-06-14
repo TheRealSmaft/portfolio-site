@@ -109,6 +109,10 @@
 .description {
 	flex: 1 0 calc(40% - 30px);
 	min-width: 200px;
+
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: space-between;
 }
 
 .modal {
@@ -198,4 +202,27 @@
 	&:hover {
 		cursor: pointer;
 	}
+}
+
+.moreInfo {
+	p {
+		opacity: 0;
+		transition: 200ms ease-out;
+	}
+}
+
+.moreButton {
+	box-shadow: rgb(207, 134, 108) 0px 1px 0px 0px inset; background: linear-gradient(rgb(208, 69, 27) 5%, rgb(188, 51, 21) 100%) rgb(208, 69, 27);
+	border-radius: 3px;
+	border: 1px solid rgb(148, 41, 17);
+	display: inline-block;
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	padding: 6px 24px;
+	margin-bottom: 15px;
+	text-decoration: none;
+	text-shadow: rgb(133, 70, 41) 0px 1px 0px;
+
+	transition: 200ms ease-out;
 }

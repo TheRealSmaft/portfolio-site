@@ -28,9 +28,6 @@ const PortfolioPage = React.createClass({
 			</Link>
 		);
 
-		this.eraserCollectable = null;
-		this.glueCollectable = null;
-
 		if(this.props.mode.gameMode) {
 			this.linkScribble = (
 				<LinkScribble 
