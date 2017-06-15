@@ -105,8 +105,12 @@ const Tooltip = React.createClass({
 	},
 
 	showTipQuery() {
-		this.refs.tipQuery.style.opacity = 1;
-		this.refs.tipQuery.style.pointerEvents = 'auto';
+		try {
+			this.refs.tipQuery.style.opacity = 1;
+			this.refs.tipQuery.style.pointerEvents = 'auto';
+		}
+		catch(e) {
+		}
 	},
 
 	showToolTip() {
