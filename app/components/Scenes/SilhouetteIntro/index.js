@@ -44,6 +44,12 @@ const SilhouetteIntroScene = React.createClass({
 				}
 			];
 
+			this.panelEvents = [
+				function(target) {
+					target.style.top = '5px';
+				}
+			];
+
 			this.knife = {
 				name: 'Artist\'s Knife',
 				collectPoint: 5,
@@ -118,6 +124,7 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	runIntroPart3() {
+		this.props.addEventToFiredArray('panelAppear');
 		var introPart3Json = require('../../../assets/images/interactables/SinisterSilhouette/SilhouetteIntro3.json');
 		var introPart3 = {
 			animationData: introPart3Json,
@@ -231,36 +238,42 @@ const SilhouetteIntroScene = React.createClass({
 						position: 'relative'
 					}}
 				>
-					<div
-						className={SilhouetteStyles.emergencyPanelContainer}
+					<DeferredEventExecutor
+						moments={[1]}
+						events={this.panelEvents}
+						fireCondition={'panelAppear'}
 					>
 						<div
-							className={SilhouetteStyles.emergencyPanel}
-							ref="emergencyPanel"
+							className={SilhouetteStyles.emergencyPanelContainer}
 						>
-							<label for="emergencyInput">
-								Emergency Panel:&nbsp;
-							</label>
-							<input 
-								name="emergencyInput"
-								type="text"
-								placeholder="ENTER PASSWORD"
-							/>
-							&nbsp;
-							<button
-								onClick={this.emergencyPanelSubmit}
+							<div
+								className={SilhouetteStyles.emergencyPanel}
+								ref="emergencyPanel"
 							>
-								Submit
-							</button>
+								<label for="emergencyInput">
+									Emergency?&nbsp;
+								</label>
+								<input 
+									name="emergencyInput"
+									type="text"
+									placeholder="ENTER PASSWORD"
+								/>
+								&nbsp;
+								<button
+									onClick={this.emergencyPanelSubmit}
+								>
+									Submit
+								</button>
+							</div>
+							<div
+								className={SilhouetteStyles.knifeCubby}
+							>
+								<Collectable
+									item={this.knife}
+								/>
+							</div>
 						</div>
-						<div
-							className={SilhouetteStyles.knifeCubby}
-						>
-							<Collectable
-								item={this.knife}
-							/>
-						</div>
-					</div>
+					</DeferredEventExecutor>
 					<div
 						className={SilhouetteStyles.scene}
 					>
@@ -298,6 +311,45 @@ const SilhouetteIntroScene = React.createClass({
 										<h4>
 											About
 										</h4>
+									</div>
+								</div>
+							</DeferredEventExecutor>
+							<DeferredEventExecutor
+								moments={[0, 9, 10, 13, 20]}
+								events={this.navEvents}
+								fireCondition={'navStolen'}
+								increment={100}
+								style={{
+									display: this.props.mode.progressLevel > 1 ? 'none' : 'block'
+								}}
+							>
+								<div
+									className={SilhouetteStyles.dummyMobile}
+								>
+									<div>
+										&#9776;
+									</div>
+									<div>
+										<span> 
+											<h4>
+												Home
+											</h4>
+										</span>
+										<span> 
+											<h4>
+												Portfolio
+											</h4>
+										</span>
+										<span> 
+											<h4>
+												Contact
+											</h4>
+										</span>
+										<span> 
+											<h4>
+												About
+											</h4>
+										</span>
 									</div>
 								</div>
 							</DeferredEventExecutor>

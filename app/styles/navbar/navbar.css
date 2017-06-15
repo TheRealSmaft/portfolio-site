@@ -12,13 +12,6 @@
     display: block;
   }
 }
-.navBorder,
-.navbar {
-  border-top: 8px solid #646478;
-  border-bottom: 8px solid #c8c8f0;
-  border-right: 8px solid #787896;
-  border-left: 8px solid #a0a0c8;
-}
 .navbar {
   position: static;
   min-width: 200px;
@@ -27,6 +20,10 @@
   flex-grow: 1;
   height: 50px;
   background-color: #32323e;
+  border-top: 8px solid #646478;
+  border-bottom: 8px solid #c8c8f0;
+  border-right: 8px solid #787896;
+  border-left: 8px solid #a0a0c8;
 }
 .navbar a {
   float: left;
