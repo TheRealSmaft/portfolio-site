@@ -8,6 +8,19 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+
+	user-select: none;
+
+	@media @extra-small-max {
+		display: block;
+	}
+}
+
+.navBorder {
+	border-top: 8px solid rgb(100,100,120);
+	border-bottom: 8px solid rgb(200,200,240);
+	border-right: 8px solid rgb(120,120,150);
+	border-left: 8px solid rgb(160,160,200);
 }
 
 .navbar {
@@ -21,10 +34,7 @@
 
 	background-color: rgb(50,50,62);
 
-	border-top: 8px solid rgb(100,100,120);
-	border-bottom: 8px solid rgb(200,200,240);
-	border-right: 8px solid rgb(120,120,150);
-	border-left: 8px solid rgb(160,160,200);
+	&:extend(.navBorder);
 
 	a {
 		float: left;
@@ -57,16 +67,59 @@
 
 .navbarCollapsed {
 	display: none;
+	float: left;
+	width: 100%;
+	line-height: 40px;
 
 	div:first-of-type {
-		display: flex;
-		justify-content: center;
-		align-content: center;
+		position: static;
+		float: left;
+		font-size: 200%;
+		font-weight: bold;
+		text-align: center;
 
-		width: 40px;
 		height: 40px;
-		background-color: blue;
+		width: 40px;
+
 		color: white;
+		background-color: rgb(120,120,164);
+
+		box-sizing: border-box;
+		border: 1px solid rgb(75,75,90);
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	div:last-of-type {
+		position: static;
+		float: left;
+		width: calc(120% - 40px);
+
+		a {
+			float: left;
+			width: 50%;
+			height: 40px;
+			text-align: center;
+			color: white;
+			font-weight: bold;
+			text-decoration: none;
+
+			h4 {
+				width: 100%;
+				height: 100%;
+
+				line-height: 40px;
+
+				margin: 0px;
+
+				background-color: rgb(120,120,164);
+
+				box-sizing: border-box;
+				border: 1px solid rgb(75,75,90);
+			}
+		}
 	}
 
 	@media @extra-small-max {
