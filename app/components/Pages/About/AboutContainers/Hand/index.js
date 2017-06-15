@@ -19,6 +19,9 @@ const Hand = React.createClass({
 		else
 		{
 			this.thumbsUp();
+		}
+
+		if(!this.props.mode.gameMode) {
 			this.createHandHoverEffect();
 		}
 	},

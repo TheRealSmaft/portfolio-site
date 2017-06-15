@@ -20,6 +20,7 @@ const App = React.createClass({
 
 		this.clickBlocker = null;
 		this.inventory = null;
+		this.toolTip = null;
 
 		if(this.props.mode.gameMode) {
 			this.clickBlocker = (
@@ -36,7 +37,8 @@ const App = React.createClass({
 				>
 				</div>
 			);
-			this.inventory = <Inventory />;
+			this.inventory = <Inventory/>;
+			this.toolTip = <Tooltip/>;
 		}
 		else
 		{
@@ -74,22 +76,30 @@ const App = React.createClass({
 		if(this.props.mode.gameMode) {
 			if(!nextProps.mode.gameMode) {
 				this.inventory = null;
+				this.toolTip = null;
 			}
 		}
 		else
 		{
 			if(nextProps.mode.gameMode) {
-				this.inventory = <Inventory />;
+				this.inventory = <Inventory/>;
+				this.toolTip = <Tooltip/>;
+			}
+		}
+
+		if(this.props.mode.justBeatGame != nextProps.mode.justBeatGame ||
+			this.props.mode.justSkippedGame != nextProps.mode.justSkippedGame) {
+			if(nextProps.mode.justBeatGame ||
+				nextProps.mode.justSkippedGame) {
+				this.toolTip = null;
 			}
 		}
 	},
 
 	render() {
 		return (
-			<div className={appStyles}
-				style={{
-					minHeight: window.innerHeight
-				}}
+			<div 
+				className={appStyles}
 			>
 
 				<Navbar/>
@@ -100,7 +110,7 @@ const App = React.createClass({
 
 				{this.clickBlocker}
 
-				{this.props.mode.gameMode ? <Tooltip/>	: ''}
+				{this.toolTip}
 			</div>
 		)
 	}

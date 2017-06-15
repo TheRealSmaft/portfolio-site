@@ -70,11 +70,11 @@ const LinkScribble = React.createClass({
 				>
 					contact&nbsp;me!
 				</Link>
-				<div
+				<span
 					ref="scribble"
 					onClick={this.eraseScribble}
 				>
-				</div>
+				</span>
 			</span>
 		);
 	}

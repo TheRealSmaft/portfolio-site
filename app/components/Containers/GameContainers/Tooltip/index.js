@@ -20,10 +20,12 @@ const Tooltip = React.createClass({
 	},
 
 	componentWillUpdate(nextProps) {
-		if(this.props.mode.progressLevel != nextProps.mode.progressLevel) {
-			this.lastTip = this.tipIndex;
-			this.getTip(nextProps.mode.progressLevel);
-			this.startDelayedAppearanceTimer(tips[this.tipIndex].delay);
+		if(!this.props.mode.justBeatGame && !this.props.mode.justSkippedGame) {
+			if(this.props.mode.progressLevel != nextProps.mode.progressLevel) {
+				this.lastTip = this.tipIndex;
+				this.getTip(nextProps.mode.progressLevel);
+				this.startDelayedAppearanceTimer(tips[this.tipIndex].delay);
+			}
 		}
 	},
 
@@ -97,10 +99,14 @@ const Tooltip = React.createClass({
 			}
 
 			setTimeout(() => {
-				this.refs.tipQuery.style.opacity = 1;
-				this.refs.tipQuery.style.pointerEvents = 'auto';
+				this.showTipQuery();
 			}, delay);
 		}
+	},
+
+	showTipQuery() {
+		this.refs.tipQuery.style.opacity = 1;
+		this.refs.tipQuery.style.pointerEvents = 'auto';
 	},
 
 	showToolTip() {

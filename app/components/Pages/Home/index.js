@@ -132,6 +132,7 @@ const HomePage = React.createClass({
 			this.refs.victoryDiv.style.opacity = 0;
 
 			setTimeout(() => {
+				this.props.justBeatGame(false);
 				this.props.justSkippedGame(false);
 			}, 3100);
 		}
@@ -139,6 +140,11 @@ const HomePage = React.createClass({
 
 	componentWillUnmount() {
 		BodyMovin.destroy();
+		if(this.props.mode.justBeatGame ||
+			this.props.mode.justSkippedGame) {
+			this.props.justBeatGame(false);
+			this.props.justSkippedGame(false);
+		}
 	},
 
 	switchToGameMode() {
