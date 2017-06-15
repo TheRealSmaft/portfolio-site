@@ -41,7 +41,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
 }
-.skillList ul {
+.skillList li {
   flex: 1 0 200px;
   max-width: 50%;
   min-width: 200px;

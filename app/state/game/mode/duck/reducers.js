@@ -2,9 +2,9 @@ import types from './types';
 import PasswordRandomizer from '../../../../assets/images/items/Paper/passwordRandomizer';
 
 const modeReducer = (state = {
-	gameMode: true,
+	gameMode: false,
 	password: PasswordRandomizer.getPassword(),
-	progressLevel: 12,
+	progressLevel: 0,
 	justBeatGame: false,
 	justSkippedGame: false
 }, action) => {

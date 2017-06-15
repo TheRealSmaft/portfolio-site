@@ -41,10 +41,6 @@ const AboutPage = React.createClass({
 			"In addition to all of the static graphic art you will find on this web app, I created all of the animations. So I gather that also makes me an Animator.",
 			"I could go on rambling like this for some time (I reckon I'm a rambler!) but for time an readability's sake, I have listed out a plethora of my skills broken down into three categories. Skills of the mind, heart, and hand."	
 		];
-
-		this.brainSkills = this.divideSkillList(brainSkills);
-		this.heartSkills = this.divideSkillList(heartSkills);
-		this.handSkills = this.divideSkillList(handSkills);
 	},
 
 	componentDidUpdate() {
@@ -80,16 +76,6 @@ const AboutPage = React.createClass({
 			}
 			this.refs.aboutP.style.opacity = 1;
 		}, 300);
-	},
-
-	divideSkillList(list) {
-		var hl = Math.ceil(list.length / 2);
-		var firstHalf = list.splice(0,hl);
-
-		return [
-			firstHalf,
-			list
-		];
 	},
 	
 	render() {
@@ -130,36 +116,20 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<div
+							<ul
 								className={AboutPageStyles.skillList}
+								style={{
+									listStyleImage: 'url(' + brainBullet + ')'
+								}}
 							>
-								<ul
-									style={{
-										listStyleImage: 'url(' + brainBullet + ')'
-									}}
-								>
-									{this.brainSkills[0].map((skill, index) => 
-										<li
-											key={'brain0' + index}
-										>
-											{skill}
-										</li>
-									)}
-								</ul>
-								<ul
-									style={{
-										listStyleImage: 'url(' + brainBullet + ')'
-									}}
-								>
-									{this.brainSkills[1].map((skill, index) => 
-										<li
-											key={'brain1' + index}
-										>
-											{skill}
-										</li>
-									)}
-								</ul>
-							</div>
+								{brainSkills.map((skill, index) => 
+									<li
+										key={'brain' + index}
+									>
+										{skill}
+									</li>
+								)}
+							</ul>
 						</div>
 					</div>
 
@@ -170,36 +140,20 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<div
+							<ul
 								className={AboutPageStyles.skillList}
+								style={{
+									listStyleImage: 'url(' + heartBullet + ')'
+								}}
 							>
-								<ul
-									style={{
-										listStyleImage: 'url(' + heartBullet + ')'
-									}}
-								>
-									{this.heartSkills[0].map((skill, index) => 
-										<li
-											key={'heart0' + index}
-										>
-											{skill}
-										</li>
-									)}
-								</ul>
-								<ul
-									style={{
-										listStyleImage: 'url(' + heartBullet + ')'
-									}}
-								>
-									{this.heartSkills[1].map((skill, index) => 
-										<li
-											key={'heart1' + index}
-										>
-											{skill}
-										</li>
-									)}
-								</ul>
-							</div>
+								{heartSkills.map((skill, index) => 
+									<li
+										key={'heart' + index}
+									>
+										{skill}
+									</li>
+								)}
+							</ul>
 						</div>
 					</div>
 
@@ -223,36 +177,20 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<div
+							<ul
 								className={AboutPageStyles.skillList}
+								style={{
+									listStyleImage: 'url(' + handBullet + ')'
+								}}
 							>
-								<ul
-									style={{
-										listStyleImage: 'url(' + handBullet + ')'
-									}}
-								>
-									{this.handSkills[0].map((skill, index) => 
-										<li
-											key={'hand0' + index}
-										>
-											{skill}
-										</li>
-									)}
-								</ul>
-								<ul
-									style={{
-										listStyleImage: 'url(' + handBullet + ')'
-									}}
-								>
-									{this.handSkills[1].map((skill, index) => 
-										<li
-											key={'hand1' + index}
-										>
-											{skill}
-										</li>
-									)}
-								</ul>
-							</div>
+								{handSkills.map((skill, index) => 
+									<li
+										key={'hand' + index}
+									>
+										{skill}
+									</li>
+								)}
+							</ul>
 						</div>
 					</div>
 				</div>
