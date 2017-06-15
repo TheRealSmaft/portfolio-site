@@ -10,16 +10,109 @@
 }
 
 .dummyNav {
-	&:extend(.navbar);
-	position: absolute;
+	position: static;
+	min-width: 200px;
 	max-width: 1000px;
+	flex-basis: auto;
+	flex-grow: 1;
+
+	height: 50px;
+
+	background-color: rgb(50,50,62);
+
+	border-top: 8px solid rgb(100,100,120);
+	border-bottom: 8px solid rgb(200,200,240);
+	border-right: 8px solid rgb(120,120,150);
+	border-left: 8px solid rgb(160,160,200);
 
 	div {
-		&:extend(.navbar a);
+		float: left;
+		width: 25%;
+		height: 50px;
+		text-align: center;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
 
 		h4 {
-			&:extend(.navbar a h4);
+			width: 100%;
+			height: 100%;
+
+			line-height: 50px;
+
+			margin: 0px;
+
+			background-color: rgb(120,120,164);
+
+			box-sizing: border-box;
+			border: 1px solid rgb(75,75,90);
 		}
+	}
+
+	@media @extra-small-max {
+		display: none;
+	}
+}
+
+.dummyMobile {
+	display: none;
+	float: left;
+	width: 100%;
+	line-height: 40px;
+
+	div:first-of-type {
+		position: static;
+		float: left;
+		font-size: 200%;
+		font-weight: bold;
+		text-align: center;
+
+		height: 40px;
+		width: 40px;
+
+		color: white;
+		background-color: rgb(120,120,164);
+
+		box-sizing: border-box;
+		border: 1px solid rgb(75,75,90);
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	div:last-of-type {
+		position: static;
+		float: left;
+		width: calc(120% - 40px);
+
+		span {
+			float: left;
+			width: 50%;
+			height: 40px;
+			text-align: center;
+			color: white;
+			font-weight: bold;
+			text-decoration: none;
+
+			h4 {
+				width: 100%;
+				height: 100%;
+
+				line-height: 40px;
+
+				margin: 0px;
+
+				background-color: rgb(120,120,164);
+
+				box-sizing: border-box;
+				border: 1px solid rgb(75,75,90);
+			}
+		}
+	}
+
+	@media @extra-small-max {
+		display: block;
 	}
 }
 
@@ -33,6 +126,11 @@
 
 	transform-origin: 70% 60%;
 	transition: 500ms;
+
+	@media @extra-small-max {
+		width: 180%;
+		margin-left: -40%;
+	}
 }
 
 .navbarShadow {
@@ -53,7 +151,17 @@
 	justify-content: center;
 	align-items: center;
 	perspective: 700;
-	height: 68px;
+
+	top: -100px;
+	z-index: 5;
+
+	transition: 500ms ease-in;
+
+	@media @extra-small-max {
+		align-items: flex-start;
+		top: -150px;
+		margin-bottom: 30px;
+	}
 }
 
 .emergencyPanel {
@@ -65,9 +173,20 @@
 
 	transform-origin: bottom left;
 
+	text-align: center;
+
 	label, input, button {
 		-webkit-backface-visibility: hidden;
     	backface-visibility: hidden;
+	}
+
+	input {
+		width: 130px;
+		max-width: 100%;
+	}
+
+	@media @extra-small-max {
+		width: 60%;
 	}
 }
 
@@ -103,7 +222,7 @@
 
 .knifeCubby {
 	position: absolute;
-	top: 8px;
+	top: 0px;
 	padding: 8px;
 	box-shadow: inset 0px 0px 20px black;
 	border: 2px solid rgb(150,150,150);

@@ -5,6 +5,12 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  user-select: none;
+}
+@media only screen and (max-width: 480px) {
+  .navbarContainer {
+    display: block;
+  }
 }
 .navbar {
   position: static;
@@ -44,15 +50,48 @@
 }
 .navbarCollapsed {
   display: none;
+  float: left;
+  width: 100%;
+  line-height: 40px;
 }
 .navbarCollapsed div:first-of-type {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 40px;
+  position: static;
+  float: left;
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
   height: 40px;
-  background-color: blue;
+  width: 40px;
   color: white;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
+}
+.navbarCollapsed div:first-of-type:hover {
+  cursor: pointer;
+}
+.navbarCollapsed div:last-of-type {
+  position: static;
+  float: left;
+  width: calc(80%);
+}
+.navbarCollapsed div:last-of-type a {
+  float: left;
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navbarCollapsed div:last-of-type a h4 {
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  margin: 0px;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
 }
 @media only screen and (max-width: 480px) {
   .navbarCollapsed {

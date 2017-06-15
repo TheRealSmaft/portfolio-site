@@ -13,6 +13,13 @@ const Navbar = React.createClass({
 		}
 	},
 
+	componentWillUpdate(nextProps) {
+		if(this.props.scrollState != nextProps.scrollState &&
+			this.state.menuToggled) {
+			this.toggleMobileMenu();
+		}
+	},
+
 	toggleMobileMenu() {
 		this.setState({
 			...this.state, 
@@ -51,35 +58,41 @@ const Navbar = React.createClass({
 								</h4>
 							</Link>
 						</div>
-					</div>
-					<div
-						className={navbarStyles.navbarCollapsed}
-					>
 						<div
-							onClick={this.toggleMobileMenu}
+							className={navbarStyles.navbarCollapsed}
 						>
-							<span>
-								M
-							</span>
-						</div>
-						<div
-							ref="mobileMenu"
-							style={{
-								display: this.state.menuToggled ? 'block' : 'none'
-							}}
-						>
-							<Link to="/home"> 
-								Home
-							</Link>
-							<Link to="/portfolio"> 
-								Portfolio
-							</Link>
-							<Link to="/contact"> 
-								Contact
-							</Link>
-							<Link to="/about"> 
-								About
-							</Link>
+							<div
+								onClick={this.toggleMobileMenu}
+							>
+								&#9776;
+							</div>
+							<div
+								ref="mobileMenu"
+								style={{
+									display: this.state.menuToggled ? 'block' : 'none'
+								}}
+							>
+								<Link to="/home"> 
+									<h4>
+										Home
+									</h4>
+								</Link>
+								<Link to="/portfolio"> 
+									<h4>
+										Portfolio
+									</h4>
+								</Link>
+								<Link to="/contact"> 
+									<h4>
+										Contact
+									</h4>
+								</Link>
+								<Link to="/about"> 
+									<h4>
+										About
+									</h4>
+								</Link>
+							</div>
 						</div>
 					</div>
 					<div
@@ -98,7 +111,8 @@ const Navbar = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		mode: store.modeState
+		mode: store.modeState,
+		scrollState: store.scrollState
 	}
 };
 

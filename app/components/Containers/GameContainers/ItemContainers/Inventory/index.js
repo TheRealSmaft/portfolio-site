@@ -134,10 +134,12 @@ const Inventory = React.createClass({
 	},
 
 	startDraggingItem(name) {
-		this.draggable = name;
-		this.props.toggleItemDrag(name);
-		this.appendDraggableToDocumentBody();
-		this.startTrackingMouse();
+		if(this.props.items.draggable === null) {
+			this.draggable = name;
+			this.props.toggleItemDrag(name);
+			this.appendDraggableToDocumentBody();
+			this.startTrackingMouse();
+		}
 	},
 
 	stopDraggingItem() {

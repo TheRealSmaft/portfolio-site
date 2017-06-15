@@ -1,6 +1,23 @@
-.navbar,
-.dummyNav {
+.navbarContainer {
+  position: fixed;
   width: 100%;
+  z-index: 51;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  user-select: none;
+}
+@media only screen and (max-width: 480px) {
+  .navbarContainer {
+    display: block;
+  }
+}
+.navbar {
+  position: static;
+  min-width: 200px;
+  max-width: 1000px;
+  flex-basis: auto;
+  flex-grow: 1;
   height: 50px;
   background-color: #32323e;
   border-top: 8px solid #646478;
@@ -8,7 +25,103 @@
   border-right: 8px solid #787896;
   border-left: 8px solid #a0a0c8;
 }
-.navbar a,
+.navbar a {
+  float: left;
+  width: 25%;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navbar a h4 {
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  margin: 0px;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
+}
+@media only screen and (max-width: 480px) {
+  .navbar {
+    display: none;
+  }
+}
+.navbarCollapsed {
+  display: none;
+  float: left;
+  width: 100%;
+  line-height: 40px;
+}
+.navbarCollapsed div:first-of-type {
+  position: static;
+  float: left;
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  color: white;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
+}
+.navbarCollapsed div:first-of-type:hover {
+  cursor: pointer;
+}
+.navbarCollapsed div:last-of-type {
+  position: static;
+  float: left;
+  width: calc(80%);
+}
+.navbarCollapsed div:last-of-type a {
+  float: left;
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.navbarCollapsed div:last-of-type a h4 {
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  margin: 0px;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
+}
+@media only screen and (max-width: 480px) {
+  .navbarCollapsed {
+    display: block;
+  }
+}
+.placeholder {
+  width: 100%;
+  height: 68px;
+}
+.scene {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 40;
+}
+.dummyNav {
+  position: static;
+  min-width: 200px;
+  max-width: 1000px;
+  flex-basis: auto;
+  flex-grow: 1;
+  height: 50px;
+  background-color: #32323e;
+  border-top: 8px solid #646478;
+  border-bottom: 8px solid #c8c8f0;
+  border-right: 8px solid #787896;
+  border-left: 8px solid #a0a0c8;
+}
 .dummyNav div {
   float: left;
   width: 25%;
@@ -18,7 +131,6 @@
   font-weight: bold;
   text-decoration: none;
 }
-.navbar a h4,
 .dummyNav div h4 {
   width: 100%;
   height: 100%;
@@ -29,43 +141,59 @@
   border: 1px solid #4b4b5a;
 }
 @media only screen and (max-width: 480px) {
-  .navbar,
   .dummyNav {
     display: none;
   }
 }
-.navbarCollapsed {
+.dummyMobile {
   display: none;
+  float: left;
+  width: 100%;
+  line-height: 40px;
 }
-.navbarCollapsed div:first-of-type {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 40px;
+.dummyMobile div:first-of-type {
+  position: static;
+  float: left;
+  font-size: 200%;
+  font-weight: bold;
+  text-align: center;
   height: 40px;
-  background-color: blue;
+  width: 40px;
   color: white;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
+}
+.dummyMobile div:first-of-type:hover {
+  cursor: pointer;
+}
+.dummyMobile div:last-of-type {
+  position: static;
+  float: left;
+  width: calc(80%);
+}
+.dummyMobile div:last-of-type span {
+  float: left;
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.dummyMobile div:last-of-type span h4 {
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  margin: 0px;
+  background-color: #7878a4;
+  box-sizing: border-box;
+  border: 1px solid #4b4b5a;
 }
 @media only screen and (max-width: 480px) {
-  .navbarCollapsed {
+  .dummyMobile {
     display: block;
   }
-}
-.sticky {
-  position: fixed;
-  width: 100%;
-  z-index: 51;
-}
-.scene {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  z-index: 40;
-}
-.dummyNav {
-  position: absolute;
-  max-width: 1000px;
 }
 .silhouette {
   position: absolute;
@@ -75,6 +203,12 @@
   pointer-events: none;
   transform-origin: 70% 60%;
   transition: 500ms;
+}
+@media only screen and (max-width: 480px) {
+  .silhouette {
+    width: 180%;
+    margin-left: -40%;
+  }
 }
 .navbarShadow {
   opacity: 0;
@@ -92,7 +226,16 @@
   justify-content: center;
   align-items: center;
   perspective: 700;
-  height: 68px;
+  top: -100px;
+  z-index: 5;
+  transition: 500ms ease-in;
+}
+@media only screen and (max-width: 480px) {
+  .emergencyPanelContainer {
+    align-items: flex-start;
+    top: -150px;
+    margin-bottom: 30px;
+  }
 }
 .emergencyPanel {
   float: right;
@@ -100,12 +243,22 @@
   color: white;
   background-color: red;
   transform-origin: bottom left;
+  text-align: center;
 }
 .emergencyPanel label,
 .emergencyPanel input,
 .emergencyPanel button {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+.emergencyPanel input {
+  width: 130px;
+  max-width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .emergencyPanel {
+    width: 60%;
+  }
 }
 @keyframes panelOpen {
   30% {
@@ -132,7 +285,7 @@
 }
 .knifeCubby {
   position: absolute;
-  top: 8px;
+  top: 0px;
   padding: 8px;
   box-shadow: inset 0px 0px 20px black;
   border: 2px solid #969696;
