@@ -84,6 +84,10 @@ const Hand = React.createClass({
 		this.thumbsUpAnimation = BodyMovin.loadAnimation(animation);
 		this.thumbsUpAnimation.goToAndStop(0, true);
 		this.thumbsUpAnimation.setSpeed(1.5);
+
+		if(this.props.mode.progressLevel > 10) {
+			this.thumbsUpAnimation.goToAndStop(this.thumbsUpAnimation.totalFrames, true);
+		}
 	},
 
 	createHandHoverEffect() {

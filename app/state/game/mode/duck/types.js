@@ -1,13 +1,17 @@
-const CHANGE_TO_SITE_MODE = "game/playState/duck/CHANGE_TO_SITE_MODE";
-const CHANGE_TO_GAME_MODE = "game/playState/duck/CHANGE_TO_GAME_MODE";
-const UPDATE_GAME_PROGRESS = "game/playState/duck/UPDATE_GAME_PROGRESS";
-const JUST_BEAT_GAME = "game/playState/duck/JUST_BEAT_GAME";
-const JUST_SKIPPED_GAME = "game/playState/duck/JUST_SKIPPED_GAME";
+const CHANGE_TO_SITE_MODE = "game/mode/duck/CHANGE_TO_SITE_MODE";
+const CHANGE_TO_GAME_MODE = "game/mode/duck/CHANGE_TO_GAME_MODE";
+const UPDATE_GAME_PROGRESS = "game/mode/duck/UPDATE_GAME_PROGRESS";
+const JUST_BEAT_GAME = "game/mode/duck/JUST_BEAT_GAME";
+const JUST_SKIPPED_GAME = "game/mode/duck/JUST_SKIPPED_GAME";
+const CLEAR_LOCAL_STORAGE = "game/mode/duck/CLEAR_LOCAL_STORAGE";
+const LOG_LOCAL_STORAGE = "game/mode/duck/LOG_LOCAL_STORAGE";
 
 export default {
 	CHANGE_TO_SITE_MODE,
 	CHANGE_TO_GAME_MODE,
 	UPDATE_GAME_PROGRESS,
 	JUST_BEAT_GAME,
-	JUST_SKIPPED_GAME
+	JUST_SKIPPED_GAME,
+	CLEAR_LOCAL_STORAGE,
+	LOG_LOCAL_STORAGE
 };

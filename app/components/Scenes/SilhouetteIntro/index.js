@@ -100,6 +100,11 @@ const SilhouetteIntroScene = React.createClass({
 			{
 				this.skipScene();
 			}
+
+		// if(this.props.mode.progressLevel > 1) 
+		// 	{
+		// 		this.props.addEventToFiredArray('panelAppear');
+		// 	}
 		}
 	},
 
@@ -213,13 +218,14 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	emergencyPanelOpen() {
-		this.refs.emergencyPanel.classList.add(SilhouetteStyles.panelAlreadyOpen);
-		this.refs.emergencyPanel.childNodes[1].value = this.props.mode.password;
-		this.refs.emergencyPanel.style.pointerEvents = "none";
+		var panel = ReactDOM.findDOMNode(this.refs.emergencyPanel).firstChild.firstChild;
+		panel.classList.add(SilhouetteStyles.panelAlreadyOpen);
+		panel.childNodes[1].value = this.props.mode.password;
+		panel.style.pointerEvents = "none";
 	},
 
 	emergencyPanelSubmit() {
-		var panel = this.refs.emergencyPanel;
+		var panel = ReactDOM.findDOMNode(this.refs.emergencyPanel).firstChild.firstChild;
 		if(panel.childNodes[1].value === this.props.mode.password) {
 			panel.classList.add(SilhouetteStyles.panelOpen);
 			
@@ -242,13 +248,16 @@ const SilhouetteIntroScene = React.createClass({
 						moments={[1]}
 						events={this.panelEvents}
 						fireCondition={'panelAppear'}
+						ref="emergencyPanel"
 					>
 						<div
 							className={SilhouetteStyles.emergencyPanelContainer}
+							style={{
+								top: this.props.mode.progressLevel > 1 ? '5px' : '-150px'
+							}}
 						>
 							<div
 								className={SilhouetteStyles.emergencyPanel}
-								ref="emergencyPanel"
 							>
 								<label for="emergencyInput">
 									Emergency?&nbsp;

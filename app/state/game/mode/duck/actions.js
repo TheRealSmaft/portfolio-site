@@ -33,10 +33,24 @@ function justSkippedGame(bool:bool) {
 	}
 };
 
+function clearLocalStorage() {
+	return {
+		type: types.CLEAR_LOCAL_STORAGE
+	}
+};
+
+function logLocalStorage() {
+	return {
+		type: types.LOG_LOCAL_STORAGE
+	}
+};
+
 export default {
 	changeToSiteMode,
 	changeToGameMode,
 	updateGameProgress,
 	justBeatGame,
-	justSkippedGame
+	justSkippedGame,
+	clearLocalStorage,
+	logLocalStorage
 };

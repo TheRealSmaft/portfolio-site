@@ -12,4 +12,7 @@ const logger = createLogger();
 
 const middleware = composeWithDevTools(applyMiddleware(promise, thunk));
 
-export default createStore(allReducers, middleware);
+const store = createStore(allReducers, middleware);
+
+
+export default store;
