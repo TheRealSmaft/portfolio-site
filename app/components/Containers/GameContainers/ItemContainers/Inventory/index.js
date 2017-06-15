@@ -41,21 +41,21 @@ const Inventory = React.createClass({
 				break;
 			}
 			case 2.5: {
-				this.props.addItemToArray(itemList.crumpledPaper);
-				this.props.changeItemStatus('Crumpled Paper', 'inventory');
-
-				this.props.changeItemStatus('Pencil', 'inventory');
+				this.props.addItemToArray(itemList.paper);
+				this.props.changeItemStatus('Paper', 'inventory');
 				break;
 			}
 			case 3: {
-				this.props.addItemToArray(itemList.paper);
-				this.props.changeItemStatus('Paper', 'inventory');
+				this.props.addItemToArray(itemList.crumpledPaper);
+				this.props.changeItemStatus('Crumpled Paper', 'inventory');
+				this.props.addItemToArray(itemList.pencil);
+				this.props.changeItemStatus('Pencil', 'inventory');
 				break;
 			}
 			case 3.5: {
 				this.props.addItemToArray(itemList.paper);
 				this.props.changeItemStatus('Paper', 'inventory');
-
+				this.props.addItemToArray(itemList.pencil);
 				this.props.changeItemStatus('Pencil', 'inventory');
 				break;
 			}

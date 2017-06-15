@@ -10,6 +10,7 @@ import { ResponsiveContainer, StickyContainer, Navbar } from './Containers';
 
 import { Inventory, Tooltip } from './Containers/GameContainers';
 
+import { modeActions, modeTypes } from '../state/game/mode';
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 
@@ -92,8 +93,17 @@ const App = React.createClass({
 			if(nextProps.mode.justBeatGame ||
 				nextProps.mode.justSkippedGame) {
 				this.toolTip = null;
+				this.props.unlockScrollPosition();
 			}
 		}
+	},
+
+	clearLS() {
+		this.props.clearLocalStorage();
+	},
+
+	logLS() {
+		this.props.logLocalStorage();
 	},
 
 	render() {
@@ -103,6 +113,7 @@ const App = React.createClass({
 			>
 
 				<Navbar/>
+
 
 				{this.props.children}
 
@@ -128,8 +139,35 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		getWindowSize: windowEventActions.getWindowSize,
-		getScrollPosition: scrollEventActions.getScrollPosition
+		getScrollPosition: scrollEventActions.getScrollPosition,
+		unlockScrollPosition: scrollEventActions.unlockScrollPosition,
+		clearLocalStorage: modeActions.clearLocalStorage,
+		logLocalStorage: modeActions.logLocalStorage
 	}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+
+				// <button
+				// 	onClick={this.clearLS}
+				// 	style={{
+				// 		position: 'fixed',
+				// 		bottom: '300px',
+				// 		left: '0px'
+				// 	}}
+				// >
+				// 	CLEAR LS
+				// </button>
+
+				// <button
+				// 	onClick={this.logLS}
+				// 	style={{
+				// 		position: 'fixed',
+				// 		bottom: '280px',
+				// 		left: '0px'
+				// 	}}
+				// >
+				// 	LOG LS
+				// </button>

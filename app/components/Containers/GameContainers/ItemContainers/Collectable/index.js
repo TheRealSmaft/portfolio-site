@@ -54,9 +54,12 @@ const Collectable = React.createClass({
 			}
 
 			if(this.item.name === 'Pencil') {
-				if(this.props.mode.progressLevel > 2 &&
-					!Number.isInteger(this.props.mode.progressLevel)) {
+				if(this.props.mode.progressLevel > 2.5 &&
+					this.props.mode.progressLevel < 4) {
 					this.item.status = 'inventory';
+				}
+				else if(this.props.mode.progressLevel > 3.5) {
+					this.item.status = 'used';
 				}
 			}
 
@@ -94,6 +97,19 @@ const Collectable = React.createClass({
 		if(this.item.collectProgress) {
 			if(this.props.mode.progressLevel < this.item.collectProgress) {
 				this.props.updateGameProgress(Number.isInteger(this.props.mode.progressLevel) ? this.item.collectProgress : this.item.collectProgress + .5);
+			}
+		}
+
+		if(this.item.name === 'Pencil') {
+			if(this.props.mode.progressLevel >= 2 &&
+				this.props.mode.progressLevel < 4) {
+				if(Number.isInteger(this.props.mode.progressLevel)) {
+					this.props.updateGameProgress(3);
+				}
+				else
+				{
+					this.props.updateGameProgress(3.5);
+				}
 			}
 		}
 

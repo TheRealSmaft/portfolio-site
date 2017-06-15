@@ -44,6 +44,8 @@ module.exports = {
     
     historyApiFallback: true,
 
+    compress: true,
+
     contentBase: resolve(__dirname, 'dist'),
     // match the output path
 
@@ -101,7 +103,7 @@ module.exports = {
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
-      test: /\.(js|html|css|png|svg)$/,
+      test: /\.(js|html|css|json|png|svg)$/,
       threshold: 10240,
       minratio: 0.8
     }),
