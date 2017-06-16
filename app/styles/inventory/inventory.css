@@ -61,8 +61,8 @@
   display: block;
   position: absolute;
   width: 35%;
-  right: 4px;
-  bottom: 4px;
+  right: 10px;
+  bottom: 6px;
 }
 .examineButton:hover {
   cursor: pointer;

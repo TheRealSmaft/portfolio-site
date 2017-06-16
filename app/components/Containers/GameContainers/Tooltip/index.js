@@ -187,7 +187,7 @@ const Tooltip = React.createClass({
 					>
 						<img
 							alt="Tooltip"
-							src={require('../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
+							src={require('../../../../assets/images/interactables/ToolTips/ToolTip.svg')}
 						/>
 					</div>
 				</div>
