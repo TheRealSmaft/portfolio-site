@@ -45,6 +45,7 @@ const Heart = React.createClass({
 
 	allowClickThrough() {
 		this.refs.domeForeground.style.pointerEvents = 'none';
+		this.refs.domeBackground.style.pointerEvents = 'none';
 	},
 
 	makeHeartCollectable() {
@@ -59,7 +60,7 @@ const Heart = React.createClass({
 		var heartItem = {
 			name: 'Heart',
 			status: 'inventory',
-			inventoryImage: require('../../../../../assets/images/interactables/Heart/Heart.svg'),
+			inventoryImage: require('../../../../../assets/images/interactables/Heart/HeartInventory.svg'),
 			width: '100%'
 		};
 

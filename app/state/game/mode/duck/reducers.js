@@ -51,6 +51,7 @@ const modeReducer = (state = {
 				...state,
 				justBeatGame: action.payload
 			}
+			localStorage.removeItem('password');
 			break;
 		}
 		case types.JUST_SKIPPED_GAME: {
@@ -58,6 +59,7 @@ const modeReducer = (state = {
 				...state,
 				justSkippedGame: action.payload
 			}
+			localStorage.removeItem('password');
 			break;
 		}
 		case types.CLEAR_LOCAL_STORAGE: {

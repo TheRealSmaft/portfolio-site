@@ -175,7 +175,7 @@ const PortfolioPiece = React.createClass({
 						{this.props.piece.name}
 					</h2>
 					<p>
-						{this.props.piece.description}
+						{this.props.mode.gameMode ? this.props.piece.scrambledText : this.props.piece.description}
 					</p>
 					<div
 						className={PortfolioPageStyles.moreInfo}
@@ -187,6 +187,9 @@ const PortfolioPiece = React.createClass({
 						</p>
 						<button
 							className={PortfolioPageStyles.moreButton}
+							style={{
+								display: this.props.mode.gameMode ? 'none' : 'inline-block'
+							}}
 							onClick={this.moreInfo}
 						>
 							{this.state.infoButtonText}

@@ -7,6 +7,8 @@ import { ResponsiveContainer } from '../../Containers';
 import { SVG, Circle } from '../../Containers/ShapeContainers';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
+import { itemActions, itemTypes} from '../../../state/game/items';
+import { interactableActions, interactableTypes} from '../../../state/game/interactables';
 
 import Portrait from './AboutContainers/Portrait';
 import Brain from './AboutContainers/Brain';
@@ -53,6 +55,8 @@ const AboutPage = React.createClass({
 				
 				setTimeout(() => {
 					this.props.justBeatGame(true);
+					this.props.clearInventory();
+					this.props.clearEventsArray();
 					this.props.changeToSiteMode();
 					browserHistory.replace('/home');
 				}, 5000);
@@ -213,7 +217,9 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeToSiteMode: modeActions.changeToSiteMode,
-		justBeatGame: modeActions.justBeatGame
+		justBeatGame: modeActions.justBeatGame,
+		clearInventory: itemActions.clearInventory,
+		clearEventsArray: interactableActions.clearEventsArray,
 	}, dispatch)
 };
 

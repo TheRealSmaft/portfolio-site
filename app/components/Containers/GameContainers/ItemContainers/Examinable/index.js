@@ -26,6 +26,8 @@ const Examinable = React.createClass({
 			this.item.name === 'Crumpled Paper') {
 			ReactDOM.findDOMNode(this.refs.itemImage).classList.add(ExaminableStyles.paper);
 		}
+
+		this.refs.scene.addEventListener('click', this.closeExamination);
 	},
 
 	componentWillUnmount() {
@@ -159,6 +161,14 @@ const Examinable = React.createClass({
 		this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
 	},
 
+	suspendClosing() {
+		this.refs.scene.removeEventListener('click', this.closeExamination);	
+	},
+
+	resumeClosing() {
+		this.refs.scene.addEventListener('click', this.closeExamination);	
+	},
+
 	closeExamination() {
 		this.props.toggleItemExamine();
 		this.props.unlockScrollPosition();
@@ -219,17 +229,13 @@ const Examinable = React.createClass({
 		{
 			return (
 				<div
+					ref="scene"
 					className={ExaminableStyles.examinationScene}
 					style={{
 						...this.props.style,
 						display: this.item === null ? 'none' : 'block'
 					}}
 				>
-					<img
-						className={ExaminableStyles.exitButton}
-						onClick={this.closeExamination}
-						src={require('../../../../../assets/images/interactables/Inventory/ExitButton.svg')}
-					/>
 					<DeferredEventExecutor
 						ref="itemImage"
 						moments={this.item.deferredEvents.moments}
@@ -248,6 +254,8 @@ const Examinable = React.createClass({
 								height: 'auto'
 							}}
 							onClick={() => {this.clickEvent()}}
+							onMouseOver={() => {this.suspendClosing()}}
+							onMouseLeave={() => {this.resumeClosing()}}
 						/>
 					</DeferredEventExecutor>
 					<div
@@ -259,6 +267,8 @@ const Examinable = React.createClass({
 							style={{
 								visibility: 'hidden'
 							}}
+							onMouseOver={() => {this.suspendClosing()}}
+							onMouseLeave={() => {this.resumeClosing()}}
 						>
 						</div>
 					</div>

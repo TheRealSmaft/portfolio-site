@@ -45,6 +45,7 @@ const Brain = React.createClass({
 
 	allowClickThrough() {
 		this.refs.domeForeground.style.pointerEvents = 'none';
+		this.refs.domeBackground.style.pointerEvents = 'none';
 	},
 
 	makeBrainCollectable() {
@@ -59,7 +60,7 @@ const Brain = React.createClass({
 		var brainItem = {
 			name: 'Brain',
 			status: 'inventory',
-			inventoryImage: require('../../../../../assets/images/interactables/Brain/Brain.svg'),
+			inventoryImage: require('../../../../../assets/images/interactables/Brain/BrainInventory.svg'),
 			width: '100%'
 		};
 
@@ -75,7 +76,7 @@ const Brain = React.createClass({
 			loop: false,
 			autoplay: false,
 			name: 'domeForeground',
-			renderer: 'svg' ,
+			renderer: 'svg',
 			container: ReactDOM.findDOMNode(this.refs.domeForeground)
 		};
 

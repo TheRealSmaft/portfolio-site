@@ -1,10 +1,12 @@
 import types from './types';
 
-const itemArrayReducer = (state = {
+var initialState = {
 	items: [],
 	draggable: null,
 	examinable: null
-}, action) => {
+};
+
+const itemArrayReducer = (state = initialState, action) => {
 	switch(action.type) {
 		case types.ADD_ITEM_TO_ARRAY: {
 			var exists = false;
@@ -59,6 +61,10 @@ const itemArrayReducer = (state = {
 				draggable: null,
 				examinable: action.payload
 			}
+			break;
+		}
+		case types.CLEAR_INVENTORY: {
+			return initialState;
 			break;
 		}
 	}

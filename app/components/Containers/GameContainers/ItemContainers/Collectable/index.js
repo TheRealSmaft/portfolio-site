@@ -33,6 +33,10 @@ const Collectable = React.createClass({
 	},
 
 	componentDidMount() {
+		if(!this.item) {
+			return;
+		}
+
 		if(this.itemIndex < 0) {
 			var item = ReactDOM.findDOMNode(this.refs.item);
 			this.item.rect = item.getBoundingClientRect();
@@ -131,6 +135,10 @@ const Collectable = React.createClass({
 	},
 
 	render() {
+		if(!this.item) {
+			return null;
+		}
+
 		if(this.item.status === 'collectable') {
 			return (
 				<div 
