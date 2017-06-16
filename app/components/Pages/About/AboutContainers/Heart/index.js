@@ -45,6 +45,7 @@ const Heart = React.createClass({
 
 	allowClickThrough() {
 		this.refs.domeForeground.style.pointerEvents = 'none';
+		this.refs.domeBackground.style.pointerEvents = 'none';
 	},
 
 	makeHeartCollectable() {

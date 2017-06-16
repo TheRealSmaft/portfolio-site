@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   transition: bottom 500ms;
+  user-select: none;
 }
 .item {
   float: left;
@@ -24,9 +25,6 @@
 }
 .item div img {
   max-width: 80%;
-}
-.item:hover {
-  cursor: pointer;
 }
 .slot {
   position: relative;
@@ -50,7 +48,10 @@
 .examineButton text {
   color: red;
 }
-.noCursor:hover {
-  cursor: none;
+.noCursor {
+  cursor: none !important;
+}
+.hover:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=inventory.css.map */

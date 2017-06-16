@@ -45,6 +45,7 @@ const Brain = React.createClass({
 
 	allowClickThrough() {
 		this.refs.domeForeground.style.pointerEvents = 'none';
+		this.refs.domeBackground.style.pointerEvents = 'none';
 	},
 
 	makeBrainCollectable() {
@@ -75,7 +76,7 @@ const Brain = React.createClass({
 			loop: false,
 			autoplay: false,
 			name: 'domeForeground',
-			renderer: 'svg' ,
+			renderer: 'svg',
 			container: ReactDOM.findDOMNode(this.refs.domeForeground)
 		};
 

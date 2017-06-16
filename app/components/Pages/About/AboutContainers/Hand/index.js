@@ -71,6 +71,7 @@ const Hand = React.createClass({
 
 	thumbsUp() {
 		var json = require('../../../../../assets/images/interactables/Hand/ThumbsUp.json');
+		var handNode = ReactDOM.findDOMNode(this.refs.hand);
 		var animation = {
 			animationData: json,
 			path: '../../../../../assets/images/interactables/Hand',
@@ -78,7 +79,7 @@ const Hand = React.createClass({
 			autoplay: false,
 			name: 'handAnimation',
 			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.hand)
+			container: handNode
 		};
 
 		this.thumbsUpAnimation = BodyMovin.loadAnimation(animation);
@@ -86,6 +87,7 @@ const Hand = React.createClass({
 		this.thumbsUpAnimation.setSpeed(1.5);
 
 		if(this.props.mode.progressLevel > 10) {
+			handNode.style.pointerEvents = 'none';
 			this.thumbsUpAnimation.goToAndStop(this.thumbsUpAnimation.totalFrames, true);
 		}
 	},

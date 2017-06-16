@@ -52,6 +52,54 @@ const HomePage = React.createClass({
 			);
 		}
 
+		this.getWelcome();
+	},
+
+	componentDidMount() {
+		var logoJson = require('../../../assets/images/Logo/Logo.json');
+		this.logoAnimation = {
+			animationData: logoJson,
+			path: '../../../assets/images/Logo',
+			loop: true,
+			autoplay: true,
+			name: 'logo',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.logo)
+		};
+
+		BodyMovin.loadAnimation(this.logoAnimation);
+	},
+
+	componentWillUpdate() {
+		if(this.props.mode.justBeatGame ||
+			this.props.mode.justSkippedGame) {
+			this.refs.victoryDiv.style.opacity = 0;
+
+			this.getWelcome();
+
+			setTimeout(() => {
+				this.props.justBeatGame(false);
+				this.props.justSkippedGame(false);
+			}, 3100);
+		}
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
+		if(this.props.mode.justBeatGame ||
+			this.props.mode.justSkippedGame) {
+			this.props.justBeatGame(false);
+			this.props.justSkippedGame(false);
+		}
+	},
+
+	switchToGameMode() {
+		this.props.updateGameProgress(0);
+		this.props.changeToGameMode();
+		browserHistory.replace('/');
+	},
+
+	getWelcome() {
 		if(this.props.mode.justBeatGame) {
 			this.welcome = (
 				<div>
@@ -108,48 +156,6 @@ const HomePage = React.createClass({
 				</div>
 			);
 		}
-	},
-
-	componentDidMount() {
-		var logoJson = require('../../../assets/images/Logo/Logo.json');
-		this.logoAnimation = {
-			animationData: logoJson,
-			path: '../../../assets/images/Logo',
-			loop: true,
-			autoplay: true,
-			name: 'logo',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.logo)
-		};
-
-		BodyMovin.loadAnimation(this.logoAnimation);
-	},
-
-	componentWillUpdate() {
-		if(this.props.mode.justBeatGame ||
-			this.props.mode.justSkippedGame) {
-			this.refs.victoryDiv.style.opacity = 0;
-
-			setTimeout(() => {
-				this.props.justBeatGame(false);
-				this.props.justSkippedGame(false);
-			}, 3100);
-		}
-	},
-
-	componentWillUnmount() {
-		BodyMovin.destroy();
-		if(this.props.mode.justBeatGame ||
-			this.props.mode.justSkippedGame) {
-			this.props.justBeatGame(false);
-			this.props.justSkippedGame(false);
-		}
-	},
-
-	switchToGameMode() {
-		this.props.updateGameProgress(0);
-		this.props.changeToGameMode();
-		browserHistory.replace('/');
 	},
 
 	viewPortfolioPiece(index) {

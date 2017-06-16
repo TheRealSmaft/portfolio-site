@@ -31,9 +31,16 @@ function toggleItemExamine(itemName:string = null) {
 	}
 };
 
+function clearInventory() {
+	return {
+		type: types.CLEAR_INVENTORY
+	}
+};
+
 export default {
 	addItemToArray,
 	changeItemStatus,
 	toggleItemDrag,
-	toggleItemExamine
+	toggleItemExamine,
+	clearInventory
 };

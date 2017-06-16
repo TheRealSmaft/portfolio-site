@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
 import { modeActions, modeTypes} from '../../../../state/game/mode';
+import { itemActions, itemTypes} from '../../../../state/game/items';
+import { interactableActions, interactableTypes} from '../../../../state/game/interactables';
 import { scrollEventActions, scrollEventTypes} from '../../../../state/events/scroll';
 
 import styles from '../../../../styles/tooltip';
@@ -131,6 +133,8 @@ const Tooltip = React.createClass({
 
 	changeMode() {
 		this.props.justSkippedGame(true);
+		this.props.clearInventory();
+		this.props.clearEventsArray();
 		this.props.changeToSiteMode();
 		browserHistory.replace('/home');
 
@@ -207,7 +211,9 @@ function mapDispatchToProps(dispatch) {
 		changeToSiteMode: modeActions.changeToSiteMode,
 		justSkippedGame: modeActions.justSkippedGame,
 		lockScrollPosition: scrollEventActions.lockScrollPosition,
-		unlockScrollPosition: scrollEventActions.unlockScrollPosition
+		unlockScrollPosition: scrollEventActions.unlockScrollPosition,
+		clearInventory: itemActions.clearInventory,
+		clearEventsArray: interactableActions.clearEventsArray,
 	}, dispatch);
 };
 

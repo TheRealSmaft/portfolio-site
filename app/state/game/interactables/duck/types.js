@@ -1,19 +1,7 @@
-const ADD_DROP_ZONE_TO_ARRAY = "game/interactables/duck/ADD_DROP_ZONE_TO_ARRAY";
-const CHANGE_DROP_ZONE_STATUS = "game/interactables/duck/CHANGE_DROP_ZONE_STATUS";
-const SELECT_DROP_ZONE = "game/interactables/duck/SELECT_DROP_ZONE";
-const DROP_ITEM_IN_DROP_ZONE = "game/interactables/duck/DROP_ITEM_IN_DROP_ZONE";
 const ADD_EVENT_TO_FIRED_ARRAY = "game/interactables/duck/ADD_EVENT_TO_FIRED_ARRAY";
-
-const ADD_TRIGGER_ZONE_TO_ARRAY = "game/interactables/duck/ADD_TRIGGER_ZONE_TO_ARRAY";
-const CHANGE_TRIGGER_ZONE_STATUS = "game/interactables/duck/CHANGE_TRIGGER_ZONE_STATUS";
-const SELECT_TRIGGER_ZONE = "game/interactables/duck/SELECT_TRIGGER_ZONE";
+const CLEAR_EVENTS_ARRAY = "game/interactables/duck/CLEAR_EVENTS_ARRAY";
 
 export default {
-	ADD_DROP_ZONE_TO_ARRAY,
-	CHANGE_DROP_ZONE_STATUS,
-	SELECT_DROP_ZONE,
-	DROP_ITEM_IN_DROP_ZONE,
 	ADD_EVENT_TO_FIRED_ARRAY,
-	ADD_TRIGGER_ZONE_TO_ARRAY,
-	CHANGE_TRIGGER_ZONE_STATUS
+	CLEAR_EVENTS_ARRAY
 };
