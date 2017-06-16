@@ -84,7 +84,7 @@ const portfolio = [
 			"I tried to make the hand racially ambiguous.",
 			"I created the Ladies Night Out logo using Illustrator and the postcard with Illustrator and Photoshop."
 		],
-		image: 'LadiesNightOut/BLNLogo.svg',
+		image: 'LadiesNightOut/BLNLogo.jpg',
 		largeImage: 'LadiesNightOut/LNOPostcardLarge.png',
 		vandalized: 'LadiesNightOut/LNOVandalism.svg'
 	},

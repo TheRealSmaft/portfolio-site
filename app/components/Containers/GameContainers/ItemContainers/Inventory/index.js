@@ -14,6 +14,8 @@ import InventoryStyles from '../../../../../styles/inventory';
 
 import itemList from '../../../../../assets/gameObjects/items';
 
+import inventorySlot from '../../../../../assets/images/interactables/Inventory/InventorySlot.svg';
+
 const Inventory = React.createClass({
 	getInitialState() {
 		return {
@@ -26,8 +28,6 @@ const Inventory = React.createClass({
 
 		this.draggable = null;
 		this.dragNode = null;
-
-		this.slotCount = 6;
 	},
 
 	componentDidMount() {
@@ -168,19 +168,22 @@ const Inventory = React.createClass({
 	appendDraggableToDocumentBody() {
 		this.dragNode = this.refs[this.draggable];
 
+		this.originalWidth = this.dragNode.style.width;
+
 		this.dragNode.style.zIndex = 100;
-		this.dragNode.style.width = '150px';
+		this.dragNode.firstChild.style.maxWidth = '150px';
 		this.dragNode.style.pointerEvents = 'none';
 
 		this.originalParentNode = this.dragNode.parentNode;
 		this.originalParentNode.removeChild(this.dragNode);
+
 		document.body.appendChild(this.dragNode);
 
 		this.dragNode.style.position = 'absolute';
 		this.dragNode.style.top = ((this.mousePosition[1] + this.props.scrollState.scrollY) - this.dragNode.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
 		this.dragNode.style.left = ((this.mousePosition[0] + this.props.scrollState.scrollX) - this.dragNode.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
 
-		document.body.classList.add(InventoryStyles.noCursor);
+		document.body.style.cursor = 'none';
 
 		document.addEventListener('click', this.stopDraggingItem);
 	},
@@ -190,8 +193,10 @@ const Inventory = React.createClass({
 		this.originalParentNode.appendChild(this.dragNode);
 		this.dragNode.style.position = 'static';
 		this.dragNode.style.pointerEvents = 'auto';
+		this.dragNode.style.width = this.originalWidth;
+		this.dragNode.firstChild.style.maxWidth = '';
 		document.removeEventListener('click', this.stopDraggingItem);
-		document.body.classList.remove(InventoryStyles.noCursor);
+		document.body.style.cursor = 'auto';
 		if(this.props.interactables.firedEvents.includes(this.draggable + 'Used')) {
 			var name = this.draggable;
 			this.props.changeItemStatus(name, 'used');
@@ -202,6 +207,7 @@ const Inventory = React.createClass({
 
 	getInventoryItems() {
 		this.inventory = _.filter(this.props.items.items, ['status', 'inventory']);
+		this.slotCount = this.inventory.length;
 	},
 
 	startTrackingMouse() {
@@ -217,7 +223,7 @@ const Inventory = React.createClass({
 
 	trackMouse(event) {
 		this.dragNode.style.top = ((event.clientY + this.props.scrollState.scrollY) - (this.dragNode.getBoundingClientRect().height * .9))/window.innerHeight * 100 + '%';
-		this.dragNode.style.left = ((event.clientX + this.props.scrollState.scrollX) - (this.dragNode.getBoundingClientRect().width * .2))/window.innerWidth * 100 + '%';
+		this.dragNode.style.left = (event.clientX + this.props.scrollState.scrollX)/window.innerWidth * 100 + '%';
 	},
 
 	trackScroll(event) {
@@ -238,37 +244,37 @@ const Inventory = React.createClass({
 		var inventory = this.inventory.map((item, index) =>
 			<div
 				key={item.name}
+				className={InventoryStyles.item}
 			>
 				{!item.examinable ? (		
 					<div
 						ref={item.name}
-						className={InventoryStyles.item, InventoryStyles.hover}
+						className={InventoryStyles.hover}
 						onClick={() => {this.startDraggingItem(item.name)}}
 						onMouseOver={(e) => {this.hoverOverItem(e)}}
 					>
-						<Item 
-							item={item}
+						<img
+							alt={item.name}
+							src={item.inventoryImage}
 						/>
 					</div>
 					) :
 					(
 					<div
 						ref={item.name}
-						className={InventoryStyles.item}
 					>
-						<Item 
-							item={item}
+						<img
+							alt={item.name}
+							src={item.inventoryImage}
+						/>
+						<img
+							className={InventoryStyles.examineButton}
+							src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
+							onClick={() => {this.examineItem(item)}}
 						/>
 					</div>
 					)
 				}
-				{item.examinable ? (
-					<img
-						className={InventoryStyles.examineButton}
-						src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
-						onClick={() => {this.examineItem(item)}}
-					/>
-				) : ''}
 			</div>
 		);
 
@@ -280,6 +286,9 @@ const Inventory = React.createClass({
 					key={'slot' + i}
 					ref={'slot' + i}
 					className={InventoryStyles.slot}
+					style={{
+						background: `url(${inventorySlot})`
+					}}
 				>
 					{inventory[i] ? inventory[i] : ''}
 				</div>
@@ -302,7 +311,7 @@ const Inventory = React.createClass({
 					ref="inventory"
 					className={InventoryStyles.inventory}
 					style={{
-						bottom: this.props.sceneState.playing || inventory.length < 1 ? '-150px' : '0px'
+						left: this.props.sceneState.playing || inventory.length < 1 ? '-10%' : '0px'
 					}}
 				>
 					{slots}
