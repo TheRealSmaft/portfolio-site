@@ -3,7 +3,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 102 102" style="enable-background:new 0 0 102 102;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#808080;}
+	.st0{fill:#FFFFFF;}
 	.st1{fill:url(#SVGID_1_);}
 	.st2{fill:url(#SVGID_2_);}
 	.st3{fill:url(#SVGID_3_);}
@@ -12,27 +12,27 @@
 </style>
 <path class="st0" d="M95.1,99.5H6.9c-2.4,0-4.4-2-4.4-4.4V6.9c0-2.4,2-4.4,4.4-4.4h88.3c2.4,0,4.4,2,4.4,4.4v88.3
 	C99.5,97.5,97.5,99.5,95.1,99.5z"/>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-84.4375" y1="53" x2="-80.4375" y2="53" gradientTransform="matrix(-1 0 0 -1 13 103)">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1004.4375" y1="715" x2="-1000.4375" y2="715" gradientTransform="matrix(-1 0 0 1 -907 -665)">
 	<stop  offset="0" style="stop-color:#000000"/>
 	<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
 </linearGradient>
 <polygon class="st1" points="93.4,3 97.4,3 97.4,97 93.4,97 "/>
-<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-41" y1="7" x2="-37" y2="7" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 58 45)">
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-169" y1="889" x2="-165" y2="889" gradientTransform="matrix(6.123234e-17 1 1 -6.123234e-17 -838 173)">
 	<stop  offset="0" style="stop-color:#000000"/>
 	<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
 </linearGradient>
 <polygon class="st2" points="4,8 4,4 98,4 98,8 "/>
-<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-40" y1="7" x2="-36" y2="7" gradientTransform="matrix(6.123234e-17 -1 -1 -6.123234e-17 58 57)">
+<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-832" y1="889" x2="-828" y2="889" gradientTransform="matrix(6.123234e-17 -1 1 6.123234e-17 -838 -735)">
 	<stop  offset="0" style="stop-color:#000000"/>
 	<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
 </linearGradient>
 <polygon class="st3" points="4,93 4,97 98,97 98,93 "/>
-<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="4.5" y1="51.5" x2="8.5" y2="51.5">
+<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="4.5" y1="52.5" x2="8.5" y2="52.5" gradientTransform="matrix(1 0 0 -1 0 104)">
 	<stop  offset="0" style="stop-color:#000000"/>
 	<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
 </linearGradient>
 <rect x="4.5" y="4.5" class="st4" width="4" height="94"/>
-<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="51" y1="101.5" x2="51" y2="0.5">
+<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="51.05" y1="2.5" x2="51.05" y2="103.5" gradientTransform="matrix(1 0 0 -1 0 104)">
 	<stop  offset="0" style="stop-color:#992626"/>
 	<stop  offset="1" style="stop-color:#CC3333"/>
 </linearGradient>

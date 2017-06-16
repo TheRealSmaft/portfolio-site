@@ -267,6 +267,8 @@ const Examinable = React.createClass({
 							style={{
 								visibility: 'hidden'
 							}}
+							onMouseOver={() => {this.suspendClosing()}}
+							onMouseLeave={() => {this.resumeClosing()}}
 						>
 						</div>
 					</div>

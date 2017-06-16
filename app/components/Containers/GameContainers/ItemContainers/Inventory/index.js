@@ -256,6 +256,7 @@ const Inventory = React.createClass({
 						<img
 							alt={item.name}
 							src={item.inventoryImage}
+							className={item.name === 'Heart' ? InventoryStyles.heart : ''}
 						/>
 					</div>
 					) :

@@ -57,6 +57,9 @@
   max-width: 80%;
   flex: 0 0 80%;
 }
+.heart {
+  max-width: 60% !important;
+}
 .examineButton {
   display: block;
   position: absolute;
