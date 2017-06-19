@@ -161,6 +161,7 @@ const Examinable = React.createClass({
 		passwordElement.style.width = '50%';
 		passwordElement.innerHTML = this.item.password;
 
+		this.refs.animation.firstChild.style.transform = 'translateY(70px)';
 		this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
 	},
 

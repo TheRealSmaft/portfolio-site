@@ -145,7 +145,7 @@ const App = React.createClass({
 
 				{this.props.children}
 
-				{this.inventory}
+				{browserHistory.getCurrentLocation().pathname != '/' ? this.inventory : ''}
 
 				{this.clickBlocker}
 

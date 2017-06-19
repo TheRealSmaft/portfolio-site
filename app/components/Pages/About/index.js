@@ -41,6 +41,8 @@ const AboutPage = React.createClass({
 			}
 		}
 
+		this.gibberish = "Ym amne is Attwmhe Rrkaeubb Mstih dna I ma a Arcpghi and Ewb Inrseedg. Huotgh ot be othens, ym slkli set is ermo badro and dvaeri htna taht ittel cynvoes.";
+
 		this.aboutParagraphs = [
 			"My name is Matthew Brubaker Smith and I am a Graphic and Web Designer. Though to be honest, my skill set is more broad and varied than that title conveys.",
 			"To prove it, I built this website. Or rather, this React/Redux single page web application to be more accurate. So I suppose that makes me a Web App Developer as well.",
@@ -106,11 +108,14 @@ const AboutPage = React.createClass({
 								className={AboutPageStyles.aboutP}
 								ref="aboutP"
 							>
-								{this.aboutParagraphs[this.state.aboutIndex]}
+								{this.props.mode.gameMode ? this.gibberish : this.aboutParagraphs[this.state.aboutIndex]}
 							</p>
 							<button
 								className={AboutPageStyles.moreButton}
 								onClick={this.nextParagraph}
+								style={{
+									display: this.props.mode.gameMode ? 'none' : 'flex'
+								}}
 							>
 								{this.state.aboutIndex != 3 ? 'Read More' : 'From the Top'}
 							</button>
@@ -124,6 +129,9 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
+							<h2>
+								Skills of the Mind
+							</h2>
 							<ul
 								className={AboutPageStyles.skillList}
 								style={{
@@ -148,6 +156,9 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
+							<h2>
+								Skills of the Heart
+							</h2>
 							<ul
 								className={AboutPageStyles.skillList}
 								style={{
@@ -185,6 +196,9 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
+							<h2>
+								Skills of the Hand
+							</h2>
 							<ul
 								className={AboutPageStyles.skillList}
 								style={{
