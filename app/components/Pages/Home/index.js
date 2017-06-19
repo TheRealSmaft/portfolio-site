@@ -9,15 +9,13 @@ import { Collectable } from '../../Containers/GameContainers';
 
 import SilhouetteIntro from '../../Scenes/SilhouetteIntro';
 
-import { SVG, Circle } from '../../Containers/ShapeContainers';
+import Logo from './Logo';
 
 import { HomePageStyles } from '../../../styles/pages';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
 import { portfolioActions, portfolioTypes } from '../../../state/portfolio';
 import { scrollEventActions, scrollEventTypes } from '../../../state/events/scroll';
-
-import BodyMovin from '../../../plugins/bodymovin.min';
 
 import portfolio from '../../../assets/portfolio';
 
@@ -55,21 +53,6 @@ const HomePage = React.createClass({
 		this.getWelcome();
 	},
 
-	componentDidMount() {
-		var logoJson = require('../../../assets/images/Logo/Logo.json');
-		this.logoAnimation = {
-			animationData: logoJson,
-			path: '../../../assets/images/Logo',
-			loop: true,
-			autoplay: true,
-			name: 'logo',
-			renderer: 'svg' ,
-			container: ReactDOM.findDOMNode(this.refs.logo)
-		};
-
-		BodyMovin.loadAnimation(this.logoAnimation);
-	},
-
 	componentWillUpdate() {
 		if(this.props.mode.justBeatGame ||
 			this.props.mode.justSkippedGame) {
@@ -85,7 +68,6 @@ const HomePage = React.createClass({
 	},
 
 	componentWillUnmount() {
-		BodyMovin.destroy();
 		if(this.props.mode.justBeatGame ||
 			this.props.mode.justSkippedGame) {
 			this.props.justBeatGame(false);
@@ -197,26 +179,7 @@ const HomePage = React.createClass({
 				<div
 					className={HomePageStyles.welcome}
 				>
-					<div>
-						<SVG
-							title="Logo Circle"
-						>
-							<Circle
-								fill={'lightblue'}
-							>
-							</Circle>
-						</SVG>
-						<div 
-							ref="logo"
-							style={{
-								position: 'absolute',
-								width: '95%',
-								left: '3%',
-								top: '2%'
-							}}
-						>
-						</div>
-					</div>
+					<Logo/>
 					{this.welcome}
 				</div>
 				<div

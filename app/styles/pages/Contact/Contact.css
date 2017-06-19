@@ -1,11 +1,11 @@
 .sceneAndForm {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   width: 100%;
 }
 @media only screen and (max-width: 768px) {
   .sceneAndForm {
-    flex-direction: column;
+    flex-flow: column nowrap;
   }
 }
 .sceneAndForm div {
@@ -17,23 +17,6 @@
     width: 100%;
   }
 }
-@keyframes formDance {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  25% {
-    transform: rotateZ(2deg);
-  }
-  50% {
-    transform: rotateZ(0deg);
-  }
-  75% {
-    transform: rotateZ(-2deg);
-  }
-  100% {
-    transform: rotateZ(0deg);
-  }
-}
 .form {
   position: relative;
   z-index: 44;
@@ -43,16 +26,23 @@
   border-bottom: 8px solid #c8c8f0;
   border-right: 8px solid #787896;
   border-left: 8px solid #a0a0c8;
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+@media only screen and (max-width: 768px) {
+  .form {
+    margin-top: 0px;
+  }
 }
 .form fieldset {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: baseline;
   border: none;
 }
 .form fieldset div {
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
 }
 .form textarea {
   resize: none;
@@ -86,7 +76,6 @@
   width: 120px;
   z-index: 2;
 }
-
 .formInSiteMode {
   transition: 500ms margin-top ease-in-out;
 }

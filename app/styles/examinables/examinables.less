@@ -13,7 +13,7 @@
 		justify-content: center;
 		align-items: center;
 
-		height: 100%;
+		
 	}
 }
 
@@ -42,29 +42,30 @@
 	height: 100%;
 
 	display: flex;
+	flex-flow: row nowrap;
 	justify-content: center;
 	align-items: center;
 
 	pointer-events: none;
+
+	svg {
+		max-width: 100%;
+	}
 }
 
 .paper {
-	width: 30%;
-	margin-left: 35%;
+	width: 30% !important;
 
 	@media @medium-max {
-		width: 50%;
-		margin-left: 25%;
+		width: 50% !important;
 	}
 
 	@media @small-max {
-		width: 70%;
-		margin-left: 15%;
+		width: 70% !important;
 	}
 
 	@media @extra-small-max {
-		width: 80%;
-		margin-left: 10%;
+		width: 80% !important;
 	}
 }
 

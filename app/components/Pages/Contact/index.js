@@ -28,6 +28,10 @@ const ContactPage = React.createClass({
 			if(this.props.mode.progressLevel < 1) {
 				browserHistory.replace('/');
 			}
+			if(this.props.mode.progressLevel > 0 &&
+				this.props.mode.progressLevel < 8) {
+				browserHistory.replace('/home');
+			}
 		}
 	},
 
@@ -59,14 +63,12 @@ const ContactPage = React.createClass({
 					className={ContactPageStyles.sceneAndForm}
 				>
 					<div>
-						<Abduction />
-					</div>
-					<div
-						className={!this.props.mode.gameMode || this.props.mode.progressLevel > 8.5 ? ContactPageStyles.formInSiteMode : ''}
-					>
 						<h1>
 							Contact Me
 						</h1>
+						<Abduction />
+					</div>
+					<div>
 						<form className={ContactPageStyles.form}>
 							<fieldset>
 								<div>

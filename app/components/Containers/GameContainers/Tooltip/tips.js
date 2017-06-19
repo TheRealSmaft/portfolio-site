@@ -10,9 +10,9 @@ export default [
 		delay: 8000
 	},
 	{
-		head: 'Question Marks the Spot',
+		head: 'Need a Clue?',
 		body: [
-			'You found this question mark, right?'
+			'Maybe you aren\'t looking through the right lens...'
 		],
 		delay: 20000
 	},

@@ -2,12 +2,12 @@
 
 .sceneAndForm {
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap;
 
 	width: 100%;
 
 	@media @small-max {
-		flex-direction: column;
+		flex-flow: column nowrap;
 	}
 
 	div {
@@ -17,24 +17,6 @@
 		@media @small-max {
 			width: 100%;
 		}
-	}
-}
-
-@keyframes formDance {
-	0% {
-		transform: rotateZ(0deg);
-	}
-	25% {
-		transform: rotateZ(2deg);
-	}
-	50% {
-		transform: rotateZ(0deg);
-	}
-	75% {
-		transform: rotateZ(-2deg);
-	}
-	100% {
-		transform: rotateZ(0deg);
 	}
 }
 
@@ -50,17 +32,22 @@
 	border-right: 8px solid rgb(120,120,150);
 	border-left: 8px solid rgb(160,160,200);
 
-	// animation: formDance 30s linear infinite;
+	margin-top: 75px;
+	margin-bottom: 75px;
+
+	@media @small-max {
+		margin-top: 0px;
+	}
 
 	fieldset {
 		display: flex;
-		flex-direction: row;
+		flex-flow: row wrap;
 		align-items: baseline;
 		border: none;
 		
 		div {
 			display: flex;
-			flex-direction: column;
+			flex-flow: column nowrap;
 		}
 	}
 

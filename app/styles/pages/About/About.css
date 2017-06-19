@@ -33,6 +33,13 @@
   min-width: 200px;
   transition: 200ms ease-out;
 }
+.textCol h2 {
+  text-align: center;
+  white-space: nowrap;
+}
+.textCol ul {
+  list-style-position: inside;
+}
 .sectionImg {
   position: relative;
 }

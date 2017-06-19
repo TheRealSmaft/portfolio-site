@@ -24,7 +24,7 @@ const Examinable = React.createClass({
 
 		if(this.item.name === 'Paper' ||
 			this.item.name === 'Crumpled Paper') {
-			ReactDOM.findDOMNode(this.refs.itemImage).classList.add(ExaminableStyles.paper);
+			ReactDOM.findDOMNode(this.refs.itemImage).firstChild.classList.add(ExaminableStyles.paper);
 		}
 
 		this.refs.scene.addEventListener('click', this.closeExamination);
@@ -60,6 +60,7 @@ const Examinable = React.createClass({
 				this.createPasswordElement();
 			}
 			setTimeout(() => {
+				this.animationPlaying = true;
 				this.animation.play();
 				this.suspendClosing();
 			}, 50)
@@ -100,7 +101,7 @@ const Examinable = React.createClass({
 			}
 
 			this.animation = BodyMovin.loadAnimation(animationData);
-			this.animation.addEventListener('complete', this.resumeClosing);
+			this.animation.addEventListener('complete', this.animationComplete);
 
 			if(this.item.changeAfterAnimation) {
 				this.animation.addEventListener('complete', this.updateItem);
@@ -160,6 +161,7 @@ const Examinable = React.createClass({
 		passwordElement.style.width = '50%';
 		passwordElement.innerHTML = this.item.password;
 
+		this.refs.animation.firstChild.style.transform = 'translateY(70px)';
 		this.refs.animation.firstChild.childNodes[1].firstChild.appendChild(passwordElement);
 	},
 
@@ -168,7 +170,14 @@ const Examinable = React.createClass({
 	},
 
 	resumeClosing() {
-		this.refs.scene.addEventListener('click', this.closeExamination);	
+		if(!this.animationPlaying) {
+			this.refs.scene.addEventListener('click', this.closeExamination);	
+		}
+	},
+
+	animationComplete() {
+		this.animationPlaying = false;
+		this.resumeClosing();
 	},
 
 	closeExamination() {
@@ -210,6 +219,12 @@ const Examinable = React.createClass({
 			this.props.updateGameProgress(10);
 		}
 
+		if(name === 'Crumpled Paper') {
+			setTimeout(() => {
+				this.closeExamination();
+			}, 500)
+		}
+
 		this.item = this.item.nextItemState;
 
 		this.props.addItemToArray(this.item);
@@ -246,6 +261,9 @@ const Examinable = React.createClass({
 						loop={this.item.deferredEvents.loop ? this.item.deferredEvents.loop : false}
 						fireCondition={this.item.deferredEvents.fireCondition ? this.item.deferredEvents.fireCondition : null}
 						eventToTrigger={this.item.deferredEvents.eventToTrigger ? this.item.deferredEvents.eventToTrigger : null}
+						style={{
+							height: this.item.name === 'Paper' || this.item.name === "Crumpled Paper" ? '100%' : 'auto'
+						}}
 					>
 						<img
 							className={this.item.eventToFire || this.item.clickEvent ? ExaminableStyles.clickWillFireEvent : ''}

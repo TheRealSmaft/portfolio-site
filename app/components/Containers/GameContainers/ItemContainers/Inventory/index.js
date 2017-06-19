@@ -243,6 +243,25 @@ const Inventory = React.createClass({
 		this.examinable = item;
 	},
 
+	combineItems(name) {
+		if(this.props.items.draggable === 'Pencil' && name === 'Paper') 
+		{
+			this.props.toggleItemExamine('Paper');
+			setTimeout(() => {
+				this.props.addEventToFiredArray('PencilUsed');
+				this.props.changeItemStatus('Pencil', 'used');
+			}, 50);
+		}
+		else if(this.props.items.draggable === 'Glue' && name === 'Broken Link') 
+		{
+			this.props.toggleItemExamine('Broken Link');
+			setTimeout(() => {
+				this.props.addEventToFiredArray('GlueUsed');
+				this.props.changeItemStatus('Glue', 'used');
+			}, 50);
+		}
+	},
+
 	render() {
 		var inventory = this.inventory.map((item, index) =>
 			<div
@@ -270,6 +289,7 @@ const Inventory = React.createClass({
 						<img
 							alt={item.name}
 							src={item.inventoryImage}
+							onClick={() => {this.combineItems(item.name)}}
 						/>
 						<img
 							className={item.name === 'Broken Link' || item.name === 'About Link' ? InventoryStyles.aboutLink : InventoryStyles.examineButton}
@@ -323,7 +343,7 @@ const Inventory = React.createClass({
 				<div
 					style={{
 						width: '100%',
-						height: this.inventory.length > 0 ? '200px' : '0px'
+						height: this.inventory.length > 0 ? '100px' : '0px'
 					}}
 				>
 				</div>

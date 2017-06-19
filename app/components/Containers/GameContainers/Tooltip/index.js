@@ -19,6 +19,14 @@ const Tooltip = React.createClass({
 
 	componentDidMount() {
 		this.startDelayedAppearanceTimer(8000);
+
+		if(this.props.mode.progressLevel === 0) {
+			setTimeout(() => {
+				if(this.props.mode.progressLevel === 0) {
+					this.showToolTip();
+				}
+			}, 8500);
+		}
 	},
 
 	componentWillUpdate(nextProps) {
