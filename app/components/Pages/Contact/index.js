@@ -28,6 +28,10 @@ const ContactPage = React.createClass({
 			if(this.props.mode.progressLevel < 1) {
 				browserHistory.replace('/');
 			}
+			if(this.props.mode.progressLevel > 0 &&
+				this.props.mode.progressLevel < 8) {
+				browserHistory.replace('/home');
+			}
 		}
 	},
 

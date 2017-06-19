@@ -32,7 +32,11 @@ const AboutPage = React.createClass({
 
 	componentWillMount() {
 		if(this.props.mode.gameMode) {
-			if(this.props.mode.progressLevel < 6) {
+			if(this.props.mode.progressLevel < 1) {
+				browserHistory.replace('/');
+			}
+			else if(this.props.mode.progressLevel > 0 &&
+					  this.props.mode.progressLevel < 10) {
 				browserHistory.replace('/home');
 			}
 		}
