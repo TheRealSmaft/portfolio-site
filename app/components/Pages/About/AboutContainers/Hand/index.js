@@ -59,13 +59,13 @@ const Hand = React.createClass({
 		}
 
 		this.props.addItemToArray(gavelItem);
-		this.props.updateGameProgress(11);
 
 		this.handWithGavel.destroy();
 		this.thumbsUp();
 
 		setTimeout(() => {
 			this.thumbsUpAnimation.play();
+			this.props.updateGameProgress(11);
 		}, 250);
 	},
 

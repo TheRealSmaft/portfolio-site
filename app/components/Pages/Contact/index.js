@@ -62,7 +62,7 @@ const ContactPage = React.createClass({
 						<Abduction />
 					</div>
 					<div
-						className={!this.props.mode.gameMode ? ContactPageStyles.formInSiteMode : ''}
+						className={!this.props.mode.gameMode || this.props.mode.progressLevel > 8.5 ? ContactPageStyles.formInSiteMode : ''}
 					>
 						<h1>
 							Contact Me
