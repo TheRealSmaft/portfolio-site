@@ -24,7 +24,7 @@ const Examinable = React.createClass({
 
 		if(this.item.name === 'Paper' ||
 			this.item.name === 'Crumpled Paper') {
-			ReactDOM.findDOMNode(this.refs.itemImage).classList.add(ExaminableStyles.paper);
+			ReactDOM.findDOMNode(this.refs.itemImage).firstChild.classList.add(ExaminableStyles.paper);
 		}
 
 		this.refs.scene.addEventListener('click', this.closeExamination);
@@ -260,6 +260,9 @@ const Examinable = React.createClass({
 						loop={this.item.deferredEvents.loop ? this.item.deferredEvents.loop : false}
 						fireCondition={this.item.deferredEvents.fireCondition ? this.item.deferredEvents.fireCondition : null}
 						eventToTrigger={this.item.deferredEvents.eventToTrigger ? this.item.deferredEvents.eventToTrigger : null}
+						style={{
+							height: this.item.name === 'Paper' || this.item.name === "Crumpled Paper" ? '100%' : 'auto'
+						}}
 					>
 						<img
 							className={this.item.eventToFire || this.item.clickEvent ? ExaminableStyles.clickWillFireEvent : ''}

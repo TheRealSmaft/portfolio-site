@@ -63,14 +63,12 @@ const ContactPage = React.createClass({
 					className={ContactPageStyles.sceneAndForm}
 				>
 					<div>
-						<Abduction />
-					</div>
-					<div
-						className={!this.props.mode.gameMode || this.props.mode.progressLevel > 8.5 ? ContactPageStyles.formInSiteMode : ''}
-					>
 						<h1>
 							Contact Me
 						</h1>
+						<Abduction />
+					</div>
+					<div>
 						<form className={ContactPageStyles.form}>
 							<fieldset>
 								<div>

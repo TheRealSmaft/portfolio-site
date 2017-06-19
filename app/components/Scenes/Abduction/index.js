@@ -227,7 +227,7 @@ const Abduction = React.createClass({
 							position: 'absolute',
 							top: '0px',
 							left: '0px',
-							zIndex: 9
+							zIndex: 9,
 						}}
 					>
 					</div>
@@ -235,7 +235,9 @@ const Abduction = React.createClass({
 						ref="alienContact"
 						style={{
 							position: 'relative',
-							zIndex: 10
+							zIndex: 10,
+							transition: '500ms margin-bottom ease-in-out',
+							marginBottom: !this.props.mode.gameMode || this.props.mode.progressLevel > 8.5 ? '-70%' : ''
 						}}
 					>
 					</div>

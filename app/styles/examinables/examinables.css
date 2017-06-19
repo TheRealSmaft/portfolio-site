@@ -35,26 +35,25 @@
   align-items: center;
   pointer-events: none;
 }
+.animationContainer svg {
+  max-width: 100%;
+}
 .paper {
-  width: 30%;
-  margin-left: 35%;
+  width: 30% !important;
 }
 @media only screen and (max-width: 992px) {
   .paper {
-    width: 50%;
-    margin-left: 25%;
+    width: 50% !important;
   }
 }
 @media only screen and (max-width: 768px) {
   .paper {
-    width: 70%;
-    margin-left: 15%;
+    width: 70% !important;
   }
 }
 @media only screen and (max-width: 480px) {
   .paper {
-    width: 80%;
-    margin-left: 10%;
+    width: 80% !important;
   }
 }
 .scribble {

@@ -44,6 +44,29 @@ const SilhouetteIntroScene = React.createClass({
 				}
 			];
 
+			this.mobileNavEvents = [
+				function(target) {
+					target.style.transition = "800ms ease-out";
+					target.style.transformOrigin = "top right";
+					target.style.transform = "rotate(-1deg)";
+				},
+				function(target) {
+					target.style.transition = "100ms linear";
+					target.style.transform = "rotate(-2deg) translate(-20px, 32px)";
+				},
+				function(target) {
+					target.style.transition = "300ms linear";
+					target.style.transform = "rotate(6deg) translate(-5%, 100%)";
+				},
+				function(target) {
+					target.style.transition = "500ms ease-in";
+					target.style.transform = "rotate(-4deg) translate(-5%, -500%)";
+				},
+				function(target) {
+					target.style.display = "none";
+				}
+			];
+
 			this.panelEvents = [
 				function(target) {
 					target.style.top = '5px';
@@ -325,7 +348,7 @@ const SilhouetteIntroScene = React.createClass({
 							</DeferredEventExecutor>
 							<DeferredEventExecutor
 								moments={[0, 9, 10, 13, 20]}
-								events={this.navEvents}
+								events={this.mobileNavEvents}
 								fireCondition={'navStolen'}
 								increment={100}
 								style={{

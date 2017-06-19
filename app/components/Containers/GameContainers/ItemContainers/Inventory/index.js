@@ -323,7 +323,7 @@ const Inventory = React.createClass({
 				<div
 					style={{
 						width: '100%',
-						height: this.inventory.length > 0 ? '200px' : '0px'
+						height: this.inventory.length > 0 ? '100px' : '0px'
 					}}
 				>
 				</div>
