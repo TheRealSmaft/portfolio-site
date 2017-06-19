@@ -171,6 +171,9 @@ const Inventory = React.createClass({
 		this.originalWidth = this.dragNode.style.width;
 
 		this.dragNode.style.zIndex = 100;
+		if(this.draggable === 'Heart') {
+			this.dragNode.style.width = '130px';
+		}
 		this.dragNode.firstChild.style.maxWidth = '150px';
 		this.dragNode.style.pointerEvents = 'none';
 
@@ -269,7 +272,7 @@ const Inventory = React.createClass({
 							src={item.inventoryImage}
 						/>
 						<img
-							className={InventoryStyles.examineButton}
+							className={item.name === 'Broken Link' || item.name === 'About Link' ? InventoryStyles.aboutLink : InventoryStyles.examineButton}
 							src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
 							onClick={() => {this.examineItem(item)}}
 						/>

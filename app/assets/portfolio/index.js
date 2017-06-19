@@ -17,7 +17,7 @@ const portfolio = [
 		description: 'This poster was designed for the Emilio del Rosario youth piano competition. I created a piece that is whimsical and vibrant but not silly or overly childish.',
 		scrambledText: "Stih sopter wsa diegsned rfo the Elomii lde Rsoraio oyuth iapno ttoeinopcmi. I ceeatdr a peice that is wshamiicl and nvirabt btu ont slily ro volyer cihsildh.",
 		moreInfo: [
-			"The piano is supposed to appear as though it's own music is lifting it in the air.",
+			"The piano is supposed to appear as though its own music is lifting it in the air.",
 			"I designed this poster with Photoshop, Illustrator, and InDesign.",
 		],
 		image: 'PianoPoster/PianoPosterThumbnail.png',
@@ -42,7 +42,7 @@ const portfolio = [
 		description: "This is a label for an invented brewery called Sacrilicious and their even more imaginary beer, Hopnipotent. This one was a lot of fun.",
 		scrambledText: "Hsti is a lelba fro na vinenetd wberery cadlel Ocliisaircsu adn hiert vene roem migirnyaa bere, Htenoptinpo. This noe wsa a lto fo unf.",
 		moreInfo: [
-			"My name under \"Brewmaster\" over the label is written in a font I made of my own handwriting.",
+			"My name over \"Brewmaster\" over the label is written in a font I made of my own handwriting.",
 			"I created this beer concept with recreational drinking, Photoshop, Illustrator, and hand drawings.",
 		],
 		image: 'Hopnipotent/HopnipotentThumbnail.png',

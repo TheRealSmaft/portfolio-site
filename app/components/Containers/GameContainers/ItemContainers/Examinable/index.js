@@ -61,6 +61,7 @@ const Examinable = React.createClass({
 			}
 			setTimeout(() => {
 				this.animation.play();
+				this.suspendClosing();
 			}, 50)
 		}
 	},
@@ -99,6 +100,7 @@ const Examinable = React.createClass({
 			}
 
 			this.animation = BodyMovin.loadAnimation(animationData);
+			this.animation.addEventListener('complete', this.resumeClosing);
 
 			if(this.item.changeAfterAnimation) {
 				this.animation.addEventListener('complete', this.updateItem);

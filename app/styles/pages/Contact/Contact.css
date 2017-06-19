@@ -86,6 +86,10 @@
   width: 120px;
   z-index: 2;
 }
+
+.formInSiteMode {
+  transition: 500ms margin-top ease-in-out;
+}
 @media only screen and (max-width: 768px) {
   .formInSiteMode {
     margin-top: -70%;

@@ -60,7 +60,6 @@
 		
 		img:first-of-type {
 			max-width: 80%;
-
 			flex: 0 0 80%;
 		}
 	}
@@ -68,6 +67,7 @@
 
 .heart {
 	max-width: 60% !important;
+	flex: 0 0 60% !important;
 }
 
 .examineButton {
@@ -80,9 +80,29 @@
 	&:hover {
 		cursor: pointer;
 	}
+}
 
-	text {
-		color: red;
+.aboutLink {
+	display: block;
+	position: absolute;
+	width: 35%;
+	right: 10px;
+	bottom: -44px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	@media @extra-large-max {
+		bottom: -40px;
+	}
+
+	@media @large-max {
+		bottom: -37px;
+	}
+
+	@media @medium-max {
+		bottom: -30px;
 	}
 }
 

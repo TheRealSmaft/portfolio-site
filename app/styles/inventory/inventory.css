@@ -59,6 +59,7 @@
 }
 .heart {
   max-width: 60% !important;
+  flex: 0 0 60% !important;
 }
 .examineButton {
   display: block;
@@ -70,8 +71,30 @@
 .examineButton:hover {
   cursor: pointer;
 }
-.examineButton text {
-  color: red;
+.aboutLink {
+  display: block;
+  position: absolute;
+  width: 35%;
+  right: 10px;
+  bottom: -44px;
+}
+.aboutLink:hover {
+  cursor: pointer;
+}
+@media only screen and (max-width: 1500px) {
+  .aboutLink {
+    bottom: -40px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .aboutLink {
+    bottom: -37px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .aboutLink {
+    bottom: -30px;
+  }
 }
 .noCursor {
   cursor: none !important;

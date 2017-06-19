@@ -200,6 +200,10 @@ const Abduction = React.createClass({
 	getBrokenLink() {
 		this.brokenLink.style.display = 'none';
 		this.props.addItemToArray(this.brokenLinkItem);
+		
+		this.tractorBeam.setDirection(-1);
+		this.tractorBeam.play();
+
 		if(Number.isInteger(this.props.mode.progressLevel)){
 			this.props.updateGameProgress(9);
 		}
