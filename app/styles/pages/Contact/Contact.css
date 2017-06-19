@@ -1,6 +1,6 @@
 .sceneAndForm {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   width: 100%;
 }
 @media only screen and (max-width: 768px) {
@@ -46,7 +46,7 @@
 }
 .form fieldset {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: baseline;
   border: none;
 }
@@ -86,7 +86,6 @@
   width: 120px;
   z-index: 2;
 }
-
 .formInSiteMode {
   transition: 500ms margin-top ease-in-out;
 }

@@ -14,8 +14,13 @@ import { modeActions, modeTypes } from '../state/game/mode';
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 
+var background = require('../assets/background/Background2.svg');
+
 const App = React.createClass({
 	componentWillMount() {
+		document.body.style.background = 'url(' + background + ') no-repeat top left fixed';
+		document.body.style.backgroundSize = '100% 100%';
+
 		this.props.getWindowSize();
 		this.scrollLocked = this.props.scrollState.scrollLocked;
 
@@ -65,12 +70,14 @@ const App = React.createClass({
 				document.body.style.overflow = "hidden";
 				if(document.body.clientHeight > window.innerHeight){
 					document.body.style.marginRight = '17px';
+					document.body.style.backgroundSize = 'calc(100% - 17px) 100%';
 				}
 			}
 			else
 			{
 				document.body.style.overflow = "";
 				document.body.style.marginRight = '0px';
+				document.body.style.backgroundSize = '100% 100%';
 			}
 		}
 
