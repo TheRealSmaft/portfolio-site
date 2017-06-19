@@ -183,8 +183,9 @@ const LoadingPage = React.createClass({
 		this.turboChargedGears.setSpeed(4);
 		this.changeEllipsisGlyph('!');
 
+		this.props.updateGameProgress(1);
+
 		setTimeout(() => {
-			this.props.updateGameProgress(1);
 			browserHistory.push('/home');
 		}, 3000);
 	},

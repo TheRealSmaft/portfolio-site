@@ -16,7 +16,7 @@ const Logo = React.createClass({
 			animationData: logoJson,
 			path: '../../../../assets/images/Logo',
 			loop: false,
-			autoplay: true,
+			autoplay: false,
 			name: 'logoFloatUp',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.logo)
@@ -24,6 +24,16 @@ const Logo = React.createClass({
 
 		this.logoFloatUp = BodyMovin.loadAnimation(logoAnimation);
 		this.logoFloatUp.addEventListener('complete', this.setLoopingLogo);
+
+		if(this.props.mode.progressLevel === 1) {
+			setTimeout(() => {
+				this.logoFloatUp.play();
+			}, 6000)
+		}
+		else
+		{
+			this.logoFloatUp.play();
+		}
 	},
 
 	componentWillUnmount() {
@@ -69,9 +79,9 @@ const Logo = React.createClass({
 		}
 
 		this.refs.logo.firstChild.childNodes[1].childNodes[2].removeEventListener('click', this.popBalloon);
-		this.refs.logo.firstChild.childNodes[1].childNodes[2].style.opacity = 0;
 
 		setTimeout(() => {
+			this.refs.logo.firstChild.childNodes[1].childNodes[2].style.opacity = 0;
 			this.anvilFall();
 		}, 500)
 	},

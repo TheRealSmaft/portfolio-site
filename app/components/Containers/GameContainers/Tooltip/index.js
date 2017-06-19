@@ -22,7 +22,9 @@ const Tooltip = React.createClass({
 
 		if(this.props.mode.progressLevel === 0) {
 			setTimeout(() => {
-				this.showToolTip();
+				if(this.props.mode.progressLevel === 0) {
+					this.showToolTip();
+				}
 			}, 8500);
 		}
 	},
