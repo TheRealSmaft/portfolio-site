@@ -60,6 +60,7 @@ const Examinable = React.createClass({
 				this.createPasswordElement();
 			}
 			setTimeout(() => {
+				this.animationPlaying = true;
 				this.animation.play();
 				this.suspendClosing();
 			}, 50)
@@ -100,7 +101,7 @@ const Examinable = React.createClass({
 			}
 
 			this.animation = BodyMovin.loadAnimation(animationData);
-			this.animation.addEventListener('complete', this.resumeClosing);
+			this.animation.addEventListener('complete', this.animationComplete);
 
 			if(this.item.changeAfterAnimation) {
 				this.animation.addEventListener('complete', this.updateItem);
@@ -168,7 +169,14 @@ const Examinable = React.createClass({
 	},
 
 	resumeClosing() {
-		this.refs.scene.addEventListener('click', this.closeExamination);	
+		if(!this.animationPlaying) {
+			this.refs.scene.addEventListener('click', this.closeExamination);	
+		}
+	},
+
+	animationComplete() {
+		this.animationPlaying = false;
+		this.resumeClosing();
 	},
 
 	closeExamination() {
@@ -208,6 +216,12 @@ const Examinable = React.createClass({
 		if(name === "Broken Link") {
 			this.animation.destroy();
 			this.props.updateGameProgress(10);
+		}
+
+		if(name === 'Crumpled Paper') {
+			setTimeout(() => {
+				this.closeExamination();
+			}, 500)
 		}
 
 		this.item = this.item.nextItemState;
