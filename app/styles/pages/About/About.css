@@ -1,7 +1,7 @@
 .grid {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   margin-top: 30px;
 }
 .row {
@@ -10,6 +10,8 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+  perspective: 700;
   transition: 200ms ease-out;
 }
 .row:not(:last-of-type) {
@@ -33,9 +35,23 @@
   min-width: 200px;
   transition: 200ms ease-out;
 }
-.textCol h2 {
-  text-align: center;
+.textCol h1 {
+  background-size: 200px 20% !important;
+  background-position: 0% 70% !important;
+  height: 60px;
+  margin-bottom: 0px;
+}
+.textCol div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.textCol div h2 {
+  display: inline-flex;
   white-space: nowrap;
+  background-size: 100% 20% !important;
+  background-position: 0% 75% !important;
+  height: 50px;
 }
 .textCol ul {
   list-style-position: inside;

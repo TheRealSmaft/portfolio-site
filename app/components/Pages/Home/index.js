@@ -19,6 +19,8 @@ import { scrollEventActions, scrollEventTypes } from '../../../state/events/scro
 
 import portfolio from '../../../assets/portfolio';
 
+const underline = require('../../../assets/background/underline.svg');
+
 const HomePage = React.createClass({
 	componentWillMount() {
 		this.pencil = null;
@@ -85,7 +87,11 @@ const HomePage = React.createClass({
 		if(this.props.mode.justBeatGame) {
 			this.welcome = (
 				<div>
-					<h1>
+					<h1
+						style={{
+							background: 'url(' + underline + ') no-repeat',
+						}}
+					>
 						Congratulations!
 					</h1>
 					<p>
@@ -102,7 +108,11 @@ const HomePage = React.createClass({
 		else if(this.props.mode.gameMode) {
 			this.welcome = (
 				<div>
-					<h1>
+					<h1
+						style={{
+							background: 'url(' + underline + ') no-repeat',
+						}}
+					>
 						Help Me!
 					</h1>
 					<p>
@@ -119,7 +129,11 @@ const HomePage = React.createClass({
 		{
 			this.welcome = (
 				<div>
-					<h1>
+					<h1
+						style={{
+							background: 'url(' + underline + ') no-repeat',
+						}}
+					>
 						Welcome!
 					</h1>
 					<p>
