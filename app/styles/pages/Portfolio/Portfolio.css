@@ -1,3 +1,9 @@
+.header {
+  background-size: 200px 20% !important;
+  background-position: 0% 70% !important;
+  height: 60px;
+  margin-bottom: 0px;
+}
 .pieceGrid {
   display: flex;
   flex-flow: row wrap;
@@ -84,6 +90,9 @@
 }
 .vandalizedImage {
   filter: contrast(50%);
+}
+.title {
+  margin-bottom: 0px;
 }
 .title:hover {
   cursor: pointer;

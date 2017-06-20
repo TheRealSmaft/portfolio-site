@@ -15,6 +15,8 @@ import Brain from './AboutContainers/Brain';
 import Heart from './AboutContainers/Heart';
 import Hand from './AboutContainers/Hand';
 
+const underline = require('../../../assets/background/underline.svg');
+
 const brainBullet = require('../../../assets/images/ListBullets/Mind.svg');
 const heartBullet = require('../../../assets/images/ListBullets/Heart.svg');
 const handBullet = require('../../../assets/images/ListBullets/Hand.svg');
@@ -101,7 +103,11 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<h1>
+							<h1
+								style={{
+									background: 'url(' + underline + ') no-repeat',
+								}}
+							>
 								About Me
 							</h1>
 							<p
@@ -129,9 +135,15 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<h2>
-								Skills of the Mind
-							</h2>
+							<div>
+								<h2
+									style={{
+										background: 'url(' + underline + ') no-repeat',
+									}}
+								>
+									Skills of the Mind
+								</h2>
+							</div>
 							<ul
 								className={AboutPageStyles.skillList}
 								style={{
@@ -156,9 +168,16 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<h2>
-								Skills of the Heart
-							</h2>
+							<div>
+								<h2
+									style={{
+										background: 'url(' + underline + ') no-repeat',
+									}}
+								>
+									Skills of the Heart
+								</h2>
+							</div>
+
 							<ul
 								className={AboutPageStyles.skillList}
 								style={{
@@ -196,9 +215,16 @@ const AboutPage = React.createClass({
 						<div
 							className={AboutPageStyles.textCol}
 						>
-							<h2>
-								Skills of the Hand
-							</h2>
+							<div>
+								<h2
+									style={{
+										background: 'url(' + underline + ') no-repeat',
+									}}
+								>
+									Skills of the Hand
+								</h2>
+							</div>
+
 							<ul
 								className={AboutPageStyles.skillList}
 								style={{

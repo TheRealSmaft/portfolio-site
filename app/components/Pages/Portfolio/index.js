@@ -12,6 +12,8 @@ import portfolio from '../../../assets/portfolio';
 
 import { PortfolioPageStyles } from '../../../styles/pages';
 
+const underline = require('../../../assets/background/underline.svg');
+
 const PortfolioPage = React.createClass({
 	componentWillMount() {
 		if(this.props.mode.gameMode) {
@@ -62,7 +64,12 @@ const PortfolioPage = React.createClass({
 
 		return (
 			<ResponsiveContainer>
-				<h1>
+				<h1
+					className={PortfolioPageStyles.header}
+					style={{
+						background: 'url(' + underline + ') no-repeat',
+					}}
+				>
 					Portfolio
 				</h1>
 				<p

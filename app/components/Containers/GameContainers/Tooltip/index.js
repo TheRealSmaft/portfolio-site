@@ -137,6 +137,17 @@ const Tooltip = React.createClass({
 		this.refs.tipQuery.style.opacity = 1;
 		this.refs.tipQuery.style.pointerEvents = 'auto';
 		this.props.unlockScrollPosition();
+		this.hideSkipButton();
+	},
+
+	showSkipButton() {
+		this.refs.showSkip.style.display = 'none';
+		this.refs.skip.style.display = 'inline-block';
+	},
+
+	hideSkipButton() {
+		this.refs.showSkip.style.display = 'inline-block';
+		this.refs.skip.style.display = 'none';
 	},
 
 	changeMode() {
@@ -181,9 +192,19 @@ const Tooltip = React.createClass({
 							{body}
 							<div>
 								<button
-									onClick={this.changeMode}
+									ref="showSkip"
+									onClick={this.showSkipButton}
 								>
 									Skip Game
+								</button>
+								<button
+									ref="skip"
+									onClick={this.changeMode}
+									style={{
+										display: 'none'
+									}}
+								>
+									Are You Sure?
 								</button>
 							</div>
 						</div>

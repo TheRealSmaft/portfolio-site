@@ -14,7 +14,7 @@ import { modeActions, modeTypes } from '../state/game/mode';
 import { windowEventActions, windowEventTypes } from '../state/events/window';
 import { scrollEventActions, scrollEventTypes } from '../state/events/scroll';
 
-var background = require('../assets/background/Background2.svg');
+var background = require('../assets/background/background1.svg');
 
 const App = React.createClass({
 	componentWillMount() {

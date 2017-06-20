@@ -10,6 +10,8 @@ import Abduction from '../../Scenes/Abduction';
 
 import { ContactPageStyles } from '../../../styles/pages';
 
+const underline = require('../../../assets/background/underline.svg');
+
 const ContactPage = React.createClass({
 	getInitialState() {
 		return {
@@ -63,7 +65,11 @@ const ContactPage = React.createClass({
 					className={ContactPageStyles.sceneAndForm}
 				>
 					<div>
-						<h1>
+						<h1
+							style={{
+								background: 'url(' + underline + ') no-repeat',
+							}}
+						>
 							Contact Me
 						</h1>
 						<Abduction />
