@@ -59,11 +59,11 @@
 }
 .portPreview div img {
   width: 100%;
-  box-shadow: 1px 1px 3px 1px black;
 }
 .portPreviewImage {
   filter: sepia(50%);
   transition: 200ms ease-in;
+  box-shadow: 1px 1px 3px 1px black;
 }
 .portPreviewImage:hover {
   filter: sepia(0%);

@@ -15,13 +15,11 @@ const underline = require('../../../assets/background/underline.svg');
 const ContactPage = React.createClass({
 	getInitialState() {
 		return {
-			formData: {
-				firstName: '',
-				lastName: '',
-				email: '',
-				phone: '',
-				message: ''
-			}
+			firstName: '',
+			lastName: '',
+			email: '',
+			phone: '',
+			message: ''
 		}
 	},
 
@@ -43,19 +41,28 @@ const ContactPage = React.createClass({
 		const name = target.name;
 
 		this.setState({
-			formData: {
-				[name]: value
-			}
+			[name]: value
 		});
 	},
 
 	submitForm() {
 		var post = new XMLHttpRequest();
-		post.open("POST", '../../../assets/formMailer/mailer.php');
+		post.open("POST", '../../../db/mailer.php');
 		post.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-		var data = JSON.stringify(this.state.formData);
+		var form = {
+			firstName: this.state.firstName,
+			lastName: this.state.lastName,
+			email: this.state.email,
+			phone: this.state.phone,
+			message: this.state.message
+		};
+
+		var data = JSON.stringify(form);
 		post.send(data);
+
+		this.refs.form.style.display = 'none';
+		this.refs.thanks.style.display = 'block';
 	},
 
 	render() {
@@ -74,7 +81,9 @@ const ContactPage = React.createClass({
 						</h1>
 						<Abduction />
 					</div>
-					<div>
+					<div
+						ref="form"
+					>
 						<form className={ContactPageStyles.form}>
 							<fieldset>
 								<div>
@@ -113,13 +122,13 @@ const ContactPage = React.createClass({
 									/>
 								</div>
 								<div>
-									<label for="phoneNumber">
+									<label for="phone">
 										Phone:
 									</label>
 									<input 
 										type="phone" 
-										name="phoneNumber" 
-										id="phoneNumber"
+										name="phone" 
+										id="phone"
 										onChange={this.handleInputChange}
 									/>
 								</div>
@@ -152,6 +161,7 @@ const ContactPage = React.createClass({
 									) :
 									(
 										<button
+											type="button"
 											onClick={this.submitForm}
 										>
 											Submit
@@ -160,6 +170,22 @@ const ContactPage = React.createClass({
 								}
 							</div>
 						</form>
+					</div>
+					<div
+						ref="thanks"
+						style={{
+							display: 'none'
+						}}
+					>
+						<h1>
+							Thank you!
+						</h1>
+						<p>
+							Your message has been sent!
+						</p>
+						<p>
+							I appreciate you reaching out to me and I will get back to you as soon as possible!
+						</p>
 					</div>
 				</div>
 			</ResponsiveContainer>

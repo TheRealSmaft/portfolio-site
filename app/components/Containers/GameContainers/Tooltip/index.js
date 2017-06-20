@@ -25,7 +25,7 @@ const Tooltip = React.createClass({
 				if(this.props.mode.progressLevel === 0) {
 					this.showToolTip();
 				}
-			}, 8500);
+			}, 15000);
 		}
 	},
 

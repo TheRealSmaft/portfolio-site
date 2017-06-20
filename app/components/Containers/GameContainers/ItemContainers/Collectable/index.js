@@ -145,8 +145,7 @@ const Collectable = React.createClass({
 					className={this.props.className, CollectableStyles.collectable}
 					onClick={this.addItemToInventory}
 					style={{
-						...this.props.style,
-						float: 'left'
+						...this.props.style
 					}}
 				>
 					<Item 

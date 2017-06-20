@@ -29,6 +29,12 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+}
+@media only screen and (max-width: 992px) {
+  .toolTip {
+    align-items: flex-start;
+  }
 }
 .toolTipContent {
   position: relative;

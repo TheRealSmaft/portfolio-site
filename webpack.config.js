@@ -7,19 +7,13 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 module.exports = {
   entry: {
     app: [
-      'react-hot-loader/patch',
-      // activate HMR for React
+      // 'react-hot-loader/patch',
   
-      'webpack-dev-server/client?http://localhost:8080',
-      // bundle the client for webpack-dev-server
-      // and connect to the provided endpoint
+      // 'webpack-dev-server/client?http://localhost:8080',
   
-      'webpack/hot/only-dev-server',
-      // bundle the client for hot reloading
-      // only- means to only hot reload for successful updates
+      // 'webpack/hot/only-dev-server',
   
       './index.js'
-      // the entry point of our app
     ],
     vendors: ['react', 'redux', 'react-dom', 'lodash', 'react-router', 'react-redux', './plugins/bodymovin.min.js']
   },
@@ -36,22 +30,19 @@ module.exports = {
 
   context: resolve(__dirname, 'app'),
 
-  devtool: 'cheap-module-source-map',
+  // devtool: 'eval-source-map',
 
-  devServer: {
-    hot: false,
-    // enable HMR on the server
+  // devServer: {
+  //   hot: false,
     
-    historyApiFallback: true,
+  //   historyApiFallback: true,
 
-    compress: true,
+  //   compress: true,
 
-    contentBase: resolve(__dirname, 'dist'),
-    // match the output path
+  //   contentBase: resolve(__dirname, 'dist'),
 
-    publicPath: '/'
-    // match the output `publicPath`
-  },
+  //   publicPath: '/'
+  // },
 
   module: {
     rules: [
@@ -85,16 +76,16 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendors",
       minChunks: Infinity,
     }),
 
-    // new webpack.DefinePlugin({
-    //   'process.env.NODE_ENV': '"development"'
-    // }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
 
     new CompressionPlugin({
       asset: "[path].gz[query]",

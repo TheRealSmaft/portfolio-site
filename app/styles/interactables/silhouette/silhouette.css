@@ -123,7 +123,6 @@
   border-left: 8px solid #a0a0c8;
 }
 .dummyNav div {
-  float: left;
   width: 25%;
   height: 50px;
   text-align: center;
@@ -147,13 +146,11 @@
 }
 .dummyMobile {
   display: none;
-  float: left;
   width: 100%;
   line-height: 40px;
 }
 .dummyMobile div:first-of-type {
   position: static;
-  float: left;
   font-size: 200%;
   font-weight: bold;
   text-align: center;
@@ -169,11 +166,9 @@
 }
 .dummyMobile div:last-of-type {
   position: static;
-  float: left;
   width: calc(80%);
 }
 .dummyMobile div:last-of-type span {
-  float: left;
   width: 50%;
   height: 40px;
   text-align: center;
@@ -238,7 +233,6 @@
   }
 }
 .emergencyPanel {
-  float: right;
   padding: 10px;
   color: white;
   background-color: red;

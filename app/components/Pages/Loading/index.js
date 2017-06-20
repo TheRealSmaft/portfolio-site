@@ -108,7 +108,7 @@ const LoadingPage = React.createClass({
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../assets/images/interactables/LoadingGears',
-			loop: 1,
+			loop: 3,
 			autoplay: true,
 			name: 'loadingGears',
 			renderer: 'svg' ,

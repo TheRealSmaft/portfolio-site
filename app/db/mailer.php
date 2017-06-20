@@ -2,18 +2,18 @@
 
 	$data = json_decode(file_get_contents('php://input'));
 
-	$first_name = $data->firstName;
-	$last_name = $data->lastName;
+	$firstName = $data->firstName;
+	$lastName = $data->lastName;
 	$email = $data->email;
 	$message = $data->message;
 
 	$fullMessage = "Name: " . $firstName . " " . $lastName . "\n" .
 						"Email: " . $email . "\n";
 
-	if(property_exists($data,'phone_number')) {
-		$phone_number = $data->phone_number;
+	if(property_exists($data,'phoneNumber')) {
+		$phone = $data->phone;
 
-		$fullMessage = $fullMessage . " " . "Phone: " . $phone_number . "\n\n";
+		$fullMessage = $fullMessage . " " . "Phone: " . $phone . "\n\n";
 	}
 
 	$fullMessage = $fullMessage . $message;
@@ -24,5 +24,5 @@
 			"\nReply-To: " . $email .
 			"\nX-Mailer: PHP/" . phpversion();
 		
-	mail('mrsmaft@gmail.com', "$subject", $fullMessage, $headers);
+	mail('mrsmaft@gmail.com', $subject, $fullMessage, $headers);
 ?>

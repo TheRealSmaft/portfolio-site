@@ -105,14 +105,6 @@ const App = React.createClass({
 		}
 	},
 
-	clearLS() {
-		this.props.clearLocalStorage();
-	},
-
-	logLS() {
-		this.props.logLocalStorage();
-	},
-
 	render() {
 		return (
 			<div 
@@ -120,28 +112,6 @@ const App = React.createClass({
 			>
 
 				<Navbar/>
-
-				<button
-					onClick={this.clearLS}
-					style={{
-						position: 'fixed',
-						bottom: '300px',
-						left: '0px'
-					}}
-				>
-					CLEAR LS
-				</button>
-
-				<button
-					onClick={this.logLS}
-					style={{
-						position: 'fixed',
-						bottom: '280px',
-						left: '0px'
-					}}
-				>
-					LOG LS
-				</button>
 
 				{this.props.children}
 

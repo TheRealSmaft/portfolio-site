@@ -1,3 +1,5 @@
+@import "../mediaQueries/mediaQueries.less";
+
 .tipQuery {
 	opacity: 0;
 	transition: 200ms ease-in-out;
@@ -36,6 +38,12 @@
 	flex-flow: row nowrap;
 	justify-content: center;
 	align-items: center;
+
+	overflow-y: scroll;
+
+	@media @medium-max {
+		align-items: flex-start;
+	}
 }
 
 .toolTipContent {
