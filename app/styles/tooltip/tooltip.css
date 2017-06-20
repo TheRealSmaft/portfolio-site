@@ -33,6 +33,8 @@
 }
 @media only screen and (max-width: 992px) {
   .toolTip {
+    margin-top: 30px;
+    margin-bottom: 30px;
     align-items: flex-start;
   }
 }

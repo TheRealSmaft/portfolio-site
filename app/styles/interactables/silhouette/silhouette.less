@@ -26,6 +26,7 @@
 	border-left: 8px solid rgb(160,160,200);
 
 	div {
+		float: left;
 		width: 25%;
 		height: 50px;
 		text-align: center;
@@ -55,11 +56,13 @@
 
 .dummyMobile {
 	display: none;
+	float: left;
 	width: 100%;
 	line-height: 40px;
 
 	div:first-of-type {
 		position: static;
+		float: left;
 		font-size: 200%;
 		font-weight: bold;
 		text-align: center;
@@ -80,9 +83,11 @@
 
 	div:last-of-type {
 		position: static;
+		float: left;
 		width: calc(120% - 40px);
 
 		span {
+			float: left;
 			width: 50%;
 			height: 40px;
 			text-align: center;
@@ -141,10 +146,6 @@
 
 .emergencyPanelContainer {
 	position: relative;
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
 	perspective: 700;
 
 	top: -100px;
@@ -161,6 +162,10 @@
 
 .emergencyPanel {
 	padding: 10px;
+	width: 300px;
+	margin-left: calc(50% - 150px);
+	margin-left: -webkit-calc(50% - 150px);
+	margin-left: -moz-calc(50% - 150px);
 
 	color: white;
 	background-color: red;
@@ -181,6 +186,7 @@
 
 	@media @extra-small-max {
 		width: 60%;
+		margin-left: 20%;
 	}
 }
 
@@ -216,17 +222,15 @@
 
 .knifeCubby {
 	position: absolute;
+	left: calc(50% - 60px);
+	left: -webkit-calc(50% - 60px);
+	left: -moz-calc(50% - 60px);
 	top: 0px;
 	padding: 8px;
 	box-shadow: inset 0px 0px 20px black;
 	border: 2px solid rgb(150,150,150);
 
 	z-index: -1;
-
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
 
 	background-color: rgb(100,100,100);
 }
