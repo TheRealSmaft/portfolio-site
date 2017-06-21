@@ -1,5 +1,4 @@
 import { browserHistory } from 'react-router';
-import uncrumpleEvents from '../../images/items/Paper/uncrumpleEvents';
 
 var aboutLink = {
 	name: 'About Link',
@@ -119,11 +118,11 @@ var paper = {
 	}
 };
 
-var uncrumpleMoments = [];
-
-for(var i = 1; i < uncrumpleEvents.length; i++) {
-	uncrumpleMoments.push(i);
-}
+var uncrumpleEvents = [
+	function(target) {
+		target.src = require('../../images/items/Paper/Crumple.gif');
+	}
+];
 
 var crumpledPaper = {
 	name: 'Crumpled Paper',
@@ -134,11 +133,10 @@ var crumpledPaper = {
 	status: 'inventory',
 	examinable: true,
 	examineImage: require('../../images/items/Paper/CrumpledPaperExaminable.png'),
-	eventCount: uncrumpleEvents.length,
 	deferredEvents: {
 		events: uncrumpleEvents,
-		moments: uncrumpleMoments,
-		increment: 34,
+		moments: [0],
+		increment: 3200,
 		loop: false,
 		fireCondition: 'uncrumplePaper',
 		eventToTrigger: 'updatePaper'

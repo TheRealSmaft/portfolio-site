@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, DeferredEventExecutor } from '../../Containers';
-import { Tooltip } from '../../Containers/GameContainers';
 
 import { modeActions, modeTypes } from '../../../state/game/mode';
 import { itemTypes, itemActions } from '../../../state/game/items';
@@ -15,7 +14,7 @@ import { LoadingPageStyles } from '../../../styles/pages';
 
 import BodyMovin from '../../../plugins/bodymovin.min';
 
-import uncrumpleEvents from '../../../assets/images/items/Paper/uncrumpleEvents';
+import itemList from '../../../assets/gameObjects/items';
 
 const LoadingPage = React.createClass({
 	getInitialState() {
@@ -46,60 +45,7 @@ const LoadingPage = React.createClass({
 			}
 		];
 
-		var uncrumpleMoments = [];
-
-		for(var i = 1; i < uncrumpleEvents.length; i++) {
-			uncrumpleMoments.push(i);
-		}
-
-		this.paperItem = {
-			name: 'Crumpled Paper',
-			collectableImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
-			inventoryImage: require('../../../assets/images/items/Paper/CrumpledPaper.png'),
-			width: '100px',
-			maxWidth: '600px',
-			status: 'inventory',
-			examinable: true,
-			examineImage: require('../../../assets/images/items/Paper/CrumpledPaperExaminable.png'),
-			eventCount: uncrumpleEvents.length,
-			deferredEvents: {
-				events: uncrumpleEvents,
-				moments: uncrumpleMoments,
-				increment: 34,
-				loop: false,
-				fireCondition: 'uncrumplePaper',
-				eventToTrigger: 'updatePaper'
-			},
-			eventToFire: 'uncrumplePaper',
-			changeAfterEvent: true,
-			nextItemState: {
-				name: 'Paper',
-				collectableImage: require('../../../assets/images/items/Paper/Paper.png'),
-				inventoryImage: require('../../../assets/images/items/Paper/Paper.png'),
-				width: '100px',
-				maxWidth: '600px',
-				status: 'inventory',
-				examinable: true,
-				examineImage: require('../../../assets/images/items/Paper/PaperExaminable.png'),
-				deferredEvents: {
-					events: [],
-					moments: []
-				},
-				hasTriggerZone: true,
-				triggerItem: "Pencil",
-				fireCondition: 'PencilUsed',
-				eventToFire: 'PencilUsed',
-				password: this.props.mode.password,
-				animationToTrigger: {
-					animationData: require('../../../assets/images/items/Pencil/PencilWriting.json'),
-					path: '../Pencil',
-					loop: false,
-					autoplay: false,
-					name: 'penclWriting',
-					renderer: 'svg'
-				}
-			}
-		};
+		this.paperItem = itemList.crumpledPaper;
 	},
 
 	componentDidMount() {
@@ -108,7 +54,7 @@ const LoadingPage = React.createClass({
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../assets/images/interactables/LoadingGears',
-			loop: 3,
+			loop: 2,
 			autoplay: true,
 			name: 'loadingGears',
 			renderer: 'svg' ,
@@ -236,10 +182,6 @@ const LoadingPage = React.createClass({
 					>
 					</div>
 				</div>
-				<Tooltip 
-					delay={1000}
-
-				/>
 			</div>
 		)
 	}

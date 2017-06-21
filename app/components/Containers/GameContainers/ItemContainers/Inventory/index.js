@@ -243,8 +243,8 @@ const Inventory = React.createClass({
 		this.examinable = item;
 	},
 
-	combineItems(name) {
-		if(this.props.items.draggable === 'Pencil' && name === 'Paper') 
+	combineItems(item) {
+		if(this.props.items.draggable === 'Pencil' && item.name === 'Paper') 
 		{
 			this.props.toggleItemExamine('Paper');
 			setTimeout(() => {
@@ -252,13 +252,21 @@ const Inventory = React.createClass({
 				this.props.changeItemStatus('Pencil', 'used');
 			}, 50);
 		}
-		else if(this.props.items.draggable === 'Glue' && name === 'Broken Link') 
+		else if(this.props.items.draggable === 'Glue' && item.name === 'Broken Link') 
 		{
 			this.props.toggleItemExamine('Broken Link');
 			setTimeout(() => {
 				this.props.addEventToFiredArray('GlueUsed');
 				this.props.changeItemStatus('Glue', 'used');
 			}, 50);
+		}
+		else if(this.props.items.examinable === null)
+		{
+			this.examineItem(item);
+		}
+		else
+		{
+			this.props.toggleItemExamine();
 		}
 	},
 
@@ -285,16 +293,16 @@ const Inventory = React.createClass({
 					(
 					<div
 						ref={item.name}
+						onClick={() => {this.combineItems(item)}}
 					>
 						<img
+							className={InventoryStyles.hover}
 							alt={item.name}
 							src={item.inventoryImage}
-							onClick={() => {this.combineItems(item.name)}}
 						/>
 						<img
 							className={item.name === 'Broken Link' || item.name === 'About Link' ? InventoryStyles.aboutLink : InventoryStyles.examineButton}
 							src={require('../../../../../assets/images/interactables/Inventory/ExaminableButton.svg')}
-							onClick={() => {this.examineItem(item)}}
 						/>
 					</div>
 					)

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import { ResponsiveContainer, Grid, Row, Col, DeferredEventExecutor } from '../../Containers';
@@ -19,7 +19,8 @@ const ContactPage = React.createClass({
 			lastName: '',
 			email: '',
 			phone: '',
-			message: ''
+			message: '',
+			formValid: false
 		}
 	},
 
@@ -40,29 +41,74 @@ const ContactPage = React.createClass({
 		const value = target.value;
 		const name = target.name;
 
+		if(name != 'phone' && value != '') {
+			this.refs[name].classList.remove(ContactPageStyles.invalidInput);
+		}
+
 		this.setState({
 			[name]: value
 		});
+
+		this.validateForm();
+	},
+
+	validateForm() {
+		if(this.state.firstName != '' &&
+			this.state.lastName != '' &&
+			this.state.email != '' &&
+			this.state.message != '') {
+			this.setState({
+				formValid: true
+			});
+
+			this.refs.formInvalidText.style.display = 'none';
+		}
+		else
+		{
+			this.setState({
+				formValid: false
+			});
+		}
 	},
 
 	submitForm() {
-		var post = new XMLHttpRequest();
-		post.open("POST", '../../../db/mailer.php');
-		post.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		this.validateForm();
+		if(this.state.formValid) {
+			var post = new XMLHttpRequest();
+			post.open("POST", '../../../db/mailer.php');
+			post.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	
+			var form = {
+				firstName: this.state.firstName,
+				lastName: this.state.lastName,
+				email: this.state.email,
+				phone: this.state.phone,
+				message: this.state.message
+			};
+	
+			var data = JSON.stringify(form);
+			post.send(data);
+	
+			this.refs.form.style.display = 'none';
+			this.refs.thanks.style.display = 'block';
+		}
+		else
+		{
+			if(this.state.firstName === '') {
+				this.refs.firstName.classList.add(ContactPageStyles.invalidInput);
+			}
+			if(this.state.lastName === '') {
+				this.refs.lastName.classList.add(ContactPageStyles.invalidInput);
+			}
+			if(this.state.email === '') {
+				this.refs.email.classList.add(ContactPageStyles.invalidInput);
+			}
+			if(this.state.message === '') {
+				this.refs.message.classList.add(ContactPageStyles.invalidInput);
+			}
 
-		var form = {
-			firstName: this.state.firstName,
-			lastName: this.state.lastName,
-			email: this.state.email,
-			phone: this.state.phone,
-			message: this.state.message
-		};
-
-		var data = JSON.stringify(form);
-		post.send(data);
-
-		this.refs.form.style.display = 'none';
-		this.refs.thanks.style.display = 'block';
+			this.refs.formInvalidText.style.display = 'block';
+		}
 	},
 
 	render() {
@@ -83,7 +129,20 @@ const ContactPage = React.createClass({
 					</div>
 					<div
 						ref="form"
+						className={ContactPageStyles.formContainer}
 					>
+						<h3>
+							Hit Me Up!
+						</h3>
+						<p>
+							If you liked what you've seen in&nbsp;
+							<Link
+								to='/portfolio'
+							>
+								my portfolio
+							</Link>
+							, send me a message!
+						</p>
 						<form className={ContactPageStyles.form}>
 							<fieldset>
 								<div>
@@ -92,6 +151,7 @@ const ContactPage = React.createClass({
 									</label>
 									<input 
 										type="text" 
+										ref="firstName" 
 										name="firstName" 
 										id="firstName"
 										onChange={this.handleInputChange}
@@ -103,6 +163,7 @@ const ContactPage = React.createClass({
 									</label>
 									<input 
 										type="text" 
+										ref="lastName" 
 										name="lastName" 
 										id="lastName"
 										onChange={this.handleInputChange}
@@ -116,6 +177,7 @@ const ContactPage = React.createClass({
 									</label>
 									<input 
 										type="email" 
+										ref="email" 
 										name="email" 
 										id="email"
 										onChange={this.handleInputChange}
@@ -126,7 +188,7 @@ const ContactPage = React.createClass({
 										Phone:
 									</label>
 									<input 
-										type="phone" 
+										type="text" 
 										name="phone" 
 										id="phone"
 										onChange={this.handleInputChange}
@@ -139,6 +201,7 @@ const ContactPage = React.createClass({
 										Message:
 									</label>
 									<textarea 
+										ref="message" 
 										name="message" 
 										id="message"
 										onChange={this.handleInputChange}
@@ -170,6 +233,16 @@ const ContactPage = React.createClass({
 								}
 							</div>
 						</form>
+						<p
+							ref="formInvalidText"
+							style={{
+								color: 'red',
+								display: 'none',
+								marginLeft: '10px'
+							}}
+						>
+							Please fill out required fields!
+						</p>
 					</div>
 					<div
 						ref="thanks"

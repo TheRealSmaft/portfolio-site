@@ -18,7 +18,7 @@ const render = (App) => {
 	ReactDOM.render(
 		<AppContainer>
 			<Provider store={store}>
-				<Router history={browserHistory} routes={routes}/>
+				<Router history={browserHistory} routes={routes} onUpdate={() => window.scrollTo(0, 0)}/>
 			</Provider>
 		</AppContainer>,
 	 	app

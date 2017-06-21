@@ -3,7 +3,7 @@ export default [
 		head: 'What is Happening on this Website?!',
 		body: [
 			'My name is Matthew Brubaker Smith and this is my graphic/web design portfolio site.',
-			'Only it is not just a site, it is also a game. While playing the game, much of the site is intentionally inaccessable.',
+			'Only it is not just a site, it is also a game. While playing the game, much of the site is intentionally inaccessible.',
 			'You can access the full site by either beating the game or opting out of playing by clicking the Skip Game button below.',
 			'The game is a major component of my portfolio, so I hope you choose to play. It should not take longer than 15 minutes to complete.'
 		],

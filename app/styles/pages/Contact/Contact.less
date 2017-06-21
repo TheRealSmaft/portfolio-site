@@ -27,6 +27,10 @@
 	}
 }
 
+.formContainer {
+	margin-bottom: 75px;
+}
+
 .form {
 	position: relative;
 	z-index: 44;
@@ -38,13 +42,6 @@
 	border-bottom: 8px solid rgb(200,200,240);
 	border-right: 8px solid rgb(120,120,150);
 	border-left: 8px solid rgb(160,160,200);
-
-	margin-top: 75px;
-	margin-bottom: 75px;
-
-	@media @small-max {
-		margin-top: 0px;
-	}
 
 	fieldset {
 		display: flex;
@@ -62,6 +59,10 @@
 		resize: none;
 		height: 100px;
 	}
+}
+
+.invalidInput {
+	outline: 1px solid red;
 }
 
 .submitButton {
