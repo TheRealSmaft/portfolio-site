@@ -131,9 +131,6 @@ const ContactPage = React.createClass({
 						ref="form"
 						className={ContactPageStyles.formContainer}
 					>
-						<h3>
-							Hit Me Up!
-						</h3>
 						<p>
 							If you liked what you've seen in&nbsp;
 							<Link
