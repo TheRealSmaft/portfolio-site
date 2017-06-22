@@ -33,6 +33,14 @@ const ContactPage = React.createClass({
 				this.props.mode.progressLevel < 8) {
 				browserHistory.replace('/home');
 			}
+
+			this.fakeInfo = {
+				firstName: 'Blorty',
+				lastName: 'McBlortface',
+				email: 'chumbawumbafan4life@netscape.net',
+				phone: 'none',
+				message: 'This site is both wiggity and regular-type whack!'
+			};
 		}
 	},
 
@@ -41,15 +49,28 @@ const ContactPage = React.createClass({
 		const value = target.value;
 		const name = target.name;
 
-		if(name != 'phone' && value != '') {
-			this.refs[name].classList.remove(ContactPageStyles.invalidInput);
+		if(this.props.mode.gameMode) {
+			this.formShenanigans(name);
 		}
+		else
+		{
+			if(name != 'phone' && value != '') {
+				this.refs[name].classList.remove(ContactPageStyles.invalidInput);
+			}
 
-		this.setState({
-			[name]: value
-		});
+			this.setState({
+				[name]: value
+			});
 
-		this.validateForm();
+			this.validateForm();
+		}
+	},
+
+	formShenanigans(name) {
+		var target = this.refs[name];
+		var tl = target.value.length;
+
+		target.value = this.fakeInfo[name].substr(0, tl);
 	},
 
 	validateForm() {
@@ -115,148 +136,152 @@ const ContactPage = React.createClass({
 		return (
 			<ResponsiveContainer>
 				<div
-					className={ContactPageStyles.sceneAndForm}
+					className={ContactPageStyles.abductionScene}
 				>
-					<div>
-						<h1
-							style={{
-								background: 'url(' + underline + ') no-repeat',
-							}}
-						>
-							Contact Me
-						</h1>
-						<Abduction />
-					</div>
-					<div
-						ref="form"
-						className={ContactPageStyles.formContainer}
-					>
-						<p>
-							If you liked what you've seen in&nbsp;
-							<Link
-								to='/portfolio'
-							>
-								my portfolio
-							</Link>
-							, send me a message!
-						</p>
-						<form className={ContactPageStyles.form}>
-							<fieldset>
-								<div>
-									<label for="firstName">
-										First Name:
-									</label>
-									<input 
-										type="text" 
-										ref="firstName" 
-										name="firstName" 
-										id="firstName"
-										onChange={this.handleInputChange}
-									/>
-								</div>
-								<div>
-									<label for="lastName">
-										Last Name:
-									</label>
-									<input 
-										type="text" 
-										ref="lastName" 
-										name="lastName" 
-										id="lastName"
-										onChange={this.handleInputChange}
-									/>
-								</div>
-							</fieldset>
-							<fieldset>
-								<div>
-									<label for="email">
-										Email:
-									</label>
-									<input 
-										type="email" 
-										ref="email" 
-										name="email" 
-										id="email"
-										onChange={this.handleInputChange}
-									/>
-								</div>
-								<div>
-									<label for="phone">
-										Phone:
-									</label>
-									<input 
-										type="text" 
-										name="phone" 
-										id="phone"
-										onChange={this.handleInputChange}
-									/>
-								</div>
-							</fieldset>
-							<fieldset>
-								<div>
-									<label for="message">
-										Message:
-									</label>
-									<textarea 
-										ref="message" 
-										name="message" 
-										id="message"
-										onChange={this.handleInputChange}
-									/>
-								</div>
-							</fieldset>
-							<div
-								className={ContactPageStyles.submitButton}
-							>
-								{this.props.mode.gameMode ? (
-										<img
-											src={require('../../../assets/images/interactables/ContactForm/ButtonGlue.svg')}
-										/>
-									) : ''
-								}
-								{this.props.mode.gameMode ? (
-										<button disabled>
-											Submit
-										</button>
-									) :
-									(
-										<button
-											type="button"
-											onClick={this.submitForm}
-										>
-											Submit
-										</button>
-									)
-								}
-							</div>
-						</form>
-						<p
-							ref="formInvalidText"
-							style={{
-								color: 'red',
-								display: 'none',
-								marginLeft: '10px'
-							}}
-						>
-							Please fill out required fields!
-						</p>
-					</div>
-					<div
-						ref="thanks"
+					<h1
 						style={{
-							display: 'none'
+							background: 'url(' + underline + ') no-repeat',
 						}}
 					>
-						<h1>
-							Thank you!
-						</h1>
-						<p>
-							Your message has been sent!
-						</p>
-						<p>
-							I appreciate you reaching out to me and I will get back to you as soon as possible!
-						</p>
-					</div>
+						Contact Me
+					</h1>
+					<Abduction />
+				</div>
+				<div
+					ref="form"
+					className={ContactPageStyles.formContainer}
+				>
+					<p>
+						If you liked what you've seen in&nbsp;
+						<Link
+							to='/portfolio'
+						>
+							my portfolio
+						</Link>
+						, send me a message!
+					</p>
+					<form 
+						className={ContactPageStyles.form}
+						style={{
+							transform: this.props.mode.gameMode ? 'rotateZ(-2deg)' : ''
+						}}
+					>
+						<fieldset>
+							<div>
+								<label for="firstName">
+									First Name:
+								</label>
+								<input 
+									type="text" 
+									ref="firstName" 
+									name="firstName" 
+									id="firstName"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+							<div>
+								<label for="lastName">
+									Last Name:
+								</label>
+								<input 
+									type="text" 
+									ref="lastName" 
+									name="lastName" 
+									id="lastName"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+						</fieldset>
+						<fieldset>
+							<div>
+								<label for="email">
+									Email:
+								</label>
+								<input 
+									type="email" 
+									ref="email" 
+									name="email" 
+									id="email"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+							<div>
+								<label for="phone">
+									Phone:
+								</label>
+								<input 
+									ref="phone"
+									type="text" 
+									name="phone" 
+									id="phone"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+						</fieldset>
+						<fieldset>
+							<div>
+								<label for="message">
+									Message:
+								</label>
+								<textarea 
+									ref="message" 
+									name="message" 
+									id="message"
+									onChange={this.handleInputChange}
+								/>
+							</div>
+						</fieldset>
+						<div
+							className={ContactPageStyles.submitButton}
+						>
+							{this.props.mode.gameMode ? (
+									<img
+										src={require('../../../assets/images/interactables/ContactForm/ButtonGlue.svg')}
+									/>
+								) : ''
+							}
+							{this.props.mode.gameMode ? (
+									<button disabled>
+										Submit
+									</button>
+								) :
+								(
+									<button
+										type="button"
+										onClick={this.submitForm}
+									>
+										Submit
+									</button>
+								)
+							}
+						</div>
+					</form>
+					<p
+						ref="formInvalidText"
+						style={{
+							color: 'red',
+							display: 'none',
+							marginLeft: '10px'
+						}}
+					>
+						Please fill out required fields!
+					</p>
+				</div>
+				<div
+					ref="thanks"
+					style={{
+						display: 'none'
+					}}
+				>
+					<h1>
+						Thank you!
+					</h1>
+					<p>
+						Your message has been sent!
+					</p>
+					<p>
+						I appreciate you reaching out to me and I will get back to you as soon as possible!
+					</p>
 				</div>
 			</ResponsiveContainer>
 		);

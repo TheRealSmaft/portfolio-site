@@ -1,34 +1,33 @@
-.sceneAndForm {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
+.abductionScene {
+  width: 50%;
+  margin-right: 5%;
+  margin-top: 20px;
+  pointer-events: none;
+  display: inline-block;
+  float: left;
 }
-@media only screen and (max-width: 768px) {
-  .sceneAndForm {
-    flex-flow: column nowrap;
-  }
-}
-.sceneAndForm div {
-  position: static;
-  flex: 1;
-}
-.sceneAndForm div h1 {
+.abductionScene h1 {
   background-size: 200px 20% !important;
   background-position: 0% 70% !important;
   height: 60px;
   margin-bottom: 0px;
 }
 @media only screen and (max-width: 768px) {
-  .sceneAndForm div {
+  .abductionScene {
     width: 100%;
+    margin-right: 0px;
   }
 }
 .formContainer {
   margin-top: 75px;
   margin-bottom: 75px;
+  display: inline-block;
+  float: left;
+  width: 45%;
 }
 @media only screen and (max-width: 768px) {
   .formContainer {
+    width: 100%;
     margin-top: 0px;
   }
 }

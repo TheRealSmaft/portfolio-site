@@ -91,6 +91,11 @@ const Abduction = React.createClass({
 		{
 			this.ufoArrives();
 		}
+
+		this.refs.silhouette.style.pointerEvents = 'none';
+		this.refs.carrot.style.pointerEvents = 'none';
+		this.refs.alienContact.style.pointerEvents = 'none';
+		this.refs.tractorBeam.style.pointerEvents = 'none';
 	},
 
 	componentWillUnmount() {
@@ -145,6 +150,7 @@ const Abduction = React.createClass({
 		};
 
 		this.carrot = BodyMovin.loadAnimation(carrotAnimationData);
+		this.refs.carrot.style.width = '100%';
 
 		if(this.props.mode.gameMode &&
 			this.props.mode.progressLevel < 9) {
@@ -166,7 +172,8 @@ const Abduction = React.createClass({
 			container: ReactDOM.findDOMNode(this.refs.tractorBeam)
 		};
 
-		this.tractorBeam = BodyMovin.loadAnimation(tractorBeam);		
+		this.tractorBeam = BodyMovin.loadAnimation(tractorBeam);	
+		this.refs.tractorBeam.style.width = '100%';	
 	},
 
 	silhouetteAbduction() {
@@ -182,15 +189,12 @@ const Abduction = React.createClass({
 
 		this.silhouetteChewing.destroy();
 		this.silhouetteAbduction = BodyMovin.loadAnimation(silhouetteAbduction);
+		this.refs.silhouette.style.width = '100%';
 		this.silhouetteAbduction.addEventListener('complete', this.makeBrokenLinkClickable);
 	},
 
 	makeBrokenLinkClickable() {
 		this.silhouetteAbduction.removeEventListener('complete', this.makeBrokenLinkClickable);
-		this.refs.silhouette.style.pointerEvents = 'none';
-		this.refs.carrot.style.pointerEvents = 'none';
-		this.refs.alienContact.style.pointerEvents = 'none';
-		this.refs.tractorBeam.style.pointerEvents = 'none';
 		this.brokenLink = this.refs.silhouette.firstChild.childNodes[1].childNodes[3];
 		this.brokenLink.style.pointerEvents = 'auto';
 		this.brokenLink.classList.add(ContactPageStyles.itemHover);
@@ -246,7 +250,8 @@ const Abduction = React.createClass({
 						style={{
 							position: 'absolute',
 							top: '0px',
-							left: '0px'
+							left: '0px',
+
 						}}
 					>
 					</div>

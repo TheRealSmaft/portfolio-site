@@ -15,4 +15,8 @@
 .app h6 {
   font-family: 'Bitter', serif;
 }
+.app input,
+.app textarea {
+  font-size: 17px;
+}
 /*# sourceMappingURL=app.css.map */

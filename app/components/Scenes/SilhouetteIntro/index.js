@@ -247,6 +247,23 @@ const SilhouetteIntroScene = React.createClass({
 		panel.style.pointerEvents = "none";
 	},
 
+	handleKeyDown(e) {
+		if(e.keyCode === 13) {
+			this.emergencyPanelSubmit();
+		}
+		if(this.wrongPassword &&
+			e.keyCode != 8 &&
+			e.keyCode != 13) {
+			this.wrongPassword = false;
+			this.refs.emergencyInput.style.color = 'black';
+			this.refs.emergencyInput.style.fontWeight = 'normal';
+		}
+	},
+
+	handleFocus: function(e) {
+		e.target.select();
+	},
+
 	emergencyPanelSubmit() {
 		var panel = ReactDOM.findDOMNode(this.refs.emergencyPanel).firstChild.firstChild;
 		if(panel.childNodes[1].value === this.props.mode.password) {
@@ -256,6 +273,13 @@ const SilhouetteIntroScene = React.createClass({
 			this.props.changeItemStatus('Pencil', 'used');
 
 			this.props.updateGameProgress(4);
+		}
+		else
+		{	
+			this.wrongPassword = true;
+			this.refs.emergencyInput.style.color = 'red';
+			this.refs.emergencyInput.style.fontWeight = 'bold';
+			this.refs.emergencyInput.value = 'WRONG!'
 		}
 	},
 
@@ -286,9 +310,12 @@ const SilhouetteIntroScene = React.createClass({
 									Emergency?&nbsp;
 								</label>
 								<input 
+									ref="emergencyInput"
 									name="emergencyInput"
 									type="text"
-									placeholder="ENTER PASSWORD"
+									placeholder="PASSWORD"
+									onKeyDown={this.handleKeyDown}
+									onFocus={this.handleFocus}
 								/>
 								&nbsp;
 								<button

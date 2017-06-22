@@ -124,7 +124,7 @@ const PortfolioPiece = React.createClass({
 	render() {
 		return (
 			<div
-				className={PortfolioPageStyles.pieceGrid}
+				className={PortfolioPageStyles.pieceRow}
 			>
 				<div
 					ref="pieceImage"

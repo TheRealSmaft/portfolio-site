@@ -50,6 +50,9 @@ const LoadingPage = React.createClass({
 
 	componentDidMount() {
 		ReactDOM.findDOMNode(this.refs.loadingGears).style.pointerEvents = 'none';
+		if(window.innerWidth < 992) {
+			BodyMovin.setQuality('medium');
+		}
 
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
@@ -83,6 +86,7 @@ const LoadingPage = React.createClass({
 		this.loadingGears.destroy();
 
 		this.breakingGears = BodyMovin.loadAnimation(animationData);
+		this.refs.loadingGears.style.width = '100%';
 		this.breakingGears.addEventListener('complete', this.makePaperClickable);
 		this.changeEllipsisGlyph('?');
 	},
@@ -102,6 +106,7 @@ const LoadingPage = React.createClass({
 		this.breakingGears.destroy();
 
 		this.fixedGears = BodyMovin.loadAnimation(animationData);
+		this.refs.loadingGears.style.width = '100%';
 		this.fixedGears.addEventListener('complete', this.turboChargeGears);
 	},
 
@@ -126,6 +131,7 @@ const LoadingPage = React.createClass({
 		this.fixedGears.destroy();
 
 		this.turboChargedGears = BodyMovin.loadAnimation(animationData);
+		this.refs.loadingGears.style.width = '100%';
 		this.turboChargedGears.setSpeed(4);
 		this.changeEllipsisGlyph('!');
 
@@ -177,9 +183,12 @@ const LoadingPage = React.createClass({
 						</span>
 					</h1>
 					<div
-						ref="loadingGears"
 						className={LoadingPageStyles.gears}
 					>
+						<div
+							ref="loadingGears"
+						>
+						</div>
 					</div>
 				</div>
 			</div>
