@@ -120,7 +120,7 @@ const AboutPage = React.createClass({
 								className={AboutPageStyles.moreButton}
 								onClick={this.nextParagraph}
 								style={{
-									display: this.props.mode.gameMode ? 'none' : 'flex'
+									display: this.props.mode.gameMode ? 'none' : 'block'
 								}}
 							>
 								{this.state.aboutIndex != 3 ? 'Read More' : 'From the Top'}

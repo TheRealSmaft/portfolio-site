@@ -1,39 +1,53 @@
 .grid {
   width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
   margin-top: 30px;
 }
 .row {
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
+  height: 400px;
   perspective: 700;
   transition: 200ms ease-out;
-}
-.row:not(:last-of-type) {
   margin-bottom: 50px;
 }
-.picCol,
-.sectionImg {
-  min-width: 30%;
-  max-width: 100%;
-  flex-basis: 400px;
-  margin-right: 30px;
+@media only screen and (max-width: 992px) {
+  .row {
+    height: auto;
+  }
 }
-@media only screen and (max-width: 768px) {
-  .picCol,
+.sectionImg {
+  width: 40%;
+  margin-right: 5%;
+  position: relative;
+  float: left;
+  display: inline-block;
+}
+@media only screen and (max-width: 992px) {
   .sectionImg {
+    width: 80%;
+    margin-left: 10%;
     margin-right: 0px;
   }
 }
+@media only screen and (max-width: 480px) {
+  .sectionImg {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
 .textCol {
-  flex: 1 0 calc(10%);
-  min-width: 200px;
-  transition: 200ms ease-out;
+  width: 45%;
+  height: 100%;
+  transition: 200ms opacity ease-out;
+  float: left;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+@media only screen and (max-width: 992px) {
+  .textCol {
+    width: 100%;
+    margin-bottom: 75px;
+  }
 }
 .textCol h1 {
   background-size: 200px 20% !important;
@@ -41,34 +55,31 @@
   height: 60px;
   margin-bottom: 0px;
 }
-.textCol div {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
 .textCol div h2 {
-  display: inline-flex;
+  text-indent: 54px;
   white-space: nowrap;
   background-size: 100% 20% !important;
   background-position: 0% 75% !important;
   height: 50px;
+  margin-bottom: 0px;
+}
+@media only screen and (max-width: 480px) {
+  .textCol div h2 {
+    text-indent: 0px;
+  }
 }
 .textCol ul {
   list-style-position: inside;
 }
-.sectionImg {
-  position: relative;
-}
 .skillList {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .skillList li {
   flex: 1 0 200px;
-  max-width: 50%;
-  min-width: 200px;
   margin: 0;
+  white-space: nowrap;
 }
 .hand {
   position: absolute;
@@ -151,6 +162,7 @@
   margin-bottom: 15px;
   text-decoration: none;
   text-shadow: #854629 0px 1px 0px;
+  width: 200px;
   transition: 200ms ease-out;
 }
 /*# sourceMappingURL=About.css.map */
