@@ -55,6 +55,12 @@ const HomePage = React.createClass({
 		this.getWelcome();
 	},
 
+	componentDidMount() {
+		setTimeout(() => {
+			this.refs.portfolio.style.opacity = 1;
+		}, 1000);
+	},	
+
 	componentWillUpdate() {
 		if(this.props.mode.justBeatGame ||
 			this.props.mode.justSkippedGame) {
@@ -197,7 +203,12 @@ const HomePage = React.createClass({
 					{this.welcome}
 				</div>
 				<div
+					ref="portfolio"
 					className={HomePageStyles.portPreview}
+					style={{
+						opacity: 0
+						
+					}}
 				>
 					{port}
 				</div>

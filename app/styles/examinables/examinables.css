@@ -35,8 +35,23 @@
   align-items: center;
   pointer-events: none;
 }
-.animationContainer svg {
-  max-width: 100%;
+.animationContainer div svg {
+  width: 30%;
+}
+@media only screen and (max-width: 992px) {
+  .animationContainer div svg {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .animationContainer div svg {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .animationContainer div svg {
+    width: 80%;
+  }
 }
 .paper {
   width: 30% !important;

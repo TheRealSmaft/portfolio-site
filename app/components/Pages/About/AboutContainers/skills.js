@@ -17,9 +17,7 @@ const heartSkills = [
 	'Customer Service',
 	'Marketing',
 	'Public Speaking',
-	'Copywriting',
-	'Empathy',
-	'Humor'
+	'Copywriting'
 ];
 
 const handSkills = [

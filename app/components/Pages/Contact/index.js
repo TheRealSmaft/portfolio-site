@@ -163,7 +163,7 @@ const ContactPage = React.createClass({
 					<form 
 						className={ContactPageStyles.form}
 						style={{
-							transform: this.props.mode.gameMode ? 'rotateZ(-2deg)' : ''
+							transform: this.props.mode.gameMode ? 'rotateZ(-3deg)' : ''
 						}}
 					>
 						<fieldset>

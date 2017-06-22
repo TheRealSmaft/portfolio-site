@@ -48,8 +48,20 @@
 
 	pointer-events: none;
 
-	svg {
-		max-width: 100%;
+	div svg {
+		width: 30%;
+
+		@media @medium-max {
+			width: 50%;
+		}
+
+		@media @small-max {
+			width: 70%;
+		}
+
+		@media @extra-small-max {
+			width: 80%;
+		}
 	}
 }
 

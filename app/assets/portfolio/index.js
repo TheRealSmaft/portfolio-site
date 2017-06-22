@@ -122,8 +122,8 @@ const portfolio = [
 	},
 	{
 		name: 'Carla and I Vector Portrait',
-		description: "This is a vector portrait of my beautiful wife, Carla and I. It was a tedious task to create this, but I am very proud of the result.",
-		scrambledText: "Thsi si a ectvro protaitr fo ym abtueulfi wief, Aclra dna I. It was a etdisou stak to creeat hits, ubt I am rvey ruopd of the serutl.",
+		description: "This is a vector portrait of my beautiful wife, Carla and I. It was a challenging task to create this, but I am very proud of the result.",
+		scrambledText: "Thsi si a ectvro protaitr fo ym abtueulfi wief, Aclra dna I. It was a lecignglahn stak to creeat hits, ubt I am rvey ruopd of the serutl.",
 		moreInfo: [
 			"I created this with Illustrator, elbow grease, and gumption."
 		],

@@ -29,6 +29,7 @@ const Abduction = React.createClass({
 
 				if(this.props.mode.progressLevel < 9) {
 					this.silhouetteChewing = BodyMovin.loadAnimation(silhouetteChewing);
+					this.refs.silhouette.style.width = '100%';
 				}
 
 				this.brokenLinkItem = {
@@ -116,6 +117,7 @@ const Abduction = React.createClass({
 		this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
 		this.ufoArrival.addEventListener('complete', this.ufoHover);
 		setTimeout(() => {
+			this.refs.alienContact.style.width = '100%';
 			this.ufoArrival.play();
 		}, 500);
 	},
@@ -137,6 +139,7 @@ const Abduction = React.createClass({
 		};
 
 		this.ufoHover = BodyMovin.loadAnimation(animationData);
+		this.refs.alienContact.style.width = '100%';
 		this.ufoHover.setSpeed(.25);
 
 		var carrotAnimationData = {
