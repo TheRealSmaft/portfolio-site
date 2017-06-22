@@ -21,6 +21,14 @@ const App = React.createClass({
 		document.body.style.background = 'url(' + background + ') no-repeat top left fixed';
 		document.body.style.backgroundSize = '100% 100%';
 
+		if("ontouchstart" in document.documentElement) {
+			this.touchDevice = true;
+		}
+		else
+		{
+			this.touchDevice = false;
+		}
+
 		this.props.getWindowSize();
 		this.scrollLocked = this.props.scrollState.scrollLocked;
 
@@ -68,14 +76,18 @@ const App = React.createClass({
 		if(this.props.scrollState.scrollLocked != nextProps.scrollState.scrollLocked) {
 			if(nextProps.scrollState.scrollLocked) {
 				document.body.style.overflow = "hidden";
-				if(document.body.clientHeight > window.innerHeight){
+				if(document.body.clientHeight > window.innerHeight &&
+					!this.touchDevice){
 					document.body.style.marginRight = '17px';
 					document.body.style.backgroundSize = 'calc(100% - 17px) 100%';
 				}
 			}
-			else
-			{
-				document.body.style.overflow = "";
+		}
+		else
+		{
+			document.body.style.overflow = "";
+
+			if(!this.touchDevice) {
 				document.body.style.marginRight = '0px';
 				document.body.style.backgroundSize = '100% 100%';
 			}

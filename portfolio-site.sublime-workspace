@@ -523,25 +523,7 @@
 			"file": "app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
 			"settings":
 			{
-				"buffer_size": 10867,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Scenes/SilhouetteIntro/index.js",
-			"settings":
-			{
-				"buffer_size": 12223,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/assets/images/items/Paper/passwordRandomizer.js",
-			"settings":
-			{
-				"buffer_size": 431,
+				"buffer_size": 10868,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -607,35 +589,12 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/Paper",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Contact",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Home",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Loading",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/Portfolio/PortfolioContainers/PortfolioPiece",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/Abduction",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/state/game/mode/duck",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/examinables",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/mediaQueries",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/About",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Contact",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Home",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Loading",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Portfolio",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/tooltip"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/Paper"
 	],
 	"file_history":
 	[
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro/index.js",
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/items/Paper/passwordRandomizer.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Containers/GameContainers/ItemContainers/Inventory/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/Inventory/InventorySlotSelected.svg",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/index.js",
@@ -650,7 +609,6 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/portfolio/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Pages/About/AboutContainers/skills.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Contact/Contact.less",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/components/Scenes/SilhouetteIntro/index.js",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/app/app.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/pages/Loading/Loading.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/tooltip/tooltip.less",
@@ -762,8 +720,7 @@
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/styles/animation/animation.less",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/.babelrc",
 		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/images/interactables/GlassDome/GlassDomeBackground.json",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/bundle.js",
-		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/app/assets/gameObjects/items/Pencil/index.js"
+		"/C/Users/Matthew/Documents/GitHub/site/portfolio-site/dist/bundle.js"
 	],
 	"find":
 	{
@@ -928,7 +885,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -937,15 +894,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10867,
+						"buffer_size": 10868,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4744,
-								4744
+								9917,
+								9917
 							]
 						],
 						"settings":
@@ -954,65 +911,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3360.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Scenes/SilhouetteIntro/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12223,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8022,
-								8022
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4757.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/assets/images/items/Paper/passwordRandomizer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 431,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								138,
-								138
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6660.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

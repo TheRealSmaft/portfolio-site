@@ -50,21 +50,24 @@ const LoadingPage = React.createClass({
 
 	componentDidMount() {
 		ReactDOM.findDOMNode(this.refs.loadingGears).style.pointerEvents = 'none';
-		if(window.innerWidth < 992) {
-			BodyMovin.setQuality('medium');
-		}
 
 		var animationData = {
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../assets/images/interactables/LoadingGears',
 			loop: 2,
-			autoplay: true,
+			autoplay: false,
 			name: 'loadingGears',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.loadingGears)
 		};
 
 		this.loadingGears = BodyMovin.loadAnimation(animationData);
+
+		if(window.innerWidth < 992) {
+			BodyMovin.setQuality('low');
+		}
+
+		this.loadingGears.play();
 		this.loadingGears.addEventListener('complete', this.breakGears);
 	},
 

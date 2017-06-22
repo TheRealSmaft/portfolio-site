@@ -34,6 +34,7 @@ const Tooltip = React.createClass({
 			if(this.props.mode.progressLevel != nextProps.mode.progressLevel) {
 				this.lastTip = this.tipIndex;
 				this.getTip(nextProps.mode.progressLevel);
+				this.hideToolTip();
 				this.startDelayedAppearanceTimer(tips[this.tipIndex].delay);
 			}
 		}

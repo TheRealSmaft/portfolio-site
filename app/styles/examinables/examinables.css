@@ -72,22 +72,30 @@
   }
 }
 .scribble {
-  width: 60%;
+  width: 60% !important;
   margin-top: 5%;
+}
+.scribble svg {
+  transform: translateY(70px);
+}
+@media only screen and (max-width: 768px) {
+  .scribble svg {
+    transform: translateY(70px) scale(1.5, 1.5);
+  }
 }
 @media only screen and (max-width: 992px) {
   .scribble {
-    width: 85%;
+    width: 85% !important;
   }
 }
 @media only screen and (max-width: 768px) {
   .scribble {
-    width: 100%;
+    width: 100% !important;
   }
 }
 @media only screen and (max-width: 480px) {
   .scribble {
-    width: 120%;
+    width: 120% !important;
   }
 }
 /*# sourceMappingURL=examinables.css.map */
