@@ -360,7 +360,7 @@ const Inventory = React.createClass({
 					ref="inventory"
 					className={InventoryStyles.inventory}
 					style={{
-						left: this.props.sceneState.playing || inventory.length < 1 ? '-20%' : '0px'
+						left: this.props.sceneState.playing || inventory.length < 1 ? '-100%' : '0px'
 					}}
 				>
 					{slots}
