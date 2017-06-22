@@ -261,7 +261,7 @@ const SilhouetteIntroScene = React.createClass({
 	},
 
 	handleFocus: function(e) {
-		e.target.select();
+		e.target.setSelectionRange(0, e.target.value.length);
 	},
 
 	emergencyPanelSubmit() {

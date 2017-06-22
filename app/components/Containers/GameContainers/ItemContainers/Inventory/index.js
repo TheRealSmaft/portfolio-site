@@ -15,6 +15,7 @@ import InventoryStyles from '../../../../../styles/inventory';
 import itemList from '../../../../../assets/gameObjects/items';
 
 import inventorySlot from '../../../../../assets/images/interactables/Inventory/InventorySlot.svg';
+import inventorySlotSelected from '../../../../../assets/images/interactables/Inventory/InventorySlotSelected.svg';
 
 const Inventory = React.createClass({
 	getInitialState() {
@@ -25,6 +26,13 @@ const Inventory = React.createClass({
 
 	componentWillMount() {
 		this.getInventoryItems();
+		if("ontouchstart" in document.documentElement) {
+			this.touchDevice = true;
+		}
+		else
+		{
+			this.touchDevice = false;
+		}
 
 		this.draggable = null;
 		this.dragNode = null;
@@ -155,36 +163,42 @@ const Inventory = React.createClass({
 			this.draggable = name;
 			this.props.toggleItemDrag(name);
 			this.appendDraggableToDocumentBody();
-			this.startTrackingMouse();
+			if(!this.touchDevice) {	
+				this.startTrackingMouse();
+			}
+			this.originalParentNode.parentNode.style.background = `url(${inventorySlotSelected})`;
 		}
 	},
 
 	stopDraggingItem() {
-		this.stopTrackingMouse();
+		if(!this.touchDevice) {	
+			this.stopTrackingMouse();
+		}
 		this.appendDraggableToOriginalParent();
 		this.props.toggleItemDrag();
+		this.originalParentNode.parentNode.style.background = `url(${inventorySlot})`;
 	},
 
 	appendDraggableToDocumentBody() {
 		this.dragNode = this.refs[this.draggable];
 
 		this.originalWidth = this.dragNode.style.width;
+		let dragWidth = this.dragNode.firstChild.getBoundingClientRect().width;
 
 		this.dragNode.style.zIndex = 100;
-		if(this.draggable === 'Heart') {
-			this.dragNode.style.width = '130px';
-		}
-		this.dragNode.firstChild.style.maxWidth = '150px';
+		this.dragNode.firstChild.style.width = dragWidth + 'px';
 		this.dragNode.style.pointerEvents = 'none';
 
 		this.originalParentNode = this.dragNode.parentNode;
-		this.originalParentNode.removeChild(this.dragNode);
+		
+		if(!this.touchDevice) {	
+			this.originalParentNode.removeChild(this.dragNode);
+			document.body.appendChild(this.dragNode);
 
-		document.body.appendChild(this.dragNode);
-
-		this.dragNode.style.position = 'absolute';
-		this.dragNode.style.top = ((this.mousePosition[1] + this.props.scrollState.scrollY) - this.dragNode.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
-		this.dragNode.style.left = ((this.mousePosition[0] + this.props.scrollState.scrollX) - this.dragNode.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
+			this.dragNode.style.position = 'absolute';
+			this.dragNode.style.top = ((this.mousePosition[1] + this.props.scrollState.scrollY) - this.dragNode.getBoundingClientRect().height/2)/window.innerHeight * 100 + '%';
+			this.dragNode.style.left = ((this.mousePosition[0] + this.props.scrollState.scrollX) - this.dragNode.getBoundingClientRect().width/2)/window.innerWidth * 100 + '%';
+		}
 
 		document.body.style.cursor = 'none';
 
@@ -192,12 +206,15 @@ const Inventory = React.createClass({
 	},
 
 	appendDraggableToOriginalParent() {
-		this.dragNode.parentNode.removeChild(this.dragNode);
-		this.originalParentNode.appendChild(this.dragNode);
-		this.dragNode.style.position = 'static';
+		if(!this.touchDevice) {
+			this.dragNode.parentNode.removeChild(this.dragNode);
+			this.originalParentNode.appendChild(this.dragNode);
+			this.dragNode.style.position = 'static';
+		}
+
 		this.dragNode.style.pointerEvents = 'auto';
 		this.dragNode.style.width = this.originalWidth;
-		this.dragNode.firstChild.style.maxWidth = '';
+
 		document.removeEventListener('click', this.stopDraggingItem);
 		document.body.style.cursor = 'auto';
 		if(this.props.interactables.firedEvents.includes(this.draggable + 'Used')) {
