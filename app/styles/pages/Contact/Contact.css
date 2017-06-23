@@ -94,6 +94,9 @@
     margin-top: -70%;
   }
 }
+.thanksH1 {
+  padding-top: 40px;
+}
 .itemHover:hover {
   cursor: pointer;
 }

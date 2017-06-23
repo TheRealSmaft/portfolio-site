@@ -273,7 +273,9 @@ const ContactPage = React.createClass({
 						display: 'none'
 					}}
 				>
-					<h1>
+					<h1
+						className={ContactPageStyles.thanksH1}
+					>
 						Thank you!
 					</h1>
 					<p>

@@ -66,7 +66,7 @@ const LoadingPage = React.createClass({
 		if(window.innerWidth < 992) {
 			BodyMovin.setQuality('low');
 		}
-
+		this.refs.loadingGears.style.width = '100%';
 		this.loadingGears.play();
 		this.loadingGears.addEventListener('complete', this.breakGears);
 	},
@@ -80,7 +80,7 @@ const LoadingPage = React.createClass({
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsBreaking.json'),
 			path: '../../../assets/images/interactables/LoadingGears',
 			loop: false,
-			autoplay: true,
+			autoplay: false,
 			name: 'loadingGears',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.loadingGears)
@@ -89,7 +89,13 @@ const LoadingPage = React.createClass({
 		this.loadingGears.destroy();
 
 		this.breakingGears = BodyMovin.loadAnimation(animationData);
+
+		if(window.innerWidth < 992) {
+			BodyMovin.setQuality('low');
+		}
 		this.refs.loadingGears.style.width = '100%';
+
+		this.breakingGears.play();
 		this.breakingGears.addEventListener('complete', this.makePaperClickable);
 		this.changeEllipsisGlyph('?');
 	},
@@ -100,7 +106,7 @@ const LoadingPage = React.createClass({
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGearsFixed.json'),
 			path: '../../../assets/images/interactables/LoadingGears',
 			loop: false,
-			autoplay: true,
+			autoplay: false,
 			name: 'loadingGears',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.loadingGears)
@@ -109,7 +115,12 @@ const LoadingPage = React.createClass({
 		this.breakingGears.destroy();
 
 		this.fixedGears = BodyMovin.loadAnimation(animationData);
+		
+		if(window.innerWidth < 992) {
+			BodyMovin.setQuality('low');
+		}
 		this.refs.loadingGears.style.width = '100%';
+		this.fixedGears.play();
 		this.fixedGears.addEventListener('complete', this.turboChargeGears);
 	},
 
@@ -125,7 +136,7 @@ const LoadingPage = React.createClass({
 			animationData: require('../../../assets/images/interactables/LoadingGears/LoadingGears.json'),
 			path: '../../../assets/images/interactables/LoadingGears',
 			loop: true,
-			autoplay: true,
+			autoplay: false,
 			name: 'loadingGears',
 			renderer: 'svg' ,
 			container: ReactDOM.findDOMNode(this.refs.loadingGears)
@@ -134,8 +145,16 @@ const LoadingPage = React.createClass({
 		this.fixedGears.destroy();
 
 		this.turboChargedGears = BodyMovin.loadAnimation(animationData);
+
+		if(window.innerWidth < 992) {
+			BodyMovin.setQuality('low');
+		}
+
 		this.refs.loadingGears.style.width = '100%';
+
 		this.turboChargedGears.setSpeed(4);
+		this.turboChargedGears.play();
+
 		this.changeEllipsisGlyph('!');
 
 		this.props.updateGameProgress(1);
