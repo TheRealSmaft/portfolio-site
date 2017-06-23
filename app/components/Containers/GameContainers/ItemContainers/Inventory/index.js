@@ -166,7 +166,6 @@ const Inventory = React.createClass({
 			if(!this.touchDevice) {	
 				this.startTrackingMouse();
 			}
-			this.originalParentNode.parentNode.style.background = `url(${inventorySlotSelected})`;
 		}
 	},
 
@@ -176,7 +175,6 @@ const Inventory = React.createClass({
 		}
 		this.appendDraggableToOriginalParent();
 		this.props.toggleItemDrag();
-		this.originalParentNode.parentNode.style.background = `url(${inventorySlot})`;
 	},
 
 	appendDraggableToDocumentBody() {
@@ -336,7 +334,7 @@ const Inventory = React.createClass({
 					ref={'slot' + i}
 					className={InventoryStyles.slot}
 					style={{
-						background: `url(${inventorySlot})`
+						background: this.draggable === this.inventory[i].name ? `url(${inventorySlotSelected})` : `url(${inventorySlot})` 
 					}}
 				>
 					{inventory[i] ? inventory[i] : ''}
