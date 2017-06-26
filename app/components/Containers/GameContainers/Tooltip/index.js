@@ -28,11 +28,10 @@ const Tooltip = React.createClass({
 	componentDidMount() {
 		this.createTipQueryAnimation();
 
-		this.startDelayedAppearanceTimer(8000);
-
 		if(this.props.mode.progressLevel === 0) {
 			setTimeout(() => {
-				if(this.props.mode.progressLevel === 0) {
+				if(this.props.mode.progressLevel === 0 &&
+					!this.state.tipOpen) {
 					this.showToolTip();
 				}
 			}, 15000);
@@ -40,19 +39,14 @@ const Tooltip = React.createClass({
 	},
 
 	componentWillUpdate(nextProps, nextState) {
+		this.tipQueryAnimation.destroy();
+		this.createTipQueryAnimation();
+		
 		if(!this.props.mode.justBeatGame && !this.props.mode.justSkippedGame) {
 			if(this.props.mode.progressLevel != nextProps.mode.progressLevel) {
 				this.lastTip = this.tipIndex;
 				this.getTip(nextProps.mode.progressLevel);
 				this.hideToolTip();
-
-				if(this.delayedAppearance) {
-					clearTimeout(this.delayedAppearance);
-				}
-				if(this.delayedAnimation) {
-					clearTimeout(this.delayedAnimation);
-				}
-				this.startDelayedAppearanceTimer(tips[this.tipIndex].delay);
 			}
 		}
 
@@ -141,44 +135,24 @@ const Tooltip = React.createClass({
 		this.tipQueryAnimation = BodyMovin.loadAnimation(tipQuery);
 	},
 
-	startDelayedAppearanceTimer(delay) {
-		if(this.refs.tipQuery) {
-			if(this.refs.tipQuery.style.opacity == 1 &&
-				this.tipIndex != this.lastTip) {
-				this.refs.tipQuery.style.opacity = 0;
-				this.refs.tipQuery.style.pointerEvents = 'none';
-			}
-
-			this.delayedAppearance = setTimeout(() => {
-				this.showTipQuery();
-			}, delay);
-		}
-	},
-
-	showTipQuery() {
-		if(this.refs.tipQuery) {
-			clearTimeout(this.delayedAppearance);
-			this.refs.tipQuery.style.opacity = 1;
-			this.refs.tipQuery.style.pointerEvents = 'auto';
-		}
-	},
-
 	showToolTip() {
-		this.refs.toolTip.style.opacity = 1;
-		this.refs.toolTip.style.pointerEvents = 'auto';
-		this.refs.tipQuery.style.opacity = 0;
-		this.refs.tipQuery.style.pointerEvents = 'none';
-		this.props.lockScrollPosition();
-		this.setState({
-			tipOpen: true
-		});
+		if(!this.state.tipOpen) {
+			this.refs.toolTip.style.opacity = 1;
+			this.refs.toolTip.style.pointerEvents = 'auto';
+			this.props.lockScrollPosition();
+			this.setState({
+				tipOpen: true
+			});
+		}
+		else
+		{
+			this.hideToolTip();
+		}
 	},
 
 	hideToolTip() {
 		this.refs.toolTip.style.opacity = 0;
 		this.refs.toolTip.style.pointerEvents = 'none';
-		this.refs.tipQuery.style.opacity = 1;
-		this.refs.tipQuery.style.pointerEvents = 'auto';
 		this.props.unlockScrollPosition();
 		this.hideSkipButton();
 		this.setState({
