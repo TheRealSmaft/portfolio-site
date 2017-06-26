@@ -281,7 +281,9 @@ const Inventory = React.createClass({
 		}
 		else
 		{
-			this.props.toggleItemExamine();
+			if(item.name != 'Broken Link') {
+				this.props.toggleItemExamine();
+			}
 		}
 	},
 

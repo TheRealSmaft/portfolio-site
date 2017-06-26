@@ -11,6 +11,7 @@ const DeferredEventExecutor = React.createClass({
 	getInitialState() {
 		return {
 			elapsedTime: 0,
+			timer: null
 		}
 	},
 
@@ -60,7 +61,7 @@ const DeferredEventExecutor = React.createClass({
 				this.fireNextEvent();
 			}
 			
-			if(this.props.fireCondition != null && this.timer === undefined) {
+			if(this.props.fireCondition != null && this.state.timer === null) {
 				this.initializeTimer();
 			}
 		}
@@ -77,7 +78,9 @@ const DeferredEventExecutor = React.createClass({
 	},
 
 	initializeTimer() {
-		this.timer = setInterval(this.timeCounter, this.props.increment);
+		this.setState({
+			timer: setInterval(this.timeCounter, this.props.increment)
+		});
 	},
 
 	timeCounter() {
@@ -107,7 +110,7 @@ const DeferredEventExecutor = React.createClass({
 	},
 
 	stopTimer() {
-		clearInterval(this.timer);
+		clearInterval(this.state.timer);
 		if(this.props.eventToTrigger != null) {
 			this.props.addEventToFiredArray(this.props.eventToTrigger);
 		}

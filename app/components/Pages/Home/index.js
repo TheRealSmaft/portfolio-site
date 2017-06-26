@@ -56,9 +56,7 @@ const HomePage = React.createClass({
 	},
 
 	componentDidMount() {
-		setTimeout(() => {
-			this.refs.portfolio.style.opacity = 1;
-		}, 1000);
+		this.refs.portfolio.style.opacity = 1;
 	},	
 
 	componentWillUpdate() {

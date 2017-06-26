@@ -17,7 +17,8 @@ import tips from './tips';
 const Tooltip = React.createClass({
 	getInitialState() {
 		return {
-			tipOpen: false
+			tipOpen: false,
+			queryVisible: true
 		}
 	},
 
@@ -48,6 +49,12 @@ const Tooltip = React.createClass({
 				this.getTip(nextProps.mode.progressLevel);
 				this.hideToolTip();
 			}
+		}
+
+		if(this.props.sceneState.playing != nextProps.sceneState.playing) {
+			this.setState({
+				queryVisible: !nextProps.sceneState.playing
+			});
 		}
 
 		if(this.state.tipOpen && !nextState.tipOpen) {
@@ -177,6 +184,7 @@ const Tooltip = React.createClass({
 		this.props.clearEventsArray();
 		this.props.changeToSiteMode();
 		browserHistory.replace('/home');
+		window.location.reload();
 
 		setTimeout(() => {
 			this.props.justSkippedGame(false);
@@ -242,6 +250,9 @@ const Tooltip = React.createClass({
 						ref="tipQuery"
 						className={styles.tipQuery}
 						onClick={this.showToolTip}
+						style={{
+							display: this.state.queryVisible ? 'block' : 'none'
+						}}
 					>
 					</div>
 				</div>
@@ -257,7 +268,8 @@ const Tooltip = React.createClass({
 function mapStateToProps(store) {
 	return {
 		mode: store.modeState,
-		scrollState: store.scrollState
+		scrollState: store.scrollState,
+		sceneState: store.sceneState
 	}
 };
 

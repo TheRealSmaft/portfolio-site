@@ -12,6 +12,13 @@ import { ContactPageStyles } from '../../../styles/pages';
 import BodyMovin from '../../../plugins/bodymovin.min';
 
 const Abduction = React.createClass({
+	getInitialState() {
+		return {
+			arrivalTimeout: null,
+			tractorBeamTimeout: null
+		}
+	},
+
 	componentDidMount() {
 		if(this.props.mode.gameMode) {
 			if(this.props.mode.progressLevel > 7.5) {
@@ -101,6 +108,14 @@ const Abduction = React.createClass({
 
 	componentWillUnmount() {
 		BodyMovin.destroy();
+
+		if(this.state.arrivalTimeout != null) {
+			clearInterval(this.state.arrivalTimeout);
+		}
+
+		if(this.state.tractorBeamTimeout != null) {
+			clearInterval(this.state.tractorBeamTimeout);
+		}
 	},
 
 	ufoArrives() {
@@ -116,10 +131,13 @@ const Abduction = React.createClass({
 
 		this.ufoArrival = BodyMovin.loadAnimation(ufoArrival);
 		this.ufoArrival.addEventListener('complete', this.ufoHover);
-		setTimeout(() => {
-			this.refs.alienContact.style.width = '100%';
-			this.ufoArrival.play();
-		}, 500);
+
+		this.setState({
+			arrivalTimeout: setTimeout(() => {
+									this.refs.alienContact.style.width = '100%';
+									this.ufoArrival.play();
+								 }, 500)
+		});
 	},
 
 	ufoHover() {
@@ -158,9 +176,11 @@ const Abduction = React.createClass({
 		if(this.props.mode.gameMode &&
 			this.props.mode.progressLevel < 9) {
 			this.silhouetteAbduction();
-			setTimeout(() => {
-				this.useTractorBeam();
-			}, 3000);
+			this.setState({
+				tractorBeamTimeout: setTimeout(() => {
+											   this.useTractorBeam();
+										  }, 3000)
+			});
 		}
 	},
 
