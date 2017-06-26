@@ -219,9 +219,15 @@ const Examinable = React.createClass({
 		}
 
 		if(name === 'Crumpled Paper') {
+			if(this.props.mode.progressLevel === 2) {
+				this.props.updateGameProgress(2.5);
+			}
+			else if(this.props.mode.progressLevel === 3) {
+				this.props.updateGameProgress(3.5);
+			}
 			setTimeout(() => {
 				this.closeExamination();
-			}, 500)
+			}, 700)
 		}
 
 		this.item = this.item.nextItemState;

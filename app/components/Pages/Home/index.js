@@ -161,7 +161,9 @@ const HomePage = React.createClass({
 	},
 
 	viewPortfolioPiece(index) {
-		if(!this.props.mode.gameMode) {
+		if(!this.props.mode.gameMode &&
+			!this.props.mode.justBeatGame &&
+			!this.props.mode.justSkippedGame) {
 			this.props.selectModalPiece(index);
 			this.props.lockScrollPosition();
 			browserHistory.push('/portfolio');

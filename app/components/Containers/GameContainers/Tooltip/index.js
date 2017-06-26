@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
@@ -9,15 +10,24 @@ import { interactableActions, interactableTypes} from '../../../../state/game/in
 import { scrollEventActions, scrollEventTypes} from '../../../../state/events/scroll';
 
 import styles from '../../../../styles/tooltip';
+import BodyMovin from '../../../../plugins/bodymovin.min';
 
 import tips from './tips';
 
 const Tooltip = React.createClass({
+	getInitialState() {
+		return {
+			tipOpen: false
+		}
+	},
+
 	componentWillMount() {
 		this.getTip(this.props.mode.progressLevel);
 	},
 
 	componentDidMount() {
+		this.createTipQueryAnimation();
+
 		this.startDelayedAppearanceTimer(8000);
 
 		if(this.props.mode.progressLevel === 0) {
@@ -29,15 +39,30 @@ const Tooltip = React.createClass({
 		}
 	},
 
-	componentWillUpdate(nextProps) {
+	componentWillUpdate(nextProps, nextState) {
 		if(!this.props.mode.justBeatGame && !this.props.mode.justSkippedGame) {
 			if(this.props.mode.progressLevel != nextProps.mode.progressLevel) {
 				this.lastTip = this.tipIndex;
 				this.getTip(nextProps.mode.progressLevel);
 				this.hideToolTip();
+
+				if(this.delayedAppearance) {
+					clearTimeout(this.delayedAppearance);
+				}
+				if(this.delayedAnimation) {
+					clearTimeout(this.delayedAnimation);
+				}
 				this.startDelayedAppearanceTimer(tips[this.tipIndex].delay);
 			}
 		}
+
+		if(this.state.tipOpen && !nextState.tipOpen) {
+			this.props.unlockScrollPosition();
+		}
+	},
+
+	componentWillUnmount() {
+		BodyMovin.destroy();
 	},
 
 	getTip(pl) {
@@ -101,6 +126,21 @@ const Tooltip = React.createClass({
 		}
 	},
 
+	createTipQueryAnimation() {
+		var tqJson = require('../../../../assets/images/interactables/ToolTips/ToolTip.json');
+		var tipQuery = {
+			animationData: tqJson,
+			path: '../../../../assets/images/interactables/ToolTips',
+			loop: true,
+			autoplay: true,
+			name: 'tipQuery',
+			renderer: 'svg' ,
+			container: ReactDOM.findDOMNode(this.refs.tipQuery)
+		};
+
+		this.tipQueryAnimation = BodyMovin.loadAnimation(tipQuery);
+	},
+
 	startDelayedAppearanceTimer(delay) {
 		if(this.refs.tipQuery) {
 			if(this.refs.tipQuery.style.opacity == 1 &&
@@ -109,18 +149,17 @@ const Tooltip = React.createClass({
 				this.refs.tipQuery.style.pointerEvents = 'none';
 			}
 
-			setTimeout(() => {
+			this.delayedAppearance = setTimeout(() => {
 				this.showTipQuery();
 			}, delay);
 		}
 	},
 
 	showTipQuery() {
-		try {
+		if(this.refs.tipQuery) {
+			clearTimeout(this.delayedAppearance);
 			this.refs.tipQuery.style.opacity = 1;
 			this.refs.tipQuery.style.pointerEvents = 'auto';
-		}
-		catch(e) {
 		}
 	},
 
@@ -130,6 +169,9 @@ const Tooltip = React.createClass({
 		this.refs.tipQuery.style.opacity = 0;
 		this.refs.tipQuery.style.pointerEvents = 'none';
 		this.props.lockScrollPosition();
+		this.setState({
+			tipOpen: true
+		});
 	},
 
 	hideToolTip() {
@@ -139,6 +181,9 @@ const Tooltip = React.createClass({
 		this.refs.tipQuery.style.pointerEvents = 'auto';
 		this.props.unlockScrollPosition();
 		this.hideSkipButton();
+		this.setState({
+			tipOpen: false
+		});
 	},
 
 	showSkipButton() {
@@ -149,6 +194,7 @@ const Tooltip = React.createClass({
 	hideSkipButton() {
 		this.refs.showSkip.style.display = 'inline-block';
 		this.refs.skip.style.display = 'none';
+		this.props.unlockScrollPosition();
 	},
 
 	changeMode() {
@@ -193,13 +239,21 @@ const Tooltip = React.createClass({
 							{body}
 							<div>
 								<button
+									onClick={this.hideToolTip}
+									className={styles.playGameButton}
+								>
+									Keep Playing
+								</button>
+								<button
 									ref="showSkip"
+									className={styles.skipGameButton}
 									onClick={this.showSkipButton}
 								>
 									Skip Game
 								</button>
 								<button
 									ref="skip"
+									className={styles.skipGameButton}
 									onClick={this.changeMode}
 									style={{
 										display: 'none'
@@ -215,10 +269,6 @@ const Tooltip = React.createClass({
 						className={styles.tipQuery}
 						onClick={this.showToolTip}
 					>
-						<img
-							alt="Tooltip"
-							src={require('../../../../assets/images/interactables/ToolTips/ToolTip.svg')}
-						/>
 					</div>
 				</div>
 			);
@@ -232,7 +282,8 @@ const Tooltip = React.createClass({
 
 function mapStateToProps(store) {
 	return {
-		mode: store.modeState
+		mode: store.modeState,
+		scrollState: store.scrollState
 	}
 };
 

@@ -1,38 +1,40 @@
 @import "../../mediaQueries/mediaQueries.less";
 
 .loaderContainer {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-
-	@media @extra-small-max {
-		width: 90%;
-		margin-left: 5%;
-	}
+	width: 100%;
 }
 
 .loaderText {
+	text-align: center;
 	position: relative;
-	top: 20px;
-	margin: 0px;
+	top: 30px;
 	@media @extra-small-max {
 		font-size: 24px;
 	}
 }
 
 .gears {
-	max-height: 80%;
-	max-width: 1000px;
+	width: 1000px;
+	margin-left: calc((100% - 1000px) / 2);
+	
+	@media @large-max {
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	@media @medium-max {
+		width: 100%;
+		margin-left: 0px;
+	}
+
+	@media @small-max {
+		width: 120%;
+		margin-left: -10%;
+	}
 
 	@media @extra-small-max {
 		width: 140%;
-	}
-
-	div {
-		display: block;
-		width: 100%;
+		margin-left: -20%;
 	}
 }
 

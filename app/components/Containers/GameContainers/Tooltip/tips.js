@@ -4,76 +4,76 @@ export default [
 		body: [
 			'My name is Matthew Brubaker Smith and this is my graphic/web design portfolio site.',
 			'Only it is not just a site, it is also a game. While playing the game, much of the site is intentionally inaccessible.',
-			'You can access the full site by either beating the game or opting out of playing by clicking the Skip Game button below.',
-			'The game is a major component of my portfolio, so I hope you choose to play. It should not take longer than 15 minutes to complete.'
+			'To beat the game, you must collect items and solve puzzles to make your way through the broken website. If you ever need a hint, press the question mark at the top right of the browser window.',
+			'The game is a major component of my portfolio, but if you would like to skip it, press the Skip Game button below.'
 		],
 		delay: 8000
 	},
 	{
 		head: 'Need a Clue?',
 		body: [
-			'Maybe you aren\'t looking through the right lens...'
+			'Maybe you should HAVE A CLOSER LOOK.'
 		],
 		delay: 20000
 	},
 	{
 		head: 'Take Note',
 		body: [
-			'Maybe you should be writing this down.',
-			'It may be useful in an emergency...'
+			'Maybe you should be WRITING THIS DOWN.',
+			'It may be useful in an EMERGENCY...'
 		],
 		delay: 20000
 	},{
-		head: 'A Hole Nother Problem',
+		head: 'A HOLE Nother Problem',
 		body: [
-			'Aww, cut it out!',
+			'Aww, CUT it out!',
 			'You\'re sharp enough to figure this out.'
 		],
 		delay: 20000
 	},
 	{
-		head: 'Did You Lose a Contact?',
+		head: 'Did You Lose a CONTACT?',
 		body: [
-			'Slow and steady winds erase!',
+			'Slow and steady winds ERASE!',
 			'I sincerely apologize for that one...'
 		],
 		delay: 30000
 	},
 	{
-		head: 'What\'s This All About?',
+		head: 'Picking Up What I\'m Putting Down?',
 		body: [
-			'Something here looks delicious!'
+			'I\'m all ABOUT shattering expectations.'
 		],
 		delay: 30000
 	},
 	{
 		head: 'Sticky Situation',
 		body: [
-			'Seriously, what is this all about?',
-			'I can\'t quite piece it together...'
+			'Seriously, what is this all ABOUT?',
+			'I can\'t quite PIECE IT TOGETHER...'
 		],
 		delay: 20000
 	},
 	{
 		head: 'Don\'t Judge',
 		body: [
-			'Let me give you a hand.',
+			'Let me give you a HAND.',
 			'Please don\'t hold me in contempt!'
 		],
 		delay: 30000
 	},
 	{
-		head: 'Give Me a Break',
+		head: 'Give Me a BREAK',
 		body: [
-			'Or two.'
+			'Or two...'
 		],
 		delay: 20000
 	},
 	{
-		head: 'Have a Heart',
+		head: 'If I Only Had A...',
 		body: [
-			'Give it some thought.',
-			'You may find it casts some light into the shadows.'
+			'Have a HEART, if you don\'t MIND.',
+			'You may find it casts some light into the SHADOWS.'
 		],
 		delay: 20000
 	}

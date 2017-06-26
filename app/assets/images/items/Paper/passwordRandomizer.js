@@ -1,27 +1,20 @@
 const PasswordRandomizer = {
 	getPassword() {
 		var beg = [
-			'i',
-			'you',
-			'emus',
-			'no'
-		];
-
-		var mid = [
-			'cant',
-			'rulz',
-			'feel',
-			'love'
+			'ie8',
+			'evil',
+			'aol',
+			'dial-up'
 		];
 
 		var end = [
 			'4ever',
-			'ham',
+			'rulz',
 			'187',
-			'alf'
+			'isL33T'
 		];
 
-		return beg[this.getRandomNumber()] + mid[this.getRandomNumber()] + end[this.getRandomNumber()];
+		return beg[this.getRandomNumber()] + end[this.getRandomNumber()];
 	},
 
 	getRandomNumber() {

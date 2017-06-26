@@ -279,7 +279,7 @@ const SilhouetteIntroScene = React.createClass({
 			this.wrongPassword = true;
 			this.refs.emergencyInput.style.color = 'red';
 			this.refs.emergencyInput.style.fontWeight = 'bold';
-			this.refs.emergencyInput.value = 'WRONG!'
+			this.refs.emergencyInput.value = 'WRONG!!!'
 		}
 	},
 

@@ -97,7 +97,6 @@ const LoadingPage = React.createClass({
 
 		this.breakingGears.play();
 		this.breakingGears.addEventListener('complete', this.makePaperClickable);
-		this.changeEllipsisGlyph('?');
 	},
 
 	fixGears() {
@@ -125,6 +124,7 @@ const LoadingPage = React.createClass({
 	},
 
 	makePaperClickable() {
+		this.changeEllipsisGlyph('?');
 		this.props.toggleSceneStop();
 		var paper = this.refs.loadingGears.firstChild.childNodes[1].childNodes[2].childNodes[0];
 		paper.classList.add(LoadingPageStyles.paperItem);
@@ -180,9 +180,6 @@ const LoadingPage = React.createClass({
 			>
 				<div 
 					className={LoadingPageStyles.loaderContainer}
-					style={{
-						height: window.innerHeight * .9 + 'px'
-					}}
 				>
 					<h1 
 						className={LoadingPageStyles.loaderText}

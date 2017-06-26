@@ -23,7 +23,6 @@ const PortfolioModal = React.createClass({
 	componentWillReceiveProps(nextProps) {
 		if(nextProps.portfolio.modalPiece > -1) {
 			this.piece = portfolio[nextProps.portfolio.modalPiece];
-
 			this.props.lockScrollPosition();
 		}
 		else
