@@ -58,7 +58,7 @@ const portfolio = [
 			"I created this menu design with fire, Photoshop, Illustrator, and InDesign."
 		],
 		image: 'Flambe/FlambeThumbnail.png',
-		largeImages: ['Flambe/FlambeFrontLarge.png', 'Flambe/FlambeFrontLarge.png'],
+		largeImages: ['Flambe/FlambeFrontLarge.png', 'Flambe/FlambeBackLarge.png'],
 		vandalized: 'Flambe/FlambeVandalism.svg'
 	},
 	{
